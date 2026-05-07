@@ -1,0 +1,1902 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "j",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "java-object-hashcode.json",
+      "id": "java-object-hashcode",
+      "name": "Java Object hashCode()",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "java-object-hashcode.hashcat.18700",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{8}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 8,
+          "value": "29937c08",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 18700,
+            "name": "Java Object hashCode()",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 8..8",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 8,
+            "max": 8,
+            "observed": [
+              8
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 18700,
+            "name": "Java Object hashCode()",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 18700,
+            "hashcat_name": "Java Object hashCode()",
+            "official_example": "29937c08",
+            "official_example_length": 8,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "java-object-hashcode.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 8,
+              "max": 8,
+              "observed": [
+                8
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "java-object-hashcode.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "jetico-bestcrypt-container-encryption-jbc.json",
+      "id": "jetico-bestcrypt-container-encryption-jbc",
+      "name": "Jetico BestCrypt Container Encryption (.jbc)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "jetico-bestcrypt-container-encryption-jbc.haiti.231",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$BestCrypt\\$\\d\\$\\d\\$\\d\\$\\d{1,5}\\$\\d{1,3}\\$\\d+\\$\\d{1,3}\\$\\d{1,2}\\$[a-f0-9]{64,128}\\$\\d\\$[a-f0-9]{512}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 687,
+          "value": "$BestCrypt$1$5$3$16384$240$3154116612$10$64$7f36390c85bc5695d49d5d135cb09e00cbf738bb203d0f0a0181805acc15d1cc6f856af0f738c44eead724a854700700a1595b5b30d47242a277b60df6491dde$1$a5b6a69b5cb04be789b42e1f50d3426048ea0df06c3b9a9932d85bd54b99aae202c1ca2e283786a4154f0...<truncated len=687>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 624,
+          "value": "$BestCrypt$1$5$3$16384$240$3154116612$128$32$51f7450dccbb1c947dd46138bf0d80d588b6938b02505642dde9e1ea61481485$1$a186f281fbbc68f3b27c7b4cc16b7916a2e19c2695b34ee4133a6ac6373db67b88fb54e3def1c0d288d3170dcb5860c2f190ab199fde7f1072a2a109441e608ae46890c5f18ab8080301...<truncated len=624>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "bestcrypt",
+            "name": "Jetico BestCrypt Container Encryption (.jbc)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$BestCrypt$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 624..687",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 624,
+            "max": 687,
+            "observed": [
+              624,
+              687
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "bestcrypt"
+            ],
+            "john_extractors": [
+              "bestcrypt2john.py",
+              "bestcryptve2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "BestCrypt containers/volumes"
+            ],
+            "expected_prefixes": [
+              "$BestCrypt$"
+            ],
+            "note": "BestCrypt formats should preserve container/volume metadata in fields.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "bestcrypt",
+            "name": "Jetico BestCrypt Container Encryption (.jbc)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "jetico-bestcrypt-container-encryption-jbc.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$BestCrypt$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  13
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 624,
+              "max": 687,
+              "observed": [
+                624,
+                687
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "jetico-bestcrypt-container-encryption-jbc.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "bestcrypt"
+                ],
+                "john_extractors": [
+                  "bestcrypt2john.py",
+                  "bestcryptve2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "BestCrypt containers/volumes"
+                ],
+                "expected_prefixes": [
+                  "$BestCrypt$"
+                ],
+                "note": "BestCrypt formats should preserve container/volume metadata in fields.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "jetico-bestcrypt-v3-volume-encryption.json",
+      "id": "jetico-bestcrypt-v3-volume-encryption",
+      "name": "Jetico BestCrypt v3 Volume Encryption",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "jetico-bestcrypt-v3-volume-encryption.haiti.230",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$bcve\\$\\d\\$[a-f0-9]{2}\\$[a-f0-9]{16}\\$[a-f0-9]{192}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 220,
+          "value": "$bcve$3$08$234b8182cee7098b$35c12ef76a1e88175c4c222da3558310a0075bc7a06ecf46746d149c02a81fb8a97637d1103d2e13ddd5deaf982889594b18c12d7ca18a54875c5da4a47f90ae615ab94b8e3ed9e3c793d872a1b5ac35cfdb66c221d6d0853e9ff2e0f4435b43",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 23900,
+            "name": "Jetico BestCrypt v3 Volume Encryption",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$bcve$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 220..220",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 220,
+            "max": 220,
+            "observed": [
+              220
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              6
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "bestcrypt"
+            ],
+            "john_extractors": [
+              "bestcrypt2john.py",
+              "bestcryptve2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "BestCrypt containers/volumes"
+            ],
+            "expected_prefixes": [
+              "$BestCrypt$"
+            ],
+            "note": "BestCrypt formats should preserve container/volume metadata in fields.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 23900,
+            "name": "Jetico BestCrypt v3 Volume Encryption",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 23900,
+            "hashcat_name": "BestCrypt v3 Volume Encryption",
+            "official_example": "$bcve$3$08$234b8182cee7098b$35c12ef76a1e88175c4c222da3558310a0075bc7a06ecf46746d149c02a81fb8a97637d1103d2e13ddd5deaf982889594b18c12d7ca18a54875c5da4a47f90ae615ab94b8e3ed9e3c793d872a1b5ac35cfdb66c221d6d0853e9ff2e0f4435b43",
+            "official_example_length": 220,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "jetico-bestcrypt-v3-volume-encryption.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$bcve$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  6
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 220,
+              "max": 220,
+              "observed": [
+                220
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "jetico-bestcrypt-v3-volume-encryption.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "bestcrypt"
+                ],
+                "john_extractors": [
+                  "bestcrypt2john.py",
+                  "bestcryptve2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "BestCrypt containers/volumes"
+                ],
+                "expected_prefixes": [
+                  "$BestCrypt$"
+                ],
+                "note": "BestCrypt formats should preserve container/volume metadata in fields.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "jks-java-key-store-private-keys-sha1.json",
+      "id": "jks-java-key-store-private-keys-sha1",
+      "name": "JKS Java Key Store Private Keys (SHA1)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "jks-java-key-store-private-keys-sha1.hashcat.15500",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:15500"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2366,
+          "value": "$jksprivk$*338BD2FBEBA7B3EF198A4CBFC6E18AFF1E229367*5225850113575146134463704406336350011656*D5253EB151EB92DC73E542D8C0A4D7A848A5B0C0E370E625E6547D4E6F23416FC85A27BC295731B8021CDFBD003551C66C434FFBC87DACAD1FDF39022320034A2F86E779F2B1B3325428A666518FA89507AD63E...<truncated len=2366>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15500,
+            "name": "JKS Java Key Store Private Keys (SHA1)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$jksprivk$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2366..2366",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2366,
+            "max": 2366,
+            "observed": [
+              2366
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              7
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "keystore",
+              "jks"
+            ],
+            "john_extractors": [
+              "keystore2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Java keystore files"
+            ],
+            "expected_prefixes": [
+              "$keystore$"
+            ],
+            "note": "Keystore hashes are generated from keystore files, not usually copied from text configs.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 15500,
+            "name": "JKS Java Key Store Private Keys (SHA1)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15500,
+            "hashcat_name": "JKS Java Key Store Private Keys (SHA1)",
+            "official_example": "$jksprivk$*338BD2FBEBA7B3EF198A4CBFC6E18AFF1E229367*5225850113575146134463704406336350011656*D5253EB151EB92DC73E542D8C0A4D7A848A5B0C0E370E625E6547D4E6F23416FC85A27BC295731B8021CDFBD003551C66C434FFBC87DACAD1FDF39022320034A2F86E779F2B1B3325428A666518FA89507AD63E15FD9C57B9E36EF5B642A2F448A9A3F09B79AD93...<truncated len=2366>",
+            "official_example_length": 2366,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "jks-java-key-store-private-keys-sha1.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$jksprivk$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  7
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2366,
+              "max": 2366,
+              "observed": [
+                2366
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "jks-java-key-store-private-keys-sha1.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "keystore",
+                  "jks"
+                ],
+                "john_extractors": [
+                  "keystore2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Java keystore files"
+                ],
+                "expected_prefixes": [
+                  "$keystore$"
+                ],
+                "note": "Keystore hashes are generated from keystore files, not usually copied from text configs.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "joaat.json",
+      "id": "joaat",
+      "name": "Joaat",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "joaat.haiti.001",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{8}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 8,
+          "value": "0159782d",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 8,
+          "value": "4835dd77",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 8..8",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 8,
+            "max": 8,
+            "observed": [
+              8
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "joaat.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 8,
+              "max": 8,
+              "observed": [
+                8
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "joaat.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "joomla-v2-5-18-d2a5dd79.json",
+      "id": "joomla-v2-5-18-d2a5dd79",
+      "name": "Joomla < v2.5.18",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "joomla-v2-5-18-d2a5dd79.haiti.062",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{32}:[a-z0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 65,
+          "value": "b78f863f2c67410c41e617f724e22f34:89384528665349271307465505333378",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 11,
+            "name": "Joomla < v2.5.18",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 65..65",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 65,
+            "max": 65,
+            "observed": [
+              65
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "webapp_prefixes",
+            "confidence": "strong",
+            "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+            "proposed_characteristics": [
+              "prefix:$P$/$H$/$S$",
+              "itoa64 alphabet",
+              "application_context:CMS user table"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 11,
+            "name": "Joomla < v2.5.18",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 11,
+            "hashcat_name": "Joomla < 2.5.18",
+            "official_example": "b78f863f2c67410c41e617f724e22f34:89384528665349271307465505333378",
+            "official_example_length": 65,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "joomla-v2-5-18-d2a5dd79.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 65,
+              "max": 65,
+              "observed": [
+                65
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "joomla-v2-5-18-d2a5dd79.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "webapp_prefixes",
+                "confidence": "strong",
+                "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+                "proposed_characteristics": [
+                  "prefix:$P$/$H$/$S$",
+                  "itoa64 alphabet",
+                  "application_context:CMS user table"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "joomla-v2-5-18.json",
+      "id": "joomla-v2-5-18",
+      "name": "Joomla \u2265 v2.5.18",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "joomla-v2-5-18.haiti.030",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$P\\$[a-z0-9\\/.]{31}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 34,
+          "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 400,
+            "name": "Joomla \u2265 v2.5.18",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "phpass",
+            "name": "Joomla \u2265 v2.5.18",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$P$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 34..34",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 34,
+            "max": 34,
+            "observed": [
+              34
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "webapp_prefixes",
+            "confidence": "strong",
+            "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+            "proposed_characteristics": [
+              "prefix:$P$/$H$/$S$",
+              "itoa64 alphabet",
+              "application_context:CMS user table"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "phpass",
+            "name": "Joomla \u2265 v2.5.18",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 400,
+            "name": "Joomla \u2265 v2.5.18",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 400,
+            "hashcat_name": "phpass",
+            "official_example": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+            "official_example_length": 34,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "joomla-v2-5-18.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$P$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 34,
+              "max": 34,
+              "observed": [
+                34
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "joomla-v2-5-18.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "webapp_prefixes",
+                "confidence": "strong",
+                "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+                "proposed_characteristics": [
+                  "prefix:$P$/$H$/$S$",
+                  "itoa64 alphabet",
+                  "application_context:CMS user table"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "json-web-token-jwt.json",
+      "id": "json-web-token-jwt",
+      "name": "JSON Web Token (JWT)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "json-web-token-jwt.haiti.328",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-z0-9\\-_]+\\.[a-z0-9\\-_]+\\.[a-z0-9\\-_]*$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 155,
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 93,
+          "value": "eyJhbGciOiJIUzI1NiJ9.eyIzNDM2MzQyMCI6NTc2ODc1NDd9.f1nXZ3V_Hrr6ee-AFCTLaHRnrkiKmio2t3JqwL32guY",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 172,
+          "value": "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Im5vcmFqIiwiaWF0IjoxNTE2MjM5MDIyfQ.YtoHWI-c3rjBhg2AjrTRnYBcRk7QpjvdhpcmorFoJXf6Ruf1Mtj5IO9LFD1i0g25",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 16500,
+            "name": "JSON Web Token (JWT)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 93..172",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 93,
+            "max": 172,
+            "observed": [
+              93,
+              155,
+              172
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 16500,
+            "name": "JSON Web Token (JWT)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 16500,
+            "hashcat_name": "JWT (JSON Web Token)",
+            "official_example": "eyJhbGciOiJIUzI1NiJ9.eyIzNDM2MzQyMCI6NTc2ODc1NDd9.f1nXZ3V_Hrr6ee-AFCTLaHRnrkiKmio2t3JqwL32guY",
+            "official_example_length": 93,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "json-web-token-jwt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 93,
+              "max": 172,
+              "observed": [
+                93,
+                155,
+                172
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "json-web-token-jwt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "juniper-ive.json",
+      "id": "juniper-ive",
+      "name": "Juniper IVE",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "juniper-ive.hashcat.501",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Za-z0-9+/=]{104}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 104,
+          "value": "3u+UR6n8AgABAAAAHxxdXKmiOmUoqKnZlf8lTOhlPYy93EAkbPfs5+49YLFd/B1+omSKbW7DoqNM40/EeVnwJ8kYoXv9zy9D5C5m5A==",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 501,
+            "name": "Juniper IVE",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "base64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 104..104",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 104,
+            "max": 104,
+            "observed": [
+              104
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              3
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 501,
+            "name": "Juniper IVE",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 501,
+            "hashcat_name": "Juniper IVE",
+            "official_example": "3u+UR6n8AgABAAAAHxxdXKmiOmUoqKnZlf8lTOhlPYy93EAkbPfs5+49YLFd/B1+omSKbW7DoqNM40/EeVnwJ8kYoXv9zy9D5C5m5A==",
+            "official_example_length": 104,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "juniper-ive.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  3
+                ]
+              }
+            ],
+            "alphabets": [
+              "base64"
+            ],
+            "observed_lengths": {
+              "min": 104,
+              "max": 104,
+              "observed": [
+                104
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "juniper-ive.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "juniper-netscreen-ssg-screenos.json",
+      "id": "juniper-netscreen-ssg-screenos",
+      "name": "Juniper Netscreen/SSG (ScreenOS)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "juniper-netscreen-ssg-screenos.haiti.120",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(.+\\$)?[a-z0-9\\/.+]{30}(:.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 39,
+          "value": "nKjiFErqK7TPcZdFZsZMNWPtw4Pv8n:26506173",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22,
+            "name": "Juniper Netscreen/SSG (ScreenOS)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "md5ns",
+            "name": "Juniper Netscreen/SSG (ScreenOS)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 39..39",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 39,
+            "max": 39,
+            "observed": [
+              39
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "md5ns",
+            "name": "Juniper Netscreen/SSG (ScreenOS)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22,
+            "name": "Juniper Netscreen/SSG (ScreenOS)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22,
+            "hashcat_name": "Juniper NetScreen/SSG (ScreenOS)",
+            "official_example": "nKjiFErqK7TPcZdFZsZMNWPtw4Pv8n:26506173",
+            "official_example_length": 39,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "juniper-netscreen-ssg-screenos.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 39,
+              "max": 39,
+              "observed": [
+                39
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "juniper-netscreen-ssg-screenos.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    }
+  ]
+}

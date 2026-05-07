@@ -1,0 +1,67 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "truecrypt-whirlpool-xts-256-bit",
+  "name": "TrueCrypt Whirlpool + XTS 256 bit",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "truecrypt-whirlpool-xts-256-bit.haiti.335",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\Atruecrypt_WHIRLPOOL\\$[a-f0-9]{1024}\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Atruecrypt_WHIRLPOOL\\$[a-f0-9]{1024}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "tc_sha512",
+        "name": "TrueCrypt Whirlpool + XTS 256 bit",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "tc_sha512"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "truecrypt_WHIRLPOOL$0650595770851981d70b088ff6ef4bf90573e08d03c8cac8b2dfded22e1653f5c45103758c68be344fdccae42b4683087da083a3841b92fb79856798eaee793c04cd95ae556d9616684da17e47bd2f775d8128f94b80b781e4cab4921b12c620721cf719ca72d3997cea829fd29b429282b597d5719c13423cdf7bd717fa12a56b8eddcf7b1ad2796c4ad078ab3a9bd944a694aa4b0078ed160440dd3db13dd1d04a7aaaa4dc016a95bd1cfafcd833ae933c627bf5512ae55c76069af7190823dba0133d6fe02e4421d3684ff2a2493da990a3cc5eed40a9e8c48c7a89a2f47030d45c324a3d78b941e772e24b285af6739ae1f5953ff838edaa69e79939f55d0fe00cd0e3a20a46db3a232009eabc800711342f7e580ba909f16c2039d4900fd4025845a385641a6037ceb6420fe7d37868e8c06e6146eddec9e6cb97e71048da5fa5898dac08152516ea1c6729e85d31596cd226aa218ce693989efb9fa8b05404bcc2debbc75c429a03fe31bfc49f10d595b898436ff6b02fc01d745b91280f26ae94a4969ce7f86c12e6b562c7b5377e3fb3247a8cda11a930c2a9e80f24966925de01afad5987ebee9c3de1d41667c6dc35cebbbc963f263c700d06a647ab7020385e3a7e30406f3e7a9b3142d39e0439c98948134d11166b621dfd3ea9d3a84d985b2aa7732b7ad9beba44334dd86292b0c94befb2cb8aa72a823129cb",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "TrueCrypt Whirlpool + XTS 256 bit"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "truecrypt_WHIRLPOOL$5724ba89229d705010ec56af416b16155682a0cab9cf48ac5a5fdd2086c9a251ae4bbea6cfb8464321a789852f7812095b0e0c4c4f9c6d14ba7beedaf3484b375ac7bc97b43c3e74bf1a0c259b7ac8725d990d2ff31935ca3443f2ce8df59de86515da3e0f53f728882b71c5cc704df0c87c282a7413db446e9a2e516a144311dd25092eb0a2c5df0240d899708289fc7141abd8538fa5791d9f96c39129cce9fe8a6e58e84364e2f4acc32274147431cb2d2480b1b54bffee485acee0925852b8a6ee71d275f028b92e540be595448e5f1d78560a3b8ad209962dd5981d7ca98db9a678a588a9296157d44502cd78f9e32f022dddc9bc8111b5704ee39a9b56d30b89898ae340e90f2e6c73be6ac64de97e32fc2eed0b66dcd5c1553eeab3950cf851624a5a4439435a6fd5717fda6d5f939f4a902321341964c16bda8975752ba150fb9d858d8eaff2a2086cb50d30abff741ee20223b4223b1783f0ed537a609a081afed952395ef0b5de6883db66cbb5a8bac70f2f757c7b6e6bb5d863672820f0d3d61b262b2b6c2ca0dc8e7137851aa450da1c1d915e005bff0e849a89bf67693ef97f5c17bf8d07a18c562dc783274f9ec580f9519a6dd1429b66160ddb04549506ad616dd0695da144fa2ad270eac7163983e9036f1bde3c7634b8a246b8dcd518ce3e12b881c838fbce59a0cfdffa3b21447e3f28124f63549c3962",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "TrueCrypt Whirlpool + XTS 256 bit"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "TrueCrypt Whirlpool + XTS 256 bit"
+    }
+  ]
+}

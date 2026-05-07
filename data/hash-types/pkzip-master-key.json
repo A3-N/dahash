@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pkzip-master-key",
+  "name": "PKZIP Master Key",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pkzip-master-key.haiti.012",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{24}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{24}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 20500,
+        "name": "PKZIP Master Key",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "20500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "20500"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "f1eff5c0368d10311dcfc419",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PKZIP Master Key"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "20500"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PKZIP Master Key"
+    }
+  ]
+}

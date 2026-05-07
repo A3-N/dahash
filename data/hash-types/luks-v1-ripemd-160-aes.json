@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "luks-v1-ripemd-160-aes",
+  "name": "LUKS v1 RIPEMD-160 + AES",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "29541"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29541,
+        "name": "LUKS v1 RIPEMD-160 + AES",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "29541"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "https://hashcat.net/misc/example_hashes/hashcat_luks_ripemd160_aes_cbc-essiv_256.txt",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29541"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "luks-v1-ripemd-160-aes.hashcat.29541",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{5}://hashcat\\.net/misc/example_hashes/hashcat_luks_ripemd160_aes_cbc\\-essiv_256\\.txt$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29541"
+        }
+      ]
+    }
+  ]
+}

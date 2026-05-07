@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mssql-2005",
+  "name": "MSSQL(2005)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mssql-2005.haiti.047",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^0x0100[a-f0-9]{48}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A0x0100[a-f0-9]{48}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 132,
+        "name": "MSSQL(2005)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "132"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "132"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "mssql05",
+        "name": "MSSQL(2005)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "mssql05"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MSSQL(2005)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0x010045083578bf13a6e30ca29c40e540813772754d54a5ffd325",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "132"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

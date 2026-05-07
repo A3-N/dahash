@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "lastpass-offline",
+  "name": "LastPass offline",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "lastpass-offline.haiti.128",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$lp\\$[a-z0-9_.+\\-@]+\\$(?:\\d{1,4}\\$)?[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$lp\\$[a-z0-9_.+\\-@]+\\$(?:\\d{1,4}\\$)?[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "lp",
+        "name": "LastPass offline",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "lp"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$lp$3$27c8641d7f5ab5985569d9d0b499b467",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass offline"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lp$user@example.invalid$6f5d8cec3615fc9ac7ba2e0569bce4f5",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass offline"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lp$user@example.invalid$5000$d8d1e25680b3d9f73489d5769ac3a9c1",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass offline"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lp$ninechars$d09153108a89347da5c97a4a18f91345",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass offline"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LastPass offline"
+    }
+  ]
+}

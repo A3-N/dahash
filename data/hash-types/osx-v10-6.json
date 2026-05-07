@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "osx-v10-6",
+  "name": "OSX v10.6",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "osx-v10-6.haiti.042",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{48}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{48}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 122,
+        "name": "OSX v10.6",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "122"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "122"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "xsha",
+        "name": "OSX v10.6",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "xsha"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "OSX v10.6"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "122"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

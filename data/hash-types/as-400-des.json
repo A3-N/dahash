@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "as-400-des",
+  "name": "AS/400 DES",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "as-400-des.haiti.339",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$as400\\$des\\$\\*.{0,8}\\*[a-f0-9]{2,16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$as400\\$des\\$\\*.{0,8}\\*[a-f0-9]{2,16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8501,
+        "name": "AS/400 DES",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8501"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8501"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$as400$des$*OPEN3*EC76FC0DEF5B0A83",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AS/400 DES"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "8501"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AS/400 DES"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "tiger-128-4-rounds",
+  "name": "Tiger-128 (4 rounds)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "tiger-128-4-rounds.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8773d6449a517e9edad0dcaea8340b19",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-128 (4 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "8bdfc06464be0d412d8896dc768941de",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-128 (4 rounds)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Tiger-128 (4 rounds)"
+    }
+  ]
+}

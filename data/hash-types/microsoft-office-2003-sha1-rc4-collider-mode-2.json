@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "microsoft-office-2003-sha1-rc4-collider-mode-2",
+  "name": "Microsoft Office \u2264 2003 (SHA1+RC4) collider-mode #2",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "microsoft-office-2003-sha1-rc4-collider-mode-2.haiti.170",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$oldoffice\\$[34]\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$oldoffice\\$[34]\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9820,
+        "name": "Microsoft Office \u2264 2003 (SHA1+RC4) collider-mode #2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9820"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9820"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "oldoffice",
+        "name": "Microsoft Office \u2264 2003 (SHA1+RC4) collider-mode #2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "oldoffice"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Microsoft Office \u2264 2003 (SHA1+RC4) collider-mode #2"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$oldoffice$3*83328705222323020515404251156288*2855956a165ff6511bc7f4cd77b9e101*941861655e73a09c40f7b1e9dfd0c256ed285acd:b8f63619ca",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9820"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

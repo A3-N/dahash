@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "metamask-wallet-short-hash-plaintext-check",
+  "name": "MetaMask Wallet (short hash, plaintext check)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "26610"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 26610,
+        "name": "MetaMask Wallet (short hash, plaintext check)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "26610"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$metamask-short$jfGI3TXguhb8GPnKSXFrMzRk2NCEc131Gt5G3kZr5+s=$h+BoIf2CQ5BEjaIOShFE7g==$R95fzGt4UQ0uwrcrVYnIi4UcSlWn9wlmer+//526ZDwYAp50K82F1u1oacYcdjjhuEvbZnWk/uBG00UkgLLlOw==",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "26610"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "metamask-wallet-short-hash-plaintext-check.hashcat.26610",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$metamask\\-short\\$[A-Za-z0-9+/=]{44}\\$[A-Za-z0-9+/=]{24}\\$[A-Za-z0-9+/=]{88}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "26610"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "vbulletin-v3-8-5",
+  "name": "vBulletin < v3.8.5",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "vbulletin-v3-8-5.haiti.055",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}:.{3}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}:.{3}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 2611,
+        "name": "vBulletin < v3.8.5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "2611"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "2611"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "vBulletin < v3.8.5"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "28f9975808ae2bdc5847b1cda26033ea:308",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "2611"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

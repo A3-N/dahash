@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmac-blake2s-key-pass",
+  "name": "HMAC-BLAKE2S (key = $pass)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "33300"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 33300,
+        "name": "HMAC-BLAKE2S (key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "33300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0d541ae24d30aff2627c4d1a910f766088a64809edb46a05d29649a9b944da6c:1234",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "33300"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "hmac-blake2s-key-pass.hashcat.33300",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{64}:[0-9]{4}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "33300"
+        }
+      ]
+    }
+  ]
+}

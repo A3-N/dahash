@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "tacacs",
+  "name": "TACACS+",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "16100"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16100,
+        "name": "TACACS+",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "16100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$tacacs-plus$0$5fde8e68$4e13e8fb33df$c006",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "tacacs.hashcat.16100",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$tacacs\\-plus\\$[0-9]{1}\\$[A-Fa-f0-9]{8}\\$[A-Fa-f0-9]{12}\\$[A-Fa-f0-9]{4}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16100"
+        }
+      ]
+    }
+  ]
+}

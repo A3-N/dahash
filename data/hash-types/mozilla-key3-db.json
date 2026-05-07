@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mozilla-key3-db",
+  "name": "Mozilla key3.db",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mozilla-key3-db.haiti.242",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$mozilla\\$\\*(?:(?:3DES\\*[a-f0-9]{40}\\*[a-f0-9]{40}\\*[a-f0-9]{32})|(?:\\d\\*\\d{2}\\*\\d\\*[a-f0-9]{40}\\*\\d{2}\\*[a-f0-9]{22}\\*\\d{2}\\*[a-f0-9]{32}\\*\\d{2}\\*[a-f0-9]{40}))$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$mozilla\\$\\*(?:(?:3DES\\*[a-f0-9]{40}\\*[a-f0-9]{40}\\*[a-f0-9]{32})|(?:\\d\\*\\d{2}\\*\\d\\*[a-f0-9]{40}\\*\\d{2}\\*[a-f0-9]{22}\\*\\d{2}\\*[a-f0-9]{32}\\*\\d{2}\\*[a-f0-9]{40}))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 26000,
+        "name": "Mozilla key3.db",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "26000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "26000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "mozilla",
+        "name": "Mozilla key3.db",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "mozilla"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$mozilla$*3*20*1*5199adfab24e85e3f308bacf692115f23dcd4f8f*11*2a864886f70d010c050103*16*9debdebd4596b278de029b2b2285ce2e*20*2c4d938ccb3f7f1551262185ccee947deae3b8ae",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Mozilla key3.db"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$mozilla$*3DES*b735d19e6cadb5136376a98c2369f22819d08c79*2b36961682200a877f7d5550975b614acc9fefe3*f03f3575fd5bdbc9e32232316eab7623",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Mozilla key3.db"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "26000"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Mozilla key3.db"
+    }
+  ]
+}

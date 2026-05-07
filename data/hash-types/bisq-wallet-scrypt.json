@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bisq-wallet-scrypt",
+  "name": "Bisq .wallet (scrypt)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "29800"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29800,
+        "name": "Bisq .wallet (scrypt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "29800"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$bisq$3*32768*8*6*31d838af87f99cb8*5cfb7bf3228d9e865881156e17b1866589ffa6b757011e25d1319083595236d2",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29800"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "bisq-wallet-scrypt.hashcat.29800",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{4}\\$[0-9]{1}\\*[0-9]{5}\\*[0-9]{1}\\*[0-9]{1}\\*[A-Fa-f0-9]{16}\\*[A-Fa-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29800"
+        }
+      ]
+    }
+  ]
+}

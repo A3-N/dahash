@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "has-160",
+  "name": "HAS-160",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "has-160.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "HAS-160"
+    }
+  ]
+}

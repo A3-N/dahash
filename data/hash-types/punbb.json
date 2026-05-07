@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "punbb",
+  "name": "PunBB",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "4522"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 4522,
+        "name": "PunBB",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "4522"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "9038129c474caa3f0de56f38db84033d0fe1d4b8:365563602032",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "4522"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "punbb.hashcat.4522",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{40}:[A-Fa-f0-9]{12}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "4522"
+        }
+      ]
+    }
+  ]
+}

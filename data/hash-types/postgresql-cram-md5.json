@@ -1,0 +1,107 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "postgresql-cram-md5",
+  "name": "PostgreSQL CRAM (MD5)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "postgresql-cram-md5.haiti.182",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$postgres?\\$(?:[^*]{0,32})?\\*[a-f0-9]{8}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$postgres?\\$(?:[^*]{0,32})?\\*[a-f0-9]{8}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 11100,
+        "name": "PostgreSQL CRAM (MD5)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "11100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "11100"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "postgres",
+        "name": "PostgreSQL CRAM (MD5)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "postgres"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$postgre$postgres*684697c8*bf2a64f35feba7bf1b633d60393c1356",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PostgreSQL CRAM (MD5)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$postgres$Twelve_chars*55393156*c01df9affa7573ef32ec143759f3e005",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PostgreSQL CRAM (MD5)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$postgres$postgres*74402844*4e7fabaaf34d780c4a5822d28ee1c83e",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PostgreSQL CRAM (MD5)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "11100"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$postgres$postgres*f063f05d*1d586cc8d137e5f1733f234d224393e8",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PostgreSQL CRAM (MD5)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PostgreSQL CRAM (MD5)"
+    }
+  ]
+}

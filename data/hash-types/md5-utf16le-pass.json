@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md5-utf16le-pass",
+  "name": "md5(utf16le($pass))",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "70"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 70,
+        "name": "md5(utf16le($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "70"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "2303b15bfa48c74a74758135a0df1201",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "md5-utf16le-pass.hashcat.70",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70"
+        }
+      ]
+    }
+  ]
+}

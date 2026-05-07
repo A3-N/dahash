@@ -1,0 +1,47 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "skein-384",
+  "name": "Skein-384",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "skein-384.haiti.072",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{96}$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{96}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "dynamic_350",
+        "name": "Skein-384",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_350"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Skein-384"
+    }
+  ]
+}

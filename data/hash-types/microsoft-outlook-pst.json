@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "microsoft-outlook-pst",
+  "name": "Microsoft Outlook PST",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "microsoft-outlook-pst.haiti.184",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$pst\\$)?[a-f0-9]{8}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$pst\\$)?[a-f0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Microsoft Outlook PST"
+    }
+  ]
+}

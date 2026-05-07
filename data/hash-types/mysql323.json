@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mysql323",
+  "name": "MySQL323",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mysql323.haiti.006",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 200,
+        "name": "MySQL323",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "200"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "mysql",
+        "name": "MySQL323",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "mysql"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MySQL323"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "7196759210defdc0",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

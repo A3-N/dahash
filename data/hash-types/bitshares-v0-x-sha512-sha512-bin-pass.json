@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bitshares-v0-x-sha512-sha512-bin-pass",
+  "name": "BitShares v0.x - sha512(sha512_bin(pass))",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "21000"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 21000,
+        "name": "BitShares v0.x - sha512(sha512_bin(pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "21000"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "caec04bdf7c17f763a9ec7439f7c9abda112f1bfc9b1bb684fef9b6142636979b9896cfc236896d821a69a961a143dd19c96d59777258201f1bbe5ecc2a2ecf5",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "21000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "bitshares-v0-x-sha512-sha512-bin-pass.hashcat.21000",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{128}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "21000"
+        }
+      ]
+    }
+  ]
+}

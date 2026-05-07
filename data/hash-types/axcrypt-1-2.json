@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "axcrypt-1-2",
+  "name": "AxCrypt 1",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "13200"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 13200,
+        "name": "AxCrypt 1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "13200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$axcrypt$*1*10467*9a7cd609bb262c738d9f0e4977039b94*ecbe0fd05a96fd2099d88a92eebb76c59d6837dfe55b3631",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "13200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "axcrypt-1-2.hashcat.13200",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{7}\\$\\*[0-9]{1}\\*[0-9]{5}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{48}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "13200"
+        }
+      ]
+    }
+  ]
+}

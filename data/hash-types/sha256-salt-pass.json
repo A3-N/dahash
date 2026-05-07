@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha256-salt-pass",
+  "name": "sha256($salt.$pass)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha256-salt-pass.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1420,
+        "name": "sha256($salt.$pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1420"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1420"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "dynamic_61",
+        "name": "sha256($salt.$pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_61"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha256($salt.$pass)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "816d1ded1d621873595048912ea3405d9d42afd3b57665d9f5a2db4d89720854:36176620",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1420"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

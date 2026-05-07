@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "smf-v1-1",
+  "name": "SMF \u2265 v1.1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "smf-v1-1.haiti.122",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}:[^*]{1,25}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}:[^*]{1,25}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 121,
+        "name": "SMF \u2265 v1.1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "121"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "121"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SMF \u2265 v1.1"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "d27c0a627a45db487af161fcc3a4005d88eb8a1f:25551135",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "121"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

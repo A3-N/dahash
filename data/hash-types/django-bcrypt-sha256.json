@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "django-bcrypt-sha256",
+  "name": "Django (bcrypt-SHA256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "django-bcrypt-sha256.haiti.181",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^bcrypt_sha256\\$\\$(2[axy]|2)\\$\\d+\\$[a-z0-9\\/.]{53}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Abcrypt_sha256\\$\\$(2[axy]|2)\\$\\d+\\$[a-z0-9\\/.]{53}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Django (bcrypt-SHA256)"
+    }
+  ]
+}

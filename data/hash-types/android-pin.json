@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "android-pin",
+  "name": "Android PIN",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "android-pin.haiti.052",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}:[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}:[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 5800,
+        "name": "Android PIN",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "5800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "5800"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Android PIN"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "3edde1eb9e6679ccbc1ff3c417e8a475a2d2e279:7724368582277760",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "5800"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

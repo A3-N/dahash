@@ -1,0 +1,107 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bsdi-crypt",
+  "name": "BSDi Crypt",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "bsdi-crypt.haiti.011",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^_[a-z0-9\\/.]{19}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A_[a-z0-9\\/.]{19}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 12400,
+        "name": "BSDi Crypt",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "12400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "12400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "bsdicrypt",
+        "name": "BSDi Crypt",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "bsdicrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "_EQ0.jzhSVeUyoSqLupI",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BSDi Crypt"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "_GW..8841inaTltazRsQ",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BSDi Crypt"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "12400"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "_J9..SDSD5YGyRCr4W4c",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BSDi Crypt"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "_J9..XXXXsqM/YSSP..Y",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BSDi Crypt"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "BSDi Crypt"
+    }
+  ]
+}

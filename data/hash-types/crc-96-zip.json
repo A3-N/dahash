@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "crc-96-zip",
+  "name": "CRC-96 (ZIP)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "crc-96-zip.haiti.012",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{24}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{24}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRC-96 (ZIP)"
+    }
+  ]
+}

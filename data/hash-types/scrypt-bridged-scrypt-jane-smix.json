@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "scrypt-bridged-scrypt-jane-smix",
+  "name": "scrypt [Bridged: Scrypt-Jane SMix]",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "70100"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 70100,
+        "name": "scrypt [Bridged: Scrypt-Jane SMix]",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "70100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "SCRYPT:16384:8:1:OTEyNzU0ODg=:Cc8SPjRH1hFQhuIPCdF51uNGtJ2aOY/isuoMlMUsJ8c=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "scrypt-bridged-scrypt-jane-smix.hashcat.70100",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{6}:[0-9]{5}:[0-9]{1}:[0-9]{1}:[A-Za-z0-9+/=]{12}:[A-Za-z0-9+/=]{44}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70100"
+        }
+      ]
+    }
+  ]
+}

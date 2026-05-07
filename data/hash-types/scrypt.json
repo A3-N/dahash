@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "scrypt",
+  "name": "scrypt",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "scrypt.haiti.159",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^SCRYPT:\\d+:\\d{1}:\\d{1}:[a-z0-9:\\/+=]+$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\ASCRYPT:\\d+:\\d{1}:\\d{1}:[a-z0-9:\\/+=]+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8900,
+        "name": "scrypt",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8900"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "SCRYPT:1024:1:1:MDIwMzMwNTQwNDQyNQ==:5FW+zWivLxgCWj7qLiQbeC8zaNQ+qdO0NUinvqyFcfo=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "scrypt"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "SCRYPT:16384:8:1:OTEyNzU0ODg=:Cc8SPjRH1hFQhuIPCdF51uNGtJ2aOY/isuoMlMUsJ8c=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "8900"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "scrypt"
+    }
+  ]
+}

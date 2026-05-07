@@ -1,0 +1,72 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-pbkdf2-hmac-md5-key-salt",
+  "name": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-pbkdf2-hmac-md5-key-salt.haiti.322",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^pbkdf2:md5:\\d+\\$.{0,256}\\$[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Apbkdf2:md5:\\d+\\$.{0,256}\\$[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "pbkdf2:md5:600000$QhX2QHrQ$49cc3851f77779484c28e19329b314e3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pbkdf2:md5:600000$UUYvlGLR6dM0UktS9ZPlB6g31d3GfGmB$609b8faacaf938b20c4d8200a870901f",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pbkdf2:md5:600000$adwFmD4ib2Y7oJO8$762cfbd4b80cd9f5e3cdc046465cc2ec",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pbkdf2:md5:700000$3BpTqiI1$1c10bea34f19bacdb289d55236173524",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
+    }
+  ]
+}

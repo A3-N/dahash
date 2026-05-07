@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "django-pbkdf2-hmac-sha1",
+  "name": "Django (PBKDF2-HMAC-SHA1)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "django-pbkdf2-hmac-sha1.haiti.154",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^pbkdf2_sha1\\$\\d+\\$[a-z0-9]+\\$[a-z0-9\\/+=]{28}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Apbkdf2_sha1\\$\\d+\\$[a-z0-9]+\\$[a-z0-9\\/+=]{28}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Django (PBKDF2-HMAC-SHA1)"
+    }
+  ]
+}

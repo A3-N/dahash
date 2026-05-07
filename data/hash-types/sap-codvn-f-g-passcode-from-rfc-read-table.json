@@ -1,0 +1,77 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sap-codvn-f-g-passcode-from-rfc-read-table",
+  "name": "SAP CODVN F/G (PASSCODE) from RFC_READ_TABLE",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sap-codvn-f-g-passcode-from-rfc-read-table.haiti.118",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^.{1,40}\\$[a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A.{1,40}\\$[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 7801,
+        "name": "SAP CODVN F/G (PASSCODE) from RFC_READ_TABLE",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "7801"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "7801"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "sapg",
+        "name": "SAP CODVN F/G (PASSCODE) from RFC_READ_TABLE",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "sapg"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "604020408266$32837BA7B97672BA4E5A00000000000000000000",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN F/G (PASSCODE) from RFC_READ_TABLE"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "7801"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SAP CODVN F/G (PASSCODE) from RFC_READ_TABLE"
+    }
+  ]
+}

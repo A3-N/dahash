@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ripemd-128",
+  "name": "RIPEMD-128",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ripemd-128.haiti.019",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:\\$ripemd\\$)?[a-f0-9]{32}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:\\$ripemd\\$)?[a-f0-9]{32}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "ripemd-128",
+        "name": "RIPEMD-128",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "ripemd-128"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$ripemd$cdf26213a150dc3ecb610f18f6b38b46",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RIPEMD-128"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "cdf26213a150dc3ecb610f18f6b38b46",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RIPEMD-128"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RIPEMD-128"
+    }
+  ]
+}

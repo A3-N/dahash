@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "teamspeak-3-channel-hash",
+  "name": "Teamspeak 3 (channel hash)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "teamspeak-3-channel-hash.haiti.290",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A\\$teamspeak\\$3\\$(?=[^$]{28}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^$]{152}$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$teamspeak\\$3\\$(?=[^$]{28}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^$]{152}$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 28300,
+        "name": "Teamspeak 3 (channel hash)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "28300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "28300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$teamspeak$3$E0aV0IQ29EDyxRfkFoQflUGJ6zo=$mRgDUkNpd0IwUEcTJQBmE0NHYwdDEhFzQ0VgMRcFJUIRYnaHBwNXRZJwk2ZUaURzdXkVYiUROERmI0hYYGFYCDiIJCeIU3N5EhRVcZFnSIRCJlkUFkY4YFMDcheYeTl4RYZEdpKGJYhxAIQJEYGYEA==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Teamspeak 3 (channel hash)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "28300"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Teamspeak 3 (channel hash)"
+    }
+  ]
+}

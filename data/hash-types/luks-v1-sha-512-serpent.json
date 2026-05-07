@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "luks-v1-sha-512-serpent",
+  "name": "LUKS v1 SHA-512 + Serpent",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "29532"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29532,
+        "name": "LUKS v1 SHA-512 + Serpent",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "29532"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "https://hashcat.net/misc/example_hashes/hashcat_luks_sha512_serpent_cbc-essiv_128.txt",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29532"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "luks-v1-sha-512-serpent.hashcat.29532",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{5}://hashcat\\.net/misc/example_hashes/hashcat_luks_sha512_serpent_cbc\\-essiv_128\\.txt$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29532"
+        }
+      ]
+    }
+  ]
+}

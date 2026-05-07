@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sap-codvn-h-pwdsaltedhash-issha-256",
+  "name": "SAP CODVN H (PWDSALTEDHASH) iSSHA-256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sap-codvn-h-pwdsaltedhash-issha-256.haiti.173",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{x-isSHA256,\\s\\d{1,6}}[a-z0-9\\/+=]+$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{x-isSHA256,\\s\\d{1,6}}[a-z0-9\\/+=]+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "saph",
+        "name": "SAP CODVN H (PWDSALTEDHASH) iSSHA-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "saph"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{x-isSHA256, 3000}UqMnsr5BYN+uornWC7yhGa/Wj0u5tshX19mDUQSlgih6OTFoZjRpMQ==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{x-isSHA256, 3000}ydi0JlyU6lX5305Qk/Q3uLBbIFjWuTyGo3tPBZDcGFd6NkFvV1gza3RkNg==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-256"
+    }
+  ]
+}

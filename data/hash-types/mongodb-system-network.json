@@ -1,0 +1,76 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mongodb-system-network",
+  "name": "MongoDB (system / network)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mongodb-system-network.haiti.235",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$mongodb\\$(?:(?:0\\$.+\\$[a-f0-9]{32})|(?:1\\$.+\\$[a-f0-9]{16}\\$[a-f0-9]{32}))$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$mongodb\\$(?:(?:0\\$.+\\$[a-f0-9]{32})|(?:1\\$.+\\$[a-f0-9]{16}\\$[a-f0-9]{32}))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "mongodb",
+        "name": "MongoDB (system / network)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "mongodb"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$mongodb$0$sa$75692b1d11c072c6c79332e248c4f699",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MongoDB (system / network)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$mongodb$1$eight18_characters$8c82aec197929775$5c414259f7f7a42f8c4d1b6ffb37913a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MongoDB (system / network)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$mongodb$1$sa$58d3229c83e3f87e$0c85e3f74adce5d037426791940c820a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MongoDB (system / network)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MongoDB (system / network)"
+    }
+  ]
+}

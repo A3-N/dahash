@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-atlassian",
+  "name": "PBKDF2(Atlassian)",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "pbkdf2-atlassian.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\{PKCS5S2\\}[a-z0-9\\/+]{64}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "name-that-hash-reference",
+          "ref": "PBKDF2(Atlassian)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "name-that-hash-reference",
+      "ref": "PBKDF2(Atlassian)"
+    }
+  ]
+}

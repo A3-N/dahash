@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "axcrypt-1-in-memory-sha1",
+  "name": "AxCrypt 1 in-memory SHA1",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "13300"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 13300,
+        "name": "AxCrypt 1 in-memory SHA1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "13300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$axcrypt_sha1$b89eaac7e61417341b710b727768294d",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "13300"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "axcrypt-1-in-memory-sha1.hashcat.13300",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$axcrypt_sha1\\$[A-Fa-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "13300"
+        }
+      ]
+    }
+  ]
+}

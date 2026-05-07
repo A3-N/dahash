@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "wordpress-v2-6-2",
+  "name": "Wordpress \u2265 v2.6.2",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "wordpress-v2-6-2.haiti.030",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$P\\$[a-z0-9\\/.]{31}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$P\\$[a-z0-9\\/.]{31}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 400,
+        "name": "Wordpress \u2265 v2.6.2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "phpass",
+        "name": "Wordpress \u2265 v2.6.2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "phpass"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Wordpress \u2265 v2.6.2"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "400"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

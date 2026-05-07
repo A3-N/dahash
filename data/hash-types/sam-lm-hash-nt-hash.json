@@ -1,0 +1,33 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sam-lm-hash-nt-hash",
+  "name": "SAM(LM_Hash:NT_Hash)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sam-lm-hash-nt-hash.haiti.063",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}:[a-f0-9]{32}$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}:[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SAM(LM_Hash:NT_Hash)"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ansible-vault",
+  "name": "Ansible Vault",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "16900"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16900,
+        "name": "Ansible Vault",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "16900"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$ansible$0*0*6b761adc6faeb0cc0bf197d3d4a4a7d3f1682e4b169cae8fa6b459b3214ed41e*426d313c5809d4a80a4b9bc7d4823070*d8bad190c7fbc7c3cb1c60a27abfb0ff59d6fb73178681c7454d94a0f56a4360",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16900"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "ansible-vault.hashcat.16900",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{7}\\$[0-9]{1}\\*[0-9]{1}\\*[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16900"
+        }
+      ]
+    }
+  ]
+}

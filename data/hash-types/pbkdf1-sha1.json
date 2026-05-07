@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf1-sha1",
+  "name": "PBKDF1-SHA1",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "32900"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 32900,
+        "name": "PBKDF1-SHA1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "32900"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "PBKDF1:sha1:1000:cGVuZ3VpbmtlZXBlcg==:J4BrIhXDUHNQ9lPPrWKn4V7Of9Y=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32900"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "pbkdf1-sha1.hashcat.32900",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{6}:[A-Za-z0-9]{4}:[0-9]{4}:[A-Za-z0-9+/=]{20}:[A-Za-z0-9+/=]{28}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32900"
+        }
+      ]
+    }
+  ]
+}

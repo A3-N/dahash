@@ -1,0 +1,72 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-pbkdf2-hmac-sha384-key-salt",
+  "name": "Python Werkzeug PBKDF2-HMAC-SHA384 (key = $salt)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-pbkdf2-hmac-sha384-key-salt.haiti.326",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^pbkdf2:sha384:\\d+\\$.{0,256}\\$[a-f0-9]{96}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Apbkdf2:sha384:\\d+\\$.{0,256}\\$[a-f0-9]{96}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "pbkdf2:sha384:600000$1kRINtdv2MR2f7T1y3hnwqX2ogt9zzHx$9a21701c17d58923b9f0fa19556e4c55056ad0b54f057adda436bb9533a65944bd343c2960f5157973b1893af6cfe989",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-SHA384 (key = $salt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pbkdf2:sha384:600000$8nBACDcyvz9dxIO7$47ee33cd1a785bfbf84fd6333f74eb361d5725b017a188d0be8ab1968622cdfb3329643bca8c83a31d31761da7d2e7b6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-SHA384 (key = $salt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pbkdf2:sha384:600000$hi075NNi$bf0f8e9c48b26e9c6a2333b52d15f758c5755102d5adf8c87002092c97003f89583c00c01be7ebcb3a5e73fbcf5135f2",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-SHA384 (key = $salt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pbkdf2:sha384:700000$Q2v7gfi9$cc6eb7cf597edeef28d7b2cfe7356b6977a13e61ddfc6131407f127cf5b563f59da719c6caaf49cd26496012ff474d7b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug PBKDF2-HMAC-SHA384 (key = $salt)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug PBKDF2-HMAC-SHA384 (key = $salt)"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cisco-type-8-pbkdf2-sha256",
+  "name": "Cisco Type 8 (PBKDF2-SHA256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cisco-type-8-pbkdf2-sha256.haiti.162",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$8\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$8\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9200,
+        "name": "Cisco Type 8 (PBKDF2-SHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9200"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pbkdf2-hmac-sha256",
+        "name": "Cisco Type 8 (PBKDF2-SHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pbkdf2-hmac-sha256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$8$6NHinlEjiwvb5J$RjC.H.ydVb34wDLqJvfjyG1ubxYKpfXqv.Ry9mtrNBY",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$8$84486783037343$pYNyVrtyMalQrZLxRi7ZLQS1Fl.jkYCgASUi5P8JNb2",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9200"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "$8$TnGX/fE4KGHOVU$pEhnEvxrvaynpi8j4f.EMHr6M.FzU8xnZnBr/tJdFWk",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$8$dsYGNam3K1SIJO$7nv/35M/qr6t.dVc7UY9zrJDWRVqncHub1PE9UlMQFs",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$8$lGO8juTOQLPCHw$cBv2WEaFCLUA24Z48CKUGixIywyGFP78r/slQcMXr3M",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Cisco Type 8 (PBKDF2-SHA256)"
+    }
+  ]
+}

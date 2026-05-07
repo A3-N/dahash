@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmac-ripemd160-key-salt",
+  "name": "HMAC-RIPEMD160 (key = $salt)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "6060"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 6060,
+        "name": "HMAC-RIPEMD160 (key = $salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "6060"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "34d8e55a2ae1e9549a291326ce2f0a8dcdc75c5c:08523202563542341",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "6060"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "hmac-ripemd160-key-salt.hashcat.6060",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{40}:[A-Fa-f0-9]{17}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "6060"
+        }
+      ]
+    }
+  ]
+}

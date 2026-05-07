@@ -1,0 +1,154 @@
+{
+  "schema_version": "dahash.research_index/v1",
+  "generated_at": "2026-05-07",
+  "total_hash_types": 858,
+  "grouping": "First character of data/hash-types/<name>.json; digits are grouped into 0-9.",
+  "approval_workflow": [
+    "Review research/hash-characteristics/by-prefix/*.json",
+    "Set entry approval to approved/rejected/needs_more_research",
+    "Only after approval, import selected proposed_observations/proposed_characteristics into data/hash-types/*.json"
+  ],
+  "current_limitations": [
+    "Generated proposals are best-effort and conservative; they do not change runtime behavior.",
+    "Extractor candidates are inferred from official John/hashcat helper names and filename/name tokens; review before import.",
+    "Current runtime matcher still uses regex only; parser observations must be implemented before they affect scoring.",
+    "Raw hex hashes remain ambiguous without source context, optional prefixes, field count, or known dump format."
+  ],
+  "groups": [
+    {
+      "group": "0-9",
+      "file": "by-prefix/0-9.json",
+      "count": 5
+    },
+    {
+      "group": "a",
+      "file": "by-prefix/a.json",
+      "count": 39
+    },
+    {
+      "group": "b",
+      "file": "by-prefix/b.json",
+      "count": 49
+    },
+    {
+      "group": "c",
+      "file": "by-prefix/c.json",
+      "count": 33
+    },
+    {
+      "group": "d",
+      "file": "by-prefix/d.json",
+      "count": 31
+    },
+    {
+      "group": "e",
+      "file": "by-prefix/e.json",
+      "count": 18
+    },
+    {
+      "group": "f",
+      "file": "by-prefix/f.json",
+      "count": 13
+    },
+    {
+      "group": "g",
+      "file": "by-prefix/g.json",
+      "count": 17
+    },
+    {
+      "group": "h",
+      "file": "by-prefix/h.json",
+      "count": 41
+    },
+    {
+      "group": "i",
+      "file": "by-prefix/i.json",
+      "count": 9
+    },
+    {
+      "group": "j",
+      "file": "by-prefix/j.json",
+      "count": 10
+    },
+    {
+      "group": "k",
+      "file": "by-prefix/k.json",
+      "count": 41
+    },
+    {
+      "group": "l",
+      "file": "by-prefix/l.json",
+      "count": 27
+    },
+    {
+      "group": "m",
+      "file": "by-prefix/m.json",
+      "count": 107
+    },
+    {
+      "group": "n",
+      "file": "by-prefix/n.json",
+      "count": 18
+    },
+    {
+      "group": "o",
+      "file": "by-prefix/o.json",
+      "count": 22
+    },
+    {
+      "group": "p",
+      "file": "by-prefix/p.json",
+      "count": 64
+    },
+    {
+      "group": "q",
+      "file": "by-prefix/q.json",
+      "count": 4
+    },
+    {
+      "group": "r",
+      "file": "by-prefix/r.json",
+      "count": 22
+    },
+    {
+      "group": "s",
+      "file": "by-prefix/s.json",
+      "count": 162
+    },
+    {
+      "group": "t",
+      "file": "by-prefix/t.json",
+      "count": 45
+    },
+    {
+      "group": "u",
+      "file": "by-prefix/u.json",
+      "count": 1
+    },
+    {
+      "group": "v",
+      "file": "by-prefix/v.json",
+      "count": 56
+    },
+    {
+      "group": "w",
+      "file": "by-prefix/w.json",
+      "count": 19
+    },
+    {
+      "group": "x",
+      "file": "by-prefix/x.json",
+      "count": 3
+    },
+    {
+      "group": "y",
+      "file": "by-prefix/y.json",
+      "count": 1
+    },
+    {
+      "group": "z",
+      "file": "by-prefix/z.json",
+      "count": 1
+    }
+  ]
+}

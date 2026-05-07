@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmac-sha256-key-salt",
+  "name": "HMAC-SHA256 (key = $salt)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "hmac-sha256-key-salt.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1460,
+        "name": "HMAC-SHA256 (key = $salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1460"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1460"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "hmac-sha256",
+        "name": "HMAC-SHA256 (key = $salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "hmac-sha256"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "HMAC-SHA256 (key = $salt)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8b9472281c36c3a693703de0e0f1ffab8fc0ecdd3bc5ead04c76dd74ef431e49:70108387805",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1460"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

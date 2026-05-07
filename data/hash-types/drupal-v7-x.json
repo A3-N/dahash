@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "drupal-v7-x",
+  "name": "Drupal > v7.x",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "drupal-v7-x.haiti.087",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$S\\$[a-z0-9\\/.]{52}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$S\\$[a-z0-9\\/.]{52}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 7900,
+        "name": "Drupal > v7.x",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "7900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "7900"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "drupal7",
+        "name": "Drupal > v7.x",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "drupal7"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Drupal > v7.x"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$S$C20340258nzjDWpoQthrdNTR02f0pmev0K/5/Nx80WSkOQcPEQRh",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "7900"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

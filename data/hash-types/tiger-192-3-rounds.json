@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "tiger-192-3-rounds",
+  "name": "Tiger-192 (3 rounds)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "tiger-192-3-rounds.haiti.043",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:\\$tiger\\$)?[a-f0-9]{48}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:\\$tiger\\$)?[a-f0-9]{48}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "tiger",
+        "name": "Tiger-192 (3 rounds)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "tiger"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$tiger$D981F8CB78201A950DCF3048751E441C517FCA1AA55A29F6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-192 (3 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "1e2e98f0db2bbce47cc7d2a8c771ffe5cc57e8297abfa69a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-192 (3 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "3293AC630C13F0245F92BBB1766E16167A4E58492DDE73F3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-192 (3 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "928c38615aab777e016b1da0263ebb9207d4b0f8c19bfec7",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-192 (3 rounds)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Tiger-192 (3 rounds)"
+    }
+  ]
+}

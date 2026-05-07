@@ -1,0 +1,97 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sap-codvn-h-pwdsaltedhash-issha-1",
+  "name": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sap-codvn-h-pwdsaltedhash-issha-1.haiti.172",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{x-issha,\\s\\d{1,6}}[a-z0-9\\/+=]{32,49}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{x-issha,\\s\\d{1,6}}[a-z0-9\\/+=]{32,49}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 10300,
+        "name": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "10300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "10300"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "saph",
+        "name": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "saph"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{x-issha, 1024}BnjXMqcNTwa3BzdnUOf1iAu6dw02NzU4MzE2MTA=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "10300"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{x-issha, 1024}C0624EvGSdAMCtuWnBBYBGA0chvqAflKY74oEpw/rpY=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{x-issha, 6666}7qNFlIR+ZQUpe2DtSBvpvzU5VlBzcG1DVGxvOEFQODI=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SAP CODVN H (PWDSALTEDHASH) iSSHA-1"
+    }
+  ]
+}

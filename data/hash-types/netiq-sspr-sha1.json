@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "netiq-sspr-sha1",
+  "name": "NetIQ SSPR (SHA1)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "32010"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 32010,
+        "name": "NetIQ SSPR (SHA1)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "32010"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$sspr$1$100000$NONE$b3485214dfa55b038a606a183a560dab7db4ecf1",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32010"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "netiq-sspr-sha1.hashcat.32010",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{4}\\$[0-9]{1}\\$[0-9]{6}\\$[A-Za-z0-9]{4}\\$[A-Fa-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32010"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "linux-kernel-crypto-api-2-4",
+  "name": "Linux Kernel Crypto API (2.4)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "14500"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 14500,
+        "name": "Linux Kernel Crypto API (2.4)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "14500"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$cryptoapi$9$2$03000000000000000000000000000000$00000000000000000000000000000000$d1d20e91a8f2e18881dc79369d8af761",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14500"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "linux-kernel-crypto-api-2-4.hashcat.14500",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{9}\\$[0-9]{1}\\$[0-9]{1}\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14500"
+        }
+      ]
+    }
+  ]
+}

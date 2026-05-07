@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "netiq-sspr-pbkdf2withhmacsha256",
+  "name": "NetIQ SSPR (PBKDF2WithHmacSHA256)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "32060"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 32060,
+        "name": "NetIQ SSPR (PBKDF2WithHmacSHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "32060"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$100000$MDUzMTE4NjQyNDc5NTQxMjAwMjg1OTYxNjAxNDgzNzc$bwYpAyQ2g5PqdnMj8mJ46mkwQbyztw8gEQqnhDHj48c",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32060"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "netiq-sspr-pbkdf2withhmacsha256.hashcat.32060",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2\\-sha256\\$[0-9]{6}\\$[A-Za-z0-9]{43}\\$[A-Za-z0-9]{43}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32060"
+        }
+      ]
+    }
+  ]
+}

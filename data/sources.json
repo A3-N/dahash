@@ -1,0 +1,44 @@
+{
+  "schema_version": "dahash.sources/v1",
+  "sources": [
+    {
+      "id": "haiti",
+      "name": "Haiti",
+      "kind": "project",
+      "url": "https://github.com/noraj/haiti",
+      "version": "4.0.0",
+      "license": "MIT",
+      "notes": "Credit for the initial baseline definitions derived from Haiti data. dahash does not depend on Haiti at runtime."
+    },
+    {
+      "id": "hashcat-examples",
+      "name": "Hashcat example hashes",
+      "kind": "documentation",
+      "url": "https://hashcat.net/wiki/doku.php?id=example_hashes",
+      "retrieved": "2026-05-07",
+      "notes": "Official Hashcat examples used for mode metadata and sample hashes."
+    },
+    {
+      "id": "john-source-run",
+      "name": "John the Ripper jumbo run helpers",
+      "kind": "source",
+      "url": "https://github.com/openwall/john/tree/bleeding-jumbo/run",
+      "retrieved": "2026-05-07",
+      "notes": "Reference for explicit file-to-hash conversion helpers used by dahash --file mode. dahash does not depend on John at runtime unless the user invokes a configured helper."
+    },
+    {
+      "id": "hashid-reference",
+      "name": "hashID reference data",
+      "kind": "project",
+      "url": "https://github.com/psypanda/hashID",
+      "notes": "Reference-only baseline used to fill hash types absent from initial dahash data."
+    },
+    {
+      "id": "name-that-hash-reference",
+      "name": "Name-That-Hash reference data",
+      "kind": "project",
+      "url": "https://github.com/HashPals/Name-That-Hash",
+      "notes": "Reference-only baseline used to fill hash types absent from initial dahash data."
+    }
+  ]
+}

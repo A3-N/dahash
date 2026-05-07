@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-hmac-md4",
+  "name": "PBKDF2-HMAC-MD4",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pbkdf2-hmac-md4.haiti.194",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2-hmac-md4\\$\\d{1,6}\\$[a-f0-9]+\\$[a-f0-9]+$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pbkdf2-hmac-md4\\$\\d{1,6}\\$[a-f0-9]+\\$[a-f0-9]+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "pbkdf2-hmac-md4",
+        "name": "PBKDF2-HMAC-MD4",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pbkdf2-hmac-md4"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-md4$1$73616c74$1857f69412150bca4542581d0f9e7fd1",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-MD4"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-md4$1000$303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930$644e820a6c0cedb02f5d77cbb69c00a2",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-MD4"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-md4$1000$3031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738$56f59d132dcc56a4bebf44d265f1b43f",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-MD4"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-md4$1000$6d61676e756d$32ebfcea201e61cc498948916a213459c259c7b0a8ce9473368665f0808dcde1",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-MD4"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PBKDF2-HMAC-MD4"
+    }
+  ]
+}

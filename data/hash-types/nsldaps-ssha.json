@@ -1,0 +1,125 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "nsldaps-ssha",
+  "name": "NSLDAPS (ssha)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "nsldaps-ssha.haiti.040",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 111,
+        "name": "NSLDAPS (ssha)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "111"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "111"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "salted-sha1",
+        "name": "NSLDAPS (ssha)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "salted-sha1"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{SSHA}/EExmSfmhQSPHDJaTxwQSdb/uPpzYWx0ZXI=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NSLDAPS (ssha)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{SSHA}FLzWcQqyle6Mo7NvrwXCMAmRzXQxNjYxMTYzNw==",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "111"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "{SSHA}WTT3B9Jjr8gOt0Q7WMs9/XvukyhTQj0Ns0jMKQ==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NSLDAPS (ssha)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{SSHA}gVK8WC9YyFT1gMsQHTGCgT3sSv5zYWx0",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NSLDAPS (ssha)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{SSHA}ypkVeJKLzbXakEpuPYbn+YBnQvFmNmB+kQhmWQ==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NSLDAPS (ssha)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{SSHA}zTYIHsq8ygmPTPPjoeNVXfKtEthEMXNCMU9jcURy",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NSLDAPS (ssha)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "NSLDAPS (ssha)"
+    }
+  ]
+}

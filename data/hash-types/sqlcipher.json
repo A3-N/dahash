@@ -1,0 +1,56 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sqlcipher",
+  "name": "SQLCipher",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sqlcipher.haiti.237",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^SQLCIPHER\\*\\d\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\ASQLCIPHER\\*\\d\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 24610,
+        "name": "SQLCipher",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "24610"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "SQLCIPHER*1*64000*25548249195677404156261816261456*85b5e156e1cf1e0be5e9f4217186817b*33435c230bbc7989bbd027630e3f47cd",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SQLCipher"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SQLCipher"
+    }
+  ]
+}

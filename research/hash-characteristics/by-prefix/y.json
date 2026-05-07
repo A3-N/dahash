@@ -1,0 +1,195 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "y",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "yescrypt.json",
+      "id": "yescrypt",
+      "name": "yescrypt",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "yescrypt.haiti.292",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$y\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 73,
+          "value": "$y$j9T$.9s2wZRY3hcP/udKIFher1$sIBIYsiMmFlXhKOO4ZDJDXo54byuq7a4xAD0k9jw2m4",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 73,
+          "value": "$y$j9T$F5Jx5fExrKuPp53xLKQ..1$X3DX6M94c7o.9agCG9G317fhZg9SqC.5i5rd.RhAtQ7",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 73,
+          "value": "$y$j9T$o8MJgcu/zxjLLjo3pBk4A.$SPwoNr7I95/JHVKBeTnsu1mSC//M76vfmKc6mE6lSe2",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$y$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 73..73",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 73,
+            "max": 73,
+            "observed": [
+              73
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2,
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "yescrypt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$y$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 73,
+              "max": 73,
+              "observed": [
+                73
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "yescrypt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti"
+      ]
+    }
+  ]
+}

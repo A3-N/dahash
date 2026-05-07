@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "luks-v1-sha-256-aes",
+  "name": "LUKS v1 SHA-256 + AES",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "29521"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29521,
+        "name": "LUKS v1 SHA-256 + AES",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "29521"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "https://hashcat.net/misc/example_hashes/hashcat_luks_sha256_aes_cbc-plain64_128.txt",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29521"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "luks-v1-sha-256-aes.hashcat.29521",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{5}://hashcat\\.net/misc/example_hashes/hashcat_luks_sha256_aes_cbc\\-plain64_128\\.txt$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29521"
+        }
+      ]
+    }
+  ]
+}

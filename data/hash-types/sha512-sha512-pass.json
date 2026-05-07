@@ -1,0 +1,47 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha512-sha512-pass",
+  "name": "sha512(sha512($pass))",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha512-sha512-pass.haiti.075",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{128}(:.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "dynamic_83",
+        "name": "sha512(sha512($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_83"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha512(sha512($pass))"
+    }
+  ]
+}

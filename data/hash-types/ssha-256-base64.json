@@ -1,0 +1,74 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ssha-256-base64",
+  "name": "SSHA-256 (Base64)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ssha-256-base64.haiti.067",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{ssha256}[a-z0-9\\/+]{43,}(?:[=]{1,2})?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{ssha256}[a-z0-9\\/+]{43,}(?:[=]{1,2})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1411,
+        "name": "SSHA-256 (Base64)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1411"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1411"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{SSHA256}L5Wk0zPY2lmoR5pH20zngq37KkxFwgTquEhx95rxfVk3Ng==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SSHA-256 (Base64)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "1411"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{SSHA256}OZiz0cnQ5hgyel3Emh7NCbhBRCQ+HVBwYplQunHYnER7TLuV",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SSHA-256 (Base64)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SSHA-256 (Base64)"
+    }
+  ]
+}

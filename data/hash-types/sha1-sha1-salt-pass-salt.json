@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha1-sha1-salt-pass-salt",
+  "name": "sha1(sha1($salt.$pass.$salt))",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "5000"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 5000,
+        "name": "sha1(sha1($salt.$pass.$salt))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "5000"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "05ac0c544060af48f993f9c3cdf2fc03937ea35b:232725102020",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "5000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "sha1-sha1-salt-pass-salt.hashcat.5000",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{40}:[A-Fa-f0-9]{12}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "5000"
+        }
+      ]
+    }
+  ]
+}

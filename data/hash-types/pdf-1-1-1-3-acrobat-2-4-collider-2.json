@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pdf-1-1-1-3-acrobat-2-4-collider-2",
+  "name": "PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pdf-1-1-1-3-acrobat-2-4-collider-2.haiti.199",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pdf\\$1\\*2\\*\\d{2}\\*[-0-9]{1,6}\\*\\d\\*\\d{2}\\*[a-f0-9]{32}\\*\\d{2}\\*[a-f0-9]{64}\\*\\d{2}\\*[a-f0-9]{64}:[a-f0-9]{10}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pdf\\$1\\*2\\*\\d{2}\\*[-0-9]{1,6}\\*\\d\\*\\d{2}\\*[a-f0-9]{32}\\*\\d{2}\\*[a-f0-9]{64}\\*\\d{2}\\*[a-f0-9]{64}:[a-f0-9]{10}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 10420,
+        "name": "PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "10420"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "10420"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pdf",
+        "name": "PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pdf"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pdf$1*2*40*-1*0*16*01221086741440841668371056103222*32*27c3fecef6d46a78eb61b8b4dbc690f5f8a2912bbb9afc842c12d79481568b74*32*0000000000000000000000000000000000000000000000000000000000000000:6a8aedccb7",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "10420"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

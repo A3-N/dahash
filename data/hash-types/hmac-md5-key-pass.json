@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmac-md5-key-pass",
+  "name": "HMAC-MD5 (key = $pass)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "hmac-md5-key-pass.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 50,
+        "name": "HMAC-MD5 (key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "50"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "50"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "hmac-md5",
+        "name": "HMAC-MD5 (key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "hmac-md5"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "HMAC-MD5 (key = $pass)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "e28e4e37e972a945e464b5226053bac0:40",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "50"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

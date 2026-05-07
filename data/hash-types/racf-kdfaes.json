@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "racf-kdfaes",
+  "name": "RACF KDFAES",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "14200"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 14200,
+        "name": "RACF KDFAES",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "14200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$racf-kdfaes$*USER*E7D7E66D000180000008003200100010*00112233445566778899AABBCCDDEEFF*5390653DEC0316FB5AD56053208056A6",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "racf-kdfaes.hashcat.14200",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$racf\\-kdfaes\\$\\*[A-Za-z0-9]{4}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14200"
+        }
+      ]
+    }
+  ]
+}

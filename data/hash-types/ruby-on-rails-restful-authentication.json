@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ruby-on-rails-restful-authentication",
+  "name": "Ruby on Rails Restful-Authentication",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "19500"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 19500,
+        "name": "Ruby on Rails Restful-Authentication",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "19500"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "d7d5ea3e09391da412b653ae6c8d7431ec273ea2:238769868762:8962783556527653675",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "19500"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "ruby-on-rails-restful-authentication.hashcat.19500",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{40}:[A-Fa-f0-9]{12}:[A-Fa-f0-9]{19}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "19500"
+        }
+      ]
+    }
+  ]
+}

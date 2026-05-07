@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "oracle-transportation-management-sha256",
+  "name": "Oracle Transportation Management (SHA256)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "20600"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 20600,
+        "name": "Oracle Transportation Management (SHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "20600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "otm_sha256:1000:1234567890:S5Q9Kc0ETY6ZPyQU+JYY60oFjaJuZZaSinggmzU8PC4=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "20600"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "oracle-transportation-management-sha256.hashcat.20600",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^otm_sha256:[0-9]{4}:[A-Fa-f0-9]{10}:[A-Za-z0-9+/=]{44}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "20600"
+        }
+      ]
+    }
+  ]
+}

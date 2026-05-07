@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha256-salt-pass-salt",
+  "name": "sha256($salt.$pass.$salt)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "22300"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 22300,
+        "name": "sha256($salt.$pass.$salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "22300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "755a8ce4e0cf0baee41d714aa35c9fca803106608f718f973eab006578285007:11265",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "22300"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "sha256-salt-pass-salt.hashcat.22300",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{64}:[0-9]{5}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "22300"
+        }
+      ]
+    }
+  ]
+}

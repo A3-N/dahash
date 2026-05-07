@@ -1,0 +1,72 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "dnssec-nsec3",
+  "name": "DNSSEC (NSEC3)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "dnssec-nsec3.haiti.133",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8300,
+        "name": "DNSSEC (NSEC3)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "7b5n74kq8r441blc2c5qbbat19baj79r:.lvdsiqfj.net:33164473:1",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "DNSSEC (NSEC3)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "pi6a89u8tca930h8mvolklmesefc5gmn:.fnmlbsik.net:35537886:1",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "8300"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "DNSSEC (NSEC3)"
+    }
+  ]
+}

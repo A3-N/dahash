@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "as-400-ssha1",
+  "name": "AS/400 SSHA1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "as-400-ssha1.haiti.340",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$as400\\$ssha1\\$\\*.{0,10}\\*[a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$as400\\$ssha1\\$\\*.{0,10}\\*[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 35200,
+        "name": "AS/400 SSHA1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "35200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "35200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$as400$ssha1$*QTEST1*7ED7D3694D0A2E40A720D41031B456C09124966E",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AS/400 SSHA1"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "35200"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AS/400 SSHA1"
+    }
+  ]
+}

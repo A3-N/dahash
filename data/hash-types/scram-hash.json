@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "scram-hash",
+  "name": "SCRAM Hash",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "scram-hash.haiti.115",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$scram\\$\\d+\\$[a-z0-9\\/.]{16}\\$sha-1=[a-z0-9\\/.]{27},sha-256=[a-z0-9\\/.]{43},sha-512=[a-z0-9\\/.]{86}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$scram\\$\\d+\\$[a-z0-9\\/.]{16}\\$sha-1=[a-z0-9\\/.]{27},sha-256=[a-z0-9\\/.]{43},sha-512=[a-z0-9\\/.]{86}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SCRAM Hash"
+    }
+  ]
+}

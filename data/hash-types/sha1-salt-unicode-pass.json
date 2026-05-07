@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha1-salt-unicode-pass",
+  "name": "sha1($salt.unicode($pass))",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha1-salt-unicode-pass.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 140,
+        "name": "sha1($salt.unicode($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "140"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "140"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha1($salt.unicode($pass))"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "03b83421e2aa6d872d1f8dee001dc226ef01722b:818436",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "140"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

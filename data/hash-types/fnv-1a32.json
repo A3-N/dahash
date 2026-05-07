@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "fnv-1a32",
+  "name": "FNV-1A32",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "fnv-1a32.haiti.001",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{8}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "b7419982",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "FNV-1A32"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "f70e7fc3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "FNV-1A32"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "FNV-1A32"
+    }
+  ]
+}

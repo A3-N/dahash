@@ -1,0 +1,47 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "wolt3bb",
+  "name": "Wolt3BB",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "wolt3bb.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "dynamic_38",
+        "name": "Wolt3BB",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_38"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Wolt3BB"
+    }
+  ]
+}

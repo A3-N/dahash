@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "totp-hmac-sha1",
+  "name": "TOTP (HMAC-SHA1)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "18100"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 18100,
+        "name": "TOTP (HMAC-SHA1)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "18100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "597056:3600:613004:1234567890:322664:9876543210",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "18100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "totp-hmac-sha1.hashcat.18100",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[0-9]{6}:[0-9]{4}:[0-9]{6}:[A-Fa-f0-9]{10}:[0-9]{6}:[A-Fa-f0-9]{10}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "18100"
+        }
+      ]
+    }
+  ]
+}

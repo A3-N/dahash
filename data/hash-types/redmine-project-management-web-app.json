@@ -1,0 +1,47 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "redmine-project-management-web-app",
+  "name": "Redmine Project Management Web App",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "redmine-project-management-web-app.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}:[a-f0-9]{0,32}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "hashid-reference",
+          "ref": "Redmine Project Management Web App"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "hashid-reference",
+      "ref": "Redmine Project Management Web App"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 7600,
+        "name": "Redmine Project Management Web App",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashid-reference",
+            "ref": "7600"
+          }
+        ]
+      }
+    ]
+  }
+}

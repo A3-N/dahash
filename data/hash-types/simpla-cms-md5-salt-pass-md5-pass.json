@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "simpla-cms-md5-salt-pass-md5-pass",
+  "name": "Simpla CMS - md5($salt.$pass.md5($pass))",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "22800"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 22800,
+        "name": "Simpla CMS - md5($salt.$pass.md5($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "22800"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "86d173f13213d1e48bce9647bdc306d5:8e86a279d6e182b3c811c559e6b15484",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "22800"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "simpla-cms-md5-salt-pass-md5-pass.hashcat.22800",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{32}:[A-Fa-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "22800"
+        }
+      ]
+    }
+  ]
+}

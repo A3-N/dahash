@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "haval-192",
+  "name": "Haval-192",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "haval-192.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{48}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "name-that-hash-reference",
+          "ref": "Haval-192"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "name-that-hash-reference",
+      "ref": "Haval-192"
+    }
+  ]
+}

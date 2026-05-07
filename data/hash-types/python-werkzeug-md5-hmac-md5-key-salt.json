@@ -1,0 +1,94 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-md5-hmac-md5-key-salt",
+  "name": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-md5-hmac-md5-key-salt.haiti.315",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^md5\\$.{0,256}\\$[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Amd5\\$.{0,256}\\$[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 30000,
+        "name": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "30000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "30000"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "md5$84143$7f51edecfa6fb401a0b5e63d33fc8c0e",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "30000"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "md5$Aq2w03c8q1XVLX61$d318a29b5ee84ad33699bea6448e372e",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "md5$VgvFxJk7EGQh7Y4yUx7Wlw3WcIhm7YSp$e85dde5d8f419e73fb03b99346ea04fc",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "md5$zZJEVcyg$f6a67f7af86f0e6124fc533d55503b44",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+    }
+  ]
+}

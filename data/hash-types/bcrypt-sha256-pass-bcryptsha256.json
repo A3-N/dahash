@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bcrypt-sha256-pass-bcryptsha256",
+  "name": "bcrypt(sha256($pass)) / bcryptsha256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "bcrypt-sha256-pass-bcryptsha256.haiti.054",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:\\$bcrypt-sha256)?\\$(?:2[abxy]?)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:\\$bcrypt-sha256)?\\$(?:2[abxy]?)\\$\\d{2}\\$[a-z0-9\\/.]{53}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 30600,
+        "name": "bcrypt(sha256($pass)) / bcryptsha256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "30600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "30600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$2b$10$FxDtpTNaL303lLcWtd6LFO2U6Gc63VJ07qycHcfqbQQ71GhO/qSzu",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "bcrypt(sha256($pass)) / bcryptsha256"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "30600"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "bcrypt(sha256($pass)) / bcryptsha256"
+    }
+  ]
+}

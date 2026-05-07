@@ -1,0 +1,55 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "crc-32b",
+  "name": "CRC-32B",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "crc-32b.haiti.001",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{8}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0591b7fa",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "CRC-32B"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "d4c1ce56",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "CRC-32B"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRC-32B"
+    }
+  ]
+}

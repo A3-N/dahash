@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "flask-session-cookie-salt-salt-pass",
+  "name": "Flask Session Cookie ($salt.$salt.$pass)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "flask-session-cookie-salt-salt-pass.haiti.274",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9\\-_]+\\.[a-z0-9\\-_]{1,6}\\.[a-z0-9\\-_]{20,27}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9\\-_]+\\.[a-z0-9\\-_]{1,6}\\.[a-z0-9\\-_]{20,27}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29100,
+        "name": "Flask Session Cookie ($salt.$salt.$pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "29100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "29100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "eyJ1c2VybmFtZSI6ImFkbWluIn0.YjdgRQ.1OTlf1PD0H9wXsu_qS0aywAJVD8",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Flask Session Cookie ($salt.$salt.$pass)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "29100"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Flask Session Cookie ($salt.$salt.$pass)"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "epi",
+  "name": "EPi",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "epi.haiti.121",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^0x[a-f0-9]{60}\\s0x[a-f0-9]{40}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A0x[a-f0-9]{60}\\s0x[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 123,
+        "name": "EPi",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "123"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0x326C6D7B4E4F794B79474E36704F35723958397163735263516265456E31 0xAFC55E260B8F45C0C6512BCE776C1AD8312B56E6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "EPi"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "EPi"
+    }
+  ]
+}

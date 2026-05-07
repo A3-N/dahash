@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "blowfish-openbsd",
+  "name": "Blowfish(OpenBSD)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "blowfish-openbsd.haiti.050",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$2[abxy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$2[abxy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 3200,
+        "name": "Blowfish(OpenBSD)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "3200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "3200"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "bcrypt",
+        "name": "Blowfish(OpenBSD)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "bcrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Blowfish(OpenBSD)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$2a$05$MBCzKhG1KhezLh.0LRa0Kuw12nLJtpHy6DIaU.JAnqJUDYspHC.Ou",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "3200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

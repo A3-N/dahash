@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "3des-pt-salt-key-pass",
+  "name": "3DES (PT = $salt, key = $pass)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "14100"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 14100,
+        "name": "3DES (PT = $salt, key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "14100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "4c29eea59d8db1e7:7428288455525516",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "3des-pt-salt-key-pass.hashcat.14100",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{16}:[A-Fa-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14100"
+        }
+      ]
+    }
+  ]
+}

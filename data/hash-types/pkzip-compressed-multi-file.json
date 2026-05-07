@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pkzip-compressed-multi-file",
+  "name": "PKZIP (Compressed Multi-File)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pkzip-compressed-multi-file.haiti.217",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 17220,
+        "name": "PKZIP (Compressed Multi-File)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "17220"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "17220"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pkzip",
+        "name": "PKZIP (Compressed Multi-File)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pkzip"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pkzip$3*1*1*0*8*24*4001*8986ec4d693e86c1a42c1bd2e6a994cb0b98507a6ec937fe0a41681c02fe52c61e3cc046*1*0*8*24*4003*a087adcda58de2e14e73db0043a4ff0ed3acc6a9aee3985d7cb81d5ddb32b840ea2057d9*2*0*e4*1c5*eda7a8de*0*4c*8*e4*eda7*89a792af804bf38e31fdccc8919a75ab6eb75d1fd6e7ecefa3c5b9c78c3d50d656f42e582af95882a38168a8493b2de5031bb8b39797463cb4769a955a2ba72abe48ee75b103f93ef9984ae740559b9bd84cf848d693d86acabd84749853675fb1a79edd747867ef52f4ee82435af332d43f0d0bb056c49384d740523fa75b86a6d29a138da90a8de31dbfa89f2f6b0550c2b47c43d907395904453ddf42a665b5f7662de170986f89d46d944b519e1db9d13d4254a6b0a5ac02b3cfdd468d7a4965e4af05699a920e6f3ddcedb57d956a6b2754835b14e174070ba6aec4882d581c9f30*$/pkzip$",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PKZIP (Compressed Multi-File)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pkzip2$3*1*1*0*8*24*a425*8827*d1730095cd829e245df04ebba6c52c0573d49d3bbeab6cb385b7fa8a28dcccd3098bfdd7*1*0*8*24*2a74*882a*51281ac874a60baedc375ca645888d29780e20d4076edd1e7154a99bde982152a736311f*2*0*e3*1c5*eda7a8de*0*29*8*e3*eda7*5096*1455781b59707f5151139e018bdcfeebfc89bc37e372883a7ec0670a5eafc622feb338f9b021b6601a674094898a91beac70e41e675f77702834ca6156111a1bf7361bc9f3715d77dfcdd626634c68354c6f2e5e0a7b1e1ce84a44e632d0f6e36019feeab92fb7eac9dda8df436e287aafece95d042059a1b27d533c5eab62c1c559af220dc432f2eb1a38a70f29e8f3cb5a207704274d1e305d7402180fd47e026522792f5113c52a116d5bb25b67074ffd6f4926b221555234aabddc69775335d592d5c7d22462b75de1259e8342a9ba71cb06223d13c7f51f13be2ad76352c3b8ed*$/pkzip2$",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PKZIP (Compressed Multi-File)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "17220"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PKZIP (Compressed Multi-File)"
+    }
+  ]
+}

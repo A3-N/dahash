@@ -1,0 +1,97 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mysql4-1",
+  "name": "MySQL4.1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mysql4-1.haiti.038",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\*)?[a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\*)?[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 300,
+        "name": "MySQL4.1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "300"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "mysql-sha1",
+        "name": "MySQL4.1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "mysql-sha1"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "*5AD8F88516BD021DD43F171E2C785C69F8E54ADB",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MySQL4.1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "*be1bdec0aa74b4dcb079943e70528096cca985f8",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MySQL4.1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "fcf7c1b8749cf99d88e5f34271d636178fb5d130",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MySQL4.1"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "300"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MySQL4.1"
+    }
+  ]
+}

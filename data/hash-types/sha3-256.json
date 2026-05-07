@@ -1,0 +1,98 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha3-256",
+  "name": "SHA3-256",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "sha3-256.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 17400,
+        "name": "SHA3-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "17400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "17400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "dynamic_380",
+        "name": "SHA3-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_380"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "006fbd67ca256b064801e5a3e3da83c1e379c0be18d42b47ac56985944555fa3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA3-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "0991e713d31138846aafb8f8e0d26020e3b4e88581f03f5544343e29693559d0",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA3-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "d60fcf6585da4e17224f58858970f0ed5ab042c3916b76b0b828e62eaf636cbd",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "17400"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SHA3-256"
+    }
+  ]
+}

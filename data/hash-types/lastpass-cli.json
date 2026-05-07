@@ -1,0 +1,76 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "lastpass-cli",
+  "name": "LastPass CLI",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "lastpass-cli.haiti.129",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$lpcli\\$\\d\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[a-f0-9]{32}\\$[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$lpcli\\$\\d\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[a-f0-9]{32}\\$[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "lpcli",
+        "name": "LastPass CLI",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "lpcli"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$lpcli$0$user@example.invalid$1$9611651d6cbe6ab1dfb035d3874bd803$68bbe1480410c03cc053662658884f2b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass CLI"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lpcli$0$user@example.invalid$1234$3fec6cd2d8c049cbafe9fa6a9343f42f$f21d8e60ad22db53033e431700fb5e0c",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass CLI"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lpcli$0$user@example.invalid$1234$fbd97e7e14713363c5567bdc106bb1f4$75ebb9460f9852ccb2382029fe333867",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass CLI"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LastPass CLI"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "streebog-512",
+  "name": "Streebog-512",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "streebog-512.haiti.075",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{128}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8e945da209aa869f0455928529bcae4679e9873ab707b55315f56ceb98bef0a7362f715528356ee83cda5f2aac4c6ad2ba3a715c1bcd81cb8e9f90bf4c1c1a8a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Streebog-512"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "d2b793a0bb6cb5904828b5b6dcfb443bb8f33efc06ad09368878ae4cdc8245b97e60802469bed1e7c21a64ff0b179a6a1e0bb74d92965450a0adab69162c00fe",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Streebog-512"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Streebog-512"
+    }
+  ]
+}

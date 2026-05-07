@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sybase-ase",
+  "name": "Sybase ASE",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sybase-ase.haiti.089",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^0x[a-f0-9]{4}[a-f0-9]{16}[a-f0-9]{64}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A0x[a-f0-9]{4}[a-f0-9]{16}[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8000,
+        "name": "Sybase ASE",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "sybasease",
+        "name": "Sybase ASE",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "sybasease"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Sybase ASE"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0xc0071808773188715731b69bd4e310b4129913aaf657356c5bdf3c46f249ed42477b5c74af6eaac4d15a",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "8000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

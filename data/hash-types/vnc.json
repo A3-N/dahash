@@ -1,0 +1,44 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "vnc",
+  "name": "VNC",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "vnc.haiti.132",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$vnc\\$\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$vnc\\$\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "vnc",
+        "name": "VNC",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "vnc"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "VNC"
+    }
+  ]
+}

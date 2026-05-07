@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "lotus-notes-domino-5",
+  "name": "Lotus Notes/Domino 5",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "lotus-notes-domino-5.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8600,
+        "name": "Lotus Notes/Domino 5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8600"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "lotus5",
+        "name": "Lotus Notes/Domino 5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "lotus5"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Lotus Notes/Domino 5"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "3dd2e1e5ac03e230243d58b8c5ada076",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "8600"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

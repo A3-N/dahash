@@ -1,0 +1,42 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "nthash-freebsd-variant",
+  "name": "NTHash (FreeBSD Variant)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "nthash-freebsd-variant.haiti.135",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$3\\$\\$[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$3\\$\\$[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$3$$8846f7eaee8fb117ad06bdd830b7586c",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NTHash (FreeBSD Variant)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "NTHash (FreeBSD Variant)"
+    }
+  ]
+}

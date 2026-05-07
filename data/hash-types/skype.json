@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "skype",
+  "name": "Skype",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "skype.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 23,
+        "name": "Skype",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "23"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "23"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Skype"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "d04d74780881019341915c70d914db29:0675841",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "23"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

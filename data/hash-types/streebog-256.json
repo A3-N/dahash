@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "streebog-256",
+  "name": "Streebog-256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "streebog-256.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "3e7dea7f2384b6c5a3d0e24aaa29c05e89ddd762145030ec22c71a6db8b2c1f4",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Streebog-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "3f539a213e97c802cc229d474c6aa32a825a360b2a933a949fd925208d9ce1bb",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Streebog-256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Streebog-256"
+    }
+  ]
+}

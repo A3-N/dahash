@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cram-md5",
+  "name": "CRAM-MD5",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cram-md5.haiti.176",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$cram_md5\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+=\\-]{52}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$cram_md5\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+=\\-]{52}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 10200,
+        "name": "CRAM-MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "10200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "10200"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRAM-MD5"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$cram_md5$MTI=$dXNlciBiOGYwNjk5MTE0YjA1Nzg4OTIyM2RmMDg0ZjgyMjQ2Zg==",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "10200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

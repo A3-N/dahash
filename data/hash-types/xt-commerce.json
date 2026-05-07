@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "xt-commerce",
+  "name": "xt:Commerce",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "xt-commerce.haiti.031",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}:[a-z0-9]{2}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}:[a-z0-9]{2}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 21,
+        "name": "xt:Commerce",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "21"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "21"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "xt:Commerce"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "e983672a03adcc9767b24584338eb378:00",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "21"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

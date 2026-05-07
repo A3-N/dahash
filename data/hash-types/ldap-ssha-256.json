@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ldap-ssha-256",
+  "name": "LDAP (SSHA-256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ldap-ssha-256.haiti.067",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{ssha256}[a-z0-9\\/+]{43,}(?:[=]{1,2})?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{ssha256}[a-z0-9\\/+]{43,}(?:[=]{1,2})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1411,
+        "name": "LDAP (SSHA-256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1411"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1411"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LDAP (SSHA-256)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{SSHA256}L5Wk0zPY2lmoR5pH20zngq37KkxFwgTquEhx95rxfVk3Ng==",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1411"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

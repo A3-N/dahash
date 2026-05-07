@@ -1,0 +1,80 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "netntlmv1-netntlmv1-ess-nt",
+  "name": "NetNTLMv1 / NetNTLMv1+ESS (NT)",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "netntlmv1-netntlmv1-ess-nt.haiti.097",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{0,48}:[a-f0-9]{48}:[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{0,48}:[a-f0-9]{48}:[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 27000,
+        "name": "NetNTLMv1 / NetNTLMv1+ESS (NT)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "27000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "27000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "netntlm / netntlm-naive",
+        "name": "NetNTLMv1 / NetNTLMv1+ESS (NT)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "netntlm / netntlm-naive"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "::5V4T:ada06359242920a500000000000000000000000000000000:0556d5297b5daa70eaffde82ef99293a3f3bb59b7c9704ea:9c23f6c094853920",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NetNTLMv1 / NetNTLMv1+ESS (NT)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "27000"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "NetNTLMv1 / NetNTLMv1+ESS (NT)"
+    }
+  ]
+}

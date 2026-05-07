@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sm3crypt-sm3-unix",
+  "name": "sm3crypt, SM3 (Unix)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sm3crypt-sm3-unix.haiti.343",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$sm3\\$.{0,20}\\$[a-z0-9/.]{43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$sm3\\$.{0,20}\\$[a-z0-9/.]{43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 35100,
+        "name": "sm3crypt, SM3 (Unix)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "35100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "35100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$sm3$KTTUB40dW4mRyRFd$ul2xLiIY3FJtbo8sv1R93sAYCkxQCH/6rmS1kD5vJYA",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "sm3crypt, SM3 (Unix)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "35100"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sm3crypt, SM3 (Unix)"
+    }
+  ]
+}

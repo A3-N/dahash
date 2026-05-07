@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "stargazer-stellar-wallet-xlm",
+  "name": "Stargazer Stellar Wallet XLM",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "stargazer-stellar-wallet-xlm.haiti.239",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A\\$stellar\\$(?=[^$]{24}\\$)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?=[^$]{16}\\$)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?=[^$]{96}$)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$stellar\\$(?=[^$]{24}\\$)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?=[^$]{16}\\$)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?=[^$]{96}$)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 25500,
+        "name": "Stargazer Stellar Wallet XLM",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "25500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "25500"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$stellar$YAlIJziURRcBEWUwRSRDWA==$EutMmmcV5Hbf3p1I$rfSAF349RvGKG4R4Z2VCrH9WjNEKjbJa9hpOja9Yn8MwXruuFEMtw47HPn9CYj+JJ5Rb4Z87Wejj1c4fqpbMZHFOnqtQsVAr",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Stargazer Stellar Wallet XLM"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "25500"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Stargazer Stellar Wallet XLM"
+    }
+  ]
+}

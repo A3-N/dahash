@@ -1,0 +1,56 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "multibit-hd-wallet-0-5-0",
+  "name": "MultiBit HD wallet >= 0.5.0",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "multibit-hd-wallet-0-5-0.haiti.251",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$multibit\\$\\d\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$multibit\\$\\d\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "multibit",
+        "name": "MultiBit HD wallet >= 0.5.0",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "multibit"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$multibit$2*081e3a1252c26731120d0d63783ae46f*8354d5b454e78fb15f81c9e6289ba9b8*081e3a1252c26731120d0d63783ae46f",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MultiBit HD wallet >= 0.5.0"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MultiBit HD wallet >= 0.5.0"
+    }
+  ]
+}

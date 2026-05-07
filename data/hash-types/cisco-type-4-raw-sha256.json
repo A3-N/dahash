@@ -1,0 +1,131 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cisco-type-4-raw-sha256",
+  "name": "Cisco Type 4 (Raw SHA256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cisco-type-4-raw-sha256.haiti.039",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9]{43}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9]{43}\\Z"
+        }
+      ]
+    },
+    {
+      "id": "cisco-type-4-raw-sha256.haiti.180",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$cisco4\\$)?[a-z0-9\\/.]{43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$cisco4\\$)?[a-z0-9\\/.]{43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 5700,
+        "name": "Cisco Type 4 (Raw SHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "5700"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "5700"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "raw-sha256",
+        "name": "Cisco Type 4 (Raw SHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "raw-sha256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$cisco4$LcV6aBcc/53FoCJjXQMd7rBUDEpeevrK8V5jQVoJEhU",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 4 (Raw SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$cisco4$OsOmQzwozC4ROs/CzpczJoShdCeW9lp7k/tGrPS5Kog",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 4 (Raw SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$cisco4$d7kgbEk.P6mpKdduC66fUy1BF0MImo3eyJ9uI/JbMRk",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 4 (Raw SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$cisco4$hUsuWZSE8dZERUBYNwRK8Aa8VxEGIHsuZFUCjNj2.Ac",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 4 (Raw SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "2btjjy78REtmYkkW0csHUbJZOstRXoWdX1mGrmmfeHI",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 4 (Raw SHA256)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "5700"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Cisco Type 4 (Raw SHA256)"
+    }
+  ]
+}

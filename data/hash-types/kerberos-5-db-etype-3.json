@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "kerberos-5-db-etype-3",
+  "name": "Kerberos 5 DB etype 3",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "kerberos-5-db-etype-3.haiti.114",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$krb3\\$[^$]{1,512}\\$[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$krb3\\$[^$]{1,512}\\$[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "krb5-3",
+        "name": "Kerberos 5 DB etype 3",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "krb5-3"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$krb3$EXAMPLE.COMlulu$25bfb33132c11346",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 DB etype 3"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$krb3$EXAMPLE.COMluluaaaa$79850e6e9e5e92d0",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 DB etype 3"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$krb3$EXAMPLE.COMluluaaaa$97076894ae025738",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 DB etype 3"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$krb3$INTERNAL.CORP1user3$eafdc79b7620584a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 DB etype 3"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Kerberos 5 DB etype 3"
+    }
+  ]
+}

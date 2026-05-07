@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "django-sha-256",
+  "name": "Django (SHA-256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "django-sha-256.haiti.092",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^sha256\\$[a-z0-9]+\\$[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha256\\$[a-z0-9]+\\$[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Django (SHA-256)"
+    }
+  ]
+}

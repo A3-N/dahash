@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-sha1-hmac-sha1-key-salt",
+  "name": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-sha1-hmac-sha1-key-salt.haiti.316",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^sha1\\$.{0,256}\\$[a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha1\\$.{0,256}\\$[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "sha1$84eyBlujP9J4o7IU$0ecad02823bde7b529a16ec68a44f502fe83ac8d",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha1$iQ0LfrHjFg4t5oCzA27HaQpl8zM8C4oI$103aeadda05906e3b6be6625d76c6c309e3daf17",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha1$sV9Unoac$8083cab64f3b016e9d70729906ee11ea10a51ad6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
+    }
+  ]
+}

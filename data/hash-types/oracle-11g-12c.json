@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "oracle-11g-12c",
+  "name": "Oracle 11g/12c",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "oracle-11g-12c.haiti.053",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(S:)?[a-f0-9]{40}(:)?[a-f0-9]{20}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(S:)?[a-f0-9]{40}(:)?[a-f0-9]{20}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 112,
+        "name": "Oracle 11g/12c",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "112"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "112"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "oracle11",
+        "name": "Oracle 11g/12c",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "oracle11"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Oracle 11g/12c"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "63ec5f6113843f5d229e2d49c068d983a9670d02:57677783202322766743",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "112"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

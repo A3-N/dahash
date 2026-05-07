@@ -1,0 +1,3887 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "e",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "ecryptfs.json",
+      "id": "ecryptfs",
+      "name": "eCryptfs",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "ecryptfs.hashcat.12200",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{8}\\$[0-9]{1}\\$[0-9]{1}\\$[A-Fa-f0-9]{16}\\$[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 47,
+          "value": "$ecryptfs$0$1$4207883745556753$567daa975114206c",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 12200,
+            "name": "eCryptfs",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$ecryptfs$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 47..47",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 47,
+            "max": 47,
+            "observed": [
+              47
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              6
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "ecryptfs"
+            ],
+            "john_extractors": [
+              "ecryptfs2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "eCryptfs wrapped-passphrase files"
+            ],
+            "expected_prefixes": [],
+            "note": "eCryptfs hashes should keep wrapped-passphrase source context.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 12200,
+            "name": "eCryptfs",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 12200,
+            "hashcat_name": "eCryptfs",
+            "official_example": "$ecryptfs$0$1$4207883745556753$567daa975114206c",
+            "official_example_length": 47,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ecryptfs.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$ecryptfs$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  6
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 47,
+              "max": 47,
+              "observed": [
+                47
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ecryptfs.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "ecryptfs"
+                ],
+                "john_extractors": [
+                  "ecryptfs2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "eCryptfs wrapped-passphrase files"
+                ],
+                "expected_prefixes": [],
+                "note": "eCryptfs hashes should keep wrapped-passphrase source context.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "eggdrop-irc-bot.json",
+      "id": "eggdrop-irc-bot",
+      "name": "Eggdrop IRC Bot",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "eggdrop-irc-bot.haiti.004",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 50,
+          "pattern": "^\\+[a-z0-9\\/.]{12}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 13,
+          "value": "+9F93o1OxwgK1",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 13,
+          "value": "+C/.8o.Wuph9.",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 13,
+          "value": "+Obytd.zXYjH/",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "bfegg",
+            "name": "Eggdrop IRC Bot",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "base64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 13..13",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 13,
+            "max": 13,
+            "observed": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "bfegg",
+            "name": "Eggdrop IRC Bot",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "eggdrop-irc-bot.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "base64",
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 13,
+              "max": 13,
+              "observed": [
+                13
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "eggdrop-irc-bot.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "electrum-wallet-salt-type-1-3.json",
+      "id": "electrum-wallet-salt-type-1-3",
+      "name": "Electrum Wallet (Salt-Type 1-3)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "electrum-wallet-salt-type-1-3.hashcat.16600",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{8}\\$[0-9]{1}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 77,
+          "value": "$electrum$1*44358283104603165383613672586868*c43a6632d9f59364f74c395a03d8c2ea",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 16600,
+            "name": "Electrum Wallet (Salt-Type 1-3)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$electrum$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 77..77",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 77,
+            "max": 77,
+            "observed": [
+              77
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "electrum"
+            ],
+            "john_extractors": [
+              "electrum2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Electrum wallet files"
+            ],
+            "expected_prefixes": [
+              "$electrum$"
+            ],
+            "note": "Electrum wallet types use version/type fields; parser should validate salt type and hex lengths.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 16600,
+            "name": "Electrum Wallet (Salt-Type 1-3)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 16600,
+            "hashcat_name": "Electrum Wallet (Salt-Type 1-3)",
+            "official_example": "$electrum$1*44358283104603165383613672586868*c43a6632d9f59364f74c395a03d8c2ea",
+            "official_example_length": 77,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "electrum-wallet-salt-type-1-3.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$electrum$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 77,
+              "max": 77,
+              "observed": [
+                77
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "electrum-wallet-salt-type-1-3.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "electrum"
+                ],
+                "john_extractors": [
+                  "electrum2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Electrum wallet files"
+                ],
+                "expected_prefixes": [
+                  "$electrum$"
+                ],
+                "note": "Electrum wallet types use version/type fields; parser should validate salt type and hex lengths.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "electrum-wallet-salt-type-4.json",
+      "id": "electrum-wallet-salt-type-4",
+      "name": "Electrum Wallet (Salt-Type 4)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "electrum-wallet-salt-type-4.hashcat.21700",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:21700"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2096,
+          "value": "$electrum$4*03eae309d8bda5dcbddaae8145469193152763894b7260a6c4ba181b3ac2ed5653*8c594086a64dc87a9c1f8a69f646e31e8d3182c3c722def4427aa20684776ac26092c6f60bf2762e27adfa93fe1e952dcb8d6362224b9a371953aa3a2edb596ce5eb4c0879c4353f2cc515ec6c9e7a6defa26c5df346d18a62e9d...<truncated len=2096>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 21700,
+            "name": "Electrum Wallet (Salt-Type 4)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$electrum$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2096..2096",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2096,
+            "max": 2096,
+            "observed": [
+              2096
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "electrum"
+            ],
+            "john_extractors": [
+              "electrum2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Electrum wallet files"
+            ],
+            "expected_prefixes": [
+              "$electrum$"
+            ],
+            "note": "Electrum wallet types use version/type fields; parser should validate salt type and hex lengths.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 21700,
+            "name": "Electrum Wallet (Salt-Type 4)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 21700,
+            "hashcat_name": "Electrum Wallet (Salt-Type 4)",
+            "official_example": "$electrum$4*03eae309d8bda5dcbddaae8145469193152763894b7260a6c4ba181b3ac2ed5653*8c594086a64dc87a9c1f8a69f646e31e8d3182c3c722def4427aa20684776ac26092c6f60bf2762e27adfa93fe1e952dcb8d6362224b9a371953aa3a2edb596ce5eb4c0879c4353f2cc515ec6c9e7a6defa26c5df346d18a62e9d40fcc606bc8c34322bf2212f77770a683788db0b...<truncated len=2096>",
+            "official_example_length": 2096,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "electrum-wallet-salt-type-4.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$electrum$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2096,
+              "max": 2096,
+              "observed": [
+                2096
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "electrum-wallet-salt-type-4.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "electrum"
+                ],
+                "john_extractors": [
+                  "electrum2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Electrum wallet files"
+                ],
+                "expected_prefixes": [
+                  "$electrum$"
+                ],
+                "note": "Electrum wallet types use version/type fields; parser should validate salt type and hex lengths.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "electrum-wallet-salt-type-5.json",
+      "id": "electrum-wallet-salt-type-5",
+      "name": "Electrum Wallet (Salt-Type 5)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "electrum-wallet-salt-type-5.hashcat.21800",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:21800"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2192,
+          "value": "$electrum$5*02170fee7c35f1ef3b229edc90fbd0793b688a0d6f41137a97aab2343d315cce16*94cf72d8f5d774932b414a3344984859e43721268d2eb35fa531de5a2fc7024b463c730a54f4f46229dd9fede5034b19ac415c2916e9c16b02094f845795df0c397ff76d597886b1f9e014ad1a8f64a3f617d9900aa645b3ba86f...<truncated len=2192>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 21800,
+            "name": "Electrum Wallet (Salt-Type 5)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$electrum$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2192..2192",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2192,
+            "max": 2192,
+            "observed": [
+              2192
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "electrum"
+            ],
+            "john_extractors": [
+              "electrum2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Electrum wallet files"
+            ],
+            "expected_prefixes": [
+              "$electrum$"
+            ],
+            "note": "Electrum wallet types use version/type fields; parser should validate salt type and hex lengths.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 21800,
+            "name": "Electrum Wallet (Salt-Type 5)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 21800,
+            "hashcat_name": "Electrum Wallet (Salt-Type 5)",
+            "official_example": "$electrum$5*02170fee7c35f1ef3b229edc90fbd0793b688a0d6f41137a97aab2343d315cce16*94cf72d8f5d774932b414a3344984859e43721268d2eb35fa531de5a2fc7024b463c730a54f4f46229dd9fede5034b19ac415c2916e9c16b02094f845795df0c397ff76d597886b1f9e014ad1a8f64a3f617d9900aa645b3ba86f16ce542251fc22c41d93fa6bc118be96d9582917...<truncated len=2192>",
+            "official_example_length": 2192,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "electrum-wallet-salt-type-5.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$electrum$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2192,
+              "max": 2192,
+              "observed": [
+                2192
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "electrum-wallet-salt-type-5.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "electrum"
+                ],
+                "john_extractors": [
+                  "electrum2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Electrum wallet files"
+                ],
+                "expected_prefixes": [
+                  "$electrum$"
+                ],
+                "note": "Electrum wallet types use version/type fields; parser should validate salt type and hex lengths.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "elf-32.json",
+      "id": "elf-32",
+      "name": "ELF-32",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "elf-32.haiti.001",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{8}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "elf-32.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "elf-32.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "empire-cms-admin-password.json",
+      "id": "empire-cms-admin-password",
+      "name": "Empire CMS (Admin password)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "empire-cms-admin-password.hashcat.32300",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{32}:[A-Fa-f0-9]{30}:[A-Fa-f0-9]{34}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 98,
+          "value": "5962d4ada95d6493379cd9c05ce7a376:726620866134417802643053384570:6056291339665060317728572165496183",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 32300,
+            "name": "Empire CMS (Admin password)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 98..98",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 98,
+            "max": 98,
+            "observed": [
+              98
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 32300,
+            "name": "Empire CMS (Admin password)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 32300,
+            "hashcat_name": "Empire CMS (Admin password)",
+            "official_example": "5962d4ada95d6493379cd9c05ce7a376:726620866134417802643053384570:6056291339665060317728572165496183",
+            "official_example_length": 98,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "empire-cms-admin-password.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 98,
+              "max": 98,
+              "observed": [
+                98
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "empire-cms-admin-password.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "encsecurity-datavault-md5-keychain.json",
+      "id": "encsecurity-datavault-md5-keychain",
+      "name": "ENCsecurity Datavault (MD5/keychain)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "encsecurity-datavault-md5-keychain.haiti.314",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$[a-f0-9]{256}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 301,
+          "value": "$encdv$3$1$91b9babb3820c527$1ff4cb6657adad34$d9067c4d059879dfee2edeb3999871973d422ff5fa868c51b025d07f644187889dc5509ec75d4a120184d619d10d02b138d64ba82f9d0936162c9e64d97771de3e74d6e52e5ab9b900c25fb446e14cbe3ef1fa34328a13f9473c669f22d7020bc036d9e99194c959e4c5ba8...<truncated len=301>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 29940,
+            "name": "ENCsecurity Datavault (MD5/keychain)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$encdv$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 301..301",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 301,
+            "max": 301,
+            "observed": [
+              301
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 29940,
+            "name": "ENCsecurity Datavault (MD5/keychain)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 29940,
+            "hashcat_name": "ENCsecurity Datavault (MD5/keychain)",
+            "official_example": "$encdv$3$1$91b9babb3820c527$1ff4cb6657adad34$d9067c4d059879dfee2edeb3999871973d422ff5fa868c51b025d07f644187889dc5509ec75d4a120184d619d10d02b138d64ba82f9d0936162c9e64d97771de3e74d6e52e5ab9b900c25fb446e14cbe3ef1fa34328a13f9473c669f22d7020bc036d9e99194c959e4c5ba885d6f9ff9ccc2299d67b26e68b850a02363fb264...<truncated len=301>",
+            "official_example_length": 301,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "encsecurity-datavault-md5-keychain.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$encdv$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 301,
+              "max": 301,
+              "observed": [
+                301
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "encsecurity-datavault-md5-keychain.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "encsecurity-datavault-md5-no-keychain.json",
+      "id": "encsecurity-datavault-md5-no-keychain",
+      "name": "ENCsecurity Datavault (MD5/no keychain)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "encsecurity-datavault-md5-no-keychain.haiti.313",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 44,
+          "value": "$encdv$1$1$3a427b9ee5851118$4f52176bb9a1b3b6",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 29930,
+            "name": "ENCsecurity Datavault (MD5/no keychain)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$encdv$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 44..44",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 44,
+            "max": 44,
+            "observed": [
+              44
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              6
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 29930,
+            "name": "ENCsecurity Datavault (MD5/no keychain)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 29930,
+            "hashcat_name": "ENCsecurity Datavault (MD5/no keychain)",
+            "official_example": "$encdv$1$1$3a427b9ee5851118$4f52176bb9a1b3b6",
+            "official_example_length": 44,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "encsecurity-datavault-md5-no-keychain.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$encdv$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  6
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 44,
+              "max": 44,
+              "observed": [
+                44
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "encsecurity-datavault-md5-no-keychain.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "encsecurity-datavault-pbkdf2-keychain.json",
+      "id": "encsecurity-datavault-pbkdf2-keychain",
+      "name": "ENCsecurity Datavault (PBKDF2/keychain)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "encsecurity-datavault-pbkdf2-keychain.haiti.312",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 383,
+          "value": "$encdv-pbkdf2$3$1$c232aba45699c80b$473d5dd2e0833ac7$32$4454716926322493581114042616371582782202532493983541577898367049$100000$9a030124cecc2fef5ca44f83ef6e4c7944f8d7c5234b9000c982e209a92bb5535f4c15be6e9914729eb8a9bf870bd0535a231fa1d443d27c1fc4f78b441a7aa765fa0...<truncated len=383>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 29920,
+            "name": "ENCsecurity Datavault (PBKDF2/keychain)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$encdv-pbkdf2$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 383..383",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 383,
+            "max": 383,
+            "observed": [
+              383
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              10
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 29920,
+            "name": "ENCsecurity Datavault (PBKDF2/keychain)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 29920,
+            "hashcat_name": "ENCsecurity Datavault (PBKDF2/keychain)",
+            "official_example": "$encdv-pbkdf2$3$1$c232aba45699c80b$473d5dd2e0833ac7$32$4454716926322493581114042616371582782202532493983541577898367049$100000$9a030124cecc2fef5ca44f83ef6e4c7944f8d7c5234b9000c982e209a92bb5535f4c15be6e9914729eb8a9bf870bd0535a231fa1d443d27c1fc4f78b441a7aa765fa0a3d181c485f77f59334ec68f27e66f227eb4be35...<truncated len=383>",
+            "official_example_length": 383,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "encsecurity-datavault-pbkdf2-keychain.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$encdv-pbkdf2$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  10
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 383,
+              "max": 383,
+              "observed": [
+                383
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "encsecurity-datavault-pbkdf2-keychain.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "encsecurity-datavault-pbkdf2-no-keychain.json",
+      "id": "encsecurity-datavault-pbkdf2-no-keychain",
+      "name": "ENCsecurity Datavault (PBKDF2/no keychain)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "encsecurity-datavault-pbkdf2-no-keychain.haiti.311",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 126,
+          "value": "$encdv-pbkdf2$1$1$121f898edc51ffb2$14e6bf4e9256f9e4$32$1972489853882254644795101599063579097812661888813652597380052274$100000",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 29910,
+            "name": "ENCsecurity Datavault (PBKDF2/no keychain)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$encdv-pbkdf2$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 126..126",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 126,
+            "max": 126,
+            "observed": [
+              126
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 29910,
+            "name": "ENCsecurity Datavault (PBKDF2/no keychain)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 29910,
+            "hashcat_name": "ENCsecurity Datavault (PBKDF2/no keychain)",
+            "official_example": "$encdv-pbkdf2$1$1$121f898edc51ffb2$14e6bf4e9256f9e4$32$1972489853882254644795101599063579097812661888813652597380052274$100000",
+            "official_example_length": 126,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "encsecurity-datavault-pbkdf2-no-keychain.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$encdv-pbkdf2$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 126,
+              "max": 126,
+              "observed": [
+                126
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "encsecurity-datavault-pbkdf2-no-keychain.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "epi.json",
+      "id": "epi",
+      "name": "EPi",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "epi.haiti.121",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^0x[a-f0-9]{60}\\s0x[a-f0-9]{40}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 105,
+          "value": "0x326C6D7B4E4F794B79474E36704F35723958397163735263516265456E31 0xAFC55E260B8F45C0C6512BCE776C1AD8312B56E6",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 123,
+            "name": "EPi",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "0x",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 105..105",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 105,
+            "max": 105,
+            "observed": [
+              105
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 123,
+            "name": "EPi",
+            "status": "active"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "epi.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "0x"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 105,
+              "max": 105,
+              "observed": [
+                105
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "epi.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "episerver-6-x-v4-b44ff726.json",
+      "id": "episerver-6-x-v4-b44ff726",
+      "name": "EPiServer 6.x \u2265 v4",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "episerver-6-x-v4-b44ff726.haiti.070",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$episerver\\$\\*1\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{42,43}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 66,
+          "value": "$episerver$*1*NDg1NTIz*8BFCg/YJBAuZs/wjbH3OWKe69BLr5Lao26ybpnD48Zk",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 1441,
+            "name": "EPiServer 6.x \u2265 v4",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "episerver",
+            "name": "EPiServer 6.x \u2265 v4",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$episerver$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 66..66",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 66,
+            "max": 66,
+            "observed": [
+              66
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "episerver",
+            "name": "EPiServer 6.x \u2265 v4",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 1441,
+            "name": "EPiServer 6.x \u2265 v4",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 1441,
+            "hashcat_name": "Episerver 6.x >= .NET 4",
+            "official_example": "$episerver$*1*NDg1NTIz*8BFCg/YJBAuZs/wjbH3OWKe69BLr5Lao26ybpnD48Zk",
+            "official_example_length": 66,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "episerver-6-x-v4-b44ff726.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$episerver$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 66,
+              "max": 66,
+              "observed": [
+                66
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "episerver-6-x-v4-b44ff726.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "episerver-6-x-v4.json",
+      "id": "episerver-6-x-v4",
+      "name": "EPiServer 6.x < v4",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "episerver-6-x-v4.haiti.065",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$episerver\\$\\*0\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{27,28}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 50,
+          "value": "$episerver$*0*MjEwNA==*ZUgAmuaYTqAvisD0A427FA3oaWU",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 141,
+            "name": "EPiServer 6.x < v4",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "episerver",
+            "name": "EPiServer 6.x < v4",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$episerver$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 50..50",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 50,
+            "max": 50,
+            "observed": [
+              50
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "episerver",
+            "name": "EPiServer 6.x < v4",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 141,
+            "name": "EPiServer 6.x < v4",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 141,
+            "hashcat_name": "Episerver 6.x < .NET 4",
+            "official_example": "$episerver$*0*MjEwNA==*ZUgAmuaYTqAvisD0A427FA3oaWU",
+            "official_example_length": 50,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "episerver-6-x-v4.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$episerver$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 50,
+              "max": 50,
+              "observed": [
+                50
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "episerver-6-x-v4.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ethereum-presale-wallet-pbkdf2-hmac-sha256.json",
+      "id": "ethereum-presale-wallet-pbkdf2-hmac-sha256",
+      "name": "Ethereum Presale Wallet (PBKDF2-HMAC-SHA256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ethereum-presale-wallet-pbkdf2-hmac-sha256.haiti.203",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$ethereum\\$w\\*[a-z0-9]{64,1248}\\*[a-z0-9]{40}\\*[a-z0-9]{32}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 1334,
+          "value": "$ethereum$w*0b2fa2c63a8b5603e1104fbada15a609aa9736ed41db1678d91a9b1a1f7c1628e711dbc250c4c289b06b0faa56cd499dc4af9daf878202db22cc61df1a91c918314c77ce92e5c8b1265580edd79a852acf40fe2138653ac16524c08247381d9802cf5ef3f8c4baf69fb869f2b7fb796bae853cfbdc3c5b788a14e75f...<truncated len=1334>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 214,
+          "value": "$ethereum$w*4ab35fcb5c3101af70d5b3bf22829af3dbd48813273b17566ee364285c7bcfb2d52611a58e54d3e6be27e458073304e71e356afc4c97da0143910308f30563fe*c4dfdaa5288b477d0ff25a260ef32a24282cc4e2*97b3d2c2c8106507b87744f0b12f73c2",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 214,
+          "value": "$ethereum$w*9ace195a18b83b09da933f60f64fb4651e8413a5fdc12249724088d43dcd6d3c943f83d78d475e61177ca38965cb7794a2e1225250ae29134e60492871c79bf2*b9cfc3e87d22f37be858f97944844efbd32e5da5*ec97af5d7e240a559ee74f7a9e7312f2",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 1334,
+          "value": "$ethereum$w*e94a8e49deac2d62206bf9bfb7d2aaea7eb06c1a378cfc1ac056cc599a569793c0ecc40e6a0c242dee2812f06b644d70f43331b1fa2ce4bd6cbb9f62dd25b443235bdb4c1ffb222084c9ded8c719624b338f17e0fd827b34d79801298ac75f74ed97ae16f72fccecf862d09a03498b1b8bd1d984fc43dd507ede5d4b...<truncated len=1334>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 16300,
+            "name": "Ethereum Presale Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ethereum",
+            "name": "Ethereum Presale Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$ethereum$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 214..1334",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 214,
+            "max": 1334,
+            "observed": [
+              214,
+              1334
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "ethereum"
+            ],
+            "john_extractors": [
+              "ethereum2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Ethereum keystore/presale wallet JSON"
+            ],
+            "expected_prefixes": [
+              "$ethereum$"
+            ],
+            "note": "Ethereum wallet variants should validate $ethereum$p/$ethereum$s/$ethereum$w prefix and version-specific fields.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ethereum",
+            "name": "Ethereum Presale Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 16300,
+            "name": "Ethereum Presale Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 16300,
+            "hashcat_name": "Ethereum Pre-Sale Wallet, PBKDF2-HMAC-SHA256",
+            "official_example": "$ethereum$w*e94a8e49deac2d62206bf9bfb7d2aaea7eb06c1a378cfc1ac056cc599a569793c0ecc40e6a0c242dee2812f06b644d70f43331b1fa2ce4bd6cbb9f62dd25b443235bdb4c1ffb222084c9ded8c719624b338f17e0fd827b34d79801298ac75f74ed97ae16f72fccecf862d09a03498b1b8bd1d984fc43dd507ede5d4b6223a582352386407266b66c671077eefc1e07b5...<truncated len=1334>",
+            "official_example_length": 1334,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ethereum-presale-wallet-pbkdf2-hmac-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$ethereum$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 214,
+              "max": 1334,
+              "observed": [
+                214,
+                1334
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ethereum-presale-wallet-pbkdf2-hmac-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "ethereum"
+                ],
+                "john_extractors": [
+                  "ethereum2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Ethereum keystore/presale wallet JSON"
+                ],
+                "expected_prefixes": [
+                  "$ethereum$"
+                ],
+                "note": "Ethereum wallet variants should validate $ethereum$p/$ethereum$s/$ethereum$w prefix and version-specific fields.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ethereum-wallet-pbkdf2-hmac-sha256.json",
+      "id": "ethereum-wallet-pbkdf2-hmac-sha256",
+      "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ethereum-wallet-pbkdf2-hmac-sha256.haiti.204",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$ethereum\\$p\\*\\d{1,6}\\*[a-z0-9]{32,64}\\*[a-z0-9]{64}\\*[a-z0-9]{64}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 179,
+          "value": "$ethereum$p*1024*30323330313838333730333538343831*6dcfca7cbd44eb3ca7f11162b996b98dd46fb68e1afb095686fe944fcbdb3b59*b3a766d8c1390462304af979c6f709ba54a23ff135d1ffcdef485dcc7f79b5f2",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 179,
+          "value": "$ethereum$p*1024*38353131353831333338313138363430*a8b4dfe92687dbc0afeb5dae7863f18964241e96b264f09959903c8c924583fc*0a9252861d1e235994ce33dbca91c98231764d8ecb4950015a8ae20d6415b986",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 213,
+          "value": "$ethereum$p*262144*3238383137313130353438343737383736323437353437383831373034343735*06eae7ee0a4b9e8abc02c9990e3730827396e8531558ed15bb733faf12a44ce1*e6d5891d4f199d31ec434fe25d9ecc2530716bc3b36d5bdbc1fab7685dda3946",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 213,
+          "value": "$ethereum$p*262144*ae3cd4e7013836a3df6bd7241b12db061dbe2c6785853cce422d148a624ce0bd*5318b4d5bcd28de64ee5559e671353e16f075ecae9f99c7a79a38af5f869aa46*517ead924a9d0dc3124507e3393d175ce3ff7c1e96529c6c555ce9e51205e9b2",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15600,
+            "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ethereum",
+            "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$ethereum$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 179..213",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 179,
+            "max": 213,
+            "observed": [
+              179,
+              213
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "ethereum"
+            ],
+            "john_extractors": [
+              "ethereum2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Ethereum keystore/presale wallet JSON"
+            ],
+            "expected_prefixes": [
+              "$ethereum$"
+            ],
+            "note": "Ethereum wallet variants should validate $ethereum$p/$ethereum$s/$ethereum$w prefix and version-specific fields.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ethereum",
+            "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 15600,
+            "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15600,
+            "hashcat_name": "Ethereum Wallet, PBKDF2-HMAC-SHA256",
+            "official_example": "$ethereum$p*1024*38353131353831333338313138363430*a8b4dfe92687dbc0afeb5dae7863f18964241e96b264f09959903c8c924583fc*0a9252861d1e235994ce33dbca91c98231764d8ecb4950015a8ae20d6415b986",
+            "official_example_length": 179,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ethereum-wallet-pbkdf2-hmac-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$ethereum$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 179,
+              "max": 213,
+              "observed": [
+                179,
+                213
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ethereum-wallet-pbkdf2-hmac-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "ethereum"
+                ],
+                "john_extractors": [
+                  "ethereum2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Ethereum keystore/presale wallet JSON"
+                ],
+                "expected_prefixes": [
+                  "$ethereum$"
+                ],
+                "note": "Ethereum wallet variants should validate $ethereum$p/$ethereum$s/$ethereum$w prefix and version-specific fields.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ethereum-wallet-scrypt.json",
+      "id": "ethereum-wallet-scrypt",
+      "name": "Ethereum Wallet (SCRYPT)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ethereum-wallet-scrypt.haiti.205",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$ethereum\\$s\\*\\d{1,6}\\*\\d{1,6}\\*\\d{1,6}\\*[a-z0-9]{64}\\*[a-z0-9]{64}\\*[a-z0-9]{64}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 217,
+          "value": "$ethereum$s*262144*1*8*3436383737333838313035343736303637353530323430373235343034363130*8b58d9d15f579faba1cd13dd372faeb51718e7f70735de96f0bcb2ef4fb90278*8de566b919e6825a65746e266226316c1add8d8c3d15f54640902437bcffc8c3",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 217,
+          "value": "$ethereum$s*262144*1*8*ab0c7876052600dd703518d6fc3fe8984592145b591fc8fb5c6d43190334ba19*d172bf743a674da9cdad04534d56926ef8358534d458fffccd4e6ad2fbde479c*2103ac29920d71da29f15d75b4a16dbe95cfd7ff8faea1056c33131d846e3097",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 217,
+          "value": "$ethereum$s*262144*8*1*3134313837333434333838303231333633373433323633373534333136363537*73da7f80ec3bd4f2a128c3a815cfb4d576ecb1a9b47024c902e62ea926f7795b*910e0f8dc1f7ba41959e1089bb769f3e919109591913cc33ba03953d7a905efd",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 217,
+          "value": "$ethereum$s*262144*8*1*cc48acb99a3c5e5494c46175dfdf13999a93b75285c04c289b1828e4a003c42c*193d41913eae708e545b2e9dbc40d345f3acf6e6ea8ffdfac63d606043c22267*da77eb1ebbb17e471cd397f5b6b31987800790b885d4c807336e6d8eff77b93b",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15700,
+            "name": "Ethereum Wallet (SCRYPT)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ethereum",
+            "name": "Ethereum Wallet (SCRYPT)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$ethereum$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 217..217",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 217,
+            "max": 217,
+            "observed": [
+              217
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "ethereum"
+            ],
+            "john_extractors": [
+              "ethereum2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Ethereum keystore/presale wallet JSON"
+            ],
+            "expected_prefixes": [
+              "$ethereum$"
+            ],
+            "note": "Ethereum wallet variants should validate $ethereum$p/$ethereum$s/$ethereum$w prefix and version-specific fields.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ethereum",
+            "name": "Ethereum Wallet (SCRYPT)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 15700,
+            "name": "Ethereum Wallet (SCRYPT)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15700,
+            "hashcat_name": "Ethereum Wallet, SCRYPT",
+            "official_example": "$ethereum$s*262144*8*1*3134313837333434333838303231333633373433323633373534333136363537*73da7f80ec3bd4f2a128c3a815cfb4d576ecb1a9b47024c902e62ea926f7795b*910e0f8dc1f7ba41959e1089bb769f3e919109591913cc33ba03953d7a905efd",
+            "official_example_length": 217,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ethereum-wallet-scrypt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$ethereum$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 217,
+              "max": 217,
+              "observed": [
+                217
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ethereum-wallet-scrypt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "ethereum"
+                ],
+                "john_extractors": [
+                  "ethereum2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Ethereum keystore/presale wallet JSON"
+                ],
+                "expected_prefixes": [
+                  "$ethereum$"
+                ],
+                "note": "Ethereum wallet variants should validate $ethereum$p/$ethereum$s/$ethereum$w prefix and version-specific fields.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "exodus-desktop-wallet-scrypt.json",
+      "id": "exodus-desktop-wallet-scrypt",
+      "name": "Exodus Desktop Wallet (scrypt)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "exodus-desktop-wallet-scrypt.haiti.273",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\AEXODUS:\\d{1,6}:\\d{1,6}:\\d{1,6}:(?=[^:]{44})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{16})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{44})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{24})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0...<truncated len=414>"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 148,
+          "value": "EXODUS:16384:8:1:IYkXZgFETRmFp4wQXyP8XMe3LtuOw8wMdLcBVQ+9YWE=:lq0W9ekN5sC0O7Xw:UD4a6mUUhkTbQtGWitXHZUg0pQ4RHI6W/KUyYE95m3k=:ZuNQckXOtr4r21x+DT1zpQ==",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 28200,
+            "name": "Exodus Desktop Wallet (scrypt)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "EXODUS:",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 148..148",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 148,
+            "max": 148,
+            "observed": [
+              148
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              8
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 28200,
+            "name": "Exodus Desktop Wallet (scrypt)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 28200,
+            "hashcat_name": "Exodus Desktop Wallet (scrypt)",
+            "official_example": "EXODUS:16384:8:1:IYkXZgFETRmFp4wQXyP8XMe3LtuOw8wMdLcBVQ+9YWE=:lq0W9ekN5sC0O7Xw:UD4a6mUUhkTbQtGWitXHZUg0pQ4RHI6W/KUyYE95m3k=:ZuNQckXOtr4r21x+DT1zpQ==",
+            "official_example_length": 148,
+            "official_notes": [
+              "Module usage notice: `You can use https://github.com/hashcat/hashcat/blob/master/tools/exodus2hashcat.py to extract the hashes`"
+            ],
+            "referenced_urls": [
+              "https://github.com/hashcat/hashcat/blob/master/tools/exodus2hashcat.py"
+            ],
+            "referenced_tools": [
+              "exodus2hashcat.py"
+            ],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "exodus-desktop-wallet-scrypt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "EXODUS:"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  8
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 148,
+              "max": 148,
+              "observed": [
+                148
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "exodus-desktop-wallet-scrypt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    }
+  ]
+}

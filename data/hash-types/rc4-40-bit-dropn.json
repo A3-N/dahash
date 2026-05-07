@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "rc4-40-bit-dropn",
+  "name": "RC4 40-bit DropN",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "33500"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 33500,
+        "name": "RC4 40-bit DropN",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "33500"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$rc4$40$0$e9a41693b759cf88929ca31203694f$0$48656c6c6f",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "33500"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "rc4-40-bit-dropn.hashcat.33500",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{3}\\$[0-9]{2}\\$[0-9]{1}\\$[A-Fa-f0-9]{30}\\$[0-9]{1}\\$[A-Fa-f0-9]{10}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "33500"
+        }
+      ]
+    }
+  ]
+}

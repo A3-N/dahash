@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "luks-v1-ripemd-160-twofish",
+  "name": "LUKS v1 RIPEMD-160 + Twofish",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "29543"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29543,
+        "name": "LUKS v1 RIPEMD-160 + Twofish",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "29543"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "https://hashcat.net/misc/example_hashes/hashcat_luks_ripemd160_twofish_cbc-plain64_128.txt",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29543"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "luks-v1-ripemd-160-twofish.hashcat.29543",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{5}://hashcat\\.net/misc/example_hashes/hashcat_luks_ripemd160_twofish_cbc\\-plain64_128\\.txt$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "29543"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "haval-160",
+  "name": "Haval-160",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "haval-160.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:.+)?$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "name-that-hash-reference",
+          "ref": "Haval-160"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "name-that-hash-reference",
+      "ref": "Haval-160"
+    }
+  ]
+}

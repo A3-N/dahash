@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "tripcode",
+  "name": "Tripcode",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "16000"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16000,
+        "name": "Tripcode",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "16000"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "pfaRCwDe0U",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "tripcode.hashcat.16000",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{10}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16000"
+        }
+      ]
+    }
+  ]
+}

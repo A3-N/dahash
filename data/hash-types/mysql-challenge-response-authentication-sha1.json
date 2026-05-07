@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mysql-challenge-response-authentication-sha1",
+  "name": "MySQL Challenge-Response Authentication (SHA1)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mysql-challenge-response-authentication-sha1.haiti.197",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$mysqlna\\$[a-f0-9]{40}[:*][a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$mysqlna\\$[a-f0-9]{40}[:*][a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 11200,
+        "name": "MySQL Challenge-Response Authentication (SHA1)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "11200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "11200"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MySQL Challenge-Response Authentication (SHA1)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$mysqlna$2576670568531371763643101056213751754328*5e4be686a3149a12847caa9898247dcc05739601",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "11200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

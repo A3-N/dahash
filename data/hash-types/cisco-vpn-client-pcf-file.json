@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cisco-vpn-client-pcf-file",
+  "name": "Cisco VPN Client(PCF-File)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cisco-vpn-client-pcf-file.haiti.095",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{112}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{112}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Cisco VPN Client(PCF-File)"
+    }
+  ]
+}

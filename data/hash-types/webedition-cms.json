@@ -1,0 +1,56 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "webedition-cms",
+  "name": "WebEdition CMS",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "webedition-cms.haiti.034",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}:.+$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}:.+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 3721,
+        "name": "WebEdition CMS",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "3721"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "fa01af9f0de5f377ae8befb03865178e:5678",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "WebEdition CMS"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "WebEdition CMS"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "azuread-ms-azuresync-pbkdf2-hmac-sha256",
+  "name": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "azuread-ms-azuresync-pbkdf2-hmac-sha256.haiti.262",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^v1;PPH1_MD4,[a-f0-9]{20},\\d{1,6},[a-f0-9]{64};?$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Av1;PPH1_MD4,[a-f0-9]{20},\\d{1,6},[a-f0-9]{64};?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 12800,
+        "name": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "12800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "12800"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "azuread",
+        "name": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "azuread"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "v1;PPH1_MD4,31414275383876386e32,100,102ce242cde4339e934d7c6b539d49ae340b02dd380815666b98bd036cd4dc4f;",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "v1;PPH1_MD4,465564476f786e705069,100,612a80cb011bee1f929c7a9e2bd16d98a79f2deb9f44919100f7c0ec74508560;",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "v1;PPH1_MD4,54188415275183448824,100,55b530f052a9af79a7ba9c466dddcb8b116f8babf6c3873a51a3898fb008e123",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "12800"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "v1;PPH1_MD4,724b754c4b6d30526f36,100,367ff0ac2a1cb334bb26609c8bfc8ae5f619d1eaf07568df040f407504a20241;",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
+    }
+  ]
+}

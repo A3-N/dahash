@@ -1,0 +1,101 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "kerberos-5-db-etype-18",
+  "name": "Kerberos 5 DB etype 18",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "kerberos-5-db-etype-18.haiti.112",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$krb5db\\$18\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]{1,512})?\\$[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$krb5db\\$18\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]{1,512})?\\$[a-f0-9]{64}\\Z"
+        }
+      ]
+    },
+    {
+      "id": "kerberos-5-db-etype-18.haiti.113",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$krb18\\$[^$]{1,512}\\$[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$krb18\\$[^$]{1,512}\\$[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 28900,
+        "name": "Kerberos 5 DB etype 18",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "28900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "28900"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "krb5-18",
+        "name": "Kerberos 5 DB etype 18",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "krb5-18"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$krb18$OLYMPE.OLtest$214bb89cf5b8330112d52189ab05d9d05b03b5a961fe6d06203335ad5f339b26",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 DB etype 18"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$krb5db$18$test$TEST.LOCAL$266b5a53a6d663c3f69174f3309acada8e467c097c7973699f86286a6cf1a6c7",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 DB etype 18"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "28900"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Kerberos 5 DB etype 18"
+    }
+  ]
+}

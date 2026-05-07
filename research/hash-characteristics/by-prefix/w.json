@@ -1,0 +1,4029 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "w",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "wbb4-woltlab-burning-board-bcrypt-bcrypt-pass.json",
+      "id": "wbb4-woltlab-burning-board-bcrypt-bcrypt-pass",
+      "name": "WBB4 (Woltlab Burning Board) [bcrypt(bcrypt($pass))]",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "wbb4-woltlab-burning-board-bcrypt-bcrypt-pass.hashcat.33800",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Fa-f0-9]{2}\\$[0-9]{2}\\$[A-Za-z0-9./]{53}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 60,
+          "value": "$2a$08$hashcatohohohohohohohegk6PN.SFkoXxDIkacAGKFN9AF8nx.Hi",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 33800,
+            "name": "WBB4 (Woltlab Burning Board) [bcrypt(bcrypt($pass))]",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$2a$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 60..60",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 60,
+            "max": 60,
+            "observed": [
+              60
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 33800,
+            "name": "WBB4 (Woltlab Burning Board) [bcrypt(bcrypt($pass))]",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 33800,
+            "hashcat_name": "WBB4 (Woltlab Burning Board) [bcrypt(bcrypt($pass))]",
+            "official_example": "$2a$08$hashcatohohohohohohohegk6PN.SFkoXxDIkacAGKFN9AF8nx.Hi",
+            "official_example_length": 60,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wbb4-woltlab-burning-board-bcrypt-bcrypt-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$2a$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 60,
+              "max": 60,
+              "observed": [
+                60
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wbb4-woltlab-burning-board-bcrypt-bcrypt-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "web2py-pbkdf2-hmac-sha512.json",
+      "id": "web2py-pbkdf2-hmac-sha512",
+      "name": "Web2py (PBKDF2-HMAC-SHA512)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "web2py-pbkdf2-hmac-sha512.haiti.119",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^pbkdf2\\(\\d{1,8},20,sha512\\)\\$.{0,256}\\$[a-f0-9]{40}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 70,
+          "value": "pbkdf2(1000,20,sha512)$744943$c5f8cdef76e3327c908d8d96d4abdb3d8caba14c",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 80,
+          "value": "pbkdf2(1000,20,sha512)$b787f1e6dfe7da8f$b280b42a152aa14a1944d35c6a070521251b85d1",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 21600,
+            "name": "Web2py (PBKDF2-HMAC-SHA512)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 70..80",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 70,
+            "max": 80,
+            "observed": [
+              70,
+              80
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 21600,
+            "name": "Web2py (PBKDF2-HMAC-SHA512)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 21600,
+            "hashcat_name": "Web2py pbkdf2-sha512",
+            "official_example": "pbkdf2(1000,20,sha512)$744943$c5f8cdef76e3327c908d8d96d4abdb3d8caba14c",
+            "official_example_length": 70,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "web2py-pbkdf2-hmac-sha512.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 70,
+              "max": 80,
+              "observed": [
+                70,
+                80
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "web2py-pbkdf2-hmac-sha512.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "webedition-cms.json",
+      "id": "webedition-cms",
+      "name": "WebEdition CMS",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "webedition-cms.haiti.034",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{32}:.+$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 37,
+          "value": "fa01af9f0de5f377ae8befb03865178e:5678",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 3721,
+            "name": "WebEdition CMS",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 37..37",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 37,
+            "max": 37,
+            "observed": [
+              37
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 3721,
+            "name": "WebEdition CMS",
+            "status": "active"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "webedition-cms.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 37,
+              "max": 37,
+              "observed": [
+                37
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "webedition-cms.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "whirlpool.json",
+      "id": "whirlpool",
+      "name": "Whirlpool",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "whirlpool.haiti.075",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{128}(:.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 128,
+          "value": "19fa61d75522a4669b44e39c1d2e1726c530232130d407f89afee0964997f7a73e83be698b288febcf88e3e03c4f0757ea8964e59b63d93708b138cc42a66eb3",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 128,
+          "value": "7ca8eaaaa15eaa4c038b4c47b9313e92da827c06940e69947f85bc0fbef3eb8fd254da220ad9e208b6b28f6bb9be31dd760f1fdb26112d83f87d96b416a4d258",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 128,
+          "value": "8a5aafad02c0762eb7a5065eeffe790174d32c710104c9c5eb7820ea38ddd8adc9836f27391c5e8cc1030580de68cd5639ed494b0d85aab525ec852e9226e121",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 128,
+          "value": "cdc66b9a5aac19a97ef5da222781663e0876bae771e84758cc01da21f5b42f63b6a8544024e4b6ef9e00b35334dd28a0b19e6eafd9f2e1de58684e759009399a",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 6100,
+            "name": "Whirlpool",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "whirlpool",
+            "name": "Whirlpool",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 128..128",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 128,
+            "max": 128,
+            "observed": [
+              128
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "whirlpool",
+            "name": "Whirlpool",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 6100,
+            "name": "Whirlpool",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 6100,
+            "hashcat_name": "Whirlpool",
+            "official_example": "7ca8eaaaa15eaa4c038b4c47b9313e92da827c06940e69947f85bc0fbef3eb8fd254da220ad9e208b6b28f6bb9be31dd760f1fdb26112d83f87d96b416a4d258",
+            "official_example_length": 128,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "whirlpool.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 128,
+              "max": 128,
+              "observed": [
+                128
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "whirlpool.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "windows-hello-pin-password.json",
+      "id": "windows-hello-pin-password",
+      "name": "Windows Hello PIN/Password",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "windows-hello-pin-password.haiti.252",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$WINHELLO\\$\\*SHA512\\*10000\\*[a-f0-9]{8}\\*[a-f0-9]{128}\\*[a-f0-9]{128}\\*[a-f0-9]{64}\\*[a-f0-9]{1384}\\*[a-f0-9]{34}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 1775,
+          "value": "$WINHELLO$*SHA512*10000*00761655*3b3d3197efb2839a6072e922cc03be910be55d1e60389689c05b520d2d57c06258dc5a48798ba65424004cbe2e003d0509036f3394bcae108eb6b77c7eb306d7*c0772a3aca949db60f274f315b3a5f63fea552fc0d1f2032db5293ca9690735217d918d4cf697aa45b2fe598168804040e...<truncated len=1775>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 28100,
+            "name": "Windows Hello PIN/Password",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$WINHELLO$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 1775..1775",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 1775,
+            "max": 1775,
+            "observed": [
+              1775
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 28100,
+            "name": "Windows Hello PIN/Password",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 28100,
+            "hashcat_name": "Windows Hello PIN/Password",
+            "official_example": "$WINHELLO$*SHA512*10000*00761655*3b3d3197efb2839a6072e922cc03be910be55d1e60389689c05b520d2d57c06258dc5a48798ba65424004cbe2e003d0509036f3394bcae108eb6b77c7eb306d7*c0772a3aca949db60f274f315b3a5f63fea552fc0d1f2032db5293ca9690735217d918d4cf697aa45b2fe598168804040e18fe00758be94aac971985ea7a5521*bff47e398...<truncated len=1775>",
+            "official_example_length": 1775,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "windows-hello-pin-password.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$WINHELLO$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 1775,
+              "max": 1775,
+              "observed": [
+                1775
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "windows-hello-pin-password.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "windows-phone-8-pin-password.json",
+      "id": "windows-phone-8-pin-password",
+      "name": "Windows Phone 8+ PIN/password",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "windows-phone-8-pin-password.hashcat.13800",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{64}:[A-Fa-f0-9]{256}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 321,
+          "value": "060a4a94cb2263bcefe74705bd0efe7643d09c2bc25fc69f6a32c1b8d5a5d0d9:464731618415641083250727864244403051240246324614863651035610343244025773310276144426238365310080214083860553518700558606354864376520786534406804227845487502145235587032002086806450624884004741468...<truncated len=321>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 13800,
+            "name": "Windows Phone 8+ PIN/password",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 321..321",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 321,
+            "max": 321,
+            "observed": [
+              321
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 13800,
+            "name": "Windows Phone 8+ PIN/password",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 13800,
+            "hashcat_name": "Windows Phone 8+ PIN/password",
+            "official_example": "060a4a94cb2263bcefe74705bd0efe7643d09c2bc25fc69f6a32c1b8d5a5d0d9:4647316184156410832507278642444030512402463246148636510356103432440257733102761444262383653100802140838605535187005586063548643765207865344068042278454875021452355870320020868064506248840047414683714173748364871633802572014845467035357...<truncated len=321>",
+            "official_example_length": 321,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "windows-phone-8-pin-password.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 321,
+              "max": 321,
+              "observed": [
+                321
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "windows-phone-8-pin-password.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "winzip.json",
+      "id": "winzip",
+      "name": "WinZip",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "winzip.haiti.208",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$zip2\\$\\*\\d{1}\\*\\d{1}\\*\\d{1}\\*[a-f0-9]{16,32}\\*[a-f0-9]{1,6}\\*[a-f0-9]{1,6}\\*[a-f0-9]*\\*[a-f0-9]{20}\\*\\$/zip2\\$$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 66,
+          "value": "$zip2$*0*1*0*0675369741458183*5dc5*0**36b85538918416712640*$/zip2$",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 1124,
+          "value": "$zip2$*0*1*0*9ffba76344938a7d*cc41*210*fb28d3fd983302058c5296c07442502ae05bb59adb9eb2378cb0841efa227cd58f7076ec00bb5faaee24c3433763d715461d4e714cdd9d933f621d2cf6ae73d824414ca2126cfc608d8fc7641d2869afa90f28be7113c71c6b6a3ad6d6633173cde9d7c1bb449cc0a1f8cbab86392...<truncated len=1124>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 175,
+          "value": "$zip2$*0*2*0*c702895e204a15d8016cd436*7688*32*f1e0c797182c9231ebbdfb23111203131d9c949b45396f6ea233ac41c056f938a68869400bc25123bd61f8d7bd4930a6440c*3f229b45b30739ab4867*$/zip2$",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 1140,
+          "value": "$zip2$*0*3*0*855f69693734c7be8c1093ea5bae6114*f035*210*c02aa1d42cc7623c0746979c6c2ce78e8492e9ab1d0954b76d328c52c4d555fbdc2af52822c7b6f4548fc5cca615cd0510f699d4b6007551c38b4183cafba7b073a5ba86745f0c3842896b87425d5247d3b09e0f9f701b50866e1636ef62ee20343ea69822224...<truncated len=1140>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 13600,
+            "name": "WinZip",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "zip",
+            "name": "WinZip",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$zip2$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 66..1140",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 66,
+            "max": 1140,
+            "observed": [
+              66,
+              175,
+              1124,
+              1140
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              10
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "zip",
+              "pkzip",
+              "winzip"
+            ],
+            "john_extractors": [
+              "zip2john"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".zip/.zipx archives"
+            ],
+            "expected_prefixes": [
+              "$zip$",
+              "$pkzip$"
+            ],
+            "note": "ZIP hashes are archive extractor output; PKZIP/WinZip/AES variants need version and compression/encryption flags.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "zip",
+            "name": "WinZip",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 13600,
+            "name": "WinZip",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 13600,
+            "hashcat_name": "WinZip",
+            "official_example": "$zip2$*0*1*0*0675369741458183*5dc5*0**36b85538918416712640*$/zip2$",
+            "official_example_length": 66,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "winzip.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$zip2$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  10
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 66,
+              "max": 1140,
+              "observed": [
+                66,
+                175,
+                1124,
+                1140
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "winzip.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "zip",
+                  "pkzip",
+                  "winzip"
+                ],
+                "john_extractors": [
+                  "zip2john"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".zip/.zipx archives"
+                ],
+                "expected_prefixes": [
+                  "$zip$",
+                  "$pkzip$"
+                ],
+                "note": "ZIP hashes are archive extractor output; PKZIP/WinZip/AES variants need version and compression/encryption flags.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wolt3bb.json",
+      "id": "wolt3bb",
+      "name": "Wolt3BB",
+      "current_status": "active",
+      "current_priority": 20,
+      "current_tags": [
+        "extended"
+      ],
+      "current_matchers": [
+        {
+          "id": "wolt3bb.haiti.035",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "weak",
+          "weight": 25,
+          "pattern": "^[a-f0-9]{40}(:[^:]+)?$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "dynamic_38",
+            "name": "Wolt3BB",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "dynamic_38",
+            "name": "Wolt3BB",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "wolt3bb.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wolt3bb.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "woltlab-burning-board-3-x.json",
+      "id": "woltlab-burning-board-3-x",
+      "name": "Woltlab Burning Board 3.x",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "woltlab-burning-board-3-x.haiti.123",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(\\$wbb3\\$\\*1\\*)?[a-f0-9]{40}[:*][a-f0-9]{40}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 81,
+          "value": "7f8d1951fe48ae3266980c2979c141f60e4415e5:5037864764153886517871426607441768004150",
+          "plaintext": "hashcat",
+          "verified": true
+        },
+        {
+          "length": 81,
+          "value": "8084df19a6dc81e2597d051c3d8b400787e2d5a9:6755045315424852185115352765375338838643",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 8400,
+            "name": "Woltlab Burning Board 3.x",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "wbb3",
+            "name": "Woltlab Burning Board 3.x",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$wbb3$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 81..81",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 81,
+            "max": 81,
+            "observed": [
+              81
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "wbb3",
+            "name": "Woltlab Burning Board 3.x",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 8400,
+            "name": "Woltlab Burning Board 3.x",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 8400,
+            "hashcat_name": "WBB3 (Woltlab Burning Board)",
+            "official_example": "7f8d1951fe48ae3266980c2979c141f60e4415e5:5037864764153886517871426607441768004150",
+            "official_example_length": 81,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "woltlab-burning-board-3-x.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$wbb3$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 81,
+              "max": 81,
+              "observed": [
+                81
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "woltlab-burning-board-3-x.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "woltlab-burning-board-4-x.json",
+      "id": "woltlab-burning-board-4-x",
+      "name": "Woltlab Burning Board 4.x",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "woltlab-burning-board-4-x.haiti.050",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(\\$2[abxy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "woltlab-burning-board-4-x.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "woltlab-burning-board-4-x.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wordpress-bcrypt-hmac-sha384-pass.json",
+      "id": "wordpress-bcrypt-hmac-sha384-pass",
+      "name": "Wordpress bcrypt(hmac-sha384($pass))",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "wordpress-bcrypt-hmac-sha384-pass.hashcat.35500",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{2}\\$[A-Za-z0-9]{2}\\$[0-9]{2}\\$[A-Za-z0-9./]{53}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 63,
+          "value": "$wp$2y$10$lzlQrRRhLSjz486bA9CKHuZRPoKz4uviT251Sq/r5OzKUBbrXwnQW",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 35500,
+            "name": "Wordpress bcrypt(hmac-sha384($pass))",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$wp$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 63..63",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 63,
+            "max": 63,
+            "observed": [
+              63
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "webapp_prefixes",
+            "confidence": "strong",
+            "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+            "proposed_characteristics": [
+              "prefix:$P$/$H$/$S$",
+              "itoa64 alphabet",
+              "application_context:CMS user table"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          },
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 35500,
+            "name": "Wordpress bcrypt(hmac-sha384($pass))",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 35500,
+            "hashcat_name": "Wordpress bcrypt(hmac-sha384($pass))",
+            "official_example": "$wp$2y$10$lzlQrRRhLSjz486bA9CKHuZRPoKz4uviT251Sq/r5OzKUBbrXwnQW",
+            "official_example_length": 63,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wordpress-bcrypt-hmac-sha384-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$wp$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 63,
+              "max": 63,
+              "observed": [
+                63
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wordpress-bcrypt-hmac-sha384-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "webapp_prefixes",
+                "confidence": "strong",
+                "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+                "proposed_characteristics": [
+                  "prefix:$P$/$H$/$S$",
+                  "itoa64 alphabet",
+                  "application_context:CMS user table"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              },
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wordpress-v2-6-0-2-6-1.json",
+      "id": "wordpress-v2-6-0-2-6-1",
+      "name": "Wordpress v2.6.0/2.6.1",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wordpress-v2-6-0-2-6-1.haiti.029",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$H\\$[a-z0-9\\/.]{31}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 34,
+          "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 400,
+            "name": "Wordpress v2.6.0/2.6.1",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "phpass",
+            "name": "Wordpress v2.6.0/2.6.1",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$H$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "prefix",
+          "value": "$P$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 34..34",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 34,
+            "max": 34,
+            "observed": [
+              34
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "webapp_prefixes",
+            "confidence": "strong",
+            "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+            "proposed_characteristics": [
+              "prefix:$P$/$H$/$S$",
+              "itoa64 alphabet",
+              "application_context:CMS user table"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "phpass",
+            "name": "Wordpress v2.6.0/2.6.1",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 400,
+            "name": "Wordpress v2.6.0/2.6.1",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 400,
+            "hashcat_name": "phpass",
+            "official_example": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+            "official_example_length": 34,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wordpress-v2-6-0-2-6-1.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$H$",
+              "$P$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 34,
+              "max": 34,
+              "observed": [
+                34
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wordpress-v2-6-0-2-6-1.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "webapp_prefixes",
+                "confidence": "strong",
+                "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+                "proposed_characteristics": [
+                  "prefix:$P$/$H$/$S$",
+                  "itoa64 alphabet",
+                  "application_context:CMS user table"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wordpress-v2-6-2.json",
+      "id": "wordpress-v2-6-2",
+      "name": "Wordpress \u2265 v2.6.2",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wordpress-v2-6-2.haiti.030",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$P\\$[a-z0-9\\/.]{31}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 34,
+          "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 400,
+            "name": "Wordpress \u2265 v2.6.2",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "phpass",
+            "name": "Wordpress \u2265 v2.6.2",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$P$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 34..34",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 34,
+            "max": 34,
+            "observed": [
+              34
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "webapp_prefixes",
+            "confidence": "strong",
+            "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+            "proposed_characteristics": [
+              "prefix:$P$/$H$/$S$",
+              "itoa64 alphabet",
+              "application_context:CMS user table"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "phpass",
+            "name": "Wordpress \u2265 v2.6.2",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 400,
+            "name": "Wordpress \u2265 v2.6.2",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 400,
+            "hashcat_name": "phpass",
+            "official_example": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+            "official_example_length": 34,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wordpress-v2-6-2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$P$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 34,
+              "max": 34,
+              "observed": [
+                34
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wordpress-v2-6-2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "webapp_prefixes",
+                "confidence": "strong",
+                "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+                "proposed_characteristics": [
+                  "prefix:$P$/$H$/$S$",
+                  "itoa64 alphabet",
+                  "application_context:CMS user table"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wpa-eapol-pbkdf2.json",
+      "id": "wpa-eapol-pbkdf2",
+      "name": "WPA-EAPOL-PBKDF2",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wpa-eapol-pbkdf2.haiti.308",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]+$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 786,
+          "value": "4843505804000000000235380000000000000000000000000000000000000000000000000000000000000151aecc428f182acefbd1a9e62d369a079265784da83ba4cf88375c44c830e6e5aa5d6faf352aa496a9ee129fb8292f7435df5420b823a1cd402aed449cced04f552c5b5acfebf06ae96a09c96d9a01c443a17aa62258c4...<truncated len=786>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 2500,
+            "name": "WPA-EAPOL-PBKDF2",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 786..786",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 786,
+            "max": 786,
+            "observed": [
+              786
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "wpa",
+              "pmkid",
+              "eapol",
+              "hccapx"
+            ],
+            "john_extractors": [
+              "pcap2john.py",
+              "hccapx2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".pcap/.pcapng captures",
+              "hc22000 text lines",
+              "legacy hccapx"
+            ],
+            "expected_prefixes": [
+              "$WPA*",
+              "WPA*"
+            ],
+            "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 2500,
+            "name": "WPA-EAPOL-PBKDF2",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 2500,
+            "hashcat_name": "WPA-EAPOL-PBKDF2",
+            "official_example": "4843505804000000000235380000000000000000000000000000000000000000000000000000000000000151aecc428f182acefbd1a9e62d369a079265784da83ba4cf88375c44c830e6e5aa5d6faf352aa496a9ee129fb8292f7435df5420b823a1cd402aed449cced04f552c5b5acfebf06ae96a09c96d9a01c443a17aa62258c4f651a68aa67b0001030077fe0109002000000000...<truncated len=786>",
+            "official_example_length": 786,
+            "official_notes": [
+              "Example password: `hashcat!`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wpa-eapol-pbkdf2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 786,
+              "max": 786,
+              "observed": [
+                786
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wpa-eapol-pbkdf2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "wpa",
+                  "pmkid",
+                  "eapol",
+                  "hccapx"
+                ],
+                "john_extractors": [
+                  "pcap2john.py",
+                  "hccapx2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".pcap/.pcapng captures",
+                  "hc22000 text lines",
+                  "legacy hccapx"
+                ],
+                "expected_prefixes": [
+                  "$WPA*",
+                  "WPA*"
+                ],
+                "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wpa-eapol-pmk.json",
+      "id": "wpa-eapol-pmk",
+      "name": "WPA-EAPOL-PMK",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wpa-eapol-pmk.haiti.308",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]+$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 786,
+          "value": "4843505804000000000235380000000000000000000000000000000000000000000000000000000000000151aecc428f182acefbd1a9e62d369a079265784da83ba4cf88375c44c830e6e5aa5d6faf352aa496a9ee129fb8292f7435df5420b823a1cd402aed449cced04f552c5b5acfebf06ae96a09c96d9a01c443a17aa62258c4...<truncated len=786>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 2501,
+            "name": "WPA-EAPOL-PMK",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 786..786",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 786,
+            "max": 786,
+            "observed": [
+              786
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "wpa",
+              "pmkid",
+              "eapol",
+              "hccapx"
+            ],
+            "john_extractors": [
+              "pcap2john.py",
+              "hccapx2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".pcap/.pcapng captures",
+              "hc22000 text lines",
+              "legacy hccapx"
+            ],
+            "expected_prefixes": [
+              "$WPA*",
+              "WPA*"
+            ],
+            "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 2501,
+            "name": "WPA-EAPOL-PMK",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 2501,
+            "hashcat_name": "WPA-EAPOL-PMK",
+            "official_example": "4843505804000000000235380000000000000000000000000000000000000000000000000000000000000151aecc428f182acefbd1a9e62d369a079265784da83ba4cf88375c44c830e6e5aa5d6faf352aa496a9ee129fb8292f7435df5420b823a1cd402aed449cced04f552c5b5acfebf06ae96a09c96d9a01c443a17aa62258c4f651a68aa67b0001030077fe0109002000000000...<truncated len=786>",
+            "official_example_length": 786,
+            "official_notes": [
+              "Example password: `7f620a599c445155935a35634638fa67b4aafecb92e0bd8625388757a63c2dda`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wpa-eapol-pmk.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 786,
+              "max": 786,
+              "observed": [
+                786
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wpa-eapol-pmk.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "wpa",
+                  "pmkid",
+                  "eapol",
+                  "hccapx"
+                ],
+                "john_extractors": [
+                  "pcap2john.py",
+                  "hccapx2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".pcap/.pcapng captures",
+                  "hc22000 text lines",
+                  "legacy hccapx"
+                ],
+                "expected_prefixes": [
+                  "$WPA*",
+                  "WPA*"
+                ],
+                "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wpa-pbkdf2-pmkid-eapol.json",
+      "id": "wpa-pbkdf2-pmkid-eapol",
+      "name": "WPA-PBKDF2-PMKID+EAPOL",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wpa-pbkdf2-pmkid-eapol.haiti.309",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(?:[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64})|(?:WPA\\*[a-f0-9]{2}\\*[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64}\\*[a-f0-9]{,64}\\*[a-f0-9]{,512}\\*[a-f0-9]{,2})$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 95,
+          "value": "WPA*01*4d4fe7aac3a2cecab195321ceb99a7d0*fc690c158264*f4747f87f9f4*686173686361742d6573736964***",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22000,
+            "name": "WPA-PBKDF2-PMKID+EAPOL",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 95..95",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 95,
+            "max": 95,
+            "observed": [
+              95
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "wpa",
+              "pmkid",
+              "eapol",
+              "hccapx"
+            ],
+            "john_extractors": [
+              "pcap2john.py",
+              "hccapx2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".pcap/.pcapng captures",
+              "hc22000 text lines",
+              "legacy hccapx"
+            ],
+            "expected_prefixes": [
+              "$WPA*",
+              "WPA*"
+            ],
+            "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 22000,
+            "name": "WPA-PBKDF2-PMKID+EAPOL",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22000,
+            "hashcat_name": "WPA-PBKDF2-PMKID+EAPOL",
+            "official_example": "WPA*01*4d4fe7aac3a2cecab195321ceb99a7d0*fc690c158264*f4747f87f9f4*686173686361742d6573736964***",
+            "official_example_length": 95,
+            "official_notes": [
+              "Example password: `hashcat!`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wpa-pbkdf2-pmkid-eapol.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 95,
+              "max": 95,
+              "observed": [
+                95
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wpa-pbkdf2-pmkid-eapol.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "wpa",
+                  "pmkid",
+                  "eapol",
+                  "hccapx"
+                ],
+                "john_extractors": [
+                  "pcap2john.py",
+                  "hccapx2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".pcap/.pcapng captures",
+                  "hc22000 text lines",
+                  "legacy hccapx"
+                ],
+                "expected_prefixes": [
+                  "$WPA*",
+                  "WPA*"
+                ],
+                "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wpa-pmk-pmkid-eapol.json",
+      "id": "wpa-pmk-pmkid-eapol",
+      "name": "WPA-PMK-PMKID+EAPOL",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wpa-pmk-pmkid-eapol.haiti.309",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(?:[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64})|(?:WPA\\*[a-f0-9]{2}\\*[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64}\\*[a-f0-9]{,64}\\*[a-f0-9]{,512}\\*[a-f0-9]{,2})$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 95,
+          "value": "WPA*01*5ce7ebe97a1bbfeb2822ae627b726d5b*27462da350ac*accd10fb464e*686173686361742d6573736964***",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22001,
+            "name": "WPA-PMK-PMKID+EAPOL",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 95..95",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 95,
+            "max": 95,
+            "observed": [
+              95
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "wpa",
+              "pmkid",
+              "eapol",
+              "hccapx"
+            ],
+            "john_extractors": [
+              "pcap2john.py",
+              "hccapx2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".pcap/.pcapng captures",
+              "hc22000 text lines",
+              "legacy hccapx"
+            ],
+            "expected_prefixes": [
+              "$WPA*",
+              "WPA*"
+            ],
+            "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 22001,
+            "name": "WPA-PMK-PMKID+EAPOL",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22001,
+            "hashcat_name": "WPA-PMK-PMKID+EAPOL",
+            "official_example": "WPA*01*5ce7ebe97a1bbfeb2822ae627b726d5b*27462da350ac*accd10fb464e*686173686361742d6573736964***",
+            "official_example_length": 95,
+            "official_notes": [
+              "Example password: `88f43854ae7b1624fc2ab7724859e795130f4843c7535729e819cf92f39535dc`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wpa-pmk-pmkid-eapol.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 95,
+              "max": 95,
+              "observed": [
+                95
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wpa-pmk-pmkid-eapol.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "wpa",
+                  "pmkid",
+                  "eapol",
+                  "hccapx"
+                ],
+                "john_extractors": [
+                  "pcap2john.py",
+                  "hccapx2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".pcap/.pcapng captures",
+                  "hc22000 text lines",
+                  "legacy hccapx"
+                ],
+                "expected_prefixes": [
+                  "$WPA*",
+                  "WPA*"
+                ],
+                "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wpa-pmkid-pbkdf2.json",
+      "id": "wpa-pmkid-pbkdf2",
+      "name": "WPA-PMKID-PBKDF2",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wpa-pmkid-pbkdf2.haiti.306",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{32}[*:][a-f0-9]{12}[*:][a-f0-9]{12}[*:][a-f0-9]{,64}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 91,
+          "value": "2582a8281bf9d4308d6f5731d0e61c61*4604ba734d4e*89acf0e761f4*ed487162465a774bfba60eb603a39f3a",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 91,
+          "value": "2582a8281bf9d4308d6f5731d0e61c61:4604ba734d4e:89acf0e761f4:ed487162465a774bfba60eb603a39f3a",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 16800,
+            "name": "WPA-PMKID-PBKDF2",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "wpapsk-pmk",
+            "name": "WPA-PMKID-PBKDF2",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 91..91",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 91,
+            "max": 91,
+            "observed": [
+              91
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "wpa",
+              "pmkid",
+              "eapol",
+              "hccapx"
+            ],
+            "john_extractors": [
+              "pcap2john.py",
+              "hccapx2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".pcap/.pcapng captures",
+              "hc22000 text lines",
+              "legacy hccapx"
+            ],
+            "expected_prefixes": [
+              "$WPA*",
+              "WPA*"
+            ],
+            "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "wpapsk-pmk",
+            "name": "WPA-PMKID-PBKDF2",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 16800,
+            "name": "WPA-PMKID-PBKDF2",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 16800,
+            "hashcat_name": "WPA-PMKID-PBKDF2",
+            "official_example": "2582a8281bf9d4308d6f5731d0e61c61:4604ba734d4e:89acf0e761f4:ed487162465a774bfba60eb603a39f3a",
+            "official_example_length": 91,
+            "official_notes": [
+              "Example password: `hashcat!`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wpa-pmkid-pbkdf2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 91,
+              "max": 91,
+              "observed": [
+                91
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wpa-pmkid-pbkdf2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "wpa",
+                  "pmkid",
+                  "eapol",
+                  "hccapx"
+                ],
+                "john_extractors": [
+                  "pcap2john.py",
+                  "hccapx2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".pcap/.pcapng captures",
+                  "hc22000 text lines",
+                  "legacy hccapx"
+                ],
+                "expected_prefixes": [
+                  "$WPA*",
+                  "WPA*"
+                ],
+                "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "wpa-pmkid-pmk.json",
+      "id": "wpa-pmkid-pmk",
+      "name": "WPA-PMKID-PMK",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "wpa-pmkid-pmk.haiti.307",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{32}[*:][a-f0-9]{12}[*:][a-f0-9]{12}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 58,
+          "value": "2582a8281bf9d4308d6f5731d0e61c61:4604ba734d4e:89acf0e761f4",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 16801,
+            "name": "WPA-PMKID-PMK",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "wpapsk-pmk",
+            "name": "WPA-PMKID-PMK",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 58..58",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 58,
+            "max": 58,
+            "observed": [
+              58
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "wpa",
+              "pmkid",
+              "eapol",
+              "hccapx"
+            ],
+            "john_extractors": [
+              "pcap2john.py",
+              "hccapx2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".pcap/.pcapng captures",
+              "hc22000 text lines",
+              "legacy hccapx"
+            ],
+            "expected_prefixes": [
+              "$WPA*",
+              "WPA*"
+            ],
+            "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "wpapsk-pmk",
+            "name": "WPA-PMKID-PMK",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 16801,
+            "name": "WPA-PMKID-PMK",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 16801,
+            "hashcat_name": "WPA-PMKID-PMK",
+            "official_example": "2582a8281bf9d4308d6f5731d0e61c61:4604ba734d4e:89acf0e761f4",
+            "official_example_length": 58,
+            "official_notes": [
+              "Example password: `5b13d4babb3714ccc62c9f71864bc984efd6a55f237c7a87fc2151e1ca658a9d`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "wpa-pmkid-pmk.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 58,
+              "max": 58,
+              "observed": [
+                58
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "wpa-pmkid-pmk.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "wpa",
+                  "pmkid",
+                  "eapol",
+                  "hccapx"
+                ],
+                "john_extractors": [
+                  "pcap2john.py",
+                  "hccapx2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".pcap/.pcapng captures",
+                  "hc22000 text lines",
+                  "legacy hccapx"
+                ],
+                "expected_prefixes": [
+                  "$WPA*",
+                  "WPA*"
+                ],
+                "note": "Modern hashcat WPA mode 22000 uses text lines containing PMKID/EAPOL fields; old binary hccapx is legacy.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    }
+  ]
+}

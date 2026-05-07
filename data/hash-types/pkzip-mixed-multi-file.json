@@ -1,0 +1,77 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pkzip-mixed-multi-file",
+  "name": "PKZIP (Mixed Multi-File)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pkzip-mixed-multi-file.haiti.217",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 17225,
+        "name": "PKZIP (Mixed Multi-File)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "17225"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "17225"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pkzip",
+        "name": "PKZIP (Mixed Multi-File)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pkzip"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pkzip2$3*1*1*0*0*24*3e2c*3ef8*0619e9d17ff3f994065b99b1fa8aef41c056edf9fa4540919c109742dcb32f797fc90ce0*1*0*8*24*431a*3f26*18e2461c0dbad89bd9cc763067a020c89b5e16195b1ac5fa7fb13bd246d000b6833a2988*2*0*23*17*1e3c1a16*2e4*2f*0*23*1e3c*3f2d*54ea4dbc711026561485bbd191bf300ae24fa0997f3779b688cdad323985f8d3bb8b0c*$/pkzip2$",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PKZIP (Mixed Multi-File)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "17225"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PKZIP (Mixed Multi-File)"
+    }
+  ]
+}

@@ -1,0 +1,1328 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "0-9",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "1password-agile-keychain.json",
+      "id": "1password-agile-keychain",
+      "name": "1Password(Agile Keychain)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "1password-agile-keychain.haiti.147",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\d{4}:[a-f0-9]{16}:[a-f0-9]{2080}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2102,
+          "value": "1000:d61a54f1efdfcf57:0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...<truncated len=2102>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 6600,
+            "name": "1Password(Agile Keychain)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2102..2102",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2102,
+            "max": 2102,
+            "observed": [
+              2102
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "1password",
+              "agile-keychain",
+              "cloud-keychain",
+              "mobilekeychain"
+            ],
+            "john_extractors": [
+              "1password2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".agilekeychain",
+              "1Password local vault/keychain exports"
+            ],
+            "expected_prefixes": [
+              "$agilekeychain$",
+              "$cloudkeychain$"
+            ],
+            "note": "Usually extracted from local 1Password vault/keychain data rather than copied as a user database field.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          },
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 6600,
+            "name": "1Password(Agile Keychain)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 6600,
+            "hashcat_name": "1Password, agilekeychain",
+            "official_example": "1000:d61a54f1efdfcf57:00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...<truncated len=2102>",
+            "official_example_length": 2102,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "1password-agile-keychain.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2102,
+              "max": 2102,
+              "observed": [
+                2102
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "1password-agile-keychain.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "1password",
+                  "agile-keychain",
+                  "cloud-keychain",
+                  "mobilekeychain"
+                ],
+                "john_extractors": [
+                  "1password2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".agilekeychain",
+                  "1Password local vault/keychain exports"
+                ],
+                "expected_prefixes": [
+                  "$agilekeychain$",
+                  "$cloudkeychain$"
+                ],
+                "note": "Usually extracted from local 1Password vault/keychain data rather than copied as a user database field.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              },
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "1password-cloud-keychain.json",
+      "id": "1password-cloud-keychain",
+      "name": "1Password(Cloud Keychain)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "1password-cloud-keychain.haiti.148",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{64}:[a-f0-9]{32}:\\d{5}:[a-f0-9]{608}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 712,
+          "value": "9b6933f4a1f65baf02737545efc8c1caee4c7a5a82ce3ab637bcc19b0b51f5c5:30b952120ca9a190ac673a5e12a358e4:40000:e29b48a8cfd216701a8ced536038d0d49cf58dd25686e02d7ba3aa0463cc369062045db9e95653ac176e2192732b49073d481c26f29e1c611c84aaba93e553a6c51d1a9f7cfce0d01e099fb19f6a...<truncated len=712>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 8200,
+            "name": "1Password(Cloud Keychain)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 712..712",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 712,
+            "max": 712,
+            "observed": [
+              712
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "1password",
+              "agile-keychain",
+              "cloud-keychain",
+              "mobilekeychain"
+            ],
+            "john_extractors": [
+              "1password2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".agilekeychain",
+              "1Password local vault/keychain exports"
+            ],
+            "expected_prefixes": [
+              "$agilekeychain$",
+              "$cloudkeychain$"
+            ],
+            "note": "Usually extracted from local 1Password vault/keychain data rather than copied as a user database field.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          },
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 8200,
+            "name": "1Password(Cloud Keychain)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 8200,
+            "hashcat_name": "1Password, cloudkeychain",
+            "official_example": "9b6933f4a1f65baf02737545efc8c1caee4c7a5a82ce3ab637bcc19b0b51f5c5:30b952120ca9a190ac673a5e12a358e4:40000:e29b48a8cfd216701a8ced536038d0d49cf58dd25686e02d7ba3aa0463cc369062045db9e95653ac176e2192732b49073d481c26f29e1c611c84aaba93e553a6c51d1a9f7cfce0d01e099fb19f6a412bacd8034a333f7165fda1cc89df845e019c03...<truncated len=712>",
+            "official_example_length": 712,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "1password-cloud-keychain.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 712,
+              "max": 712,
+              "observed": [
+                712
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "1password-cloud-keychain.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "1password",
+                  "agile-keychain",
+                  "cloud-keychain",
+                  "mobilekeychain"
+                ],
+                "john_extractors": [
+                  "1password2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".agilekeychain",
+                  "1Password local vault/keychain exports"
+                ],
+                "expected_prefixes": [
+                  "$agilekeychain$",
+                  "$cloudkeychain$"
+                ],
+                "note": "Usually extracted from local 1Password vault/keychain data rather than copied as a user database field.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              },
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "1password-mobilekeychain-1password-8.json",
+      "id": "1password-mobilekeychain-1password-8",
+      "name": "1Password, mobilekeychain (1Password 8)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "1password-mobilekeychain-1password-8.hashcat.31800",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{14}\\$[0-9]{5}@[A-Za-z0-9./]{11}\\$[A-Fa-f0-9]{64}\\$[A-Fa-f0-9]{64}\\$[0-9]{6}\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{340}\\$[A-Fa-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 577,
+          "value": "$mobilekeychain$31800@hashcat.net$0226802599846590531367298686059042845608249051353268870564348733$fa53b7d424cdd36667dc12e585810729efc8ea9b2f8e5dd7a3ee72f7576a6788$100000$e1fea241e7b7c84535a0d53388bccbb9$dfd5f9ad6da1a72a47a3c04e03b02142b2fc301b3afff61066905852...<truncated len=577>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 31800,
+            "name": "1Password, mobilekeychain (1Password 8)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$mobilekeychain$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 577..577",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 577,
+            "max": 577,
+            "observed": [
+              577
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "1password",
+              "agile-keychain",
+              "cloud-keychain",
+              "mobilekeychain"
+            ],
+            "john_extractors": [
+              "1password2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".agilekeychain",
+              "1Password local vault/keychain exports"
+            ],
+            "expected_prefixes": [
+              "$agilekeychain$",
+              "$cloudkeychain$"
+            ],
+            "note": "Usually extracted from local 1Password vault/keychain data rather than copied as a user database field.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          },
+          {
+            "rule_keys": [
+              "apple-macos-keychain",
+              "keychain"
+            ],
+            "john_extractors": [
+              "keychain2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS keychain files"
+            ],
+            "expected_prefixes": [
+              "$keychain$"
+            ],
+            "note": "Keychain hashes are generated from macOS keychain files.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 31800,
+            "name": "1Password, mobilekeychain (1Password 8)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 31800,
+            "hashcat_name": "1Password, mobilekeychain (1Password 8)",
+            "official_example": "$mobilekeychain$31800@hashcat.net$0226802599846590531367298686059042845608249051353268870564348733$fa53b7d424cdd36667dc12e585810729efc8ea9b2f8e5dd7a3ee72f7576a6788$100000$e1fea241e7b7c84535a0d53388bccbb9$dfd5f9ad6da1a72a47a3c04e03b02142b2fc301b3afff610669058527828a0e0388f5a2b0e6909813a5f9653c54f797a...<truncated len=577>",
+            "official_example_length": 577,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "1password-mobilekeychain-1password-8.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$mobilekeychain$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 577,
+              "max": 577,
+              "observed": [
+                577
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "1password-mobilekeychain-1password-8.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "1password",
+                  "agile-keychain",
+                  "cloud-keychain",
+                  "mobilekeychain"
+                ],
+                "john_extractors": [
+                  "1password2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".agilekeychain",
+                  "1Password local vault/keychain exports"
+                ],
+                "expected_prefixes": [
+                  "$agilekeychain$",
+                  "$cloudkeychain$"
+                ],
+                "note": "Usually extracted from local 1Password vault/keychain data rather than copied as a user database field.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              },
+              {
+                "rule_keys": [
+                  "apple-macos-keychain",
+                  "keychain"
+                ],
+                "john_extractors": [
+                  "keychain2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS keychain files"
+                ],
+                "expected_prefixes": [
+                  "$keychain$"
+                ],
+                "note": "Keychain hashes are generated from macOS keychain files.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "3des-pt-salt-key-pass.json",
+      "id": "3des-pt-salt-key-pass",
+      "name": "3DES (PT = $salt, key = $pass)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "3des-pt-salt-key-pass.hashcat.14100",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{16}:[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 33,
+          "value": "4c29eea59d8db1e7:7428288455525516",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 14100,
+            "name": "3DES (PT = $salt, key = $pass)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 33..33",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 33,
+            "max": 33,
+            "observed": [
+              33
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 14100,
+            "name": "3DES (PT = $salt, key = $pass)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 14100,
+            "hashcat_name": "3DES (PT = $salt, key = $pass)",
+            "official_example": "4c29eea59d8db1e7:7428288455525516",
+            "official_example_length": 33,
+            "official_notes": [
+              "Example password: `hashcat1hashcat1hashcat1`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "3des-pt-salt-key-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 33,
+              "max": 33,
+              "observed": [
+                33
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "3des-pt-salt-key-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "7-zip.json",
+      "id": "7-zip",
+      "name": "7-zip",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "7-zip.haiti.213",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$7z\\$\\d{1,3}\\$\\d{1,2}\\$\\d{1}\\$[^$]{0,64}\\$\\d{1,2}\\$[a-f0-9]{32}\\$\\d{1,10}\\$\\d+\\$\\d+\\$[a-f0-9]{2,}(?:\\$\\d+\\$[a-f0-9]{0,10}(?:\\$[a-f0-9]{0,10})?)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 97,
+          "value": "$7z$0$14$0$$11$33363437353138333138300000000000$2365089182$16$12$d00321533b483f54a523f624a5f63269",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 294,
+          "value": "$7z$0$19$0$1122$8$d1f50227759415890000000000000000$1412385885$112$112$5e5b8b734adf52a64c541a5a5369023d7cccb78bd910c0092535dfb013a5df84ac692c5311d2e7bbdc580f5b867f7b5dd43830f7b4f37e41c7277e228fb92a6dd854a31646ad117654182253706dae0c069d3f4ce46121d52b6f20741a0bb3...<truncated len=294>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 294,
+          "value": "$7z$0$19$0$1122$8$d1f50227759415890000000000000000$1412385885$112$112$5e5b8b734adf52a64c541a5a5369023d7cccb78bd910c0092535dfb013a5df84ac692c5311d2e7bbdc580f5b867f7b5dd43830f7b4f37e41c7277e228fb92a6dd854a31646ad117654182253706dae0c069d3f4ce46121d52b6f20741a0bb3...<truncated len=294>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 309,
+          "value": "$7z$1$19$0$1122$8$5fdbec1569ff58060000000000000000$2465353234$112$112$58ba7606aafc7918e3db7f6e0920f410f61f01e9c1533c40850992fee4c5e5215bc6b4ea145313d0ac065b8ec5b47d9fb895bb7f97609be46107d71e219544cfd24b52c2ecd65477f72c466915dcd71b80782b1ac46678ab7f437fd9f7b8e9...<truncated len=309>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 469,
+          "value": "$7z$1$19$0$1122$8$732b59fd26896e410000000000000000$2955316379$192$183$7544a3a7ec3eb99a33d80e57907e28fb8d0e140ec85123cf90740900429136dcc8ba0692b7e356a4d4e30062da546a66b92ec04c64c0e85b22e3c9a823abef0b57e8d7b8564760611442ecceb2ca723033766d9f7c848e5d234ca6c7863a26...<truncated len=469>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 11600,
+            "name": "7-zip",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "7z",
+            "name": "7-zip",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$7z$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 97..469",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 97,
+            "max": 469,
+            "observed": [
+              97,
+              132,
+              134,
+              213,
+              294,
+              295,
+              309,
+              469
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              12,
+              14,
+              15
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "7-zip",
+              "7z"
+            ],
+            "john_extractors": [
+              "7z2john.pl"
+            ],
+            "hashcat_extractors": [
+              "7z2hashcat"
+            ],
+            "native_artifacts": [
+              ".7z archives"
+            ],
+            "expected_prefixes": [
+              "$7z$"
+            ],
+            "note": "Archive hashes should be treated as extractor output; file-level metadata and encrypted headers affect the fields.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          },
+          {
+            "rule_keys": [
+              "zip",
+              "pkzip",
+              "winzip"
+            ],
+            "john_extractors": [
+              "zip2john"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".zip/.zipx archives"
+            ],
+            "expected_prefixes": [
+              "$zip$",
+              "$pkzip$"
+            ],
+            "note": "ZIP hashes are archive extractor output; PKZIP/WinZip/AES variants need version and compression/encryption flags.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "7z",
+            "name": "7-zip",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 11600,
+            "name": "7-zip",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 11600,
+            "hashcat_name": "7-Zip",
+            "official_example": "$7z$0$14$0$$11$33363437353138333138300000000000$2365089182$16$12$d00321533b483f54a523f624a5f63269",
+            "official_example_length": 97,
+            "official_notes": [
+              "Module usage notice: `You can use https://github.com/philsmd/7z2hashcat to extract the hashes`"
+            ],
+            "referenced_urls": [
+              "https://github.com/philsmd/7z2hashcat"
+            ],
+            "referenced_tools": [
+              "7z2hashcat"
+            ],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "7-zip.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$7z$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  12,
+                  14,
+                  15
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 97,
+              "max": 469,
+              "observed": [
+                97,
+                132,
+                134,
+                213,
+                294,
+                295,
+                309,
+                469
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "7-zip.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "7-zip",
+                  "7z"
+                ],
+                "john_extractors": [
+                  "7z2john.pl"
+                ],
+                "hashcat_extractors": [
+                  "7z2hashcat"
+                ],
+                "native_artifacts": [
+                  ".7z archives"
+                ],
+                "expected_prefixes": [
+                  "$7z$"
+                ],
+                "note": "Archive hashes should be treated as extractor output; file-level metadata and encrypted headers affect the fields.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              },
+              {
+                "rule_keys": [
+                  "zip",
+                  "pkzip",
+                  "winzip"
+                ],
+                "john_extractors": [
+                  "zip2john"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".zip/.zipx archives"
+                ],
+                "expected_prefixes": [
+                  "$zip$",
+                  "$pkzip$"
+                ],
+                "note": "ZIP hashes are archive extractor output; PKZIP/WinZip/AES variants need version and compression/encryption flags.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    }
+  ]
+}

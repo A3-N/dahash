@@ -1,0 +1,105 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "descrypt",
+  "name": "DEScrypt",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "descrypt.haiti.005",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9\\/.]{13}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9\\/.]{13}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1500,
+        "name": "DEScrypt",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1500"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "descrypt",
+        "name": "DEScrypt",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "descrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "24leDr0hHfb3A",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1500"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "CC4rMpbg9AMZ.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "DEScrypt"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "CCNf8Sbh3HDfQ",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "DEScrypt"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "CCX.K.MFy4Ois",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "DEScrypt"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "DEScrypt"
+    }
+  ]
+}

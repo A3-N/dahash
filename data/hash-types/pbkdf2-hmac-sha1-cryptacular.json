@@ -1,0 +1,42 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-hmac-sha1-cryptacular",
+  "name": "PBKDF2-HMAC-SHA1 (Cryptacular)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pbkdf2-hmac-sha1-cryptacular.haiti.143",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$p5k2\\$\\d+\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+\\-]{27}=$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$p5k2\\$\\d+\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+\\-]{27}=\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$p5k2$2710$oX9ZZOcNgYoAsYL-8bqxKg==$AU2JLf2rNxWoZxWxRCluY0u6h6c=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA1 (Cryptacular)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PBKDF2-HMAC-SHA1 (Cryptacular)"
+    }
+  ]
+}

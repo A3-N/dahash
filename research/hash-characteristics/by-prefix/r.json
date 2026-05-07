@@ -1,0 +1,4398 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "r",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "racf-kdfaes.json",
+      "id": "racf-kdfaes",
+      "name": "RACF KDFAES",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "racf-kdfaes.hashcat.14200",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$racf\\-kdfaes\\$\\*[A-Za-z0-9]{4}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 117,
+          "value": "$racf-kdfaes$*USER*E7D7E66D000180000008003200100010*00112233445566778899AABBCCDDEEFF*5390653DEC0316FB5AD56053208056A6",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 14200,
+            "name": "RACF KDFAES",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$racf-kdfaes$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 117..117",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 117,
+            "max": 117,
+            "observed": [
+              117
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 14200,
+            "name": "RACF KDFAES",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 14200,
+            "hashcat_name": "RACF KDFAES",
+            "official_example": "$racf-kdfaes$*USER*E7D7E66D000180000008003200100010*00112233445566778899AABBCCDDEEFF*5390653DEC0316FB5AD56053208056A6",
+            "official_example_length": 117,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "racf-kdfaes.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$racf-kdfaes$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 117,
+              "max": 117,
+              "observed": [
+                117
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "racf-kdfaes.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "racf.json",
+      "id": "racf",
+      "name": "RACF",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "racf.haiti.134",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(user-.+:)?\\$racf\\$\\*.+\\*[a-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 28,
+          "value": "$racf$*8481*6095E8FCA59F8E3E",
+          "plaintext": "hashcat",
+          "verified": true
+        },
+        {
+          "length": 28,
+          "value": "$racf$*USER*FC2577C6EBE6265B",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 8500,
+            "name": "RACF",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "racf",
+            "name": "RACF",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$racf$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 28..28",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 28,
+            "max": 28,
+            "observed": [
+              28
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "racf",
+            "name": "RACF",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 8500,
+            "name": "RACF",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 8500,
+            "hashcat_name": "RACF",
+            "official_example": "$racf$*8481*6095E8FCA59F8E3E",
+            "official_example_length": 28,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "racf.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$racf$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 28,
+              "max": 28,
+              "observed": [
+                28
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "racf.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "radmin-v2-x.json",
+      "id": "radmin-v2-x",
+      "name": "RAdmin v2.x",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "radmin-v2-x.haiti.171",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(\\$radmin2\\$)?[a-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 32,
+          "value": "22527bee5c29ce95373c4e0f359f079b",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 9900,
+            "name": "RAdmin v2.x",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "radmin",
+            "name": "RAdmin v2.x",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$radmin2$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 32..32",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 32,
+            "max": 32,
+            "observed": [
+              32
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "radmin",
+            "name": "RAdmin v2.x",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 9900,
+            "name": "RAdmin v2.x",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 9900,
+            "hashcat_name": "Radmin2",
+            "official_example": "22527bee5c29ce95373c4e0f359f079b",
+            "official_example_length": 32,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "radmin-v2-x.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$radmin2$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 32,
+              "max": 32,
+              "observed": [
+                32
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "radmin-v2-x.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "radmin3.json",
+      "id": "radmin3",
+      "name": "Radmin3",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "radmin3.haiti.289",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$radmin3\\$[^*]{0,511}\\*[a-f0-9]{64}\\*[a-f0-9]{512}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 619,
+          "value": "$radmin3$75007300650072006e0061006d006500*c63bf695069d564844c4849e7df6d41f1fbc5f3a7d8fe27c5f20545a238398fa*0062fb848c21d606baa0a91d7177daceb69ad2f6d090c2f1b3a654cfb417be66f739ae952f5c7c5170743459daf854a22684787b24f8725337b3c3bd1e0f2a6285768ceccca77f26c579d42a6...<truncated len=619>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 29200,
+            "name": "Radmin3",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$radmin3$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 619..619",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 619,
+            "max": 619,
+            "observed": [
+              619
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 29200,
+            "name": "Radmin3",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 29200,
+            "hashcat_name": "Radmin3",
+            "official_example": "$radmin3$75007300650072006e0061006d006500*c63bf695069d564844c4849e7df6d41f1fbc5f3a7d8fe27c5f20545a238398fa*0062fb848c21d606baa0a91d7177daceb69ad2f6d090c2f1b3a654cfb417be66f739ae952f5c7c5170743459daf854a22684787b24f8725337b3c3bd1e0f2a6285768ceccca77f26c579d42a66372df7782b2eefccb028a0efb51a4257dd0804d...<truncated len=619>",
+            "official_example_length": 619,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "radmin3.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$radmin3$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 619,
+              "max": 619,
+              "observed": [
+                619
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "radmin3.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rar3-hp.json",
+      "id": "rar3-hp",
+      "name": "RAR3 -hp",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "rar3-hp.haiti.225",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 58,
+          "value": "$RAR3$*0*45109af8ab5f297a*adbf6c5385d7a40373e8f77d7b89d317",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 58,
+          "value": "$RAR3$*0*7ce241baa2bd521b*3eb0017fa8843017952c53a3ac8332b6",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 58,
+          "value": "$RAR3$*0*c203c4d80a8a09dc*1f406154556d4c895a8be207fd2b5d0c",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 12500,
+            "name": "RAR3 -hp",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "rar",
+            "name": "RAR3 -hp",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$RAR3$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 58..58",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 58,
+            "max": 58,
+            "observed": [
+              58
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "rar"
+            ],
+            "john_extractors": [
+              "rar2john"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".rar archives"
+            ],
+            "expected_prefixes": [
+              "$rar$"
+            ],
+            "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "rar",
+            "name": "RAR3 -hp",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 12500,
+            "name": "RAR3 -hp",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 12500,
+            "hashcat_name": "RAR3-hp",
+            "official_example": "$RAR3$*0*45109af8ab5f297a*adbf6c5385d7a40373e8f77d7b89d317",
+            "official_example_length": 58,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rar3-hp.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$RAR3$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 58,
+              "max": 58,
+              "observed": [
+                58
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rar3-hp.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "rar"
+                ],
+                "john_extractors": [
+                  "rar2john"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".rar archives"
+                ],
+                "expected_prefixes": [
+                  "$rar$"
+                ],
+                "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rar3-p-compressed.json",
+      "id": "rar3-p-compressed",
+      "name": "RAR3 -p (Compressed)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "rar3-p-compressed.haiti.224",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 110,
+          "value": "$RAR3$*1*ad56eb40219c9da2*834064ce*32*13*1*eb47b1abe17a1a75bce6c92ab1cef3f4126035ea95deaf08b3f32a0c7b8078e1*33",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 174,
+          "value": "$RAR3$*1*b4eee1a48dc95d12*965f1453*64*47*1*0fe529478798c0960dd88a38a05451f9559e15f0cf20b4cac58260b0e5b56699d5871bdcc35bee099cc131eb35b9a116adaedf5ecc26b1c09cadf5185b3092e6*33",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 23800,
+            "name": "RAR3 -p (Compressed)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "rar",
+            "name": "RAR3 -p (Compressed)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$RAR3$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 110..174",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 110,
+            "max": 174,
+            "observed": [
+              110,
+              174
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "rar"
+            ],
+            "john_extractors": [
+              "rar2john"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".rar archives"
+            ],
+            "expected_prefixes": [
+              "$rar$"
+            ],
+            "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "rar",
+            "name": "RAR3 -p (Compressed)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 23800,
+            "name": "RAR3 -p (Compressed)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 23800,
+            "hashcat_name": "RAR3-p (Compressed)",
+            "official_example": "$RAR3$*1*ad56eb40219c9da2*834064ce*32*13*1*eb47b1abe17a1a75bce6c92ab1cef3f4126035ea95deaf08b3f32a0c7b8078e1*33",
+            "official_example_length": 110,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rar3-p-compressed.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$RAR3$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 110,
+              "max": 174,
+              "observed": [
+                110,
+                174
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rar3-p-compressed.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "rar"
+                ],
+                "john_extractors": [
+                  "rar2john"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".rar archives"
+                ],
+                "expected_prefixes": [
+                  "$rar$"
+                ],
+                "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rar3-p-uncompressed.json",
+      "id": "rar3-p-uncompressed",
+      "name": "RAR3 -p (Uncompressed)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "rar3-p-uncompressed.haiti.224",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 142,
+          "value": "$RAR3$*1*c47c5bef0bbd1e98*965f1453*48*47*1*c5e987f81d316d9dcfdb6a1b27105ce63fca2c594da5aa2f6fdf2f65f50f0d66314f8a09da875ae19d6c15636b65c815*30",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 78,
+          "value": "$RAR3$*1*e54a73729887cb53*49b0a846*16*14*1*34620bcca8176642a210b1051901921e*30",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 23700,
+            "name": "RAR3 -p (Uncompressed)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "rar",
+            "name": "RAR3 -p (Uncompressed)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$RAR3$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 78..142",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 78,
+            "max": 142,
+            "observed": [
+              78,
+              142
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "rar"
+            ],
+            "john_extractors": [
+              "rar2john"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".rar archives"
+            ],
+            "expected_prefixes": [
+              "$rar$"
+            ],
+            "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "rar",
+            "name": "RAR3 -p (Uncompressed)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 23700,
+            "name": "RAR3 -p (Uncompressed)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 23700,
+            "hashcat_name": "RAR3-p (Uncompressed)",
+            "official_example": "$RAR3$*1*e54a73729887cb53*49b0a846*16*14*1*34620bcca8176642a210b1051901921e*30",
+            "official_example_length": 78,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rar3-p-uncompressed.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$RAR3$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 78,
+              "max": 142,
+              "observed": [
+                78,
+                142
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rar3-p-uncompressed.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "rar"
+                ],
+                "john_extractors": [
+                  "rar2john"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".rar archives"
+                ],
+                "expected_prefixes": [
+                  "$rar$"
+                ],
+                "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rar5.json",
+      "id": "rar5",
+      "name": "RAR5",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "rar5.haiti.223",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$rar5\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1}\\$[a-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 96,
+          "value": "$rar5$16$37526a0922b4adcc32f8fed5d51bb6c8$15$8955617d9b801def51d734095bb8ecdb$8$9f0b23c98ebb3653",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 96,
+          "value": "$rar5$16$38466361001011015181344360681307$15$00000000000000000000000000000000$8$cc7a30583e62676a",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 96,
+          "value": "$rar5$16$ed9bd88cc649bd06bfd7dc418fcf5fbd$15$21771e718815d6f23073ea294540ce94$8$5c4361e549c999e1",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 13000,
+            "name": "RAR5",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "rar5",
+            "name": "RAR5",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$rar5$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 96..96",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 96,
+            "max": 96,
+            "observed": [
+              96
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              8
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "rar"
+            ],
+            "john_extractors": [
+              "rar2john"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              ".rar archives"
+            ],
+            "expected_prefixes": [
+              "$rar$"
+            ],
+            "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "rar5",
+            "name": "RAR5",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 13000,
+            "name": "RAR5",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 13000,
+            "hashcat_name": "RAR5",
+            "official_example": "$rar5$16$38466361001011015181344360681307$15$00000000000000000000000000000000$8$cc7a30583e62676a",
+            "official_example_length": 96,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rar5.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$rar5$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  8
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 96,
+              "max": 96,
+              "observed": [
+                96
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rar5.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "rar"
+                ],
+                "john_extractors": [
+                  "rar2john"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  ".rar archives"
+                ],
+                "expected_prefixes": [
+                  "$rar$"
+                ],
+                "note": "RAR hashes are archive extractor output; version 3/5 and encrypted-header flags matter.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rc4-104-bit-dropn.json",
+      "id": "rc4-104-bit-dropn",
+      "name": "RC4 104-bit DropN",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "rc4-104-bit-dropn.hashcat.33502",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{3}\\$[0-9]{3}\\$[0-9]{1}\\$[A-Fa-f0-9]{10}\\$[0-9]{1}\\$[A-Fa-f0-9]{10}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 34,
+          "value": "$rc4$104$0$a04245c3d7$0$48656c6c6f",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 33502,
+            "name": "RC4 104-bit DropN",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$rc4$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 34..34",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 34,
+            "max": 34,
+            "observed": [
+              34
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 33502,
+            "name": "RC4 104-bit DropN",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 33502,
+            "hashcat_name": "RC4 104-bit DropN",
+            "official_example": "$rc4$104$0$a04245c3d7$0$48656c6c6f",
+            "official_example_length": 34,
+            "official_notes": [
+              "Example password: `hashcat123456`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rc4-104-bit-dropn.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$rc4$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 34,
+              "max": 34,
+              "observed": [
+                34
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rc4-104-bit-dropn.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rc4-40-bit-dropn.json",
+      "id": "rc4-40-bit-dropn",
+      "name": "RC4 40-bit DropN",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "rc4-40-bit-dropn.hashcat.33500",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{3}\\$[0-9]{2}\\$[0-9]{1}\\$[A-Fa-f0-9]{30}\\$[0-9]{1}\\$[A-Fa-f0-9]{10}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 53,
+          "value": "$rc4$40$0$e9a41693b759cf88929ca31203694f$0$48656c6c6f",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 33500,
+            "name": "RC4 40-bit DropN",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$rc4$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 53..53",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 53,
+            "max": 53,
+            "observed": [
+              53
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 33500,
+            "name": "RC4 40-bit DropN",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 33500,
+            "hashcat_name": "RC4 40-bit DropN",
+            "official_example": "$rc4$40$0$e9a41693b759cf88929ca31203694f$0$48656c6c6f",
+            "official_example_length": 53,
+            "official_notes": [
+              "Example password: `hashc`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rc4-40-bit-dropn.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$rc4$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 53,
+              "max": 53,
+              "observed": [
+                53
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rc4-40-bit-dropn.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rc4-72-bit-dropn.json",
+      "id": "rc4-72-bit-dropn",
+      "name": "RC4 72-bit DropN",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "rc4-72-bit-dropn.hashcat.33501",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{3}\\$[0-9]{2}\\$[0-9]{1}\\$[A-Fa-f0-9]{10}\\$[0-9]{1}\\$[A-Fa-f0-9]{10}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 33,
+          "value": "$rc4$72$0$90eaa8d71c$0$48656c6c6f",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 33501,
+            "name": "RC4 72-bit DropN",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$rc4$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 33..33",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 33,
+            "max": 33,
+            "observed": [
+              33
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 33501,
+            "name": "RC4 72-bit DropN",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 33501,
+            "hashcat_name": "RC4 72-bit DropN",
+            "official_example": "$rc4$72$0$90eaa8d71c$0$48656c6c6f",
+            "official_example_length": 33,
+            "official_notes": [
+              "Example password: `hashcat12`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rc4-72-bit-dropn.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$rc4$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 33,
+              "max": 33,
+              "observed": [
+                33
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rc4-72-bit-dropn.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "redhat-389-ds-ldap-pbkdf2-hmac-sha256.json",
+      "id": "redhat-389-ds-ldap-pbkdf2-hmac-sha256",
+      "name": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "redhat-389-ds-ldap-pbkdf2-hmac-sha256.haiti.187",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 50,
+          "pattern": "^{PBKDF2_SHA256}[a-z0-9/+]+$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 447,
+          "value": "{PBKDF2_SHA256}AAAgADkxMjM2NTIzMzgzMjQ3MjI4MDAwNTk5OTAyOTk4NDI2MjkyMzAzNjg0NjQwOTMxNjI3OTMzNjg0MDI0OTY5NTe5ULagRTYpLaUoeqJMg8x9W/DXu+9VTFaVhaYvebYrY+sOqn1ZMRnws22C1uAkiE2tFM8qN+xw5xe7OmCPZ203NuruK4oB33QlsKIEz4ppm0TR94JB9PJx7lIQwFHD3FUNUNryj4jk6UYyJ4+V1Z9Ug/Iy/...<truncated len=447>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 10901,
+            "name": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "{PBKDF2_SHA256}",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 447..447",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 447,
+            "max": 447,
+            "observed": [
+              447
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              4
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "ldap_braced_scheme",
+            "confidence": "strong",
+            "note": "LDAP-style hashes often include a braced scheme prefix such as {SHA}, {SSHA}, {MD5}, {SMD5}, {CRYPT}; that prefix should outrank generic base64/hex length observations.",
+            "proposed_characteristics": [
+              "prefix:{SCHEME}",
+              "directory_context:userPassword attribute"
+            ],
+            "sources": [
+              "openwall-john-hash-formats",
+              "hashcat-example-hashes"
+            ]
+          }
+        ],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 10901,
+            "name": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 10901,
+            "hashcat_name": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)",
+            "official_example": "{PBKDF2_SHA256}AAAgADkxMjM2NTIzMzgzMjQ3MjI4MDAwNTk5OTAyOTk4NDI2MjkyMzAzNjg0NjQwOTMxNjI3OTMzNjg0MDI0OTY5NTe5ULagRTYpLaUoeqJMg8x9W/DXu+9VTFaVhaYvebYrY+sOqn1ZMRnws22C1uAkiE2tFM8qN+xw5xe7OmCPZ203NuruK4oB33QlsKIEz4ppm0TR94JB9PJx7lIQwFHD3FUNUNryj4jk6UYyJ4+V1Z9Ug/Iy/ylQBJgfs5ihzgxHYZrfp1wUCXFzlZG9mxmziPm8V...<truncated len=447>",
+            "official_example_length": 447,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "redhat-389-ds-ldap-pbkdf2-hmac-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "{PBKDF2_SHA256}"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  4
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 447,
+              "max": 447,
+              "observed": [
+                447
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "redhat-389-ds-ldap-pbkdf2-hmac-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "ldap_braced_scheme",
+                "confidence": "strong",
+                "note": "LDAP-style hashes often include a braced scheme prefix such as {SHA}, {SSHA}, {MD5}, {SMD5}, {CRYPT}; that prefix should outrank generic base64/hex length observations.",
+                "proposed_characteristics": [
+                  "prefix:{SCHEME}",
+                  "directory_context:userPassword attribute"
+                ],
+                "sources": [
+                  "openwall-john-hash-formats",
+                  "hashcat-example-hashes"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "redmine-project-management-web-app.json",
+      "id": "redmine-project-management-web-app",
+      "name": "Redmine Project Management Web App",
+      "current_status": "active",
+      "current_priority": 45,
+      "current_tags": [
+        "reference"
+      ],
+      "current_matchers": [
+        {
+          "id": "redmine-project-management-web-app.reference.0",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 35,
+          "pattern": "^[a-f0-9]{40}:[a-f0-9]{0,32}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 7600,
+            "name": "Redmine Project Management Web App",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 7600,
+            "name": "Redmine Project Management Web App",
+            "status": "active"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "redmine-project-management-web-app.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "redmine-project-management-web-app.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashid-reference"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "redmine.json",
+      "id": "redmine",
+      "name": "Redmine",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "redmine.haiti.116",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{40}:[a-f0-9]{0,32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 73,
+          "value": "c18e826af2a78c7b9b7261452613233417e65817:28246535720688452723483475753333",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 4521,
+            "name": "Redmine",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 73..73",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 73,
+            "max": 73,
+            "observed": [
+              73
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 4521,
+            "name": "Redmine",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 4521,
+            "hashcat_name": "Redmine",
+            "official_example": "c18e826af2a78c7b9b7261452613233417e65817:28246535720688452723483475753333",
+            "official_example_length": 73,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "redmine.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 73,
+              "max": 73,
+              "observed": [
+                73
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "redmine.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ripemd-128.json",
+      "id": "ripemd-128",
+      "name": "RIPEMD-128",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ripemd-128.haiti.019",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(?:\\$ripemd\\$)?[a-f0-9]{32}(:.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 40,
+          "value": "$ripemd$cdf26213a150dc3ecb610f18f6b38b46",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 32,
+          "value": "cdf26213a150dc3ecb610f18f6b38b46",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "ripemd-128",
+            "name": "RIPEMD-128",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$ripemd$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 32..40",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 32,
+            "max": 40,
+            "observed": [
+              32,
+              40
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ripemd-128",
+            "name": "RIPEMD-128",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "ripemd-128.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$ripemd$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex",
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 32,
+              "max": 40,
+              "observed": [
+                32,
+                40
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ripemd-128.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ripemd-160.json",
+      "id": "ripemd-160",
+      "name": "RIPEMD-160",
+      "current_status": "active",
+      "current_priority": 90,
+      "current_tags": [
+        "common"
+      ],
+      "current_matchers": [
+        {
+          "id": "ripemd-160.haiti.036",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(\\$ripemd\\$)?[a-f0-9]{40}(:[^:]+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 48,
+          "value": "$ripemd$9c1185a5c5e9fc54612808977ee8f548b2258d31",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 40,
+          "value": "012cb9b334ec1aeb71a9c8ce85586082467f7eb6",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 40,
+          "value": "9c1185a5c5e9fc54612808977ee8f548b2258d31",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 6000,
+            "name": "RIPEMD-160",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ripemd-160",
+            "name": "RIPEMD-160",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$ripemd$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 40..48",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 40,
+            "max": 48,
+            "observed": [
+              40,
+              48
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ripemd-160",
+            "name": "RIPEMD-160",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 6000,
+            "name": "RIPEMD-160",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 6000,
+            "hashcat_name": "RIPEMD-160",
+            "official_example": "012cb9b334ec1aeb71a9c8ce85586082467f7eb6",
+            "official_example_length": 40,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ripemd-160.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$ripemd$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex",
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 40,
+              "max": 48,
+              "observed": [
+                40,
+                48
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ripemd-160.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ripemd-256.json",
+      "id": "ripemd-256",
+      "name": "RIPEMD-256",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ripemd-256.haiti.058",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{64}(:.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 64,
+          "value": "1419109aa0de60e6ba0b6d2b2f602c13b07e97b5ffc85b6be2297badc699262f",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 64,
+          "value": "f156e6c20042057840f3251ee041596d89fde06c2505f61764ad1c03c2fc1375",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "dynamic_140",
+            "name": "RIPEMD-256",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 64..64",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 64,
+            "max": 64,
+            "observed": [
+              64
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "dynamic_140",
+            "name": "RIPEMD-256",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "ripemd-256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 64,
+              "max": 64,
+              "observed": [
+                64
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ripemd-256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ripemd-320-2.json",
+      "id": "ripemd-320-2",
+      "name": "RIPEMD-320",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "ripemd-320-2.hashcat.33600",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{80}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 80,
+          "value": "8339009b816d4e4c2a6be3c6e1daac6aca69a7670ecdc583adfca0db17cc8f08ce35d6c759b038ab",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 33600,
+            "name": "RIPEMD-320",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 80..80",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 80,
+            "max": 80,
+            "observed": [
+              80
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 33600,
+            "name": "RIPEMD-320",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 33600,
+            "hashcat_name": "RIPEMD-320",
+            "official_example": "8339009b816d4e4c2a6be3c6e1daac6aca69a7670ecdc583adfca0db17cc8f08ce35d6c759b038ab",
+            "official_example_length": 80,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ripemd-320-2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 80,
+              "max": 80,
+              "observed": [
+                80
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ripemd-320-2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ripemd-320.json",
+      "id": "ripemd-320",
+      "name": "RIPEMD-320",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ripemd-320.haiti.068",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{80}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 80,
+          "value": "303aa1dcb731cd4e4bff2a60971eb7376c6c47cb59947c804776d115470183c8cc2e487337b45412",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 80,
+          "value": "3c616c27aa7539c4726388c9e047aa4ea089dd739b3cfc470e964ea12e479da3cce437b9daa90214",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "dynamic_150",
+            "name": "RIPEMD-320",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 80..80",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 80,
+            "max": 80,
+            "observed": [
+              80
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "dynamic_150",
+            "name": "RIPEMD-320",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "ripemd-320.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 80,
+              "max": 80,
+              "observed": [
+                80
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ripemd-320.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "rsa-security-analytics-netwitness-sha256.json",
+      "id": "rsa-security-analytics-netwitness-sha256",
+      "name": "RSA Security Analytics / NetWitness (sha256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "rsa-security-analytics-netwitness-sha256.hashcat.20712",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{64}:[A-Za-z0-9+/=]{20}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 85,
+          "value": "6F48F44C46F5ADC534597687B086278F0AAF7D262ADDB3978562A7D55BBDF467:MDAwMzY1NzYwODI4MQ==",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 20712,
+            "name": "RSA Security Analytics / NetWitness (sha256)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 85..85",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 85,
+            "max": 85,
+            "observed": [
+              85
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 20712,
+            "name": "RSA Security Analytics / NetWitness (sha256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 20712,
+            "hashcat_name": "RSA Security Analytics / NetWitness (sha256)",
+            "official_example": "6F48F44C46F5ADC534597687B086278F0AAF7D262ADDB3978562A7D55BBDF467:MDAwMzY1NzYwODI4MQ==",
+            "official_example_length": 85,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "rsa-security-analytics-netwitness-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 85,
+              "max": 85,
+              "observed": [
+                85
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "rsa-security-analytics-netwitness-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ruby-on-rails-restful-auth-one-round-no-sitekey.json",
+      "id": "ruby-on-rails-restful-auth-one-round-no-sitekey",
+      "name": "Ruby on Rails Restful Auth (one round, no sitekey)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ruby-on-rails-restful-auth-one-round-no-sitekey.haiti.035",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{40}(:[^:]+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 81,
+          "value": "3999d08db95797891ec77f07223ca81bf43e1be2:5dcc47b04c49d3c8e1b9e4ec367fddeed21b7b85",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 27200,
+            "name": "Ruby on Rails Restful Auth (one round, no sitekey)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 81..81",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 81,
+            "max": 81,
+            "observed": [
+              81
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 27200,
+            "name": "Ruby on Rails Restful Auth (one round, no sitekey)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 27200,
+            "hashcat_name": "Ruby on Rails Restful Auth (one round, no sitekey)",
+            "official_example": "3999d08db95797891ec77f07223ca81bf43e1be2:5dcc47b04c49d3c8e1b9e4ec367fddeed21b7b85",
+            "official_example_length": 81,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ruby-on-rails-restful-auth-one-round-no-sitekey.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 81,
+              "max": 81,
+              "observed": [
+                81
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ruby-on-rails-restful-auth-one-round-no-sitekey.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ruby-on-rails-restful-authentication.json",
+      "id": "ruby-on-rails-restful-authentication",
+      "name": "Ruby on Rails Restful-Authentication",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "ruby-on-rails-restful-authentication.hashcat.19500",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{40}:[A-Fa-f0-9]{12}:[A-Fa-f0-9]{19}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 73,
+          "value": "d7d5ea3e09391da412b653ae6c8d7431ec273ea2:238769868762:8962783556527653675",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 19500,
+            "name": "Ruby on Rails Restful-Authentication",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 73..73",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 73,
+            "max": 73,
+            "observed": [
+              73
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 19500,
+            "name": "Ruby on Rails Restful-Authentication",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 19500,
+            "hashcat_name": "Ruby on Rails Restful-Authentication",
+            "official_example": "d7d5ea3e09391da412b653ae6c8d7431ec273ea2:238769868762:8962783556527653675",
+            "official_example_length": 73,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "ruby-on-rails-restful-authentication.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 73,
+              "max": 73,
+              "observed": [
+                73
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ruby-on-rails-restful-authentication.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    }
+  ]
+}

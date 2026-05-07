@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "argon2id-bridged-reference-implementation-tunings",
+  "name": "Argon2id [Bridged: reference implementation + tunings]",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "70000"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 70000,
+        "name": "Argon2id [Bridged: reference implementation + tunings]",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "70000"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$argon2id$v=19$m=65536,t=3,p=1$FBMjI4RJBhIykCgol1KEJA$2ky5GAdhT1kH4kIgPN/oERE3Taiy43vNN70a3HpiKQU",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "argon2id-bridged-reference-implementation-tunings.hashcat.70000",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{8}\\$[A-Za-z0-9+/=]{4}\\$[A-Za-z0-9+/=]{7},[A-Za-z0-9+/=]{3},[A-Za-z0-9+/=]{3}\\$[A-Za-z0-9]{22}\\$[A-Za-z0-9./]{43}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70000"
+        }
+      ]
+    }
+  ]
+}

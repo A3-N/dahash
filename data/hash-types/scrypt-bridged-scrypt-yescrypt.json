@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "scrypt-bridged-scrypt-yescrypt",
+  "name": "scrypt [Bridged: Scrypt-Yescrypt]",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "70200"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 70200,
+        "name": "scrypt [Bridged: Scrypt-Yescrypt]",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "70200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "SCRYPT:16384:8:1:OTEyNzU0ODg=:Cc8SPjRH1hFQhuIPCdF51uNGtJ2aOY/isuoMlMUsJ8c=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "scrypt-bridged-scrypt-yescrypt.hashcat.70200",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{6}:[0-9]{5}:[0-9]{1}:[0-9]{1}:[A-Za-z0-9+/=]{12}:[A-Za-z0-9+/=]{44}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "70200"
+        }
+      ]
+    }
+  ]
+}

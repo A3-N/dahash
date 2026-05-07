@@ -1,0 +1,72 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "siphash",
+  "name": "SipHash",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "siphash.haiti.177",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}:2:4:[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}:2:4:[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 10100,
+        "name": "SipHash",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "10100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "10100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "583e6f51e52ba296:2:4:47356410265714355482333327356688",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "10100"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "ad61d78c06037cd9:2:4:81533218127174468417660201434054",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SipHash"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SipHash"
+    }
+  ]
+}

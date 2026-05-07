@@ -1,0 +1,77 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "wpa-pmkid-pmk",
+  "name": "WPA-PMKID-PMK",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "wpa-pmkid-pmk.haiti.307",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}[*:][a-f0-9]{12}[*:][a-f0-9]{12}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}[*:][a-f0-9]{12}[*:][a-f0-9]{12}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16801,
+        "name": "WPA-PMKID-PMK",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "16801"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "16801"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "wpapsk-pmk",
+        "name": "WPA-PMKID-PMK",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "wpapsk-pmk"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "2582a8281bf9d4308d6f5731d0e61c61:4604ba734d4e:89acf0e761f4",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "WPA-PMKID-PMK"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "16801"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "WPA-PMKID-PMK"
+    }
+  ]
+}

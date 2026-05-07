@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "electrum-wallet-salt-type-1-3",
+  "name": "Electrum Wallet (Salt-Type 1-3)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "16600"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16600,
+        "name": "Electrum Wallet (Salt-Type 1-3)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "16600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$electrum$1*44358283104603165383613672586868*c43a6632d9f59364f74c395a03d8c2ea",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16600"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "electrum-wallet-salt-type-1-3.hashcat.16600",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{8}\\$[0-9]{1}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16600"
+        }
+      ]
+    }
+  ]
+}

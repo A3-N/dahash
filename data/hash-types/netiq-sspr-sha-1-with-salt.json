@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "netiq-sspr-sha-1-with-salt",
+  "name": "NetIQ SSPR (SHA-1 with Salt)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "32020"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 32020,
+        "name": "NetIQ SSPR (SHA-1 with Salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "32020"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$sspr$2$100000$CxCpGqosk9PkCBcoRFp6DLjjRhVEJKK8$a33283d71c2ecaf4f3017b0a89feca2fc879221c",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32020"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "netiq-sspr-sha-1-with-salt.hashcat.32020",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{4}\\$[0-9]{1}\\$[0-9]{6}\\$[A-Za-z0-9]{32}\\$[A-Fa-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32020"
+        }
+      ]
+    }
+  ]
+}

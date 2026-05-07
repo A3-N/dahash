@@ -1,0 +1,76 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "eggdrop-irc-bot",
+  "name": "Eggdrop IRC Bot",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "eggdrop-irc-bot.haiti.004",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\+[a-z0-9\\/.]{12}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\+[a-z0-9\\/.]{12}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "bfegg",
+        "name": "Eggdrop IRC Bot",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "bfegg"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "+9F93o1OxwgK1",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Eggdrop IRC Bot"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "+C/.8o.Wuph9.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Eggdrop IRC Bot"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "+Obytd.zXYjH/",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Eggdrop IRC Bot"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Eggdrop IRC Bot"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "axcrypt-1",
+  "name": "AxCrypt 1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "axcrypt-1.haiti.222",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$axcrypt\\$\\*1\\*\\d{1,7}\\*[a-f0-9]{32}\\*[a-f0-9]{48}(?:\\*[a-z0-9]+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$axcrypt\\$\\*1\\*\\d{1,7}\\*[a-f0-9]{32}\\*[a-f0-9]{48}(?:\\*[a-z0-9]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "axcrypt",
+        "name": "AxCrypt 1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "axcrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$axcrypt$*1*1337*0fd9e7e2f907f480f8af162564f8f94b*af10c88878ba4e2c89b12586f93b7802453121ee702bc362",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AxCrypt 1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$axcrypt$*1*20000*efd759ae68ae7edd709b9e1c2166d0f7*dcf4c1279b8e4d39475925b17f698c3ce39e9e7d82917272*68656c6c6f0a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AxCrypt 1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$axcrypt$*1*31014*3408ae91dddc0b1750ed4223fd843364*1cc0f8fa8d89f44d284d0562ac7e93848c86ce9605907129",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AxCrypt 1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$axcrypt$*1*38574*ce4f58c1e85df1ea921df6d6c05439b4*3278c3c730f7887b1008e852e59997e2196710a5c6bc1813*66664a6b2074434a4520374d73592055626979204a6b755520736d6b4b20394e694a205548444320524578562065674b33202f42593d",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AxCrypt 1"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AxCrypt 1"
+    }
+  ]
+}

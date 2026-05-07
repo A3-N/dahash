@@ -1,0 +1,97 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha-1-crypt-juniper-netbsd",
+  "name": "SHA-1 Crypt (Juniper/NetBSD)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sha-1-crypt-juniper-netbsd.haiti.136",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$sha1\\$\\d+\\$[a-z0-9\\/.]{0,64}\\$[a-z0-9\\/.]{28}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$sha1\\$\\d+\\$[a-z0-9\\/.]{0,64}\\$[a-z0-9\\/.]{28}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 15100,
+        "name": "SHA-1 Crypt (Juniper/NetBSD)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "15100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "15100"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "sha1crypt",
+        "name": "SHA-1 Crypt (Juniper/NetBSD)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "sha1crypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$sha1$20000$75552156$HhYMDdaEHiK3eMIzTldOFPnw.s2Q",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA-1 Crypt (Juniper/NetBSD)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "15100"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$sha1$40000$jtNX3nZ2$hBNaIXkt4wBI2o5rsi8KejSjNqIq",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA-1 Crypt (Juniper/NetBSD)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$sha1$64000$wnUR8T1U$azjCegpOIk0FjE61qzGWhdkpuMRL",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA-1 Crypt (Juniper/NetBSD)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SHA-1 Crypt (Juniper/NetBSD)"
+    }
+  ]
+}

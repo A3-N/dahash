@@ -1,0 +1,69 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bigcrypt-descrypt-extension-des-based-crypt-3",
+  "name": "BigCrypt (descrypt extension, DES-based crypt(3))",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "bigcrypt-descrypt-extension-des-based-crypt-3.haiti.179",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9\\/.]{13,}$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9\\/.]{13,}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "descrypt",
+        "name": "BigCrypt (descrypt extension, DES-based crypt(3))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "descrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "S/8NbAAlzbYO66hAa9XZyWy2",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BigCrypt (descrypt extension, DES-based crypt(3))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "TO9Mdb1FHXkFU",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BigCrypt (descrypt extension, DES-based crypt(3))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "BigCrypt (descrypt extension, DES-based crypt(3))"
+    }
+  ]
+}

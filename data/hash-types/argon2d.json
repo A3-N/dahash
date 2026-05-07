@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "argon2d",
+  "name": "argon2d",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "argon2d.haiti.218",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$argon2d\\$v=19\\$m=\\d{1,6},t=\\d{1,2},p=\\d{1,2}\\$[^$]+\\$[^\\s]{6,}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$argon2d\\$v=19\\$m=\\d{1,6},t=\\d{1,2},p=\\d{1,2}\\$[^$]+\\$[^\\s]{6,}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "argon2",
+        "name": "argon2d",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "argon2"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$argon2d$v=19$m=16384,t=3,p=1$c2hvcnRfc2FsdA$TLSTPihIo+5F67Y1vJdfWdB9",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "argon2d"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$argon2d$v=19$m=16384,t=4,p=3$YW5vdGhlcl9zYWx0$yw93eMxC8REPAwbQ0e/q43jR9+RI9HI/DHP75uzm7tQfjU734oaI3dzcMWjYjHzVQD+J4+MG+7oyD8dN/PtnmPCZs+UZ67E+rkXJ/wTvY4WgXgAdGtJRrAGxhy4rD7d5G+dCpqhrog",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "argon2d"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$argon2d$v=19$m=4096,t=3,p=1$ZGFtYWdlX2RvbmU$w9w3s5/zV8+PcAZlJhnTCOE+vBkZssmZf6jOq3dKv50",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "argon2d"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$argon2d$v=19$m=4096,t=3,p=1$c2hvcnRfc2FsdA$zMrTcOAOUje6UqObRVh84Pe1K6gumcDqqGzRM0ILzYmj",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "argon2d"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "argon2d"
+    }
+  ]
+}

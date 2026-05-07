@@ -1,0 +1,69 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "linkedin",
+  "name": "LinkedIn",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "linkedin.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 190,
+        "name": "LinkedIn",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "190"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "raw-sha1-linkedin",
+        "name": "LinkedIn",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "raw-sha1-linkedin"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "b89eaac7e61417341b710b727768294d0e6a277b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LinkedIn"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LinkedIn"
+    }
+  ]
+}

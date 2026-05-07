@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "freebsd-md5",
+  "name": "FreeBSD MD5",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "freebsd-md5.haiti.026",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$1\\$[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}(:.*)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$1\\$[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}(:.*)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 500,
+        "name": "FreeBSD MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "500"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "md5crypt",
+        "name": "FreeBSD MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "md5crypt"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "FreeBSD MD5"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$1$38652870$DUjsu4TTlTsOe/xxZ05uf/",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "500"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

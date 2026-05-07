@@ -1,0 +1,3111 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "g",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "generic-hash-bridged-python-interpreter-free-threading.json",
+      "id": "generic-hash-bridged-python-interpreter-free-threading",
+      "name": "Generic Hash [Bridged: Python Interpreter free-threading]",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "generic-hash-bridged-python-interpreter-free-threading.hashcat.72000",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 81,
+          "value": "33522b0fd9812aa68586f66dba7c17a8ce64344137f9c7d8b11f32a6921c22de*9348746780603343",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 72000,
+            "name": "Generic Hash [Bridged: Python Interpreter free-threading]",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 81..81",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 81,
+            "max": 81,
+            "observed": [
+              81
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 72000,
+            "name": "Generic Hash [Bridged: Python Interpreter free-threading]",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 72000,
+            "hashcat_name": "Generic Hash [Bridged: Python Interpreter free-threading]",
+            "official_example": "33522b0fd9812aa68586f66dba7c17a8ce64344137f9c7d8b11f32a6921c22de*9348746780603343",
+            "official_example_length": 81,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "generic-hash-bridged-python-interpreter-free-threading.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 81,
+              "max": 81,
+              "observed": [
+                81
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "generic-hash-bridged-python-interpreter-free-threading.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "generic-hash-bridged-python-interpreter-with-gil.json",
+      "id": "generic-hash-bridged-python-interpreter-with-gil",
+      "name": "Generic Hash [Bridged: Python Interpreter with GIL]",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "generic-hash-bridged-python-interpreter-with-gil.hashcat.73000",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 81,
+          "value": "33522b0fd9812aa68586f66dba7c17a8ce64344137f9c7d8b11f32a6921c22de*9348746780603343",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 73000,
+            "name": "Generic Hash [Bridged: Python Interpreter with GIL]",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 81..81",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 81,
+            "max": 81,
+            "observed": [
+              81
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 73000,
+            "name": "Generic Hash [Bridged: Python Interpreter with GIL]",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 73000,
+            "hashcat_name": "Generic Hash [Bridged: Python Interpreter with GIL]",
+            "official_example": "33522b0fd9812aa68586f66dba7c17a8ce64344137f9c7d8b11f32a6921c22de*9348746780603343",
+            "official_example_length": 81,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "generic-hash-bridged-python-interpreter-with-gil.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 81,
+              "max": 81,
+              "observed": [
+                81
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "generic-hash-bridged-python-interpreter-with-gil.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "generic-hash-bridged-rust.json",
+      "id": "generic-hash-bridged-rust",
+      "name": "Generic Hash [Bridged: Rust]",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "generic-hash-bridged-rust.hashcat.74000",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 81,
+          "value": "33522b0fd9812aa68586f66dba7c17a8ce64344137f9c7d8b11f32a6921c22de*9348746780603343",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 74000,
+            "name": "Generic Hash [Bridged: Rust]",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 81..81",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 81,
+            "max": 81,
+            "observed": [
+              81
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 74000,
+            "name": "Generic Hash [Bridged: Rust]",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 74000,
+            "hashcat_name": "Generic Hash [Bridged: Rust]",
+            "official_example": "33522b0fd9812aa68586f66dba7c17a8ce64344137f9c7d8b11f32a6921c22de*9348746780603343",
+            "official_example_length": 81,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "generic-hash-bridged-rust.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 81,
+              "max": 81,
+              "observed": [
+                81
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "generic-hash-bridged-rust.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ghash-32-3.json",
+      "id": "ghash-32-3",
+      "name": "GHash-32-3",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ghash-32-3.haiti.001",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{8}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "ghash-32-3.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ghash-32-3.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "ghash-32-5.json",
+      "id": "ghash-32-5",
+      "name": "GHash-32-5",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "ghash-32-5.haiti.001",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{8}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "ghash-32-5.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "ghash-32-5.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gost-cryptopro-s-box.json",
+      "id": "gost-cryptopro-s-box",
+      "name": "GOST CryptoPro S-Box",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "gost-cryptopro-s-box.haiti.058",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{64}(:.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 64,
+          "value": "08ba4d805cc1537f8d1c34f0b0c37da50654e8825b4a02ad0a0bd49afea3404a",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 64,
+          "value": "785a581dc3bb641f23f7694d49cb94e1b50e43ab82be6a3713fa46375b5e2b55",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 64..64",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 64,
+            "max": 64,
+            "observed": [
+              64
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "gost-cryptopro-s-box.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 64,
+              "max": 64,
+              "observed": [
+                64
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gost-cryptopro-s-box.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gost-r-34-11-2012-streebog-256-bit-big-endian.json",
+      "id": "gost-r-34-11-2012-streebog-256-bit-big-endian",
+      "name": "GOST R 34.11-2012 (Streebog) 256-bit, big-endian",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gost-r-34-11-2012-streebog-256-bit-big-endian.hashcat.11700",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 64,
+          "value": "57e9e50caec93d72e9498c211d6dc4f4d328248b48ecf46ba7abfa874f666e36",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 11700,
+            "name": "GOST R 34.11-2012 (Streebog) 256-bit, big-endian",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 64..64",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 64,
+            "max": 64,
+            "observed": [
+              64
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 11700,
+            "name": "GOST R 34.11-2012 (Streebog) 256-bit, big-endian",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 11700,
+            "hashcat_name": "GOST R 34.11-2012 (Streebog) 256-bit, big-endian",
+            "official_example": "57e9e50caec93d72e9498c211d6dc4f4d328248b48ecf46ba7abfa874f666e36",
+            "official_example_length": 64,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gost-r-34-11-2012-streebog-256-bit-big-endian.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 64,
+              "max": 64,
+              "observed": [
+                64
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gost-r-34-11-2012-streebog-256-bit-big-endian.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gost-r-34-11-2012-streebog-512-bit-big-endian.json",
+      "id": "gost-r-34-11-2012-streebog-512-bit-big-endian",
+      "name": "GOST R 34.11-2012 (Streebog) 512-bit, big-endian",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gost-r-34-11-2012-streebog-512-bit-big-endian.hashcat.11800",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{128}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 128,
+          "value": "5d5bdba48c8f89ee6c0a0e11023540424283e84902de08013aeeb626e819950bb32842903593a1d2e8f71897ff7fe72e17ac9ba8ce1d1d2f7e9c4359ea63bdc3",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 11800,
+            "name": "GOST R 34.11-2012 (Streebog) 512-bit, big-endian",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 128..128",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 128,
+            "max": 128,
+            "observed": [
+              128
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 11800,
+            "name": "GOST R 34.11-2012 (Streebog) 512-bit, big-endian",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 11800,
+            "hashcat_name": "GOST R 34.11-2012 (Streebog) 512-bit, big-endian",
+            "official_example": "5d5bdba48c8f89ee6c0a0e11023540424283e84902de08013aeeb626e819950bb32842903593a1d2e8f71897ff7fe72e17ac9ba8ce1d1d2f7e9c4359ea63bdc3",
+            "official_example_length": 128,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gost-r-34-11-2012-streebog-512-bit-big-endian.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 128,
+              "max": 128,
+              "observed": [
+                128
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gost-r-34-11-2012-streebog-512-bit-big-endian.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gost-r-34-11-94.json",
+      "id": "gost-r-34-11-94",
+      "name": "GOST R 34.11-94",
+      "current_status": "active",
+      "current_priority": 90,
+      "current_tags": [
+        "common"
+      ],
+      "current_matchers": [
+        {
+          "id": "gost-r-34-11-94.haiti.058",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{64}(:.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 64,
+          "value": "0159e744333b42784d79e1730499e96ce832cbac1ef7963326210407058fc0b7",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 64,
+          "value": "6ac9de54828485f8df60ec61004818565f6edac5788b3af35f02327973059d22",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 64,
+          "value": "df226c2c6dcb1d995c0299a33a084b201544293c31fc3d279530121d36bbcea9",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 6900,
+            "name": "GOST R 34.11-94",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "gost",
+            "name": "GOST R 34.11-94",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 64..64",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 64,
+            "max": 64,
+            "observed": [
+              64
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "gost",
+            "name": "GOST R 34.11-94",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 6900,
+            "name": "GOST R 34.11-94",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 6900,
+            "hashcat_name": "GOST R 34.11-94",
+            "official_example": "df226c2c6dcb1d995c0299a33a084b201544293c31fc3d279530121d36bbcea9",
+            "official_example_length": 64,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gost-r-34-11-94.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 64,
+              "max": 64,
+              "observed": [
+                64
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gost-r-34-11-94.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gost-yescrypt.json",
+      "id": "gost-yescrypt",
+      "name": "gost-yescrypt",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "gost-yescrypt.haiti.293",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$gy\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 59,
+          "value": "$gy$j9T$.......$.xOKFTJExrsAB12xqOm7X4K3mMPTwx0aMN1dx5PQnQ5",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 74,
+          "value": "$gy$jCT$HM87v.7RwpQLba8fDjNSk1$VgqS7k2OZWhFbAJVBye2vaA7ex/1VtU3a5fmL8Wv/26",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gy$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 59..74",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 59,
+            "max": 74,
+            "observed": [
+              59,
+              74
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "gost-yescrypt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gy$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 59,
+              "max": 74,
+              "observed": [
+                59,
+                74
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gost-yescrypt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gost12512crypt-gost12512hash-unix.json",
+      "id": "gost12512crypt-gost12512hash-unix",
+      "name": "gost12512crypt [$gost12512hash$] (Unix)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gost12512crypt-gost12512hash-unix.hashcat.35600",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{13}\\$[A-Za-z0-9]{4}\\$[A-Za-z0-9./]{86}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 106,
+          "value": "$gost12512hash$salt$w0TCvk4n0JHA/kPNpHEyf3RR5YuUXReihlrize3NdcPCmtLk/ewG63OUWT.G4bvjegPTeMb/xQ2PK7apsCfC7/",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 35600,
+            "name": "gost12512crypt [$gost12512hash$] (Unix)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gost12512hash$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 106..106",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 106,
+            "max": 106,
+            "observed": [
+              106
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              5
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 35600,
+            "name": "gost12512crypt [$gost12512hash$] (Unix)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 35600,
+            "hashcat_name": "gost12512crypt [$gost12512hash$] (Unix)",
+            "official_example": "$gost12512hash$salt$w0TCvk4n0JHA/kPNpHEyf3RR5YuUXReihlrize3NdcPCmtLk/ewG63OUWT.G4bvjegPTeMb/xQ2PK7apsCfC7/",
+            "official_example_length": 106,
+            "official_notes": [
+              "Module usage notice: `rounds=[# of iterations] is optional here, after signature, e.g. $5$rounds=5000`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gost12512crypt-gost12512hash-unix.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gost12512hash$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  5
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 106,
+              "max": 106,
+              "observed": [
+                106
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gost12512crypt-gost12512hash-unix.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gpg-aes-128-aes-256-sha-1-pass.json",
+      "id": "gpg-aes-128-aes-256-sha-1-pass",
+      "name": "GPG (AES-128/AES-256 (SHA-1($pass)))",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gpg-aes-128-aes-256-sha-1-pass.hashcat.17010",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{4}\\*[A-Fa-f0-9]{696}\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{2}\\*[A-Fa-f0-9]{32}\\*[0-9]{5}\\*[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 782,
+          "value": "$gpg$*1*348*1024*8833fa3812b5500aa9eb7e46febfa31a0584b7e4a5b13c198f5c9b0814243895cce45ac3714e79692fb5a130a1c943b9130315ce303cb7e6831be68ce427892858f313fc29f533434dbe0ef26573f2071bbcc1499dc49bda90648221ef3823757e2fba6099a18c0c83386b21d8c9b522ec935ecd540210dbf0f...<truncated len=782>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 17010,
+            "name": "GPG (AES-128/AES-256 (SHA-1($pass)))",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gpg$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 782..782",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 782,
+            "max": 782,
+            "observed": [
+              782
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "gpg",
+              "pgp",
+              "openpgp"
+            ],
+            "john_extractors": [
+              "gpg2john",
+              "pgpdisk2john.py",
+              "pgpsda2john.py",
+              "pgpwde2john.py"
+            ],
+            "hashcat_extractors": [
+              "gpg-ocb-aes2hashcat.py"
+            ],
+            "native_artifacts": [
+              "GnuPG/OpenPGP private keys or encrypted containers"
+            ],
+            "expected_prefixes": [
+              "$gpg$"
+            ],
+            "note": "PGP/GPG formats are extractor output from key/container material.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 17010,
+            "name": "GPG (AES-128/AES-256 (SHA-1($pass)))",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 17010,
+            "hashcat_name": "GPG (AES-128/AES-256 (SHA-1($pass)))",
+            "official_example": "$gpg$*1*348*1024*8833fa3812b5500aa9eb7e46febfa31a0584b7e4a5b13c198f5c9b0814243895cce45ac3714e79692fb5a130a1c943b9130315ce303cb7e6831be68ce427892858f313fc29f533434dbe0ef26573f2071bbcc1499dc49bda90648221ef3823757e2fba6099a18c0c83386b21d8c9b522ec935ecd540210dbf0f21c859429fd4d35fa056415d8087f27b3e66b160...<truncated len=782>",
+            "official_example_length": 782,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gpg-aes-128-aes-256-sha-1-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gpg$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  13
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 782,
+              "max": 782,
+              "observed": [
+                782
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gpg-aes-128-aes-256-sha-1-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "gpg",
+                  "pgp",
+                  "openpgp"
+                ],
+                "john_extractors": [
+                  "gpg2john",
+                  "pgpdisk2john.py",
+                  "pgpsda2john.py",
+                  "pgpwde2john.py"
+                ],
+                "hashcat_extractors": [
+                  "gpg-ocb-aes2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "GnuPG/OpenPGP private keys or encrypted containers"
+                ],
+                "expected_prefixes": [
+                  "$gpg$"
+                ],
+                "note": "PGP/GPG formats are extractor output from key/container material.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gpg-aes-128-aes-256-sha-256-pass.json",
+      "id": "gpg-aes-128-aes-256-sha-256-pass",
+      "name": "GPG (AES-128/AES-256 (SHA-256($pass)))",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gpg-aes-128-aes-256-sha-256-pass.hashcat.17030",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:17030"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 1422,
+          "value": "$gpg$*1*668*2048*e75985b4e7d0bce9e38925a5cf69494ae9a2ccfe2973f077d9423642fffec8bee0e327178a4a3431875ca1f377b9f89269e7c42b94150859d9e5bf5c4504d63076b270118183dda75d253492be8b680c0061e7f130010a00a09a0456710051f2483052ad209fcb9f194f78ecd04fd04953fa1cd6f7ce9babca8...<truncated len=1422>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 17030,
+            "name": "GPG (AES-128/AES-256 (SHA-256($pass)))",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gpg$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 1422..1422",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 1422,
+            "max": 1422,
+            "observed": [
+              1422
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              13
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "gpg",
+              "pgp",
+              "openpgp"
+            ],
+            "john_extractors": [
+              "gpg2john",
+              "pgpdisk2john.py",
+              "pgpsda2john.py",
+              "pgpwde2john.py"
+            ],
+            "hashcat_extractors": [
+              "gpg-ocb-aes2hashcat.py"
+            ],
+            "native_artifacts": [
+              "GnuPG/OpenPGP private keys or encrypted containers"
+            ],
+            "expected_prefixes": [
+              "$gpg$"
+            ],
+            "note": "PGP/GPG formats are extractor output from key/container material.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 17030,
+            "name": "GPG (AES-128/AES-256 (SHA-256($pass)))",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 17030,
+            "hashcat_name": "GPG (AES-128/AES-256 (SHA-256($pass)))",
+            "official_example": "$gpg$*1*668*2048*e75985b4e7d0bce9e38925a5cf69494ae9a2ccfe2973f077d9423642fffec8bee0e327178a4a3431875ca1f377b9f89269e7c42b94150859d9e5bf5c4504d63076b270118183dda75d253492be8b680c0061e7f130010a00a09a0456710051f2483052ad209fcb9f194f78ecd04fd04953fa1cd6f7ce9babca8b2ee6432730de069648460b2822fe355ed19e005...<truncated len=1422>",
+            "official_example_length": 1422,
+            "official_notes": [
+              "Example password: `8CdhZ2J8umrHg0tMjB0NDRDpKKFeL7i`",
+              "Module usage notice: `You can use https://github.com/pwrbob/pgp2hc or the older https://github.com/openwall/john/blob/bleeding-jumbo/src/gpg2john.c to extract the hashes`"
+            ],
+            "referenced_urls": [
+              "https://github.com/openwall/john/blob/bleeding-jumbo/src/gpg2john.c",
+              "https://github.com/pwrbob/pgp2hc"
+            ],
+            "referenced_tools": [
+              "gpg2john.c"
+            ],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gpg-aes-128-aes-256-sha-256-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gpg$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  13
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 1422,
+              "max": 1422,
+              "observed": [
+                1422
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gpg-aes-128-aes-256-sha-256-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "gpg",
+                  "pgp",
+                  "openpgp"
+                ],
+                "john_extractors": [
+                  "gpg2john",
+                  "pgpdisk2john.py",
+                  "pgpsda2john.py",
+                  "pgpwde2john.py"
+                ],
+                "hashcat_extractors": [
+                  "gpg-ocb-aes2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "GnuPG/OpenPGP private keys or encrypted containers"
+                ],
+                "expected_prefixes": [
+                  "$gpg$"
+                ],
+                "note": "PGP/GPG formats are extractor output from key/container material.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gpg-aes-128-aes-256-sha-512-pass.json",
+      "id": "gpg-aes-128-aes-256-sha-512-pass",
+      "name": "GPG (AES-128/AES-256 (SHA-512($pass)))",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gpg-aes-128-aes-256-sha-512-pass.hashcat.17020",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:17020"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 1426,
+          "value": "$gpg$*1*668*2048*57e1f19c69a86038e23d7e5af5d810f4f86d32e9aaaf04b54281cda2194dcca99ee1f23f4aa3a011d5d2dc9e47689c449f398d315f91a03f4765742d20a7046e986a9696f0e07380a73fdd61e7ab2caa463a049a5869e008e16bb30d22f93f9aa8b0fdd41d2b19e669d58ca462498905e79944bff578c24139a...<truncated len=1426>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 17020,
+            "name": "GPG (AES-128/AES-256 (SHA-512($pass)))",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gpg$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 1426..1426",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 1426,
+            "max": 1426,
+            "observed": [
+              1426
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              13
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "gpg",
+              "pgp",
+              "openpgp"
+            ],
+            "john_extractors": [
+              "gpg2john",
+              "pgpdisk2john.py",
+              "pgpsda2john.py",
+              "pgpwde2john.py"
+            ],
+            "hashcat_extractors": [
+              "gpg-ocb-aes2hashcat.py"
+            ],
+            "native_artifacts": [
+              "GnuPG/OpenPGP private keys or encrypted containers"
+            ],
+            "expected_prefixes": [
+              "$gpg$"
+            ],
+            "note": "PGP/GPG formats are extractor output from key/container material.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 17020,
+            "name": "GPG (AES-128/AES-256 (SHA-512($pass)))",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 17020,
+            "hashcat_name": "GPG (AES-128/AES-256 (SHA-512($pass)))",
+            "official_example": "$gpg$*1*668*2048*57e1f19c69a86038e23d7e5af5d810f4f86d32e9aaaf04b54281cda2194dcca99ee1f23f4aa3a011d5d2dc9e47689c449f398d315f91a03f4765742d20a7046e986a9696f0e07380a73fdd61e7ab2caa463a049a5869e008e16bb30d22f93f9aa8b0fdd41d2b19e669d58ca462498905e79944bff578c24139a88ef44582aef93f94fe22406a3ae32dcc0f0602e...<truncated len=1426>",
+            "official_example_length": 1426,
+            "official_notes": [
+              "Module usage notice: `You can use https://github.com/pwrbob/pgp2hc or the older https://github.com/openwall/john/blob/bleeding-jumbo/src/gpg2john.c to extract the hashes`"
+            ],
+            "referenced_urls": [
+              "https://github.com/openwall/john/blob/bleeding-jumbo/src/gpg2john.c",
+              "https://github.com/pwrbob/pgp2hc"
+            ],
+            "referenced_tools": [
+              "gpg2john.c"
+            ],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gpg-aes-128-aes-256-sha-512-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gpg$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  13
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 1426,
+              "max": 1426,
+              "observed": [
+                1426
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gpg-aes-128-aes-256-sha-512-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "gpg",
+                  "pgp",
+                  "openpgp"
+                ],
+                "john_extractors": [
+                  "gpg2john",
+                  "pgpdisk2john.py",
+                  "pgpsda2john.py",
+                  "pgpwde2john.py"
+                ],
+                "hashcat_extractors": [
+                  "gpg-ocb-aes2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "GnuPG/OpenPGP private keys or encrypted containers"
+                ],
+                "expected_prefixes": [
+                  "$gpg$"
+                ],
+                "note": "PGP/GPG formats are extractor output from key/container material.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gpg-aes-ocb-128-sha-1-pass.json",
+      "id": "gpg-aes-ocb-128-sha-1-pass",
+      "name": "GPG (AES-OCB-128 (SHA-1($pass)))",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gpg-aes-ocb-128-sha-1-pass.hashcat.17050",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{2}\\*[0-9]{4}\\*[A-Fa-f0-9]{120}\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{2}\\*[A-Fa-f0-9]{24}\\*[A-Fa-f0-9]{9}\\*[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 201,
+          "value": "$gpg$*1*60*4096*71cdae39dd004b5fd4571575c683a33ecb0d2ea4495655b2544a63397b4f92e1b7d2c5243143398f9d44aba1e7b97c88b7030080b97c811d757264be*1*254*2*7*12*07f4ca8d366ae2e0ab55da75*329368576*199d8afecccd9dd6",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 17050,
+            "name": "GPG (AES-OCB-128 (SHA-1($pass)))",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gpg$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 201..201",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 201,
+            "max": 201,
+            "observed": [
+              201
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "gpg",
+              "pgp",
+              "openpgp"
+            ],
+            "john_extractors": [
+              "gpg2john",
+              "pgpdisk2john.py",
+              "pgpsda2john.py",
+              "pgpwde2john.py"
+            ],
+            "hashcat_extractors": [
+              "gpg-ocb-aes2hashcat.py"
+            ],
+            "native_artifacts": [
+              "GnuPG/OpenPGP private keys or encrypted containers"
+            ],
+            "expected_prefixes": [
+              "$gpg$"
+            ],
+            "note": "PGP/GPG formats are extractor output from key/container material.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 17050,
+            "name": "GPG (AES-OCB-128 (SHA-1($pass)))",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 17050,
+            "hashcat_name": "GPG (AES-OCB-128 (SHA-1($pass)))",
+            "official_example": "$gpg$*1*60*4096*71cdae39dd004b5fd4571575c683a33ecb0d2ea4495655b2544a63397b4f92e1b7d2c5243143398f9d44aba1e7b97c88b7030080b97c811d757264be*1*254*2*7*12*07f4ca8d366ae2e0ab55da75*329368576*199d8afecccd9dd6",
+            "official_example_length": 201,
+            "official_notes": [
+              "Module usage notice: `You can use https://github.com/hashcat/hashcat/blob/master/tools/gpg-ocb-aes2hashcat.py to extract the hashes`"
+            ],
+            "referenced_urls": [
+              "https://github.com/hashcat/hashcat/blob/master/tools/gpg-ocb-aes2hashcat.py"
+            ],
+            "referenced_tools": [
+              "gpg-ocb-aes2hashcat.py"
+            ],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gpg-aes-ocb-128-sha-1-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gpg$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  13
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 201,
+              "max": 201,
+              "observed": [
+                201
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gpg-aes-ocb-128-sha-1-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "gpg",
+                  "pgp",
+                  "openpgp"
+                ],
+                "john_extractors": [
+                  "gpg2john",
+                  "pgpdisk2john.py",
+                  "pgpsda2john.py",
+                  "pgpwde2john.py"
+                ],
+                "hashcat_extractors": [
+                  "gpg-ocb-aes2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "GnuPG/OpenPGP private keys or encrypted containers"
+                ],
+                "expected_prefixes": [
+                  "$gpg$"
+                ],
+                "note": "PGP/GPG formats are extractor output from key/container material.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "gpg-cast5-sha-1-pass.json",
+      "id": "gpg-cast5-sha-1-pass",
+      "name": "GPG (CAST5 (SHA-1($pass)))",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "gpg-cast5-sha-1-pass.hashcat.17040",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:17040"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2682,
+          "value": "$gpg$*1*1308*4096*ddf02802e2d06319bcf5962745b73677ecfa229649fed991e3360bdf2fffe71f521b8f877bccfcdce9a4fb4aeb63bd21fed6e37f96f193a6f7d3c476f4a7e01e7421d0eba5bfcd59544e37887572cd40e8d03e901574ec0f3afdff35ad3f25cb818ddadee84ddfef636207febd8d12d8a98983c86afa46608d...<truncated len=2682>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 17040,
+            "name": "GPG (CAST5 (SHA-1($pass)))",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$gpg$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2682..2682",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2682,
+            "max": 2682,
+            "observed": [
+              2682
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              13
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "gpg",
+              "pgp",
+              "openpgp"
+            ],
+            "john_extractors": [
+              "gpg2john",
+              "pgpdisk2john.py",
+              "pgpsda2john.py",
+              "pgpwde2john.py"
+            ],
+            "hashcat_extractors": [
+              "gpg-ocb-aes2hashcat.py"
+            ],
+            "native_artifacts": [
+              "GnuPG/OpenPGP private keys or encrypted containers"
+            ],
+            "expected_prefixes": [
+              "$gpg$"
+            ],
+            "note": "PGP/GPG formats are extractor output from key/container material.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 17040,
+            "name": "GPG (CAST5 (SHA-1($pass)))",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 17040,
+            "hashcat_name": "GPG (CAST5 (SHA-1($pass)))",
+            "official_example": "$gpg$*1*1308*4096*ddf02802e2d06319bcf5962745b73677ecfa229649fed991e3360bdf2fffe71f521b8f877bccfcdce9a4fb4aeb63bd21fed6e37f96f193a6f7d3c476f4a7e01e7421d0eba5bfcd59544e37887572cd40e8d03e901574ec0f3afdff35ad3f25cb818ddadee84ddfef636207febd8d12d8a98983c86afa46608d178dba5ec51e98a182bd9687b6431fba87b5a16b...<truncated len=2682>",
+            "official_example_length": 2682,
+            "official_notes": [
+              "Example password: `Hashcat1!`",
+              "Module usage notice: `You can use https://github.com/pwrbob/pgp2hc or the older https://github.com/openwall/john/blob/bleeding-jumbo/src/gpg2john.c to extract the hashes`"
+            ],
+            "referenced_urls": [
+              "https://github.com/openwall/john/blob/bleeding-jumbo/src/gpg2john.c",
+              "https://github.com/pwrbob/pgp2hc"
+            ],
+            "referenced_tools": [
+              "gpg2john.c"
+            ],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "gpg-cast5-sha-1-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$gpg$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  13
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2682,
+              "max": 2682,
+              "observed": [
+                2682
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "gpg-cast5-sha-1-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "gpg",
+                  "pgp",
+                  "openpgp"
+                ],
+                "john_extractors": [
+                  "gpg2john",
+                  "pgpdisk2john.py",
+                  "pgpsda2john.py",
+                  "pgpwde2john.py"
+                ],
+                "hashcat_extractors": [
+                  "gpg-ocb-aes2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "GnuPG/OpenPGP private keys or encrypted containers"
+                ],
+                "expected_prefixes": [
+                  "$gpg$"
+                ],
+                "note": "PGP/GPG formats are extractor output from key/container material.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "grub-2-pbkdf2-hmac-sha512.json",
+      "id": "grub-2-pbkdf2-hmac-sha512",
+      "name": "GRUB 2 (PBKDF2-HMAC-SHA512)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "grub-2-pbkdf2-hmac-sha512.haiti.084",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "\\Agrub\\.pbkdf2\\.sha512\\.\\d{1,6}\\.[a-f0-9]{128,2048}\\.[a-f0-9]{128}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 282,
+          "value": "grub.pbkdf2.sha512.10000.4483972AD2C52E1F590B3E2260795FDA9CA0B07B96FF492814CA9775F08C4B59CD1707F10B269E09B61B1E2D11729BCA8D62B7827B25B093EC58C4C1EAC23137.DF4FCB5DD91340D6D31E33423E4210AD47C7A4DF9FA16F401663BF288C20BF973530866178FE6D134256E4DBEFBD984B652332EED3...<truncated len=282>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 282,
+          "value": "grub.pbkdf2.sha512.10000.7d391ef48645f626b427b1fae06a7219b5b54f4f02b2621f86b5e36e83ae492bd1db60871e45bc07925cecb46ff8ba3db31c723c0c6acbd4f06f60c5b246ecbf.26d59c52b50df90d043f070bd9cbcd92a74424da42b3666fdeb08f1a54b8f1d2f4f56cf436f9382419c26798dc2c209a86003982b1...<truncated len=282>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 281,
+          "value": "grub.pbkdf2.sha512.1024.03510507805003756325721848020561235456073188241051876082416068104377357018503082587026352628170170411053726157658716047762755750.aac26b18c2b0c44bcf56514d46aabd52eea097d9c95122722087829982e9dd957b2b641cb1e015d4df16a84d0571e96cf6d3de63614...<truncated len=281>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 7200,
+            "name": "GRUB 2 (PBKDF2-HMAC-SHA512)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "pbkdf2-hmac-sha512",
+            "name": "GRUB 2 (PBKDF2-HMAC-SHA512)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "grub.pbkdf2.sha512.",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 281..282",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 281,
+            "max": 282,
+            "observed": [
+              281,
+              282
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "pbkdf2-hmac-sha512",
+            "name": "GRUB 2 (PBKDF2-HMAC-SHA512)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 7200,
+            "name": "GRUB 2 (PBKDF2-HMAC-SHA512)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 7200,
+            "hashcat_name": "GRUB 2",
+            "official_example": "grub.pbkdf2.sha512.1024.03510507805003756325721848020561235456073188241051876082416068104377357018503082587026352628170170411053726157658716047762755750.aac26b18c2b0c44bcf56514d46aabd52eea097d9c95122722087829982e9dd957b2b641cb1e015d4df16a84d0571e96cf6d3de6361431bdeed4ddb0940f2425b",
+            "official_example_length": 281,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "grub-2-pbkdf2-hmac-sha512.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "grub.pbkdf2.sha512."
+            ],
+            "separators": [
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 281,
+              "max": 282,
+              "observed": [
+                281,
+                282
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "grub-2-pbkdf2-hmac-sha512.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    }
+  ]
+}

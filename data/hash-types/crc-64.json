@@ -1,0 +1,33 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "crc-64",
+  "name": "CRC-64",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "crc-64.haiti.006",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRC-64"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "iscsi-chap-authentication",
+  "name": "iSCSI CHAP Authentication",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "iscsi-chap-authentication.haiti.064",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$chap\\$0\\*)?[a-f0-9]{32}[\\*:][a-f0-9]{32}(:\\d{2})?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$chap\\$0\\*)?[a-f0-9]{32}[\\*:][a-f0-9]{32}(:\\d{2})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 4800,
+        "name": "iSCSI CHAP Authentication",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "4800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "4800"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "chap",
+        "name": "iSCSI CHAP Authentication",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "chap"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "iSCSI CHAP Authentication"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "aa4aaa1d52319525023c06a4873f4c51:35343534373533343633383832343736:dc",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "4800"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

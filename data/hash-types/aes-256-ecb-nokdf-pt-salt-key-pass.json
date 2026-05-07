@@ -1,0 +1,67 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "aes-256-ecb-nokdf-pt-salt-key-pass",
+  "name": "AES-256-ECB NOKDF (PT = $salt, key = $pass)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "aes-256-ecb-nokdf-pt-salt-key-pass.haiti.034",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}:.+$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}:.+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 26403,
+        "name": "AES-256-ECB NOKDF (PT = $salt, key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "26403"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "26403"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "264a4248c9522cb74d33fe26cb596895:61270210011294880287232432636227",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AES-256-ECB NOKDF (PT = $salt, key = $pass)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "26403"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AES-256-ECB NOKDF (PT = $salt, key = $pass)"
+    }
+  ]
+}

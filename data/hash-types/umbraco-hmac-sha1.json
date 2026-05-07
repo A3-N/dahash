@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "umbraco-hmac-sha1",
+  "name": "Umbraco HMAC-SHA1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "umbraco-hmac-sha1.haiti.229",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A(?=.{28})(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?=.{28})(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 24800,
+        "name": "Umbraco HMAC-SHA1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "24800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "24800"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8uigXlGMNI7BzwLCJlDbcKR2FP4=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Umbraco HMAC-SHA1"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "24800"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Umbraco HMAC-SHA1"
+    }
+  ]
+}

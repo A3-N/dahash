@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "encsecurity-datavault-md5-no-keychain",
+  "name": "ENCsecurity Datavault (MD5/no keychain)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "encsecurity-datavault-md5-no-keychain.haiti.313",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29930,
+        "name": "ENCsecurity Datavault (MD5/no keychain)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "29930"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "29930"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$encdv$1$1$3a427b9ee5851118$4f52176bb9a1b3b6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "ENCsecurity Datavault (MD5/no keychain)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "29930"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "ENCsecurity Datavault (MD5/no keychain)"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "knx-ip-secure-device-authentication-code",
+  "name": "KNX IP Secure - Device Authentication Code",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "knx-ip-secure-device-authentication-code.haiti.240",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$knx-ip-secure-device-authentication-code\\$\\*[a-f0-9]{4}\\*[a-f0-9]{64}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$knx-ip-secure-device-authentication-code\\$\\*[a-f0-9]{4}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 25900,
+        "name": "KNX IP Secure - Device Authentication Code",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "25900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "25900"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$knx-ip-secure-device-authentication-code$*3033*fa7c0d787a9467c209f0a6e7cf16069ed704f3959dce19e45d7935c0a91bce41*f927640d9bbe9a4b0b74dd3289ad41ec",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "KNX IP Secure - Device Authentication Code"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "25900"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "KNX IP Secure - Device Authentication Code"
+    }
+  ]
+}

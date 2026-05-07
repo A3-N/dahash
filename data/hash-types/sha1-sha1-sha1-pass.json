@@ -1,0 +1,59 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha1-sha1-sha1-pass",
+  "name": "sha1(sha1(sha1($pass)))",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha1-sha1-sha1-pass.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 4600,
+        "name": "sha1(sha1(sha1($pass)))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "4600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "dc57f246485e62d99a5110afc9264b4ccbfcf3cc",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "sha1(sha1(sha1($pass)))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha1(sha1(sha1($pass)))"
+    }
+  ]
+}

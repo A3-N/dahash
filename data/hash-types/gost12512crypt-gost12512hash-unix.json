@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "gost12512crypt-gost12512hash-unix",
+  "name": "gost12512crypt [$gost12512hash$] (Unix)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "35600"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 35600,
+        "name": "gost12512crypt [$gost12512hash$] (Unix)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "35600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$gost12512hash$salt$w0TCvk4n0JHA/kPNpHEyf3RR5YuUXReihlrize3NdcPCmtLk/ewG63OUWT.G4bvjegPTeMb/xQ2PK7apsCfC7/",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "35600"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "gost12512crypt-gost12512hash-unix.hashcat.35600",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{13}\\$[A-Za-z0-9]{4}\\$[A-Za-z0-9./]{86}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "35600"
+        }
+      ]
+    }
+  ]
+}

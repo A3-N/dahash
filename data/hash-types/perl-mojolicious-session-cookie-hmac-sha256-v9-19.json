@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "perl-mojolicious-session-cookie-hmac-sha256-v9-19",
+  "name": "Perl Mojolicious session cookie (HMAC-SHA256, >= v9.19)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "16501"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16501,
+        "name": "Perl Mojolicious session cookie (HMAC-SHA256, >= v9.19)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "16501"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "mojolicious=eyJiYXIiOiJhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmMiLCJleHBpcmVzIjoxNzU1MDIxNjM4LCJmb29vIjoxfVpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlo---078935cd386250a467f9d7bfe379d6f0175679545460660c3ca090eb4c69ddbf",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16501"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "perl-mojolicious-session-cookie-hmac-sha256-v9-19.hashcat.16501",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^mojolicious=eyJiYXIiOiJhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmNhYmMiLCJleHBpcmVzIjoxNzU1MDIxNjM4LCJmb29vIjoxfVpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlo\\-\\-\\-078935cd386250a467f9d7bfe379d6f0175679545460660c3ca090eb4c69ddbf$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16501"
+        }
+      ]
+    }
+  ]
+}

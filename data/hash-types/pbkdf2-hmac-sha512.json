@@ -1,0 +1,142 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-hmac-sha512",
+  "name": "PBKDF2-HMAC-SHA512",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pbkdf2-hmac-sha512.haiti.192",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\Asha512:\\d{1,6}:(?=[^:]+:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{16,256})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha512:\\d{1,6}:(?=[^:]+:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{16,256})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
+        }
+      ]
+    },
+    {
+      "id": "pbkdf2-hmac-sha512.haiti.193",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2-hmac-sha512\\$\\d{1,6}\\.[a-f0-9]+\\.[a-f0-9]+$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pbkdf2-hmac-sha512\\$\\d{1,6}\\.[a-f0-9]+\\.[a-f0-9]+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 12100,
+        "name": "PBKDF2-HMAC-SHA512",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "12100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "12100"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pbkdf2-hmac-sha512",
+        "name": "PBKDF2-HMAC-SHA512",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pbkdf2-hmac-sha512"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-sha512$1000.6b635263736c70346869307a304b5276.80cf814855f2299103a6084366e41d7e14f9894b05ed77fa19881d28f06cde18da9ab44972cd00496843371ce922c70e64f3862b036b59b581fe32fc4408fe49",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA512"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-sha512$10000.78783334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334.33cfd654a173d39fcae804ba07744d276d184ca85f1e422a623aa7eec66b6bc372074551f9ded2bdff225a9afc22f4f0565d32fab2a0a639f81dddd8f347523e",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA512"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-sha512$10000.82dbab96e072834d1f725db9aded51e703f1d449e77d01f6be65147a765c997d8865a1f1ab50856aa3b08d25a5602fe538ad0757b8ca2933fe8ca9e7601b3fbf.859d65960e6d05c6858f3d63fa35c6adfc456637b4a0a90f6afa7d8e217ce2d3dfdc56c8deaca217f0864ae1efb4a09b00eb84cf9e4a2723534f34e26a279193",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA512"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-sha512$56789.3132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738.c4ac265e1b5d30694d04454e88f3f363a401aa82c7936d08d6bfc0751bc3e395b38422116665feecade927e7fa339d60022796f1354b064a4dc3c5304adf102a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA512"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha512:1000:NzY2:DNWohLbdIWIt4Npk9gpTvA==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA512"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "12100"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha512:1000:ODQyMDEwNjQyODY=:MKaHNWXUsuJB3IEwBHbm3w==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA512"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PBKDF2-HMAC-SHA512"
+    }
+  ]
+}

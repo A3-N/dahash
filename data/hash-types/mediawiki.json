@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mediawiki",
+  "name": "MediaWiki",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mediawiki.haiti.138",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[:\\$][AB][:\\$]([a-f0-9]{1,8}[:\\$])?[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[:\\$][AB][:\\$]([a-f0-9]{1,8}[:\\$])?[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 3711,
+        "name": "MediaWiki",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "3711"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "3711"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "mediawiki",
+        "name": "MediaWiki",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "mediawiki"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MediaWiki"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$B$2152187716$8c8b39c3602b194eeeb6cac78eea2742",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "3711"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "racf",
+  "name": "RACF",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "racf.haiti.134",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(user-.+:)?\\$racf\\$\\*.+\\*[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(user-.+:)?\\$racf\\$\\*.+\\*[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8500,
+        "name": "RACF",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8500"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "racf",
+        "name": "RACF",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "racf"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$racf$*8481*6095E8FCA59F8E3E",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "8500"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "$racf$*USER*FC2577C6EBE6265B",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RACF"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RACF"
+    }
+  ]
+}

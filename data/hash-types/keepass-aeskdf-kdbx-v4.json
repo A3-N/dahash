@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "keepass-aeskdf-kdbx-v4",
+  "name": "KeePass AESKDF (KDBX v4)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "34301"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 34301,
+        "name": "KeePass AESKDF (KDBX v4)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "34301"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$keepass$*4*600000*c9d9f39a*0*0*0*824e99f947e7da61a3d2c4b46f59779d46695ea86e3cc6de684dc2106744d630*871b472ef007cd2fb03fae5b802556844e224b021ea058c94382d1f315a6d628*03d9a29a67fb4bb500000400021000000031c1f2e6bf714350be5805216afc5aff0304000000010000000420000000824e99f947e7da61a3d2c4b46f59779d46695ea86e3cc6de684dc2106744d6300b5d00000000014205000000245555494410000000c9d9f39a628a4460bf740d08c18a4fea05010000005208000000c02709000000000042010000005320000000871b472ef007cd2fb03fae5b802556844e224b021ea058c94382d1f315a6d6280007100000004131c9acd9c70ac00790dc17059c1b1f00040000000d0a0d0a*6f9ccf175ddd593a654a53fd3ec50f8559fc0abb4acf03b4f2a74353058afb39",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "34301"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "keepass-aeskdf-kdbx-v4.hashcat.34301",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{7}\\$\\*[0-9]{1}\\*[0-9]{6}\\*[A-Fa-f0-9]{8}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{1}\\*[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{414}\\*[A-Fa-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "34301"
+        }
+      ]
+    }
+  ]
+}

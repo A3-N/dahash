@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "filevault-2",
+  "name": "FileVault 2",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "filevault-2.haiti.337",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$fvde\\$\\d{1,10}\\$\\d{1,6}\\$[a-f0-9]{32}\\$\\d{1,6}\\$[a-f0-9]{48}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$fvde\\$\\d{1,10}\\$\\d{1,6}\\$[a-f0-9]{32}\\$\\d{1,6}\\$[a-f0-9]{48}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16700,
+        "name": "FileVault 2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "16700"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "16700"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "fvde",
+        "name": "FileVault 2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "fvde"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$fvde$1$16$270186d6758a4426d3f015a019eabc46$101082$63a758b61183c5d4d06dda5e8f14dd0b1555fe2a1f2d0304",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "FileVault 2"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$fvde$1$16$84286044060108438487434858307513$20000$f1620ab93192112f0a23eea89b5d4df065661f974b704191",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "FileVault 2"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "16700"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "FileVault 2"
+    }
+  ]
+}

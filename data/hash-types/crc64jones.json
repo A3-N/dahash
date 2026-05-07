@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "crc64jones",
+  "name": "CRC64Jones",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "crc64jones.haiti.007",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}:[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}:[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 28000,
+        "name": "CRC64Jones",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "28000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "28000"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "65c1f848fe38cce6:4260950400318054",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "CRC64Jones"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "28000"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRC64Jones"
+    }
+  ]
+}

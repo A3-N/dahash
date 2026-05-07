@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "half-md5",
+  "name": "Half MD5",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "half-md5.haiti.006",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 5100,
+        "name": "Half MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "5100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "5100"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Half MD5"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8743b52063cd8409",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "5100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

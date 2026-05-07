@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "haval-160-3-rounds",
+  "name": "Haval-160 (3 rounds)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "haval-160-3-rounds.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "dynamic_190",
+        "name": "Haval-160 (3 rounds)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_190"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "317e75e5be3bdf49a2b141194607a65ec9653371",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Haval-160 (3 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "50bd53cf578b14eda7a4a95aa9a95e624ac5e9c7",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Haval-160 (3 rounds)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Haval-160 (3 rounds)"
+    }
+  ]
+}

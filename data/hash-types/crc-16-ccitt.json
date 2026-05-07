@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "crc-16-ccitt",
+  "name": "CRC-16-CCITT",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "crc-16-ccitt.haiti.000",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{4}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{4}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRC-16-CCITT"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md2",
+  "name": "MD2",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "md2.haiti.014",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$md2\\$)?[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$md2\\$)?[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "md2",
+        "name": "MD2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "md2"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MD2"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "snefru-128",
+  "name": "Snefru-128",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "snefru-128.haiti.020",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$snefru\\$)?[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$snefru\\$)?[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "snefru-128",
+        "name": "Snefru-128",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "snefru-128"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$snefru$53b8a9b1c9ed00174d88d705fb7bae30",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Snefru-128"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "53b8a9b1c9ed00174d88d705fb7bae30",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Snefru-128"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Snefru-128"
+    }
+  ]
+}

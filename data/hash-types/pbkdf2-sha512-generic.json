@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-sha512-generic",
+  "name": "PBKDF2-SHA512(Generic)",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "pbkdf2-sha512-generic.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2-sha512\\$[0-9]+\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{86}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "hashid-reference",
+          "ref": "PBKDF2-SHA512(Generic)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "hashid-reference",
+      "ref": "PBKDF2-SHA512(Generic)"
+    }
+  ]
+}

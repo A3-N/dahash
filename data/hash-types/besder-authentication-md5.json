@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "besder-authentication-md5",
+  "name": "Besder Authentication MD5",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "24901"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 24901,
+        "name": "Besder Authentication MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "24901"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "GRmHbqVh",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "24901"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "besder-authentication-md5.hashcat.24901",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{8}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "24901"
+        }
+      ]
+    }
+  ]
+}

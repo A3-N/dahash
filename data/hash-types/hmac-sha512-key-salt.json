@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmac-sha512-key-salt",
+  "name": "HMAC-SHA512 (key = $salt)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "hmac-sha512-key-salt.haiti.075",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{128}(:.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1760,
+        "name": "HMAC-SHA512 (key = $salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1760"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1760"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "hmac-sha512",
+        "name": "HMAC-SHA512 (key = $salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "hmac-sha512"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "HMAC-SHA512 (key = $salt)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "7d02921299935179d509e6dd4f3d0f2944e3451ea9de3af16baead6a7297e5653577d2473a0fff743d9fe78a89bd49296114319989dc7e7870fc7f62bc96accb:114",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1760"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

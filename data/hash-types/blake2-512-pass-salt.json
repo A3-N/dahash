@@ -1,0 +1,67 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "blake2-512-pass-salt",
+  "name": "BLAKE2-512($pass.$salt)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "blake2-512-pass-salt.haiti.079",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$BLAKE2\\$[a-f0-9]{128}(?::.+)$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$BLAKE2\\$[a-f0-9]{128}(?::.+)\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 610,
+        "name": "BLAKE2-512($pass.$salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "610"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "610"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$BLAKE2$41fcd44c789c735c08b43a871b81c8f617ca43918d38aee6cf8291c58a0b00a03115857425e5ff6f044be7a5bec8536b52d6c9992e21cd43cdca8a55bbf1f5c1:1033",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BLAKE2-512($pass.$salt)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "610"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "BLAKE2-512($pass.$salt)"
+    }
+  ]
+}

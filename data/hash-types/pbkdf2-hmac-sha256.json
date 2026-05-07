@@ -1,0 +1,142 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-hmac-sha256",
+  "name": "PBKDF2-HMAC-SHA256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pbkdf2-hmac-sha256.haiti.185",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\Asha256:\\d{1,6}:(?=[^:]+:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{16,256})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha256:\\d{1,6}:(?=[^:]+:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{16,256})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
+        }
+      ]
+    },
+    {
+      "id": "pbkdf2-hmac-sha256.haiti.186",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2-sha256\\$\\d{1,6}\\$[a-z0-9+/]+\\$[a-z0-9+/]{16,256}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pbkdf2-sha256\\$\\d{1,6}\\$[a-z0-9+/]+\\$[a-z0-9+/]{16,256}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 10900,
+        "name": "PBKDF2-HMAC-SHA256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "10900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "10900"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pbkdf2-hmac-sha256",
+        "name": "PBKDF2-HMAC-SHA256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pbkdf2-hmac-sha256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$1000$b1dWS2dab3dKQWhPSUg3cg$UY9j5wlyxtsJqhDKTqua8Q3fMp0ojc2pOnErzr8ntLE",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$12000$MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIz$iII/U6157WHgHfIatBb/o1rXQithKBN6ykgJU/I0Wpc",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$12000$MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg$94Z71JhWYUP2E0IrQrexc8AMhHzVB4bwkxh7n0FCnns",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$12000$dU5p7T2ndM7535tzjpGyVg$ILbppLkipmonlfH1I2W3/vFMyr2xvCI8QhksH8DWn/M",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha256:1000:MTc3MTA0MTQwMjQxNzY=:PYjCU215Mi57AYPKva9j7mvF4Rc5bCnt",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha256:1000:NjI3MDM3:vVfavLQL9ZWjg8BUMq6/FB8FtpkIGWYk",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PBKDF2-HMAC-SHA256"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "10900"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PBKDF2-HMAC-SHA256"
+    }
+  ]
+}

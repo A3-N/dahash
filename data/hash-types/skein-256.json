@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "skein-256",
+  "name": "Skein-256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "skein-256.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "skein-256",
+        "name": "Skein-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "skein-256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "38c960ba04962ca2b92aff0ec1078ad03da3d9686b0135318682d909118085de",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Skein-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "ff73fac4a8df83fdf081c7687dcdc26e2c4a0c406272313f43c60c005956099f",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Skein-256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Skein-256"
+    }
+  ]
+}

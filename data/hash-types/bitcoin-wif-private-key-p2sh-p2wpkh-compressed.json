@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bitcoin-wif-private-key-p2sh-p2wpkh-compressed",
+  "name": "Bitcoin WIF private key (P2SH(P2WPKH)), compressed",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "bitcoin-wif-private-key-p2sh-p2wpkh-compressed.haiti.268",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9]{34}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9]{34}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 28505,
+        "name": "Bitcoin WIF private key (P2SH(P2WPKH)), compressed",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "28505"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "28505"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "3H1YvmSdrjEfj9LvtiKJ8XiYq5htJRuejA",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Bitcoin WIF private key (P2SH(P2WPKH)), compressed"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "28505"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Bitcoin WIF private key (P2SH(P2WPKH)), compressed"
+    }
+  ]
+}

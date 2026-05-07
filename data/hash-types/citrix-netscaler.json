@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "citrix-netscaler",
+  "name": "Citrix Netscaler",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "citrix-netscaler.haiti.086",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{49}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{49}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 8100,
+        "name": "Citrix Netscaler",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "8100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "8100"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "citrix_ns10",
+        "name": "Citrix Netscaler",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "citrix_ns10"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Citrix Netscaler"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "1130725275da09ca13254957f2314a639818d44c37ef6d558",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "8100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

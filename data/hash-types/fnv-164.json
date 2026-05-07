@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "fnv-164",
+  "name": "FNV-164",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "fnv-164.haiti.006",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "5e47a65936838493",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "FNV-164"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "9bfbf589cfb5d948",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "FNV-164"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "FNV-164"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "radmin-v2-x",
+  "name": "RAdmin v2.x",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "radmin-v2-x.haiti.171",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$radmin2\\$)?[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$radmin2\\$)?[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9900,
+        "name": "RAdmin v2.x",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9900"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "radmin",
+        "name": "RAdmin v2.x",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "radmin"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "22527bee5c29ce95373c4e0f359f079b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAdmin v2.x"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "9900"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RAdmin v2.x"
+    }
+  ]
+}

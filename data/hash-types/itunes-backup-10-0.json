@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "itunes-backup-10-0",
+  "name": "iTunes backup < 10.0",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "itunes-backup-10-0.haiti.209",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 14700,
+        "name": "iTunes backup < 10.0",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "14700"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "14700"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "itunes-backup",
+        "name": "iTunes backup < 10.0",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "itunes-backup"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "iTunes backup < 10.0"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$itunes_backup$*9*ebd7f9b33293b2511f0a4139d5b213feff51476968863cef60ec38d720497b6ff39a0bb63fa9f84e*10000*2202015774208421818002001652122401871832**",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "14700"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "qnx-etc-shadow-sha512",
+  "name": "QNX /etc/shadow (SHA512)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "19200"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 19200,
+        "name": "QNX /etc/shadow (SHA512)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "19200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "@S@715df9e94c097805dd1e13c6a40f331d02ce589765a2100ec7435e76b978d5efc364ce10870780622cee003c9951bd92ec1020c924b124cfff7e0fa1f73e3672@2257314490293159",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "19200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "qnx-etc-shadow-sha512.hashcat.19200",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^@[A-Za-z0-9]{1}@[A-Fa-f0-9]{128}@[A-Fa-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "19200"
+        }
+      ]
+    }
+  ]
+}

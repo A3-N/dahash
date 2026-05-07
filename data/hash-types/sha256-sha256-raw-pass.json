@@ -1,0 +1,80 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha256-sha256-raw-pass",
+  "name": "sha256(sha256_raw($pass))",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha256-sha256-raw-pass.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 21400,
+        "name": "sha256(sha256_raw($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "21400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "21400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "dynamic_64",
+        "name": "sha256(sha256_raw($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_64"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0cc1b58a543f372327aa0281e97ab56e345267ee46feabf7709515debb7ec43c",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "sha256(sha256_raw($pass))"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "21400"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha256(sha256_raw($pass))"
+    }
+  ]
+}

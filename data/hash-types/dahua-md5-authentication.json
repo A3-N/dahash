@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "dahua-md5-authentication",
+  "name": "Dahua (MD5 Authentication)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "dahua-md5-authentication.haiti.195",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:\\$dahua\\$)?[a-z0-9]{8}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:\\$dahua\\$)?[a-z0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 24900,
+        "name": "Dahua (MD5 Authentication)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "24900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "24900"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "dahua",
+        "name": "Dahua (MD5 Authentication)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dahua"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$dahua$4WzwxXxM",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Dahua (MD5 Authentication)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "GRuHbyVp",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Dahua (MD5 Authentication)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "24900"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Dahua (MD5 Authentication)"
+    }
+  ]
+}

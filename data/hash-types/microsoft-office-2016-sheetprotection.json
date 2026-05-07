@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "microsoft-office-2016-sheetprotection",
+  "name": "Microsoft Office 2016 - SheetProtection",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "microsoft-office-2016-sheetprotection.haiti.167",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$office\\$2016\\$\\d\\$\\d{6}\\$[^$]{24}\\$[^$]{88}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$office\\$2016\\$\\d\\$\\d{6}\\$[^$]{24}\\$[^$]{88}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 25300,
+        "name": "Microsoft Office 2016 - SheetProtection",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "25300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "25300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$office$2016$0$100000$876MLoKTq42+/DLp415iZQ==$TNDvpvYyvlSUy97UOLKNhXynhUDDA7H8kLql0ISH5SxcP6hbthdjaTo4Z3/MU0dcR2SAd+AduYb3TB5CLZ8+ow==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Microsoft Office 2016 - SheetProtection"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "25300"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Microsoft Office 2016 - SheetProtection"
+    }
+  ]
+}

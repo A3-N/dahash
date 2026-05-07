@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "postgresql-scram-sha-256",
+  "name": "PostgreSQL SCRAM-SHA-256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "postgresql-scram-sha-256.haiti.288",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\ASCRAM-SHA-256\\$\\d{1,7}:(?=[^:$]{1,88}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^:]{44}:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{44})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\ASCRAM-SHA-256\\$\\d{1,7}:(?=[^:$]{1,88}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^:]{44}:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{44})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 28600,
+        "name": "PostgreSQL SCRAM-SHA-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "28600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "28600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "SCRAM-SHA-256$4096:IKfxzJ8Nq4PkLJCfgKcPmA==$iRw3qwTp18uaBnsTOEExbtgWdKeBMbSSnZvqD4sdqLQ=:hPciC1CcnBna3szR8Mf3MVc8t0W7QPbIHoMMrh4zRV0=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PostgreSQL SCRAM-SHA-256"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "28600"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PostgreSQL SCRAM-SHA-256"
+    }
+  ]
+}

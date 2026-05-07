@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "microsoft-office-2010",
+  "name": "Microsoft Office 2010",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "microsoft-office-2010.haiti.165",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$office\\$\\*2010\\*\\d{6}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$office\\$\\*2010\\*\\d{6}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9500,
+        "name": "Microsoft Office 2010",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9500"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "office",
+        "name": "Microsoft Office 2010",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "office"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Microsoft Office 2010"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$office$*2010*100000*128*16*34170046140146368675746031258762*de5bc114991bb3a5679a6e24320bdb09*1b72a4ddffba3dcd5395f6a5ff75b126cb832b733c298e86162028ca47a235a9",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9500"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

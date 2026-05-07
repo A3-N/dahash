@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mongodb-scram-pbkdf2-sha1",
+  "name": "MongoDB SCRAM PBKDF2-SHA1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mongodb-scram-pbkdf2-sha1.haiti.234",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$scram\\$.+\\$\\d{1,5}\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$scram\\$.+\\$\\d{1,5}\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "scram",
+        "name": "MongoDB SCRAM PBKDF2-SHA1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "scram"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$scram$admin$10000$ouQdw5om9Uc5gxulO9F/8w==$DSnATYsgoE8InL5Petfjp8MWGh4=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MongoDB SCRAM PBKDF2-SHA1"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$scram$someadmin$10000$wf42AF7JaU1NSeBaSmkKzw==$H6A5RF0qz6DrcWNNX4xe+wIeVEw=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MongoDB SCRAM PBKDF2-SHA1"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MongoDB SCRAM PBKDF2-SHA1"
+    }
+  ]
+}

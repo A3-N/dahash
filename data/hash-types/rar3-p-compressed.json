@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "rar3-p-compressed",
+  "name": "RAR3 -p (Compressed)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "rar3-p-compressed.haiti.224",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 23800,
+        "name": "RAR3 -p (Compressed)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "23800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "23800"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "rar",
+        "name": "RAR3 -p (Compressed)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "rar"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$RAR3$*1*ad56eb40219c9da2*834064ce*32*13*1*eb47b1abe17a1a75bce6c92ab1cef3f4126035ea95deaf08b3f32a0c7b8078e1*33",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -p (Compressed)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "23800"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$RAR3$*1*b4eee1a48dc95d12*965f1453*64*47*1*0fe529478798c0960dd88a38a05451f9559e15f0cf20b4cac58260b0e5b56699d5871bdcc35bee099cc131eb35b9a116adaedf5ecc26b1c09cadf5185b3092e6*33",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -p (Compressed)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RAR3 -p (Compressed)"
+    }
+  ]
+}

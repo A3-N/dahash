@@ -1,0 +1,42 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "highwayhash",
+  "name": "HighwayHash",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "highwayhash.haiti.006",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "f14b26ce4b275bd5",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "HighwayHash"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "HighwayHash"
+    }
+  ]
+}

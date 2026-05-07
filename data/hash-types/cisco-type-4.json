@@ -1,0 +1,47 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cisco-type-4",
+  "name": "Cisco Type 4",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "cisco-type-4.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$cisco4\\$)?[a-z0-9\\/.]{43}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "name-that-hash-reference",
+          "ref": "Cisco Type 4"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "name-that-hash-reference",
+      "ref": "Cisco Type 4"
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "cisco4",
+        "name": "Cisco Type 4",
+        "status": "active",
+        "sources": [
+          {
+            "id": "name-that-hash-reference",
+            "ref": "cisco4"
+          }
+        ]
+      }
+    ]
+  }
+}

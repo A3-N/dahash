@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cryptocurrency-privatekey",
+  "name": "CryptoCurrency(PrivateKey)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cryptocurrency-privatekey.haiti.045",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9]{51}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9]{51}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CryptoCurrency(PrivateKey)"
+    }
+  ]
+}

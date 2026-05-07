@@ -1,0 +1,94 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-passlib-pbkdf2-hmac-sha256",
+  "name": "Python passlib (PBKDF2-HMAC-SHA256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-passlib-pbkdf2-hmac-sha256.haiti.141",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2-sha256\\$\\d{1,6}\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$pbkdf2-sha256\\$\\d{1,6}\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 20300,
+        "name": "Python passlib (PBKDF2-HMAC-SHA256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "20300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "20300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$1000$b1dWS2dab3dKQWhPSUg3cg$UY9j5wlyxtsJqhDKTqua8Q3fMp0ojc2pOnErzr8ntLE",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python passlib (PBKDF2-HMAC-SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$12000$MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg$94Z71JhWYUP2E0IrQrexc8AMhHzVB4bwkxh7n0FCnns",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python passlib (PBKDF2-HMAC-SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$12000$fK8VAoDQuvees5ayVkpp7Q$xfzKAoBR/Iaa68tjn.O8KfGxV.zdidcqEeDoTFvDz2A",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python passlib (PBKDF2-HMAC-SHA256)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-sha256$29000$x9h7j/Ge8x6DMEao1VqrdQ$kra3R1wEnY8mPdDWOpTqOTINaAmZvRMcYd8u5OBQP9A",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python passlib (PBKDF2-HMAC-SHA256)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "20300"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python passlib (PBKDF2-HMAC-SHA256)"
+    }
+  ]
+}

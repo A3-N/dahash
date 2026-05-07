@@ -1,0 +1,131 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ipb-2-x-invision-power-board",
+  "name": "IPB 2.x (Invision Power Board)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ipb-2-x-invision-power-board.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    },
+    {
+      "id": "ipb-2-x-invision-power-board.haiti.264",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$IPB2\\$[a-f0-9]{2,}\\$[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$IPB2\\$[a-f0-9]{2,}\\$[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 2811,
+        "name": "IPB 2.x (Invision Power Board)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "2811"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "2811"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "ipb2",
+        "name": "IPB 2.x (Invision Power Board)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "ipb2"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$IPB2$2e75504633$d891f03a7327639bc632d62a7f302604",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "IPB 2.x (Invision Power Board)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$IPB2$556c576c39$16d4f29c71b05bd75e61d0254800bfa3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "IPB 2.x (Invision Power Board)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$IPB2$5d75343455$de98ba8ca7bb16f43af05e9e4fb8afee",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "IPB 2.x (Invision Power Board)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$IPB2$735a213a4e$4f23de7bb115139660db5e953153f28a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "IPB 2.x (Invision Power Board)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "022f7e02b3314f7d0968f73c00ba759f:67588",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "IPB 2.x (Invision Power Board)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "2811"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "IPB 2.x (Invision Power Board)"
+    }
+  ]
+}

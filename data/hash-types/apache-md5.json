@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "apache-md5",
+  "name": "Apache MD5",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "apache-md5.haiti.032",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1600,
+        "name": "Apache MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1600"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "md5crypt-long",
+        "name": "Apache MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "md5crypt-long"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Apache MD5"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$apr1$62722340$zGjeAwVP2KwY6MtumUI1N/",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1600"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

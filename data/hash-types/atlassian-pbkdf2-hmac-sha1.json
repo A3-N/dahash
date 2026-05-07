@@ -1,0 +1,97 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "atlassian-pbkdf2-hmac-sha1",
+  "name": "Atlassian (PBKDF2-HMAC-SHA1)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "atlassian-pbkdf2-hmac-sha1.haiti.157",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{PKCS5S2}[a-z0-9\\/+]{64}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{PKCS5S2}[a-z0-9\\/+]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 12001,
+        "name": "Atlassian (PBKDF2-HMAC-SHA1)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "12001"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "12001"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "pbkdf2-hmac-sha1",
+        "name": "Atlassian (PBKDF2-HMAC-SHA1)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "pbkdf2-hmac-sha1"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{PKCS5S2}DQIXJU038u4P7FdsuFTY/+35bm41kfjZa57UrdxHp2Mu3qF2uy+ooD+jF5t1tb8J",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{PKCS5S2}NTczNTY0NDY2NjQyNzU1Mx8gGiRGobaZYwumctGHbn2ZOHB8LkwzH+Z1gkWfy1zD",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "12001"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{PKCS5S2}NzIyNzM0NzY3NTIwNjI3MdDDis7wPxSbSzfFqDGf7u/L00kSEnupbz36XCL0m7wa",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
+    }
+  ]
+}

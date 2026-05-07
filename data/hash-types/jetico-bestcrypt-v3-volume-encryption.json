@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "jetico-bestcrypt-v3-volume-encryption",
+  "name": "Jetico BestCrypt v3 Volume Encryption",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "jetico-bestcrypt-v3-volume-encryption.haiti.230",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$bcve\\$\\d\\$[a-f0-9]{2}\\$[a-f0-9]{16}\\$[a-f0-9]{192}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$bcve\\$\\d\\$[a-f0-9]{2}\\$[a-f0-9]{16}\\$[a-f0-9]{192}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 23900,
+        "name": "Jetico BestCrypt v3 Volume Encryption",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "23900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "23900"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$bcve$3$08$234b8182cee7098b$35c12ef76a1e88175c4c222da3558310a0075bc7a06ecf46746d149c02a81fb8a97637d1103d2e13ddd5deaf982889594b18c12d7ca18a54875c5da4a47f90ae615ab94b8e3ed9e3c793d872a1b5ac35cfdb66c221d6d0853e9ff2e0f4435b43",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Jetico BestCrypt v3 Volume Encryption"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "23900"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Jetico BestCrypt v3 Volume Encryption"
+    }
+  ]
+}

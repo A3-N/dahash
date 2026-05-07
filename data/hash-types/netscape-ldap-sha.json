@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "netscape-ldap-sha",
+  "name": "Netscape LDAP SHA",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "netscape-ldap-sha.haiti.025",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{SHA}[a-z0-9\\/+]{27}=$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{SHA}[a-z0-9\\/+]{27}=\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 101,
+        "name": "Netscape LDAP SHA",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "101"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "101"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "nsldap",
+        "name": "Netscape LDAP SHA",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "nsldap"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Netscape LDAP SHA"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{SHA}uJ6qx+YUFzQbcQtyd2gpTQ5qJ3s=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "101"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

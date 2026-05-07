@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mongodb-serverkey-scram-sha-1",
+  "name": "MongoDB ServerKey SCRAM-SHA-1",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mongodb-serverkey-scram-sha-1.haiti.232",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A\\$mongodb-scram\\$\\*\\d\\*(?=[^*]{0,76}\\*)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\*\\d{1,7}\\*(?=[^*]{24}\\*)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\*(?=[^*]{28})(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$mongodb-scram\\$\\*\\d\\*(?=[^*]{0,76}\\*)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\*\\d{1,7}\\*(?=[^*]{24}\\*)(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\*(?=[^*]{28})(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 24100,
+        "name": "MongoDB ServerKey SCRAM-SHA-1",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "24100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "24100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$mongodb-scram$*0*dXNlcg==*10000*4p+f1tKpK18hQqrVr0UGOw==*Jv9lrpUQ2bVg2ZkXvRm2rppsqNw=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MongoDB ServerKey SCRAM-SHA-1"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "24100"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MongoDB ServerKey SCRAM-SHA-1"
+    }
+  ]
+}

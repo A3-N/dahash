@@ -1,0 +1,115 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cisco-type-9-scrypt",
+  "name": "Cisco Type 9 (scrypt)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cisco-type-9-scrypt.haiti.163",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$9\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$9\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9300,
+        "name": "Cisco Type 9 (scrypt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9300"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "scrypt",
+        "name": "Cisco Type 9 (scrypt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "scrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$9$2MJBozw/9R3UsU$2lFhcKvpghcyw8deP25GOfyZaagyUOGBymkryvOdfo6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 9 (scrypt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$9$87023684531115$phio0TBQwaO7KZ8toQFyGFyDvyOzidaypRWN0uKX0hU",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9300"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "$9$X9fA8mypebLFVj$Klp6X9hxNhkns0kwUIinvLRSIgWOvCwDhVTZqjsycyU",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 9 (scrypt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$9$cvWdfQlRRDKq/U$VFTPha5VHTCbSgSUAo.nPoh50ZiXOw1zmljEjXkaq1g",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 9 (scrypt)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$9$nhEmQVczB7dqsO$X.HsgL6x1il0RxkOSSvyQYwucySCt7qFm4v7pqCxkKM",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco Type 9 (scrypt)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Cisco Type 9 (scrypt)"
+    }
+  ]
+}

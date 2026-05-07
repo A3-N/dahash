@@ -1,0 +1,47 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bigcrypt",
+  "name": "BigCrypt",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "bigcrypt.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9\\/.]{13,}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "hashid-reference",
+          "ref": "BigCrypt"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "hashid-reference",
+      "ref": "BigCrypt"
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "bigcrypt",
+        "name": "BigCrypt",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashid-reference",
+            "ref": "bigcrypt"
+          }
+        ]
+      }
+    ]
+  }
+}

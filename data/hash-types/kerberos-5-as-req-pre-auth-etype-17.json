@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "kerberos-5-as-req-pre-auth-etype-17",
+  "name": "Kerberos 5 AS-REQ Pre-Auth etype 17",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "kerberos-5-as-req-pre-auth-etype-17.haiti.108",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$krb5pa\\$17\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]*)?\\$[a-f0-9]{104,112}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$krb5pa\\$17\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]*)?\\$[a-f0-9]{104,112}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 19800,
+        "name": "Kerberos 5 AS-REQ Pre-Auth etype 17",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "19800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "19800"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "krb5pa-sha1",
+        "name": "Kerberos 5 AS-REQ Pre-Auth etype 17",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "krb5pa-sha1"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$krb5pa$17$hashcat$HASHCATDOMAIN.COM$a17776abe5383236c58582f515843e029ecbff43706d177651b7b6cdb2713b17597ddb35b1c9c470c281589fd1d51cca125414d19e40e333",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 AS-REQ Pre-Auth etype 17"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "19800"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$krb5pa$17$user1$EXAMPLE.COM$$c5461873dc13665771b98ba80be53939e906d90ae1ba79cf2e21f0395e50ee56379fbef4d0298cfccfd6cf8f907329120048fd05e8ae5df4",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 AS-REQ Pre-Auth etype 17"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Kerberos 5 AS-REQ Pre-Auth etype 17"
+    }
+  ]
+}

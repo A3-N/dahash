@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "episerver-6-x-v4-b44ff726",
+  "name": "EPiServer 6.x \u2265 v4",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "episerver-6-x-v4-b44ff726.haiti.070",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$episerver\\$\\*1\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{42,43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$episerver\\$\\*1\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{42,43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1441,
+        "name": "EPiServer 6.x \u2265 v4",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1441"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1441"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "episerver",
+        "name": "EPiServer 6.x \u2265 v4",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "episerver"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "EPiServer 6.x \u2265 v4"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$episerver$*1*NDg1NTIz*8BFCg/YJBAuZs/wjbH3OWKe69BLr5Lao26ybpnD48Zk",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1441"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

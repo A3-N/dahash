@@ -1,0 +1,77 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bcrypt-hmac-sha256-pass-bcryptsha256-v2",
+  "name": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "bcrypt-hmac-sha256-pass-bcryptsha256-v2.haiti.051",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$bcrypt-sha256\\$v=2,t=2b,r=\\d{1,2}\\$[a-z0-9/.]{22}\\$[a-z0-9/.]{31}$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$bcrypt-sha256\\$v=2,t=2b,r=\\d{1,2}\\$[a-z0-9/.]{22}\\$[a-z0-9/.]{31}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 30601,
+        "name": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "30601"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "30601"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$bcrypt-sha256$v=2,t=2b,r=12$KSOjON/ciJR86a00N5q61.$AmWZucQuHk13FGkQWhgMeiFvBfm2GCy",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "30601"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$bcrypt-sha256$v=2,t=2b,r=12$n79VH.0Q2TMWmt3Oqt9uku$Kq4Noyk3094Y2QlB8NdRT8SvGiI4ft2",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
+    }
+  ]
+}

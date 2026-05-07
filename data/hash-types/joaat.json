@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "joaat",
+  "name": "Joaat",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "joaat.haiti.001",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{8}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "0159782d",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Joaat"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "4835dd77",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Joaat"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Joaat"
+    }
+  ]
+}

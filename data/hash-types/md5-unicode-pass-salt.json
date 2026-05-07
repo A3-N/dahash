@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md5-unicode-pass-salt",
+  "name": "md5(unicode($pass).$salt)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "md5-unicode-pass-salt.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 30,
+        "name": "md5(unicode($pass).$salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "30"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "30"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "md5(unicode($pass).$salt)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "1169500a7dfece72e1f7fc9c9410867a:687430237020",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "30"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

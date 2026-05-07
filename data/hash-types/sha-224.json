@@ -1,0 +1,95 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha-224",
+  "name": "SHA-224",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sha-224.haiti.049",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{56}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{56}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1300,
+        "name": "SHA-224",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1300"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "raw-sha224",
+        "name": "SHA-224",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "raw-sha224"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "bc31219edfb62370655eb444ae9b26707c449cad06e68f01b7e15c82",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA-224"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "dfb2f74fe34ca2506edb133d8a5b92822caccf6a8ef3856dd815fbbd",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SHA-224"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "e4fa1555ad877bf0ec455483371867200eee89550a93eff2f95a6198",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1300"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SHA-224"
+    }
+  ]
+}

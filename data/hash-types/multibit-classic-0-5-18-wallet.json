@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "multibit-classic-0-5-18-wallet",
+  "name": "MultiBit Classic =< 0.5.18 .wallet",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "multibit-classic-0-5-18-wallet.haiti.250",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$multibit\\$\\d\\*[a-f0-9]{16}\\*[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$multibit\\$\\d\\*[a-f0-9]{16}\\*[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "multibit",
+        "name": "MultiBit Classic =< 0.5.18 .wallet",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "multibit"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$multibit$1*0908a1bd44147709*c82b6d0409c1e46a4660ea6d4fa9ae12e4e234c98a71a51ced105c7e66a57ca3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MultiBit Classic =< 0.5.18 .wallet"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$multibit$1*2043ebb14b6d9670*24284a38a62b6a63fb0912ebc05aa9d26d6fd828134d20b9778d8d841f65f584",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MultiBit Classic =< 0.5.18 .wallet"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MultiBit Classic =< 0.5.18 .wallet"
+    }
+  ]
+}

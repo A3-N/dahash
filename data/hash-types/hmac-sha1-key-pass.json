@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmac-sha1-key-pass",
+  "name": "HMAC-SHA1 (key = $pass)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "hmac-sha1-key-pass.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 150,
+        "name": "HMAC-SHA1 (key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "150"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "150"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "hmac-sha1",
+        "name": "HMAC-SHA1 (key = $pass)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "hmac-sha1"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "HMAC-SHA1 (key = $pass)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "02b256705348a28b1d6c0f063907979f7e0c82f8:10323",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "150"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "wpa-pmk-pmkid-eapol",
+  "name": "WPA-PMK-PMKID+EAPOL",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "wpa-pmk-pmkid-eapol.haiti.309",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64})|(?:WPA\\*[a-f0-9]{2}\\*[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64}\\*[a-f0-9]{,64}\\*[a-f0-9]{,512}\\*[a-f0-9]{,2})$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64})|(?:WPA\\*[a-f0-9]{2}\\*[a-f0-9]{32}\\*[a-f0-9]{12}\\*[a-f0-9]{12}\\*[a-f0-9]{,64}\\*[a-f0-9]{,64}\\*[a-f0-9]{,512}\\*[a-f0-9]{,2})\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 22001,
+        "name": "WPA-PMK-PMKID+EAPOL",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "22001"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "22001"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "WPA*01*5ce7ebe97a1bbfeb2822ae627b726d5b*27462da350ac*accd10fb464e*686173686361742d6573736964***",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "WPA-PMK-PMKID+EAPOL"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "22001"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "WPA-PMK-PMKID+EAPOL"
+    }
+  ]
+}

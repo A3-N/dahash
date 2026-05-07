@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "murmurhash3",
+  "name": "MurmurHash3",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "murmurhash3.haiti.196",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9]{8}(?::[a-z0-9]{8})?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9]{8}(?::[a-z0-9]{8})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 27800,
+        "name": "MurmurHash3",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "27800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "27800"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "23e93f65:00000000",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MurmurHash3"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "27800"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MurmurHash3"
+    }
+  ]
+}

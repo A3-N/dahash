@@ -1,0 +1,142 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "keccak-256",
+  "name": "Keccak-256",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "keccak-256.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    },
+    {
+      "id": "keccak-256.haiti.059",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$keccak256\\$[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$keccak256\\$[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 17800,
+        "name": "Keccak-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "17800"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "17800"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "raw-keccak-256",
+        "name": "Keccak-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "raw-keccak-256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$keccak256$3b673b24a64aebb286f193e5c985c8e528db8590f997d9130889ca7f5f4cfe6e",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Keccak-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$keccak256$4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Keccak-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "1aec7a56aa08b25b596057e1ccbcb6d768b770eaa0f355ccbd56aee5040e02ee",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Keccak-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "203f88777f18bb4ee1226627b547808f38d90d3e106262b5de9ca943b57137b6",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "17800"
+        }
+      ],
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "inline",
+      "value": "4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Keccak-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "9f21b850ee8906e7acd616553bd72c06084ec9d33e921a336adb12a25d1c38ca",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Keccak-256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Keccak-256"
+    }
+  ]
+}

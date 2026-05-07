@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "palshop-cms",
+  "name": "Palshop CMS",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "palshop-cms.haiti.044",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{51}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{51}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Palshop CMS"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "netiq-sspr-pbkdf2withhmacsha1",
+  "name": "NetIQ SSPR (PBKDF2WithHmacSHA1)",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "32050"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 32050,
+        "name": "NetIQ SSPR (PBKDF2WithHmacSHA1)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "32050"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$pbkdf2-hmac-sha1$100000$7134180503252384106490944216249411431665011151428170747164626720$990e0c5f62b1384d48cbe3660329b9741c4a8473",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32050"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "netiq-sspr-pbkdf2withhmacsha1.hashcat.32050",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$pbkdf2\\-hmac\\-sha1\\$[0-9]{6}\\$[A-Fa-f0-9]{64}\\$[A-Fa-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "32050"
+        }
+      ]
+    }
+  ]
+}

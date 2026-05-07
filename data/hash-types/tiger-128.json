@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "tiger-128",
+  "name": "Tiger-128",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "tiger-128.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "name-that-hash-reference",
+          "ref": "Tiger-128"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "name-that-hash-reference",
+      "ref": "Tiger-128"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "microsoft-office-2007",
+  "name": "Microsoft Office 2007",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "microsoft-office-2007.haiti.164",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$office\\$\\*2007\\*\\d{2}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$office\\$\\*2007\\*\\d{2}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9400,
+        "name": "Microsoft Office 2007",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "office",
+        "name": "Microsoft Office 2007",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "office"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Microsoft Office 2007"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$office$*2007*20*128*16*18410007331073848057180885845227*944c70a5ee6e5ab2a6a86ff54b5f621a*e6650f1f2630c27fd8fc0f5e56e2e01f99784b9f",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9400"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

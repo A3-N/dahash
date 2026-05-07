@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "clavister-secure-gateway",
+  "name": "Clavister Secure Gateway",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "clavister-secure-gateway.haiti.094",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^crypt1:[a-z0-9+=]{12}:[a-z0-9+=]{12}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Acrypt1:[a-z0-9+=]{12}:[a-z0-9+=]{12}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Clavister Secure Gateway"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "snmpv3-hmac-sha1-96",
+  "name": "SNMPv3 HMAC-SHA1-96",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "snmpv3-hmac-sha1-96.haiti.257",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$SNMPv3\\$2\\$\\d{1,8}\\$[a-f0-9]{2,}\\$[a-f0-9]{26,}\\$[a-f0-9]{2,}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$SNMPv3\\$2\\$\\d{1,8}\\$[a-f0-9]{2,}\\$[a-f0-9]{26,}\\$[a-f0-9]{2,}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 25200,
+        "name": "SNMPv3 HMAC-SHA1-96",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "25200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "25200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$SNMPv3$2$45889431$30818f02010330110204371780f3020300ffe304010102010304383036041180001f88808106d566db57fd600000000002011002020118040a6d61747269785f534841040c0000000000000000000000000400303d041180001f88808106d566db57fd60000000000400a2260204073557d50201000201003018301606082b06010201010200060a2b06010401bf0803020a$80001f88808106d566db57fd6000000000$81f14f1930589f26f6755f6b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SNMPv3 HMAC-SHA1-96"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "25200"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SNMPv3 HMAC-SHA1-96"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha-1-base64",
+  "name": "SHA-1(Base64)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sha-1-base64.haiti.025",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{SHA}[a-z0-9\\/+]{27}=$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{SHA}[a-z0-9\\/+]{27}=\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 101,
+        "name": "SHA-1(Base64)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "101"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "101"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "nsldap",
+        "name": "SHA-1(Base64)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "nsldap"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SHA-1(Base64)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{SHA}uJ6qx+YUFzQbcQtyd2gpTQ5qJ3s=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "101"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "postgresql",
+  "name": "PostgreSQL",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "postgresql.haiti.016",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.{1,32})?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.{1,32})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 12,
+        "name": "PostgreSQL",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "12"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "12"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "93a8cf6a7d43e3b5bcd2dc6abb3e02c6:27032153220030464358344758762807",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PostgreSQL"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "12"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PostgreSQL"
+    }
+  ]
+}

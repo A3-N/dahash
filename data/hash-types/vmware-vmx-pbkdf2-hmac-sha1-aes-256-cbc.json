@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "vmware-vmx-pbkdf2-hmac-sha1-aes-256-cbc",
+  "name": "VMware VMX (PBKDF2-HMAC-SHA1 + AES-256-CBC)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "vmware-vmx-pbkdf2-hmac-sha1-aes-256-cbc.haiti.310",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$vmx\\$0\\$\\d{1,9}\\$[a-f0-9]{32}\\$[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$vmx\\$0\\$\\d{1,9}\\$[a-f0-9]{32}\\$[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 27400,
+        "name": "VMware VMX (PBKDF2-HMAC-SHA1 + AES-256-CBC)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "27400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "27400"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$vmx$0$10000$264bbab02fdf7c1a793651120bec3723$cbb368564d8dfb99f509d4922f4693413f3816af713f0e76bc2409ff9336935d",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "VMware VMX (PBKDF2-HMAC-SHA1 + AES-256-CBC)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "27400"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "VMware VMX (PBKDF2-HMAC-SHA1 + AES-256-CBC)"
+    }
+  ]
+}

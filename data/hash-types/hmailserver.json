@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "hmailserver",
+  "name": "hMailServer",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "hmailserver.haiti.137",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{70}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{70}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1421,
+        "name": "hMailServer",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1421"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1421"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "hmailserver",
+        "name": "hMailServer",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "hmailserver"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "hMailServer"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8fe7ca27a17adc337cd892b1d959b4e487b8f0ef09e32214f44fb1b07e461c532e9ec3",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1421"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

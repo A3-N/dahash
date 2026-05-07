@@ -1,0 +1,104 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ntlm",
+  "name": "NTLM",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "ntlm.haiti.021",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$NT\\$)?[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$NT\\$)?[a-f0-9]{32}\\Z"
+        }
+      ]
+    },
+    {
+      "id": "ntlm.haiti.022",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(.+\\\\)?\\w+:\\d+:[a-f0-9]{32}:[a-f0-9]{32}:::$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(.+\\\\)?\\w+:\\d+:[a-f0-9]{32}:[a-f0-9]{32}:::\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1000,
+        "name": "NTLM",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "nt",
+        "name": "NTLM",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "nt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "b4b9b02e6f09a9bd760f388b67351e2b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NTLM"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "1000"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "domain.local\\username:9999:aad3b435b51404eeaad3b435b51404ee:b4b9b02e6f09a9bd760f388b67351e2b:::",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "NTLM"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "NTLM"
+    }
+  ]
+}

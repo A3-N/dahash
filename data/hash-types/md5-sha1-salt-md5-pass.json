@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md5-sha1-salt-md5-pass",
+  "name": "md5(sha1($salt).md5($pass))",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "21200"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 21200,
+        "name": "md5(sha1($salt).md5($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "21200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "e69b7a7fe1bf2ad9ef116f79551ee919:baa038987e582431a6d",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "21200"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "md5-sha1-salt-md5-pass.hashcat.21200",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Fa-f0-9]{32}:[A-Fa-f0-9]{19}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "21200"
+        }
+      ]
+    }
+  ]
+}

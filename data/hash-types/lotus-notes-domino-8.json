@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "lotus-notes-domino-8",
+  "name": "Lotus Notes/Domino 8",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "lotus-notes-domino-8.haiti.158",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\([a-z0-9\\/+]{49}\\)$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\([a-z0-9\\/+]{49}\\)\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9100,
+        "name": "Lotus Notes/Domino 8",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9100"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Lotus Notes/Domino 8"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "(HC34tD3KtDp4oCZWmCJ4qC30mC30mC3KmC30mCcA5ovrMLH9M)",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9100"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

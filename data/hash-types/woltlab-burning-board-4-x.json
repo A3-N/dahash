@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "woltlab-burning-board-4-x",
+  "name": "Woltlab Burning Board 4.x",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "woltlab-burning-board-4-x.haiti.050",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$2[abxy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$2[abxy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Woltlab Burning Board 4.x"
+    }
+  ]
+}

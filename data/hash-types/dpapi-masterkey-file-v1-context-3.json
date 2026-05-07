@@ -1,0 +1,88 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "dpapi-masterkey-file-v1-context-3",
+  "name": "DPAPI masterkey file v1 (context 3)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "dpapi-masterkey-file-v1-context-3.haiti.270",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A\\$DPAPImk\\$1\\*3\\*[S\\-0-9]{10,60}\\*[^*]{4,6}\\*[^*]{4,6}\\*\\d{1,6}\\*[a-f0-9]{32}\\*\\d{1,6}\\*[a-f0-9]{0,1024}\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$DPAPImk\\$1\\*3\\*[S\\-0-9]{10,60}\\*[^*]{4,6}\\*[^*]{4,6}\\*\\d{1,6}\\*[a-f0-9]{32}\\*\\d{1,6}\\*[a-f0-9]{0,1024}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 15310,
+        "name": "DPAPI masterkey file v1 (context 3)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "15310"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "15310"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "DPAPImk",
+        "name": "DPAPI masterkey file v1 (context 3)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "DPAPImk"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$DPAPImk$1*3*S-1-5-21-1857904334-2267218879-1458651445-1123*des3*sha1*18000*e4c529ba8975e4ed56f5fb8b1e85be43*208*af96b391f1d6e2d37a4de3b4c412ce78f032d446d77ea1fb6a0782f47c390c844349c2bcaeba9fd570b39def6f67a369aa2e266e8d017689d8a09667fdfb640feb3e19ca22067cc5704644c1dcc43d4cccac667391f4918d0de77f36569fd2e104ef0619a46edcfc",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "DPAPI masterkey file v1 (context 3)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$DPAPImk$1*3*S-15-21-407415836-404165111-436049749-1915*des3*sha1*14825*3e86e7d8437c4d5582ff668a83632cb2*208*96ad763b59e67c9f5c3d925e42bbe28a1412b919d1dc4abf03b2bed4c5c244056c14931d94d441117529b7171dfd6ebbe6eecf5d958b65574c293778fbadb892351cc59d5c65d65d2fcda73f5b056548a4a5550106d03d0c39d3cca7e5cdc0d521f48ac9e51cecc5",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "DPAPI masterkey file v1 (context 3)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "15310"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "DPAPI masterkey file v1 (context 3)"
+    }
+  ]
+}

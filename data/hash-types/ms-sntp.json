@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ms-sntp",
+  "name": "MS SNTP",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "31300"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 31300,
+        "name": "MS SNTP",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "31300"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$sntp-ms$cfc7023381cf6bb474cdcbeb0a67bdb3$907733697536811342962140955567108526489624716566696971338784438986103976327367763739445744705380",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "31300"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "ms-sntp.hashcat.31300",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$sntp\\-ms\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{96}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "31300"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha-1-oracle",
+  "name": "SHA-1(Oracle)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sha-1-oracle.haiti.042",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{48}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{48}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SHA-1(Oracle)"
+    }
+  ]
+}

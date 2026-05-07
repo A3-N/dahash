@@ -1,0 +1,127 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sap-codvn-b-bcode",
+  "name": "SAP CODVN B (BCODE)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "sap-codvn-b-bcode.haiti.117",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^.{1,40}\\$[a-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A.{1,40}\\$[a-f0-9]{16}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 7700,
+        "name": "SAP CODVN B (BCODE)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "7700"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "7700"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "sapb",
+        "name": "SAP CODVN B (BCODE)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "sapb"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "------------$058DE95926E00F32",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN B (BCODE)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "027642760180$77EC38630C08DF8D",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN B (BCODE)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "7700"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "DOLLAR$$$---$C3413C498C48EB67",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN B (BCODE)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "F           $E3A65AAA9676060F",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN B (BCODE)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "ROOT        $8366A4E9E6B72CB0",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN B (BCODE)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "USER$C8B48F26B87B7EA7",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "SAP CODVN B (BCODE)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "SAP CODVN B (BCODE)"
+    }
+  ]
+}

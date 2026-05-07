@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "aix-ssha256",
+  "name": "AIX (ssha256)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "aix-ssha256.haiti.066",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{ssha256}\\d{2}\\$[a-z0-9$\\/.]{60}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{ssha256}\\d{2}\\$[a-z0-9$\\/.]{60}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 6400,
+        "name": "AIX (ssha256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "6400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "6400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "aix-ssha256",
+        "name": "AIX (ssha256)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "aix-ssha256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{ssha256}06$2715084824104660$1s/s4RZWEcvZ5VuWPXWGUfwSoG07eVSVce8F6ANJ.g4",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AIX (ssha256)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "6400"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{ssha256}06$aJckFGJAB30LTe10$ohUsB7LBPlgclE3hJg9x042DLJvQyxVCX.nZZLEz.g2",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AIX (ssha256)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AIX (ssha256)"
+    }
+  ]
+}

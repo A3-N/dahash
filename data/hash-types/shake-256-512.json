@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "shake-256-512",
+  "name": "Shake-256 (512)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "shake-256-512.haiti.075",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{128}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "7cc2848a6f74f0d221bf83f3acdbf1a31b8851243f618e0a8cf857fc625c63993f007998799e28ad5289bb49a635c0c2c6702f97f1fc2dc322ef33d4c116f3c8",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Shake-256 (512)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "ebbb9fa195976c0ddd950fee42ec22fcf64c1b7680f97be2789f553ec2a4871af52dab7ba0b5c2b75f9e8738651b64f8c436a12eb6cf24cd71624ed182ab31b4",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Shake-256 (512)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Shake-256 (512)"
+    }
+  ]
+}

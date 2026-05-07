@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "bitcoin-raw-private-key-p2sh-p2wpkh-compressed",
+  "name": "Bitcoin raw private key (P2SH(P2WPKH)), compressed",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "30905"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 30905,
+        "name": "Bitcoin raw private key (P2SH(P2WPKH)), compressed",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "30905"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "3JqAMRQN3Gd6i8yV3Kw7v55RmFxW7iW2Aq",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "30905"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "bitcoin-raw-private-key-p2sh-p2wpkh-compressed.hashcat.30905",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[A-Za-z0-9]{34}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "30905"
+        }
+      ]
+    }
+  ]
+}

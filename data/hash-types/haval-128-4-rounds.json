@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "haval-128-4-rounds",
+  "name": "Haval-128 (4 rounds)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "haval-128-4-rounds.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "haval-128-4",
+        "name": "Haval-128 (4 rounds)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "haval-128-4"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8c2e8208484efd71c6c901aef64b7091",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Haval-128 (4 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "ffdcd18485bf2cde9b0479e65344cfb3",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Haval-128 (4 rounds)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Haval-128 (4 rounds)"
+    }
+  ]
+}

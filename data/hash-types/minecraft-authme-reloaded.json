@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "minecraft-authme-reloaded",
+  "name": "Minecraft(AuthMe Reloaded)",
+  "status": "active",
+  "tags": [
+    "reference"
+  ],
+  "priority": 45,
+  "matchers": [
+    {
+      "id": "minecraft-authme-reloaded.reference.0",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$sha\\$[a-z0-9]{1,16}\\$([a-f0-9]{32}|[a-f0-9]{40}|[a-f0-9]{64}|[a-f0-9]{128}|[a-f0-9]{140})$",
+      "confidence": "generic",
+      "weight": 35,
+      "sources": [
+        {
+          "id": "hashid-reference",
+          "ref": "Minecraft(AuthMe Reloaded)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "hashid-reference",
+      "ref": "Minecraft(AuthMe Reloaded)"
+    }
+  ]
+}

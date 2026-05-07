@@ -1,0 +1,44 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "siemens-s7",
+  "name": "Siemens-S7",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "siemens-s7.haiti.183",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$siemens-s7\\$\\d{1}\\$[a-f0-9]{40}\\$[a-f0-9]{40}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$siemens-s7\\$\\d{1}\\$[a-f0-9]{40}\\$[a-f0-9]{40}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "siemens-s7",
+        "name": "Siemens-S7",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "siemens-s7"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Siemens-S7"
+    }
+  ]
+}

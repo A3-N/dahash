@@ -1,0 +1,474 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "x",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "xmpp-scram-pbkdf2-sha1.json",
+      "id": "xmpp-scram-pbkdf2-sha1",
+      "name": "XMPP SCRAM PBKDF2-SHA1",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "xmpp-scram-pbkdf2-sha1.haiti.245",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$xmpp-scram\\$\\d\\$\\d{1,8}\\$\\d{1,8}\\$[a-f0-9]{0,512}\\$[a-f0-9]{40}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 95,
+          "value": "$xmpp-scram$0$4096$16$1f7fcb384d5bcc61dfb1231ae1b32a2f$a2d076d56b0152ed557ad7d38fce93159bc63c9b",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 95,
+          "value": "$xmpp-scram$0$4096$16$4f67aec1bd53f5f2f74652e69a3b8f32$4aec3caa8ace5180efa7a671092646c041ab1496",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 111,
+          "value": "$xmpp-scram$0$4096$24$bc1bd6638a1231ffd54f608983425eacf729d8455a469197$aee9254762b23a3950fd7c803caab5f6654587c8",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 135,
+          "value": "$xmpp-scram$0$4096$36$37333536663261622d613666622d346333642d396232622d626432646237633338343064$38f79a6e3e64c07f731570d531ec05365aa05306",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 153,
+          "value": "$xmpp-scram$0$4096$45$353835323736323530353932363531393630313632353634313335323434323038393931323138373138343134$6d5b543b985dc6c0645da3c83d114fce121aa51d",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 23200,
+            "name": "XMPP SCRAM PBKDF2-SHA1",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "xmpp-scram",
+            "name": "XMPP SCRAM PBKDF2-SHA1",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$xmpp-scram$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 95..153",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 95,
+            "max": 153,
+            "observed": [
+              95,
+              111,
+              135,
+              153
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "xmpp-scram",
+            "name": "XMPP SCRAM PBKDF2-SHA1",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 23200,
+            "name": "XMPP SCRAM PBKDF2-SHA1",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 23200,
+            "hashcat_name": "XMPP SCRAM PBKDF2-SHA1",
+            "official_example": "$xmpp-scram$0$4096$45$353835323736323530353932363531393630313632353634313335323434323038393931323138373138343134$6d5b543b985dc6c0645da3c83d114fce121aa51d",
+            "official_example_length": 153,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "xmpp-scram-pbkdf2-sha1.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$xmpp-scram$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 95,
+              "max": 153,
+              "observed": [
+                95,
+                111,
+                135,
+                153
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "xmpp-scram-pbkdf2-sha1.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "xor-32.json",
+      "id": "xor-32",
+      "name": "XOR-32",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "xor-32.haiti.001",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{8}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "xor-32.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "xor-32.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "xt-commerce.json",
+      "id": "xt-commerce",
+      "name": "xt:Commerce",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "xt-commerce.haiti.031",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{32}:[a-z0-9]{2}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 35,
+          "value": "e983672a03adcc9767b24584338eb378:00",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 21,
+            "name": "xt:Commerce",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 35..35",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 35,
+            "max": 35,
+            "observed": [
+              35
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 21,
+            "name": "xt:Commerce",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 21,
+            "hashcat_name": "osCommerce, xt:Commerce",
+            "official_example": "e983672a03adcc9767b24584338eb378:00",
+            "official_example_length": 35,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "xt-commerce.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 35,
+              "max": 35,
+              "observed": [
+                35
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "xt-commerce.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    }
+  ]
+}

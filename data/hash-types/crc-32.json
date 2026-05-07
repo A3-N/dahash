@@ -1,0 +1,100 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "crc-32",
+  "name": "CRC-32",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "crc-32.haiti.003",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$crc32\\$)?([a-f0-9]{8}.)?[a-f0-9]{8}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$crc32\\$)?([a-f0-9]{8}.)?[a-f0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 11500,
+        "name": "CRC-32",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "11500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "11500"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "crc32",
+        "name": "CRC-32",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "crc32"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$crc32$00000000.fa455f6b",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "CRC-32"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$crc32$4ff4f23f.ce6eb863",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "CRC-32"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "c762de4a:00000000",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "CRC-32"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "11500"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "CRC-32"
+    }
+  ]
+}

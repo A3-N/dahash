@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "rar3-p-uncompressed",
+  "name": "RAR3 -p (Uncompressed)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "rar3-p-uncompressed.haiti.224",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 23700,
+        "name": "RAR3 -p (Uncompressed)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "23700"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "23700"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "rar",
+        "name": "RAR3 -p (Uncompressed)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "rar"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$RAR3$*1*c47c5bef0bbd1e98*965f1453*48*47*1*c5e987f81d316d9dcfdb6a1b27105ce63fca2c594da5aa2f6fdf2f65f50f0d66314f8a09da875ae19d6c15636b65c815*30",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -p (Uncompressed)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$RAR3$*1*e54a73729887cb53*49b0a846*16*14*1*34620bcca8176642a210b1051901921e*30",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -p (Uncompressed)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "23700"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RAR3 -p (Uncompressed)"
+    }
+  ]
+}

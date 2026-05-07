@@ -1,0 +1,76 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "lastpass-sniffed",
+  "name": "LastPass sniffed",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "lastpass-sniffed.haiti.130",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$lastpass\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[+\\/a-z0-9=]+$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$lastpass\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[+\\/a-z0-9=]+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "lastpass",
+        "name": "LastPass sniffed",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "lastpass"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$lastpass$user@example.invalid$500$2W/GA8d2N+Z4HGvRYs2R7w==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass sniffed"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lastpass$user@example.invalid$500$i+hJCwPOj5eQN4tvHcMguoejx4VEmiqzOXOdWIsZKlk=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass sniffed"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$lastpass$generated@example.invalid$500$vgC0g8BxOi4MerkKfZYFFSAJi8riD7k0ROLpBEA3VJk=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "LastPass sniffed"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LastPass sniffed"
+    }
+  ]
+}

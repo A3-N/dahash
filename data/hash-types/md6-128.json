@@ -1,0 +1,45 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md6-128",
+  "name": "MD6-128",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "md6-128.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "8cd9a30bfde990878c06be4a6111f726",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MD6-128"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MD6-128"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-sha256-hmac-sha256-key-salt",
+  "name": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-sha256-hmac-sha256-key-salt.haiti.318",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^sha256\\$.{0,256}\\$[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha256\\$.{0,256}\\$[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 30120,
+        "name": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "30120"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "30120"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "sha256$70108387805$8b9472281c36c3a693703de0e0f1ffab8fc0ecdd3bc5ead04c76dd74ef431e49",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "30120"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha256$8L1sXlmf$06302845373c294101f60460870c74a4da2bc7fe7daf5efdee377659ad94ae47",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha256$S8DnKBwzknauPOx6DgSV4ShCylfZY3Qi$67d81bbb376af0b81a15af48a27f43aac155139c2370ed4cce28fb1b2ccda5a9",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha256$eFEZrXi4My8nLaHp$cb15c73bd22351c579386b7fe2b3c45bb330e0f3bbc0a666a7f6f2d8cf56b02f",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug SHA256 (HMAC-SHA256 (key = $salt))"
+    }
+  ]
+}

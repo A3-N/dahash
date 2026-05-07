@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-sha224-hmac-sha224-key-salt",
+  "name": "Python Werkzeug SHA224 (HMAC-SHA224 (key = $salt))",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-sha224-hmac-sha224-key-salt.haiti.317",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^sha224\\$.{0,256}\\$[a-f0-9]{56}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha224\\$.{0,256}\\$[a-f0-9]{56}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "sha224$0iluTjCqz9YlhJk5RJ6RbYodLVG1CxUw$678217b476398021c32c8ca2dc8089f97026d96b9c1fe17e868a3da6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA224 (HMAC-SHA224 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha224$BY08WpEW$ae9cb24fc6839cb4bb289145d82c38ab89bf21aeec07dfcd08ea7398",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA224 (HMAC-SHA224 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha224$mknkBjuIty9lWlJp$8835f938e9422537e66ad16469d8e0adab54e69c922c3ac4d9be7b8f",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA224 (HMAC-SHA224 (key = $salt))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug SHA224 (HMAC-SHA224 (key = $salt))"
+    }
+  ]
+}

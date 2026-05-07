@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "python-werkzeug-sha512-hmac-sha512-key-salt",
+  "name": "Python Werkzeug SHA512 (HMAC-SHA512 (key = $salt))",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "python-werkzeug-sha512-hmac-sha512-key-salt.haiti.320",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^sha512\\$.{0,256}\\$[a-f0-9]{128}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Asha512\\$.{0,256}\\$[a-f0-9]{128}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "sha512$4AMoZWLMzpheIFiU$72d4d78999a7caa361c8109bd6eae97b0384351f134c97a7fcb7e233d1b1e7722485458bd9ddb1ea1795255d8691c3ecc0bbb155ae116bc1ac75d61d6a40fc09",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA512 (HMAC-SHA512 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha512$kO7IfIeA$95ce7f6ef3c104739872842011db4c670640f576ed89cc4986cd13454019eafff820ae9264d9f9dc09a407242d5f050910d0e37e15eb4324e6abffdae4fcd29a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA512 (HMAC-SHA512 (key = $salt))"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "sha512$rfO0UIgdyDDPkNLqXCgFYCcWQE6sct0i$e82b9ea90015c4ab2540a82f721f1051cd49aea988efa37ce57d0b5c43a30d20377d563bbfe8a55163cacadc47c7d9783aef756629f1b2ca02721e569e47d8ce",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Python Werkzeug SHA512 (HMAC-SHA512 (key = $salt))"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Python Werkzeug SHA512 (HMAC-SHA512 (key = $salt))"
+    }
+  ]
+}

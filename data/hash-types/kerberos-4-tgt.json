@@ -1,0 +1,66 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "kerberos-4-tgt",
+  "name": "Kerberos 4 TGT",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "kerberos-4-tgt.haiti.099",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$(?:af|k4)\\$[^$]+\\$[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$(?:af|k4)\\$[^$]+\\$[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "krb4",
+        "name": "Kerberos 4 TGT",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "krb4"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$af$UMICH.EDU$bb46613c503ad92e649d99d038efddb2",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 4 TGT"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$af$UMICH.EDU$bebcedf43f7f2aa78cf9c0639e494c92",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 4 TGT"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Kerberos 4 TGT"
+    }
+  ]
+}

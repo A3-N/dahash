@@ -1,0 +1,97 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "rar3-hp",
+  "name": "RAR3 -hp",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "rar3-hp.haiti.225",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 12500,
+        "name": "RAR3 -hp",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "12500"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "12500"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "rar",
+        "name": "RAR3 -hp",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "rar"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$RAR3$*0*45109af8ab5f297a*adbf6c5385d7a40373e8f77d7b89d317",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -hp"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "12500"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$RAR3$*0*7ce241baa2bd521b*3eb0017fa8843017952c53a3ac8332b6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -hp"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$RAR3$*0*c203c4d80a8a09dc*1f406154556d4c895a8be207fd2b5d0c",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RAR3 -hp"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RAR3 -hp"
+    }
+  ]
+}

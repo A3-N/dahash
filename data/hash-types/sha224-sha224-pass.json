@@ -1,0 +1,80 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha224-sha224-pass",
+  "name": "sha224(sha224($pass))",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha224-sha224-pass.haiti.049",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{56}(?::.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{56}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 34400,
+        "name": "sha224(sha224($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "34400"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "34400"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "dynamic_53",
+        "name": "sha224(sha224($pass))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_53"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "b7d9a0e57e6e94e8b87996b81ffa64b05d237c58fff1d7a4e4fe2a77",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "sha224(sha224($pass))"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "34400"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha224(sha224($pass))"
+    }
+  ]
+}

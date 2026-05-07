@@ -1,0 +1,42 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md6-512",
+  "name": "MD6-512",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "md6-512.haiti.075",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{128}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "39990e5d4b65abd1c679b36fc7fa0b2f831144374ac3792736180bc5fc5ed4e93f177ed03f16ebac7327b9ddb7e4add838c3ce784653bbdd57d46a9a1d22932d",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MD6-512"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MD6-512"
+    }
+  ]
+}

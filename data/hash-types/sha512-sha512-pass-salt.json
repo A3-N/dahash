@@ -1,0 +1,80 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "sha512-sha512-pass-salt",
+  "name": "sha512(sha512($pass).$salt)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "sha512-sha512-pass-salt.haiti.075",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{128}(:.+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 32410,
+        "name": "sha512(sha512($pass).$salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "32410"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "32410"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "dynamic_85",
+        "name": "sha512(sha512($pass).$salt)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_85"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "25d509824028a999f4ee851b5de404bb316b78ae8e974874376484018f58520e082747a7ce9f769bcaccb5f63878356c780f602e23393f12b650a6931e4b9338:21881837027919828109608",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "sha512(sha512($pass).$salt)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "32410"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "sha512(sha512($pass).$salt)"
+    }
+  ]
+}

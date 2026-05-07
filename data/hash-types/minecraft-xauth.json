@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "minecraft-xauth",
+  "name": "Minecraft(xAuth)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "minecraft-xauth.haiti.139",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{140}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{140}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Minecraft(xAuth)"
+    }
+  ]
+}

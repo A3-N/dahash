@@ -1,0 +1,100 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ripemd-160",
+  "name": "RIPEMD-160",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "ripemd-160.haiti.036",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$ripemd\\$)?[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$ripemd\\$)?[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 6000,
+        "name": "RIPEMD-160",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "6000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "6000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "ripemd-160",
+        "name": "RIPEMD-160",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "ripemd-160"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$ripemd$9c1185a5c5e9fc54612808977ee8f548b2258d31",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RIPEMD-160"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "012cb9b334ec1aeb71a9c8ce85586082467f7eb6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RIPEMD-160"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "6000"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "9c1185a5c5e9fc54612808977ee8f548b2258d31",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "RIPEMD-160"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "RIPEMD-160"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "fortigate-fortios",
+  "name": "Fortigate(FortiOS)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "fortigate-fortios.haiti.041",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9=]{47}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9=]{47}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 7000,
+        "name": "Fortigate(FortiOS)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "7000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "7000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "fortigate",
+        "name": "Fortigate(FortiOS)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "fortigate"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Fortigate(FortiOS)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "AK1FCIhM0IUIQVFJgcDFwLCMi7GppdwtRzMyDpFOFxdpH8=",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "7000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

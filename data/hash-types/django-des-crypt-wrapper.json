@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "django-des-crypt-wrapper",
+  "name": "Django (DES Crypt Wrapper)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "django-des-crypt-wrapper.haiti.152",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^crypt\\$[a-f0-9]{5}\\$[a-z0-9\\/.]{13}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\Acrypt\\$[a-f0-9]{5}\\$[a-z0-9\\/.]{13}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Django (DES Crypt Wrapper)"
+    }
+  ]
+}

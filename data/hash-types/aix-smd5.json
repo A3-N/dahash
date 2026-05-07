@@ -1,0 +1,87 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "aix-smd5",
+  "name": "AIX (smd5)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "aix-smd5.haiti.033",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{smd5}[a-z0-9$\\/.]{31}$",
+      "confidence": "contextual",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{smd5}[a-z0-9$\\/.]{31}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 6300,
+        "name": "AIX (smd5)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "6300"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "6300"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "aix-smd5",
+        "name": "AIX (smd5)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "aix-smd5"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{smd5}17800721$WkGka7tXcrfpUQS6WOQyw/",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AIX (smd5)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "6300"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "{smd5}a5/yTL/u$VfvgyHx1xUlXZYBocQpQY0",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "AIX (smd5)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "AIX (smd5)"
+    }
+  ]
+}

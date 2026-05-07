@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cram-md5-dovecot",
+  "name": "CRAM-MD5 Dovecot",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "16400"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 16400,
+        "name": "CRAM-MD5 Dovecot",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "16400"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{CRAM-MD5}5389b33b9725e5657cb631dc50017ff100000000000000000000000000000000",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16400"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "cram-md5-dovecot.hashcat.16400",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\{CRAM\\-MD5\\}[A-Fa-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "16400"
+        }
+      ]
+    }
+  ]
+}

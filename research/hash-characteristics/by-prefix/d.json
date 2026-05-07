@@ -1,0 +1,6076 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "d",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "dahua-md5-authentication.json",
+      "id": "dahua-md5-authentication",
+      "name": "Dahua (MD5 Authentication)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "dahua-md5-authentication.haiti.195",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(?:\\$dahua\\$)?[a-z0-9]{8}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 15,
+          "value": "$dahua$4WzwxXxM",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 8,
+          "value": "GRuHbyVp",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 24900,
+            "name": "Dahua (MD5 Authentication)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "dahua",
+            "name": "Dahua (MD5 Authentication)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$dahua$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "base64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 8..15",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 8,
+            "max": 15,
+            "observed": [
+              8,
+              15
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "dahua",
+            "name": "Dahua (MD5 Authentication)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 24900,
+            "name": "Dahua (MD5 Authentication)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 24900,
+            "hashcat_name": "Dahua Authentication MD5",
+            "official_example": "GRuHbyVp",
+            "official_example_length": 8,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dahua-md5-authentication.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$dahua$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "base64",
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 8,
+              "max": 15,
+              "observed": [
+                8,
+                15
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dahua-md5-authentication.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dane-rfc7929-rfc8162-sha2-256.json",
+      "id": "dane-rfc7929-rfc8162-sha2-256",
+      "name": "DANE RFC7929/RFC8162 SHA2-256",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "dane-rfc7929-rfc8162-sha2-256.hashcat.30420",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{56}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 56,
+          "value": "127e6fbfe24a750e72930c220a8e138275656b8e5d8f48a98c3c92df",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 30420,
+            "name": "DANE RFC7929/RFC8162 SHA2-256",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 56..56",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 56,
+            "max": 56,
+            "observed": [
+              56
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 30420,
+            "name": "DANE RFC7929/RFC8162 SHA2-256",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 30420,
+            "hashcat_name": "DANE RFC7929/RFC8162 SHA2-256",
+            "official_example": "127e6fbfe24a750e72930c220a8e138275656b8e5d8f48a98c3c92df",
+            "official_example_length": 56,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dane-rfc7929-rfc8162-sha2-256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 56,
+              "max": 56,
+              "observed": [
+                56
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dane-rfc7929-rfc8162-sha2-256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "des-oracle.json",
+      "id": "des-oracle",
+      "name": "DES(Oracle)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "des-oracle.haiti.008",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{16}:[a-f0-9]{0,30}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 27,
+          "value": "792FCB0AE31D8489:7284616727",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 3100,
+            "name": "DES(Oracle)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 27..27",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 27,
+            "max": 27,
+            "observed": [
+              27
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "oracle"
+            ],
+            "john_extractors": [
+              "oracle2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Oracle password tables/dumps"
+            ],
+            "expected_prefixes": [
+              "S:",
+              "T:",
+              "H:"
+            ],
+            "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 3100,
+            "name": "DES(Oracle)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 3100,
+            "hashcat_name": "Oracle H: Type (Oracle 7+)",
+            "official_example": "792FCB0AE31D8489:7284616727",
+            "official_example_length": 27,
+            "official_notes": [
+              "Example password: `HASHCAT`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "des-oracle.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 27,
+              "max": 27,
+              "observed": [
+                27
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "des-oracle.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "oracle"
+                ],
+                "john_extractors": [
+                  "oracle2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Oracle password tables/dumps"
+                ],
+                "expected_prefixes": [
+                  "S:",
+                  "T:",
+                  "H:"
+                ],
+                "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "des-pt-salt-key-pass.json",
+      "id": "des-pt-salt-key-pass",
+      "name": "DES (PT = $salt, key = $pass)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "des-pt-salt-key-pass.hashcat.14000",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{16}:[A-Fa-f0-9]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 33,
+          "value": "53b325182924b356:1412781058343178",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 14000,
+            "name": "DES (PT = $salt, key = $pass)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 33..33",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 33,
+            "max": 33,
+            "observed": [
+              33
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 14000,
+            "name": "DES (PT = $salt, key = $pass)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 14000,
+            "hashcat_name": "DES (PT = $salt, key = $pass)",
+            "official_example": "53b325182924b356:1412781058343178",
+            "official_example_length": 33,
+            "official_notes": [
+              "Example password: `hashcat1`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "des-pt-salt-key-pass.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 33,
+              "max": 33,
+              "observed": [
+                33
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "des-pt-salt-key-pass.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "des-unix.json",
+      "id": "des-unix",
+      "name": "DES(Unix)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "des-unix.haiti.005",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 50,
+          "pattern": "^[a-z0-9\\/.]{13}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 13,
+          "value": "24leDr0hHfb3A",
+          "plaintext": "hashcat",
+          "verified": true
+        },
+        {
+          "length": 13,
+          "value": "CC4rMpbg9AMZ.",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 13,
+          "value": "CCNf8Sbh3HDfQ",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 13,
+          "value": "CCX.K.MFy4Ois",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 1500,
+            "name": "DES(Unix)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "descrypt",
+            "name": "DES(Unix)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "base64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 13..13",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 13,
+            "max": 13,
+            "observed": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "descrypt",
+            "name": "DES(Unix)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 1500,
+            "name": "DES(Unix)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 1500,
+            "hashcat_name": "descrypt, DES (Unix), Traditional DES",
+            "official_example": "24leDr0hHfb3A",
+            "official_example_length": 13,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "des-unix.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "base64",
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 13,
+              "max": 13,
+              "observed": [
+                13
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "des-unix.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "descrypt.json",
+      "id": "descrypt",
+      "name": "DEScrypt",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "descrypt.haiti.005",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 50,
+          "pattern": "^[a-z0-9\\/.]{13}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 13,
+          "value": "24leDr0hHfb3A",
+          "plaintext": "hashcat",
+          "verified": true
+        },
+        {
+          "length": 13,
+          "value": "CC4rMpbg9AMZ.",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 13,
+          "value": "CCNf8Sbh3HDfQ",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 13,
+          "value": "CCX.K.MFy4Ois",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 1500,
+            "name": "DEScrypt",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "descrypt",
+            "name": "DEScrypt",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "base64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 13..13",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 13,
+            "max": 13,
+            "observed": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "descrypt",
+            "name": "DEScrypt",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 1500,
+            "name": "DEScrypt",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 1500,
+            "hashcat_name": "descrypt, DES (Unix), Traditional DES",
+            "official_example": "24leDr0hHfb3A",
+            "official_example_length": 13,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "descrypt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "base64",
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 13,
+              "max": 13,
+              "observed": [
+                13
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "descrypt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "diskcryptor-sha512-xts-1024-bit.json",
+      "id": "diskcryptor-sha512-xts-1024-bit",
+      "name": "DiskCryptor SHA512 + XTS 1024 bit",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "diskcryptor-sha512-xts-1024-bit.hashcat.20012",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:20012"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 4111,
+          "value": "$diskcryptor$0*37f6252cf81f8049f68deb41de5becfb46851909e5d4f41f8f5da4c4dc830992c5e29905fa6e0cb755e42c6cfc0509a751a2a4f01fb884968c9fd18bc9007c1ee7e67d1b7cf0e23ba82235517b93db8ebcc96943eb90d782a210e38205af60388475386996c82a1d1dc6a9581057c264577b78f261870ec9cfb3c...<truncated len=4111>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 20012,
+            "name": "DiskCryptor SHA512 + XTS 1024 bit",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$diskcryptor$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 4111..4111",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 4111,
+            "max": 4111,
+            "observed": [
+              4111
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              2
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "diskcryptor"
+            ],
+            "john_extractors": [
+              "diskcryptor2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "DiskCryptor volume header"
+            ],
+            "expected_prefixes": [
+              "$diskcryptor$"
+            ],
+            "note": "Disk encryption formats require header-derived metadata and should not be inferred from hex length alone.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 20012,
+            "name": "DiskCryptor SHA512 + XTS 1024 bit",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 20012,
+            "hashcat_name": "DiskCryptor SHA512 + XTS 1024 bit",
+            "official_example": "$diskcryptor$0*37f6252cf81f8049f68deb41de5becfb46851909e5d4f41f8f5da4c4dc830992c5e29905fa6e0cb755e42c6cfc0509a751a2a4f01fb884968c9fd18bc9007c1ee7e67d1b7cf0e23ba82235517b93db8ebcc96943eb90d782a210e38205af60388475386996c82a1d1dc6a9581057c264577b78f261870ec9cfb3c10a989c2cc8abb97ea18dc09b54d1723ebf74a0c...<truncated len=4111>",
+            "official_example_length": 4111,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "diskcryptor-sha512-xts-1024-bit.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$diskcryptor$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  2
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 4111,
+              "max": 4111,
+              "observed": [
+                4111
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "diskcryptor-sha512-xts-1024-bit.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "diskcryptor"
+                ],
+                "john_extractors": [
+                  "diskcryptor2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "DiskCryptor volume header"
+                ],
+                "expected_prefixes": [
+                  "$diskcryptor$"
+                ],
+                "note": "Disk encryption formats require header-derived metadata and should not be inferred from hex length alone.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "diskcryptor-sha512-xts-1536-bit.json",
+      "id": "diskcryptor-sha512-xts-1536-bit",
+      "name": "DiskCryptor SHA512 + XTS 1536 bit",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "diskcryptor-sha512-xts-1536-bit.hashcat.20013",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:20013"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 4111,
+          "value": "$diskcryptor$0*37f6252cf81f8049f68deb41de5becfb46851909e5d4f41f8f5da4c4dc830992c5e29905fa6e0cb755e42c6cfc0509a751a2a4f01fb884968c9fd18bc9007c1ee7e67d1b7cf0e23ba82235517b93db8ebcc96943eb90d782a210e38205af60388475386996c82a1d1dc6a9581057c264577b78f261870ec9cfb3c...<truncated len=4111>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 20013,
+            "name": "DiskCryptor SHA512 + XTS 1536 bit",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$diskcryptor$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 4111..4111",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 4111,
+            "max": 4111,
+            "observed": [
+              4111
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              2
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "diskcryptor"
+            ],
+            "john_extractors": [
+              "diskcryptor2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "DiskCryptor volume header"
+            ],
+            "expected_prefixes": [
+              "$diskcryptor$"
+            ],
+            "note": "Disk encryption formats require header-derived metadata and should not be inferred from hex length alone.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 20013,
+            "name": "DiskCryptor SHA512 + XTS 1536 bit",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 20013,
+            "hashcat_name": "DiskCryptor SHA512 + XTS 1536 bit",
+            "official_example": "$diskcryptor$0*37f6252cf81f8049f68deb41de5becfb46851909e5d4f41f8f5da4c4dc830992c5e29905fa6e0cb755e42c6cfc0509a751a2a4f01fb884968c9fd18bc9007c1ee7e67d1b7cf0e23ba82235517b93db8ebcc96943eb90d782a210e38205af60388475386996c82a1d1dc6a9581057c264577b78f261870ec9cfb3c10a989c2cc8abb97ea18dc09b54d1723ebf74a0c...<truncated len=4111>",
+            "official_example_length": 4111,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "diskcryptor-sha512-xts-1536-bit.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$diskcryptor$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  2
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 4111,
+              "max": 4111,
+              "observed": [
+                4111
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "diskcryptor-sha512-xts-1536-bit.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "diskcryptor"
+                ],
+                "john_extractors": [
+                  "diskcryptor2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "DiskCryptor volume header"
+                ],
+                "expected_prefixes": [
+                  "$diskcryptor$"
+                ],
+                "note": "Disk encryption formats require header-derived metadata and should not be inferred from hex length alone.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "diskcryptor-sha512-xts-512-bit.json",
+      "id": "diskcryptor-sha512-xts-512-bit",
+      "name": "DiskCryptor SHA512 + XTS 512 bit",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "diskcryptor-sha512-xts-512-bit.hashcat.20011",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 40,
+          "pattern": "hashcat-mode:20011"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 4111,
+          "value": "$diskcryptor$0*37f6252cf81f8049f68deb41de5becfb46851909e5d4f41f8f5da4c4dc830992c5e29905fa6e0cb755e42c6cfc0509a751a2a4f01fb884968c9fd18bc9007c1ee7e67d1b7cf0e23ba82235517b93db8ebcc96943eb90d782a210e38205af60388475386996c82a1d1dc6a9581057c264577b78f261870ec9cfb3c...<truncated len=4111>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 20011,
+            "name": "DiskCryptor SHA512 + XTS 512 bit",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$diskcryptor$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 4111..4111",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 4111,
+            "max": 4111,
+            "observed": [
+              4111
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              2
+            ]
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "diskcryptor"
+            ],
+            "john_extractors": [
+              "diskcryptor2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "DiskCryptor volume header"
+            ],
+            "expected_prefixes": [
+              "$diskcryptor$"
+            ],
+            "note": "Disk encryption formats require header-derived metadata and should not be inferred from hex length alone.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 20011,
+            "name": "DiskCryptor SHA512 + XTS 512 bit",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 20011,
+            "hashcat_name": "DiskCryptor SHA512 + XTS 512 bit",
+            "official_example": "$diskcryptor$0*37f6252cf81f8049f68deb41de5becfb46851909e5d4f41f8f5da4c4dc830992c5e29905fa6e0cb755e42c6cfc0509a751a2a4f01fb884968c9fd18bc9007c1ee7e67d1b7cf0e23ba82235517b93db8ebcc96943eb90d782a210e38205af60388475386996c82a1d1dc6a9581057c264577b78f261870ec9cfb3c10a989c2cc8abb97ea18dc09b54d1723ebf74a0c...<truncated len=4111>",
+            "official_example_length": 4111,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "diskcryptor-sha512-xts-512-bit.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$diskcryptor$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  2
+                ]
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 4111,
+              "max": 4111,
+              "observed": [
+                4111
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "diskcryptor-sha512-xts-512-bit.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "diskcryptor"
+                ],
+                "john_extractors": [
+                  "diskcryptor2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "DiskCryptor volume header"
+                ],
+                "expected_prefixes": [
+                  "$diskcryptor$"
+                ],
+                "note": "Disk encryption formats require header-derived metadata and should not be inferred from hex length alone.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-bcrypt-sha256.json",
+      "id": "django-bcrypt-sha256",
+      "name": "Django (bcrypt-SHA256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-bcrypt-sha256.haiti.181",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^bcrypt_sha256\\$\\$(2[axy]|2)\\$\\d+\\$[a-z0-9\\/.]{53}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-bcrypt-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-bcrypt-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-bcrypt.json",
+      "id": "django-bcrypt",
+      "name": "Django (bcrypt)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-bcrypt.haiti.155",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^bcrypt(\\$2[axy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-bcrypt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-bcrypt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-des-crypt-wrapper.json",
+      "id": "django-des-crypt-wrapper",
+      "name": "Django (DES Crypt Wrapper)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-des-crypt-wrapper.haiti.152",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^crypt\\$[a-f0-9]{5}\\$[a-z0-9\\/.]{13}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-des-crypt-wrapper.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-des-crypt-wrapper.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-md5.json",
+      "id": "django-md5",
+      "name": "Django (MD5)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-md5.haiti.156",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^md5\\$[a-f0-9]+\\$[a-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-md5.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-md5.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-pbkdf2-hmac-sha1.json",
+      "id": "django-pbkdf2-hmac-sha1",
+      "name": "Django (PBKDF2-HMAC-SHA1)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-pbkdf2-hmac-sha1.haiti.154",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^pbkdf2_sha1\\$\\d+\\$[a-z0-9]+\\$[a-z0-9\\/+=]{28}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-pbkdf2-hmac-sha1.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-pbkdf2-hmac-sha1.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-pbkdf2-hmac-sha256.json",
+      "id": "django-pbkdf2-hmac-sha256",
+      "name": "Django (PBKDF2-HMAC-SHA256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-pbkdf2-hmac-sha256.haiti.153",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(\\$django\\$\\*1\\*)?pbkdf2_sha256\\$\\d+\\$[a-z0-9]+\\$[a-z0-9\\/+=]{44}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 88,
+          "value": "$django$*1*pbkdf2_sha256$10000$7qPqyUDw8kZV$pFmVRjlHvayoWEy8ZWXkHgfmgImUKLmkmruclpYVAxM=",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 88,
+          "value": "$django$*1*pbkdf2_sha256$10000$qPmFbibfAY06$x/geVEkdZSlJMqvIYJ7G6i5l/6KJ0UpvLUU6cfj83VM=",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 75,
+          "value": "pbkdf2_sha256$10000$1135411628$bFYX62rfJobJ07VwrUMXfuffLfj2RDM2G6/BrTrUWkE=",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 77,
+          "value": "pbkdf2_sha256$20000$H0dPx8NeajVu$GiC4k5kqbbR9qWBlsRgDywNqC2vd9kqfk7zdorEnNas=",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 10000,
+            "name": "Django (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "django",
+            "name": "Django (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$django$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "prefix",
+          "value": "pbkdf2_sha256$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 75..88",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 75,
+            "max": 88,
+            "observed": [
+              75,
+              77,
+              88
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              4,
+              6
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "django",
+            "name": "Django (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 10000,
+            "name": "Django (PBKDF2-HMAC-SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 10000,
+            "hashcat_name": "Django (PBKDF2-SHA256)",
+            "official_example": "pbkdf2_sha256$10000$1135411628$bFYX62rfJobJ07VwrUMXfuffLfj2RDM2G6/BrTrUWkE=",
+            "official_example_length": 75,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "django-pbkdf2-hmac-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$django$",
+              "pbkdf2_sha256$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  4,
+                  6
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 75,
+              "max": 88,
+              "observed": [
+                75,
+                77,
+                88
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-pbkdf2-hmac-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-sha-1.json",
+      "id": "django-sha-1",
+      "name": "Django (SHA-1)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-sha-1.haiti.085",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^sha1\\$[a-z0-9]+\\$[a-f0-9]{40}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 51,
+          "value": "sha1$fe76b$02d5916550edf7fc8c886f044887f4b1abf9b013",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 124,
+            "name": "Django (SHA-1)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "sha1$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 51..51",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 51,
+            "max": 51,
+            "observed": [
+              51
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 124,
+            "name": "Django (SHA-1)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 124,
+            "hashcat_name": "Django (SHA-1)",
+            "official_example": "sha1$fe76b$02d5916550edf7fc8c886f044887f4b1abf9b013",
+            "official_example_length": 51,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "django-sha-1.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "sha1$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 51,
+              "max": 51,
+              "observed": [
+                51
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-sha-1.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-sha-256.json",
+      "id": "django-sha-256",
+      "name": "Django (SHA-256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-sha-256.haiti.092",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^sha256\\$[a-z0-9]+\\$[a-f0-9]{64}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-sha-256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-sha-256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "django-sha-384.json",
+      "id": "django-sha-384",
+      "name": "Django (SHA-384)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "django-sha-384.haiti.093",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^sha384\\$[a-z0-9]+\\$[a-f0-9]{96}$"
+        }
+      ],
+      "representative_examples": [],
+      "tool_references": {
+        "hashcat": [],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "django-sha-384.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [],
+            "observed_lengths": null
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "django-sha-384.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex."
+      ],
+      "review_questions": [
+        "No representative example in current JSON; add at least one verified example before approving stricter observations."
+      ],
+      "sources": [
+        "haiti"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dnssec-nsec3.json",
+      "id": "dnssec-nsec3",
+      "name": "DNSSEC (NSEC3)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "dnssec-nsec3.haiti.133",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 57,
+          "value": "7b5n74kq8r441blc2c5qbbat19baj79r:.lvdsiqfj.net:33164473:1",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 57,
+          "value": "pi6a89u8tca930h8mvolklmesefc5gmn:.fnmlbsik.net:35537886:1",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 8300,
+            "name": "DNSSEC (NSEC3)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 57..57",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 57,
+            "max": 57,
+            "observed": [
+              57
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 8300,
+            "name": "DNSSEC (NSEC3)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 8300,
+            "hashcat_name": "DNSSEC (NSEC3)",
+            "official_example": "pi6a89u8tca930h8mvolklmesefc5gmn:.fnmlbsik.net:35537886:1",
+            "official_example_length": 57,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dnssec-nsec3.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 57,
+              "max": 57,
+              "observed": [
+                57
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dnssec-nsec3.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dogechain-info-wallet.json",
+      "id": "dogechain-info-wallet",
+      "name": "Dogechain.info Wallet",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "dogechain-info-wallet.hashcat.32500",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Za-z0-9]{9}\\$[0-9]{1}\\*[0-9]{4}\\*[A-Za-z0-9+/=]{320}\\*[A-Za-z0-9+/=]{24}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 363,
+          "value": "$dogechain$0*5000*EEmAkgiMlVrToRhu2suq91R5Frf+VQCvNzv9lj6OwRWIf/3IM31wqhJM7gGQpinXH9kqHkuQ2DMZxspgA7QFAddsUWvZxGdNAkaeKy90EAsTLIuDQnH3plfBQfmL6j5NPaH7Nr7kF1PdvM0pbUw6XHySBYkD/rPHNM6n58NRK4xfO4VVMykeX3+m2LaVyv5s269r/op38svRPT0YFGpRcanY6/U1BeSrvG2IXii1BKXXAcVEN4...<truncated len=363>",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 32500,
+            "name": "Dogechain.info Wallet",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$dogechain$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 363..363",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 363,
+            "max": 363,
+            "observed": [
+              363
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              6
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 32500,
+            "name": "Dogechain.info Wallet",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 32500,
+            "hashcat_name": "Dogechain.info Wallet",
+            "official_example": "$dogechain$0*5000*EEmAkgiMlVrToRhu2suq91R5Frf+VQCvNzv9lj6OwRWIf/3IM31wqhJM7gGQpinXH9kqHkuQ2DMZxspgA7QFAddsUWvZxGdNAkaeKy90EAsTLIuDQnH3plfBQfmL6j5NPaH7Nr7kF1PdvM0pbUw6XHySBYkD/rPHNM6n58NRK4xfO4VVMykeX3+m2LaVyv5s269r/op38svRPT0YFGpRcanY6/U1BeSrvG2IXii1BKXXAcVEN4GFmyEQRWKI0uZE+3M0atf7UEPD4K9tmEKosqdsF4...<truncated len=363>",
+            "official_example_length": 363,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dogechain-info-wallet.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$dogechain$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  6
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 363,
+              "max": 363,
+              "observed": [
+                363
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dogechain-info-wallet.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "domain-cached-credentials-2-dcc2-ms-cache-2-nt.json",
+      "id": "domain-cached-credentials-2-dcc2-ms-cache-2-nt",
+      "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2, (NT)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "domain-cached-credentials-2-dcc2-ms-cache-2-nt.hashcat.31600",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^\\$[A-Fa-f0-9]{4}\\$[0-9]{5}\\#[0-9]{4}\\#[A-Fa-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 49,
+          "value": "$DCC2$10240#6848#e2829c8af2232fa53797e2f0e35e4626",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 31600,
+            "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2, (NT)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$DCC2$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 49..49",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 49,
+            "max": 49,
+            "observed": [
+              49
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "#",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "#",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 31600,
+            "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2, (NT)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 31600,
+            "hashcat_name": "Domain Cached Credentials 2 (DCC2), MS Cache 2, (NT)",
+            "official_example": "$DCC2$10240#6848#e2829c8af2232fa53797e2f0e35e4626",
+            "official_example_length": 49,
+            "official_notes": [
+              "Example password: `b4b9b02e6f09a9bd760f388b67351e2b`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "domain-cached-credentials-2-dcc2-ms-cache-2-nt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$DCC2$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "#",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 49,
+              "max": 49,
+              "observed": [
+                49
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "domain-cached-credentials-2-dcc2-ms-cache-2-nt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "domain-cached-credentials-2-dcc2-ms-cache-2.json",
+      "id": "domain-cached-credentials-2-dcc2-ms-cache-2",
+      "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2",
+      "current_status": "active",
+      "current_priority": 90,
+      "current_tags": [
+        "common"
+      ],
+      "current_matchers": [
+        {
+          "id": "domain-cached-credentials-2-dcc2-ms-cache-2.haiti.024",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^([^\\\\:*?\"<>|\\n]+:)?(\\$DCC2\\$(\\d+#)?[^\\\\:*?\"<>|\\n]*#)?[a-f0-9]{32}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 39,
+          "value": "$DCC2$#59137848828d14b1fca295a5032b52a1",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 57,
+          "value": "$DCC2$10000#Twelve_chars#54236c670e185043c8016006c001e982",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 49,
+          "value": "$DCC2$10240#6848#e2829c8af2232fa53797e2f0e35e4626",
+          "plaintext": "hashcat",
+          "verified": true
+        },
+        {
+          "length": 50,
+          "value": "$DCC2$10240#test1#607bbe89611e37446e736f7856515bf8",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 46,
+          "value": "$DCC2$january#26b5495b21f9ad58255d99b5e117abe2",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 2100,
+            "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "mscash2",
+            "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$DCC2$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 32..92",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 32,
+            "max": 92,
+            "observed": [
+              32,
+              39,
+              46,
+              49,
+              50,
+              57,
+              92
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "#",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "#",
+            "example_field_counts": [
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "mscash2",
+            "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 2100,
+            "name": "Domain Cached Credentials 2 (DCC2), MS Cache 2",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 2100,
+            "hashcat_name": "Domain Cached Credentials 2 (DCC2), MS Cache 2",
+            "official_example": "$DCC2$10240#6848#e2829c8af2232fa53797e2f0e35e4626",
+            "official_example_length": 49,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "domain-cached-credentials-2-dcc2-ms-cache-2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$DCC2$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": []
+              },
+              {
+                "separator": "#",
+                "example_field_counts": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex",
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 32,
+              "max": 92,
+              "observed": [
+                32,
+                39,
+                46,
+                49,
+                50,
+                57,
+                92
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "domain-cached-credentials-2-dcc2-ms-cache-2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "domain-cached-credentials-dcc-ms-cache-nt.json",
+      "id": "domain-cached-credentials-dcc-ms-cache-nt",
+      "name": "Domain Cached Credentials (DCC), MS Cache (NT)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "domain-cached-credentials-dcc-ms-cache-nt.hashcat.31500",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{32}:[A-Fa-f0-9]{11}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 44,
+          "value": "c896b3c6963e03c86ade3a38370bbb09:54161084332",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 31500,
+            "name": "Domain Cached Credentials (DCC), MS Cache (NT)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 44..44",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 44,
+            "max": 44,
+            "observed": [
+              44
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 31500,
+            "name": "Domain Cached Credentials (DCC), MS Cache (NT)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 31500,
+            "hashcat_name": "Domain Cached Credentials (DCC), MS Cache (NT)",
+            "official_example": "c896b3c6963e03c86ade3a38370bbb09:54161084332",
+            "official_example_length": 44,
+            "official_notes": [
+              "Example password: `b4b9b02e6f09a9bd760f388b67351e2b`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "domain-cached-credentials-dcc-ms-cache-nt.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 44,
+              "max": 44,
+              "observed": [
+                44
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "domain-cached-credentials-dcc-ms-cache-nt.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "domain-cached-credentials-dcc-ms-cache.json",
+      "id": "domain-cached-credentials-dcc-ms-cache",
+      "name": "Domain Cached Credentials (DCC), MS Cache",
+      "current_status": "active",
+      "current_priority": 90,
+      "current_tags": [
+        "common"
+      ],
+      "current_matchers": [
+        {
+          "id": "domain-cached-credentials-dcc-ms-cache.haiti.023",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(([^\\\\:*?\"<>|\\n]+:)|(M\\$.+#))?[a-f0-9]{32}(:[^\\\\\\/:*?\"<>|\\n]+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 32,
+          "value": "176a4c2bd45ac73687676c2f09045353",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 80,
+          "value": "CORP1.COMPANY.LOCAL/Administrator:ab60bdb4493822b175486810ac2abe63:Administrator",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 43,
+          "value": "M$#january#72488d8077e33d138b9cff94092716e4",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 40,
+          "value": "M$test2#ab60bdb4493822b175486810ac2abe63",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 44,
+          "value": "c896b3c6963e03c86ade3a38370bbb09:54161084332",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 1100,
+            "name": "Domain Cached Credentials (DCC), MS Cache",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "mscash",
+            "name": "Domain Cached Credentials (DCC), MS Cache",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 32..80",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 32,
+            "max": 80,
+            "observed": [
+              32,
+              40,
+              43,
+              44,
+              80
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "#",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "#",
+            "example_field_counts": [
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "|",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "|",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "mscash",
+            "name": "Domain Cached Credentials (DCC), MS Cache",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 1100,
+            "name": "Domain Cached Credentials (DCC), MS Cache",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 1100,
+            "hashcat_name": "Domain Cached Credentials (DCC), MS Cache",
+            "official_example": "c896b3c6963e03c86ade3a38370bbb09:54161084332",
+            "official_example_length": 44,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "domain-cached-credentials-dcc-ms-cache.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": []
+              },
+              {
+                "separator": "#",
+                "example_field_counts": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              },
+              {
+                "separator": "|",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex",
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 32,
+              "max": 80,
+              "observed": [
+                32,
+                40,
+                43,
+                44,
+                80
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "domain-cached-credentials-dcc-ms-cache.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "double-md5.json",
+      "id": "double-md5",
+      "name": "Double MD5",
+      "current_status": "active",
+      "current_priority": 20,
+      "current_tags": [
+        "extended"
+      ],
+      "current_matchers": [
+        {
+          "id": "double-md5.haiti.015",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "weak",
+          "weight": 25,
+          "pattern": "^[a-f0-9]{32}(?::.+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 32,
+          "value": "a936af92b0ae20b1ff6c3347a72e5fbe",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 2600,
+            "name": "Double MD5",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 32..32",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 32,
+            "max": 32,
+            "observed": [
+              32
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 2600,
+            "name": "Double MD5",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 2600,
+            "hashcat_name": "md5(md5($pass))",
+            "official_example": "a936af92b0ae20b1ff6c3347a72e5fbe",
+            "official_example_length": 32,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "double-md5.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 32,
+              "max": 32,
+              "observed": [
+                32
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "double-md5.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "double-sha-1.json",
+      "id": "double-sha-1",
+      "name": "Double SHA-1",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "double-sha-1.haiti.035",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{40}(:[^:]+)?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 40,
+          "value": "3db9184f5da4e463832b086211af8d2314919951",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 4500,
+            "name": "Double SHA-1",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 40..40",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 40,
+            "max": 40,
+            "observed": [
+              40
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 4500,
+            "name": "Double SHA-1",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 4500,
+            "hashcat_name": "sha1(sha1($pass))",
+            "official_example": "3db9184f5da4e463832b086211af8d2314919951",
+            "official_example_length": 40,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "double-sha-1.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 40,
+              "max": 40,
+              "observed": [
+                40
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "double-sha-1.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dpapi-masterkey-file-v1-context-1-and-2.json",
+      "id": "dpapi-masterkey-file-v1-context-1-and-2",
+      "name": "DPAPI masterkey file v1 (context 1 and 2)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "dpapi-masterkey-file-v1-context-1-and-2.haiti.269",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$DPAPImk\\$1\\*[12]\\*[S\\-0-9]{10,60}\\*[^*]{4,6}\\*[^*]{4,6}\\*\\d{1,6}\\*[a-f0-9]{32}\\*\\d{1,6}\\*[a-f0-9]{0,1024}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 319,
+          "value": "$DPAPImk$1*1*S-1-5-21-1482476501-1659004503-725345543-1003*des3*sha1*4000*b3d62a0b06cecc236fe3200460426a13*208*d3841257348221cd92caf4427a59d785ed1474cab3d0101fc8d37137dbb598ff1fd2455826128b2594b846934c073528f8648d750d3c8e6621e6f706d79b18c22f172c0930d9a934de73e...<truncated len=319>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 317,
+          "value": "$DPAPImk$1*1*S-15-21-447321867-460417387-480872410-1240*des3*sha1*24000*9b49e2d3b25103d03e936fdf66b94d26*208*ec96025ed4b023ebfa52bdfd91dfeb64edf3f3970b347ee8bb8adfb2a686a0a34792d40074edd372f346da8fcd02cc5d4182c2fd09f4549ec106273926edd05c42e4b5fc8b8758a7c48f6dd...<truncated len=317>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 317,
+          "value": "$DPAPImk$1*1*S-15-21-466364039-425773974-453930460-1925*des3*sha1*24000*b038489dee5ad04e3e3cab4d957258b5*208*cb9b5b7d96a0d2a00305ca403d3fd9c47c561e35b4b2cf3aebfd1d3199a6481d56972be7ebd6c291b199e6f1c2ffaee91978706737e9b1209e6c7d3aa3d8c3c3e38ad1ccfa39400d62c2415...<truncated len=317>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 317,
+          "value": "$DPAPImk$1*2*S-15-21-458698633-447735394-485599537-1788*des3*sha1*24000*96b957d9bf0f8846399e70a84431b595*208*0ee9fa2baf2cf0efda81514376aef853c6c93a5776fa6af66a869f44c50ac80148b7488f52b4c52c305e89a497a583e17cca4a9bab580668a8a5ce2eee083382c98049e481e47629b5815fb...<truncated len=317>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15300,
+            "name": "DPAPI masterkey file v1 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v1 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$DPAPImk$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 317..319",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 317,
+            "max": 319,
+            "observed": [
+              317,
+              319
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "dpapi"
+            ],
+            "john_extractors": [
+              "DPAPImk2john.py"
+            ],
+            "hashcat_extractors": [
+              "cachedata2hashcat.py"
+            ],
+            "native_artifacts": [
+              "Windows DPAPI masterkey/cache files"
+            ],
+            "expected_prefixes": [
+              "$DPAPImk$"
+            ],
+            "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v1 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 15300,
+            "name": "DPAPI masterkey file v1 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15300,
+            "hashcat_name": "DPAPI masterkey file v1 (context 1 and 2)",
+            "official_example": "$DPAPImk$1*1*S-15-21-466364039-425773974-453930460-1925*des3*sha1*24000*b038489dee5ad04e3e3cab4d957258b5*208*cb9b5b7d96a0d2a00305ca403d3fd9c47c561e35b4b2cf3aebfd1d3199a6481d56972be7ebd6c291b199e6f1c2ffaee91978706737e9b1209e6c7d3aa3d8c3c3e38ad1ccfa39400d62c2415961c17fd0bd6b0f7bbd49cc1de1a394e64b7237f...<truncated len=317>",
+            "official_example_length": 317,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dpapi-masterkey-file-v1-context-1-and-2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$DPAPImk$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 317,
+              "max": 319,
+              "observed": [
+                317,
+                319
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dpapi-masterkey-file-v1-context-1-and-2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "dpapi"
+                ],
+                "john_extractors": [
+                  "DPAPImk2john.py"
+                ],
+                "hashcat_extractors": [
+                  "cachedata2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "Windows DPAPI masterkey/cache files"
+                ],
+                "expected_prefixes": [
+                  "$DPAPImk$"
+                ],
+                "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dpapi-masterkey-file-v1-context-3.json",
+      "id": "dpapi-masterkey-file-v1-context-3",
+      "name": "DPAPI masterkey file v1 (context 3)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "dpapi-masterkey-file-v1-context-3.haiti.270",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$DPAPImk\\$1\\*3\\*[S\\-0-9]{10,60}\\*[^*]{4,6}\\*[^*]{4,6}\\*\\d{1,6}\\*[a-f0-9]{32}\\*\\d{1,6}\\*[a-f0-9]{0,1024}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 321,
+          "value": "$DPAPImk$1*3*S-1-5-21-1857904334-2267218879-1458651445-1123*des3*sha1*18000*e4c529ba8975e4ed56f5fb8b1e85be43*208*af96b391f1d6e2d37a4de3b4c412ce78f032d446d77ea1fb6a0782f47c390c844349c2bcaeba9fd570b39def6f67a369aa2e266e8d017689d8a09667fdfb640feb3e19ca22067cc5704...<truncated len=321>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 317,
+          "value": "$DPAPImk$1*3*S-15-21-407415836-404165111-436049749-1915*des3*sha1*14825*3e86e7d8437c4d5582ff668a83632cb2*208*96ad763b59e67c9f5c3d925e42bbe28a1412b919d1dc4abf03b2bed4c5c244056c14931d94d441117529b7171dfd6ebbe6eecf5d958b65574c293778fbadb892351cc59d5c65d65d2fcda73...<truncated len=317>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15310,
+            "name": "DPAPI masterkey file v1 (context 3)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v1 (context 3)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$DPAPImk$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 317..321",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 317,
+            "max": 321,
+            "observed": [
+              317,
+              321
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "dpapi"
+            ],
+            "john_extractors": [
+              "DPAPImk2john.py"
+            ],
+            "hashcat_extractors": [
+              "cachedata2hashcat.py"
+            ],
+            "native_artifacts": [
+              "Windows DPAPI masterkey/cache files"
+            ],
+            "expected_prefixes": [
+              "$DPAPImk$"
+            ],
+            "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v1 (context 3)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 15310,
+            "name": "DPAPI masterkey file v1 (context 3)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15310,
+            "hashcat_name": "DPAPI masterkey file v1 (context 3)",
+            "official_example": "$DPAPImk$1*3*S-15-21-407415836-404165111-436049749-1915*des3*sha1*14825*3e86e7d8437c4d5582ff668a83632cb2*208*96ad763b59e67c9f5c3d925e42bbe28a1412b919d1dc4abf03b2bed4c5c244056c14931d94d441117529b7171dfd6ebbe6eecf5d958b65574c293778fbadb892351cc59d5c65d65d2fcda73f5b056548a4a5550106d03d0c39d3cca7e5cdc0d...<truncated len=317>",
+            "official_example_length": 317,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dpapi-masterkey-file-v1-context-3.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$DPAPImk$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 317,
+              "max": 321,
+              "observed": [
+                317,
+                321
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dpapi-masterkey-file-v1-context-3.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "dpapi"
+                ],
+                "john_extractors": [
+                  "DPAPImk2john.py"
+                ],
+                "hashcat_extractors": [
+                  "cachedata2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "Windows DPAPI masterkey/cache files"
+                ],
+                "expected_prefixes": [
+                  "$DPAPImk$"
+                ],
+                "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dpapi-masterkey-file-v2-context-1-and-2.json",
+      "id": "dpapi-masterkey-file-v2-context-1-and-2",
+      "name": "DPAPI masterkey file v2 (context 1 and 2)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "dpapi-masterkey-file-v2-context-1-and-2.haiti.271",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$DPAPImk\\$2\\*[12]\\*[S\\-0-9]{10,60}\\*[^*]{4,6}\\*[^*]{4,6}\\*\\d{1,6}\\*[a-f0-9]{32}\\*\\d{1,6}\\*[a-f0-9]{0,1024}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 400,
+          "value": "$DPAPImk$2*1*S-15-21-417226446-481759312-475941522-1494*aes256*sha512*8000*1e6b7a71a079bc12e71c75a6bcfd865c*288*5b5d651e538e5185f7d6939ba235ca2d8a2b9726a6e95b59844320ba1d1f22282527210bc784d22075e596d113927761a644ad4057cb4dbb497bd64ee6c630930a4ba388eadb59484ec2...<truncated len=400>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 401,
+          "value": "$DPAPImk$2*1*S-15-21-439882973-489230393-482956683-1522*aes256*sha512*12900*79f7ca399f2626e21aad108c3922af7c*288*c47bc8a985ca6aa708b01c97b004bff20cc52379dc2635b4acf59ce17970a2cb47ace98c7e8de977f265243c5c03d0a97e4b954b494d9e38d9158d0c1e729d16a28ba69e2e7c6c3bc0e...<truncated len=401>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 401,
+          "value": "$DPAPImk$2*2*S-15-21-402916398-457068774-444912990-1699*aes256*sha512*17000*4c51109a901e4be7f1e208f82a56e690*288*bb80d538ac4185eb0382080fda0d405bb74da3a6b98e96f222292b819fa9168cf1571e9bc9c698ad10daf850ab34de1a1765cfd5c0fb8a63a413a767d241dfe6355804af259d24f6be7...<truncated len=401>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15900,
+            "name": "DPAPI masterkey file v2 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v2 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$DPAPImk$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 400..401",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 400,
+            "max": 401,
+            "observed": [
+              400,
+              401
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "dpapi"
+            ],
+            "john_extractors": [
+              "DPAPImk2john.py"
+            ],
+            "hashcat_extractors": [
+              "cachedata2hashcat.py"
+            ],
+            "native_artifacts": [
+              "Windows DPAPI masterkey/cache files"
+            ],
+            "expected_prefixes": [
+              "$DPAPImk$"
+            ],
+            "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v2 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 15900,
+            "name": "DPAPI masterkey file v2 (context 1 and 2)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15900,
+            "hashcat_name": "DPAPI masterkey file v2 (context 1 and 2)",
+            "official_example": "$DPAPImk$2*1*S-15-21-439882973-489230393-482956683-1522*aes256*sha512*12900*79f7ca399f2626e21aad108c3922af7c*288*c47bc8a985ca6aa708b01c97b004bff20cc52379dc2635b4acf59ce17970a2cb47ace98c7e8de977f265243c5c03d0a97e4b954b494d9e38d9158d0c1e729d16a28ba69e2e7c6c3bc0e3afc9c9b6306b83372ccb35d89b98925728fd363...<truncated len=401>",
+            "official_example_length": 401,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dpapi-masterkey-file-v2-context-1-and-2.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$DPAPImk$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 400,
+              "max": 401,
+              "observed": [
+                400,
+                401
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dpapi-masterkey-file-v2-context-1-and-2.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "dpapi"
+                ],
+                "john_extractors": [
+                  "DPAPImk2john.py"
+                ],
+                "hashcat_extractors": [
+                  "cachedata2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "Windows DPAPI masterkey/cache files"
+                ],
+                "expected_prefixes": [
+                  "$DPAPImk$"
+                ],
+                "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "dpapi-masterkey-file-v2-context-3.json",
+      "id": "dpapi-masterkey-file-v2-context-3",
+      "name": "DPAPI masterkey file v2 (context 3)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "dpapi-masterkey-file-v2-context-3.haiti.272",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$DPAPImk\\$2\\*3\\*[S\\-0-9]{10,60}\\*[^*]{4,6}\\*[^*]{4,6}\\*\\d{1,6}\\*[a-f0-9]{32}\\*\\d{1,6}\\*[a-f0-9]{0,1024}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 401,
+          "value": "$DPAPImk$2*3*S-15-21-464497560-472124119-475628788-1088*aes256*sha512*13450*685165fdb6d0627a15100215ec331ed8*288*7e1ea6f7ec3c2111f2a3903c73aefe66e524d8b241dc1482d0bd07cc1f3ccdadd8cebd4263b3b7c2496da48f40d2eb4890513e6624aeefbe6bbc6ea73f2f71fecf9cc5fef3891a2e697...<truncated len=401>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 15910,
+            "name": "DPAPI masterkey file v2 (context 3)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v2 (context 3)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$DPAPImk$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 401..401",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 401,
+            "max": 401,
+            "observed": [
+              401
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "dpapi"
+            ],
+            "john_extractors": [
+              "DPAPImk2john.py"
+            ],
+            "hashcat_extractors": [
+              "cachedata2hashcat.py"
+            ],
+            "native_artifacts": [
+              "Windows DPAPI masterkey/cache files"
+            ],
+            "expected_prefixes": [
+              "$DPAPImk$"
+            ],
+            "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "DPAPImk",
+            "name": "DPAPI masterkey file v2 (context 3)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 15910,
+            "name": "DPAPI masterkey file v2 (context 3)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 15910,
+            "hashcat_name": "DPAPI masterkey file v2 (context 3)",
+            "official_example": "$DPAPImk$2*3*S-15-21-464497560-472124119-475628788-1088*aes256*sha512*13450*685165fdb6d0627a15100215ec331ed8*288*7e1ea6f7ec3c2111f2a3903c73aefe66e524d8b241dc1482d0bd07cc1f3ccdadd8cebd4263b3b7c2496da48f40d2eb4890513e6624aeefbe6bbc6ea73f2f71fecf9cc5fef3891a2e697a4415ba7a069642069c142335d53cc750d42a4f4...<truncated len=401>",
+            "official_example_length": 401,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "dpapi-masterkey-file-v2-context-3.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$DPAPImk$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 401,
+              "max": 401,
+              "observed": [
+                401
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "dpapi-masterkey-file-v2-context-3.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "dpapi"
+                ],
+                "john_extractors": [
+                  "DPAPImk2john.py"
+                ],
+                "hashcat_extractors": [
+                  "cachedata2hashcat.py"
+                ],
+                "native_artifacts": [
+                  "Windows DPAPI masterkey/cache files"
+                ],
+                "expected_prefixes": [
+                  "$DPAPImk$"
+                ],
+                "note": "DPAPI lines include context/SID/cipher/hash/iteration fields; SID and context materially improve confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "drupal-v7-x.json",
+      "id": "drupal-v7-x",
+      "name": "Drupal > v7.x",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "drupal-v7-x.haiti.087",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$S\\$[a-z0-9\\/.]{52}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 55,
+          "value": "$S$C20340258nzjDWpoQthrdNTR02f0pmev0K/5/Nx80WSkOQcPEQRh",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 7900,
+            "name": "Drupal > v7.x",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "drupal7",
+            "name": "Drupal > v7.x",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$S$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 55..55",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 55,
+            "max": 55,
+            "observed": [
+              55
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [
+          {
+            "topic": "webapp_prefixes",
+            "confidence": "strong",
+            "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+            "proposed_characteristics": [
+              "prefix:$P$/$H$/$S$",
+              "itoa64 alphabet",
+              "application_context:CMS user table"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "drupal7",
+            "name": "Drupal > v7.x",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 7900,
+            "name": "Drupal > v7.x",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 7900,
+            "hashcat_name": "Drupal7",
+            "official_example": "$S$C20340258nzjDWpoQthrdNTR02f0pmev0K/5/Nx80WSkOQcPEQRh",
+            "official_example_length": 55,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "drupal-v7-x.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$S$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 55,
+              "max": 55,
+              "observed": [
+                55
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "drupal-v7-x.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": [
+              {
+                "topic": "webapp_prefixes",
+                "confidence": "strong",
+                "note": "Portable PHP password hashes use itoa64 prefixes such as $P$, $H$, and sometimes $S$ depending on application/version; application names improve ranking for otherwise similar phpass strings.",
+                "proposed_characteristics": [
+                  "prefix:$P$/$H$/$S$",
+                  "itoa64 alphabet",
+                  "application_context:CMS user table"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    }
+  ]
+}

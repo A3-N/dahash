@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ldap-ssha-512",
+  "name": "LDAP (SSHA-512)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ldap-ssha-512.haiti.073",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^{SSHA512}[a-z0-9\\/+]{86,}(?:[=]{1,2})?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A{SSHA512}[a-z0-9\\/+]{86,}(?:[=]{1,2})?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 1711,
+        "name": "LDAP (SSHA-512)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "1711"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "1711"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "ssha512",
+        "name": "LDAP (SSHA-512)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "ssha512"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LDAP (SSHA-512)"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "{SSHA512}Bz8w5q6qEtB1Nnc8b1jfTvTXVTwohWag33oghQGOtLChnkZTw/cuJaHQlLJEI3AWKZGCRyLA6Phujdxo+is7AjA2MDcyNjY1Mg==",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "1711"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

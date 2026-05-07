@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md4",
+  "name": "MD4",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "md4.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 900,
+        "name": "MD4",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "900"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "900"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "raw-md4",
+        "name": "MD4",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "raw-md4"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MD4"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "afe04867ec7a3845145579a95f72eca7",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "900"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

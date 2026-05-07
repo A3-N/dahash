@@ -1,0 +1,75 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "microsoft-office-2013-2019",
+  "name": "Microsoft Office 2013 - 2019",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "microsoft-office-2013-2019.haiti.166",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$office\\$\\*2013\\*\\d{6}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$office\\$\\*2013\\*\\d{6}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 9600,
+        "name": "Microsoft Office 2013 - 2019",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "9600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "9600"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "office",
+        "name": "Microsoft Office 2013 - 2019",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "office"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Microsoft Office 2013 - 2019"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$office$*2013*100000*256*16*67805436882475302087847656644837*0c392d3b9ca889656d1e615c54f9f3c9*612b79e33b96322c3253fc8a0f314463cd76bc4efe1352f7efffca0f374f7e4b",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "9600"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

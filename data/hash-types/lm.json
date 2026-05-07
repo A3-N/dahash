@@ -1,0 +1,78 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "lm",
+  "name": "LM",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "lm.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 3000,
+        "name": "LM",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "3000"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "3000"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "lm",
+        "name": "LM",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "lm"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "LM"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "299bd128c1101fd6",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "3000"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

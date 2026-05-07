@@ -1,0 +1,45 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "monero-wallet",
+  "name": "monero Wallet",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "monero-wallet.haiti.206",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A\\$monero\\$(0)\\*[a-f0-9]{32,4096}\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$monero\\$(0)\\*[a-f0-9]{32,4096}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "monero",
+        "name": "monero Wallet",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "monero"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "monero Wallet"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pbkdf2-dwayne-litzenberger",
+  "name": "PBKDF2 (Dwayne Litzenberger)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pbkdf2-dwayne-litzenberger.haiti.144",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$p5k2\\$\\d+\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$p5k2\\$\\d+\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PBKDF2 (Dwayne Litzenberger)"
+    }
+  ]
+}

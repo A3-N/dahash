@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "pkzip-master-key-6-byte-optimization",
+  "name": "PKZIP Master Key (6 byte optimization)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "pkzip-master-key-6-byte-optimization.haiti.012",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{24}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{24}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 20510,
+        "name": "PKZIP Master Key (6 byte optimization)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "20510"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "20510"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "f1eff5c0368d10311dcfc419",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "PKZIP Master Key (6 byte optimization)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "20510"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PKZIP Master Key (6 byte optimization)"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "oracle-7-10g",
+  "name": "Oracle 7-10g",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "oracle-7-10g.haiti.008",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{16}:[a-f0-9]{0,30}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{16}:[a-f0-9]{0,30}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 3100,
+        "name": "Oracle 7-10g",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "3100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "3100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "792FCB0AE31D8489:7284616727",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Oracle 7-10g"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "3100"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Oracle 7-10g"
+    }
+  ]
+}

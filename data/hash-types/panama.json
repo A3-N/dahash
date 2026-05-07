@@ -1,0 +1,44 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "panama",
+  "name": "PANAMA",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "panama.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "dynamic_320",
+        "name": "PANAMA",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "dynamic_320"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "PANAMA"
+    }
+  ]
+}

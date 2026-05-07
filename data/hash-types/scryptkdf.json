@@ -1,0 +1,76 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "scryptkdf",
+  "name": "ScryptKDF",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "scryptkdf.haiti.161",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$ScryptKDF\\.pm\\$\\d{1,5}\\*\\d\\*\\d\\*[a-z0-9:\\/+=]+\\*[a-z0-9:\\/+=]+$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$ScryptKDF\\.pm\\$\\d{1,5}\\*\\d\\*\\d\\*[a-z0-9:\\/+=]+\\*[a-z0-9:\\/+=]+\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "scrypt",
+        "name": "ScryptKDF",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "scrypt"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$ScryptKDF.pm$16384*8*1*VHRuaXZOZ05INWJs*JjrOzA8pdPhLvLh8sY64fLLaAjFUwYCXMmS16NXcn0BhlHpZJ3J2jcozCDM7t+sfjkgQ894R+f+ldVWM5atlkA==",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "ScryptKDF"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$ScryptKDF.pm$16384*8*1*VlVYUzBhQmlNbk5J*bJhm6VUS2UQRwMRqLTvSsljDeq193Ge4aqQDtb94bKg=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "ScryptKDF"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$ScryptKDF.pm$16384*8*1*bjZkemVmZ3lWVi42*cmBflTPsqGIbg9ZIJRTQdbic8OCUH+904TFmNPBkuEA=",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "ScryptKDF"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "ScryptKDF"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "snefru-256",
+  "name": "Snefru-256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "snefru-256.haiti.057",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(\\$snefru\\$)?[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(\\$snefru\\$)?[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "snefru-256",
+        "name": "Snefru-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "snefru-256"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$snefru$4170e04e900e6221562ceb5ff6ea27fa9b9b0d9587add44a4379a02619c5a106",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Snefru-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "4170e04e900e6221562ceb5ff6ea27fa9b9b0d9587add44a4379a02619c5a106",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Snefru-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "b662584496b15ab01a57ac5c5f72d645351b8d1ea2248fd65b3e7592069fee88",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Snefru-256"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "e248c5662e3c13738e82f90f729d9b8f913e4d96ffc1c7443c35deda9347f8e7",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Snefru-256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Snefru-256"
+    }
+  ]
+}

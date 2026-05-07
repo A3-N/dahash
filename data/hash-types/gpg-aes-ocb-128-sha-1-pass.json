@@ -1,0 +1,61 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "gpg-aes-ocb-128-sha-1-pass",
+  "name": "GPG (AES-OCB-128 (SHA-1($pass)))",
+  "status": "active",
+  "tags": [
+    "hashcat"
+  ],
+  "priority": 50,
+  "sources": [
+    {
+      "id": "hashcat-examples",
+      "ref": "17050"
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 17050,
+        "name": "GPG (AES-OCB-128 (SHA-1($pass)))",
+        "status": "active",
+        "sources": [
+          {
+            "id": "hashcat-examples",
+            "ref": "17050"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$gpg$*1*60*4096*71cdae39dd004b5fd4571575c683a33ecb0d2ea4495655b2544a63397b4f92e1b7d2c5243143398f9d44aba1e7b97c88b7030080b97c811d757264be*1*254*2*7*12*07f4ca8d366ae2e0ab55da75*329368576*199d8afecccd9dd6",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "17050"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "matchers": [
+    {
+      "id": "gpg-aes-ocb-128-sha-1-pass.hashcat.17050",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{2}\\*[0-9]{4}\\*[A-Fa-f0-9]{120}\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{2}\\*[A-Fa-f0-9]{24}\\*[A-Fa-f0-9]{9}\\*[A-Fa-f0-9]{16}$",
+      "confidence": "strong",
+      "weight": 40,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "17050"
+        }
+      ]
+    }
+  ]
+}

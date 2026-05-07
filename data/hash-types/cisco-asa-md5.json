@@ -1,0 +1,85 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "cisco-asa-md5",
+  "name": "Cisco-ASA (MD5)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "cisco-asa-md5.haiti.131",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-z0-9\\/.]{16}([:$].+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-z0-9\\/.]{16}([:$].+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 2410,
+        "name": "Cisco-ASA (MD5)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "2410"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "2410"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "asa-md5",
+        "name": "Cisco-ASA (MD5)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "asa-md5"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "02dMBMYkTdC5Ziyp:36",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Cisco-ASA (MD5)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "YjDBNr.A0AN7DA8s:4684",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "2410"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Cisco-ASA (MD5)"
+    }
+  ]
+}

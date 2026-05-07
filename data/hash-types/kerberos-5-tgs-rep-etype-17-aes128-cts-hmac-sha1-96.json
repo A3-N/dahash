@@ -1,0 +1,65 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "kerberos-5-tgs-rep-etype-17-aes128-cts-hmac-sha1-96",
+  "name": "Kerberos 5 TGS-REP etype 17 (AES128-CTS-HMAC-SHA1-96)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "kerberos-5-tgs-rep-etype-17-aes128-cts-hmac-sha1-96.haiti.106",
+      "kind": "parser",
+      "scope": "token",
+      "pattern": "\\A\\$krb5tgs\\$17\\$[^$]{1,512}\\$[^$]{1,512}\\$[^$]{1,4}?\\$?[a-f0-9]{1,32}\\$[a-f0-9]{64,40960}\\Z",
+      "confidence": "strong",
+      "weight": 50,
+      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$krb5tgs\\$17\\$[^$]{1,512}\\$[^$]{1,512}\\$[^$]{1,4}?\\$?[a-f0-9]{1,32}\\$[a-f0-9]{64,40960}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 19600,
+        "name": "Kerberos 5 TGS-REP etype 17 (AES128-CTS-HMAC-SHA1-96)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "19600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "19600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$krb5tgs$17$srv_http$synacktiv.local$849e31b3db1c1f203fa20b85$948690f5875125348286ad3346d27b43eaabc71896b620c16de7ddcdbd561628c650c508856a3f574261948b6db4b48332d30536e978046a423ad4368f9a69b4dc4642dab4e0d475d8299be718fd6f98ac85a771b457b2453e78c9411dfce572b19660fe7a5a8246d9b2a91ea2f14d1986ea0a77ecf9b8330bc8fd9ab540bcf46b74c5aa7005cfccd89ec05f66aeab30c6b2bf8595cf6c9a1b68ad885258850c4b1dd9265f270fb2af52fd76c16246df51ea67efc58a65c345686c84e43642febe908a",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Kerberos 5 TGS-REP etype 17 (AES128-CTS-HMAC-SHA1-96)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "19600"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Kerberos 5 TGS-REP etype 17 (AES128-CTS-HMAC-SHA1-96)"
+    }
+  ]
+}

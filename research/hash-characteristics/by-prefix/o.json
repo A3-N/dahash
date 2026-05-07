@@ -1,0 +1,5284 @@
+{
+  "schema_version": "dahash.research_proposals/v1",
+  "group": "o",
+  "generated_at": "2026-05-07",
+  "approval_state": "pending",
+  "description": "Best-effort proposed observations and characteristics grouped by first character of data/hash-types filename. These are review proposals only and are not loaded by dahash runtime.",
+  "entries": [
+    {
+      "approval": "pending",
+      "file": "open-document-format-odf-1-1-sha-1-blowfish-buggy-staroffice.json",
+      "id": "open-document-format-odf-1-1-sha-1-blowfish-buggy-staroffice",
+      "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish) (buggy StarOffice)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "open-document-format-odf-1-1-sha-1-blowfish-buggy-staroffice.haiti.304",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^\\$sxc\\$\\*0\\*0\\*\\d{4,6}\\*\\d{2}\\*[a-f0-9]{40}\\*\\d\\*[a-f0-9]{16}\\*\\d{2}\\*[a-f0-9]{32}\\*\\d{1,4}\\*\\d{1,4}\\*[a-f0-9]+$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 1642,
+          "value": "$sxc$*0*0*1024*16*00c20dee73d4990cfe1c8faf92ab5b0f517e0e19*8*36a0707abdd14c24*16*b6763f444c0a350458f25cf3957ca293*756*760*0b73bae4a465a7afa6573251583defc55496bf565cfd824a98c1c3ba05a07c5891286f89974f12193582c8b04597e7c539eead4afb84cbfd4e13e278ca29804ddb190efb8d...<truncated len=1642>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 1850,
+          "value": "$sxc$*0*0*1024*16*4448359828281a1e6842c31453473abfeae584fb*8*dc0248bea0c7508c*16*1d53770002fe9d8016064e5ef9423174*860*864*f00399ab17b9899cd517758ecf918d4da78099ccd3557aef5e22e137fd5b81f732fc7c167c4de0cf263b4f82b50e3d6abc65da613a36b0025d89e1a09adeb4106da28040d1...<truncated len=1850>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 2172,
+          "value": "$sxc$*0*0*1024*16*64983af0b26a6ee614e6c65b32c1d906f70c6397*8*259cafe530bd09f8*16*8f53ea878d0795cfe05dcc65fb272c20*1024*1024*ffb0f736b69d8433f958e8f475f609948ad7c9dd052f2b92c14cb1b395ffcac043a3def76d58442e131701b3b53d56ea570633bb20c83068542420160f5db3cee5eece05...<truncated len=2172>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "odf",
+            "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish) (buggy StarOffice)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sxc$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 1642..2172",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 1642,
+            "max": 2172,
+            "observed": [
+              1642,
+              1850,
+              2172
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              13
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "libreoffice",
+              "staroffice",
+              "openoffice"
+            ],
+            "john_extractors": [
+              "libreoffice2john.py",
+              "staroffice2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "LibreOffice/OpenOffice encrypted documents"
+            ],
+            "expected_prefixes": [
+              "$odf$"
+            ],
+            "note": "Office document hashes are extractor output from document metadata.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          },
+          {
+            "rule_keys": [
+              "office",
+              "microsoft-office"
+            ],
+            "john_extractors": [
+              "office2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Microsoft Office documents"
+            ],
+            "expected_prefixes": [
+              "$office$"
+            ],
+            "note": "Office hashes should include version/agile/standard encryption fields from extractor output.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "odf",
+            "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish) (buggy StarOffice)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "open-document-format-odf-1-1-sha-1-blowfish-buggy-staroffice.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sxc$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  13
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 1642,
+              "max": 2172,
+              "observed": [
+                1642,
+                1850,
+                2172
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "open-document-format-odf-1-1-sha-1-blowfish-buggy-staroffice.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "libreoffice",
+                  "staroffice",
+                  "openoffice"
+                ],
+                "john_extractors": [
+                  "libreoffice2john.py",
+                  "staroffice2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "LibreOffice/OpenOffice encrypted documents"
+                ],
+                "expected_prefixes": [
+                  "$odf$"
+                ],
+                "note": "Office document hashes are extractor output from document metadata.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              },
+              {
+                "rule_keys": [
+                  "office",
+                  "microsoft-office"
+                ],
+                "john_extractors": [
+                  "office2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Microsoft Office documents"
+                ],
+                "expected_prefixes": [
+                  "$office$"
+                ],
+                "note": "Office hashes should include version/agile/standard encryption fields from extractor output.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "open-document-format-odf-1-1-sha-1-blowfish.json",
+      "id": "open-document-format-odf-1-1-sha-1-blowfish",
+      "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "open-document-format-odf-1-1-sha-1-blowfish.haiti.303",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$odf\\$\\*0\\*0\\*\\d{4,6}\\*\\d{2}\\*[a-f0-9]{40}\\*\\d\\*[a-f0-9]{16}\\*\\d{2}\\*[a-f0-9]{32}\\*\\d\\*[a-f0-9]{2048}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2164,
+          "value": "$odf$*0*0*1024*16*bff753835f4ea15644b8a2f8e4b5be3d147b9576*8*ee371da34333b69d*16*a902eff54a4d782a26a899a31f97bef4*0*dae7e41fbc3a500d3ce152edd8876c4f38fb17d673ee2ac44ef1e0e283622cd2ae298a82d8d98f2ea737247881fc353e73a2f535c6e13e0cdc60821c1a61c53a4b0c46ff3a3b355d...<truncated len=2164>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 2164,
+          "value": "$odf$*0*0*1024*16*df6c10f64d191a841812af53874b636d014ce3fe*8*07e28aff39d2660e*16*b124be9f3346fb77e0ebcc3bb80028f8*0*2276a1077f6a2a027bd565ce89824d6a20086e378876be05c4b8e3796a460e828c9803a692caf7a53492c220d1d7ecbf4e2d336c7abf5a7672acc804ca267318252cbc13676616d1...<truncated len=2164>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 18600,
+            "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "odf",
+            "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$odf$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2164..2164",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2164,
+            "max": 2164,
+            "observed": [
+              2164
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              12
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "libreoffice",
+              "staroffice",
+              "openoffice"
+            ],
+            "john_extractors": [
+              "libreoffice2john.py",
+              "staroffice2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "LibreOffice/OpenOffice encrypted documents"
+            ],
+            "expected_prefixes": [
+              "$odf$"
+            ],
+            "note": "Office document hashes are extractor output from document metadata.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "odf",
+            "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 18600,
+            "name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 18600,
+            "hashcat_name": "Open Document Format (ODF) 1.1 (SHA-1, Blowfish)",
+            "official_example": "$odf$*0*0*1024*16*bff753835f4ea15644b8a2f8e4b5be3d147b9576*8*ee371da34333b69d*16*a902eff54a4d782a26a899a31f97bef4*0*dae7e41fbc3a500d3ce152edd8876c4f38fb17d673ee2ac44ef1e0e283622cd2ae298a82d8d98f2ea737247881fc353e73a2f535c6e13e0cdc60821c1a61c53a4b0c46ff3a3b355d7b793fad50de15999fc7c1194321d1c54316c380...<truncated len=2164>",
+            "official_example_length": 2164,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "open-document-format-odf-1-1-sha-1-blowfish.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$odf$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  12
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2164,
+              "max": 2164,
+              "observed": [
+                2164
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "open-document-format-odf-1-1-sha-1-blowfish.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "libreoffice",
+                  "staroffice",
+                  "openoffice"
+                ],
+                "john_extractors": [
+                  "libreoffice2john.py",
+                  "staroffice2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "LibreOffice/OpenOffice encrypted documents"
+                ],
+                "expected_prefixes": [
+                  "$odf$"
+                ],
+                "note": "Office document hashes are extractor output from document metadata.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "open-document-format-odf-1-2-sha-256-aes.json",
+      "id": "open-document-format-odf-1-2-sha-256-aes",
+      "name": "Open Document Format (ODF) 1.2 (SHA-256, AES)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "open-document-format-odf-1-2-sha-256-aes.haiti.302",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A\\$odf\\$\\*1\\*1\\*\\d{4,6}\\*\\d{2}\\*[a-f0-9]{64}\\*\\d{2}\\*[a-f0-9]{32}\\*\\d{2}\\*[a-f0-9]{32}\\*\\d\\*[a-f0-9]{2048}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2207,
+          "value": "$odf$*1*1*100000*32*3d7d3b74666814c1a50e4a68ce264198db4730ddc4f07f57647b6147143db261*16*60b496b3fee4ccfbc4512ff9a9ec2d59*16*841daefbb62e7b5ea50a4838f310ef7b*0*95e332c5ff7454222a324bd2ba290c5b80dc416b9117c4ae2f4633c9143aea330f54194c5b28735064dc3b386094ff18ac0c9...<truncated len=2207>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 2207,
+          "value": "$odf$*1*1*100000*32*751854d8b90731ce0579f96bea6f0d4ac2fb2f546b31f1b6af9a5f66952a0bf4*16*2185a966155baa9e2fb597298febecbc*16*c18eaae34bcbbe9119be017fe5f8b52d*0*051e0f1ce0e866f2b771029e03a6c7119aad132af54c4e45824f16f61f357a40407ab82744fe6370c7b2346075fcd4c2e58ab...<truncated len=2207>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 2205,
+          "value": "$odf$*1*1*1024*32*61802eba18eab842de1d053809ba40927fd40b26c69ddeca6a8a652ed9c16a28*16*c5c0815b931f313627100d592a9c972f*16*e9a48b7daff738deaabe442007fb2ec4*0*be3b65ea09642c2b4fdc23e553e1f5304bc5df222b624c6373d53e674f5df01fdb8873cdab7a5a685fa45ad5441a9d8869401b7...<truncated len=2205>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 2205,
+          "value": "$odf$*1*1*1024*32*7db40092b3857fa319bc0d717b60cefc40b1d51ef92ebc893c518ffebffdf200*16*5f7c8ab6e5d1c41dbd23c384fee957ed*16*9ff092f2dd29dab6ce5fb43ad7bbdd5a*0*bac8343436715b40aaf4690a7dc57b0f82b8f25f8ad0f9833e32468410d4dd02e387a067872b5847adc9a276c86a03113e11b90...<truncated len=2205>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 18400,
+            "name": "Open Document Format (ODF) 1.2 (SHA-256, AES)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "odf",
+            "name": "Open Document Format (ODF) 1.2 (SHA-256, AES)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$odf$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2205..2207",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2205,
+            "max": 2207,
+            "observed": [
+              2205,
+              2207
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "*",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "*",
+            "example_field_counts": [
+              12
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "libreoffice",
+              "staroffice",
+              "openoffice"
+            ],
+            "john_extractors": [
+              "libreoffice2john.py",
+              "staroffice2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "LibreOffice/OpenOffice encrypted documents"
+            ],
+            "expected_prefixes": [
+              "$odf$"
+            ],
+            "note": "Office document hashes are extractor output from document metadata.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "odf",
+            "name": "Open Document Format (ODF) 1.2 (SHA-256, AES)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 18400,
+            "name": "Open Document Format (ODF) 1.2 (SHA-256, AES)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 18400,
+            "hashcat_name": "Open Document Format (ODF) 1.2 (SHA-256, AES)",
+            "official_example": "$odf$*1*1*100000*32*751854d8b90731ce0579f96bea6f0d4ac2fb2f546b31f1b6af9a5f66952a0bf4*16*2185a966155baa9e2fb597298febecbc*16*c18eaae34bcbbe9119be017fe5f8b52d*0*051e0f1ce0e866f2b771029e03a6c7119aad132af54c4e45824f16f61f357a40407ab82744fe6370c7b2346075fcd4c2e58ab244411b3ab1d532a46e2321599ef13c3d3472fc2...<truncated len=2207>",
+            "official_example_length": 2207,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "open-document-format-odf-1-2-sha-256-aes.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$odf$"
+            ],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "*",
+                "example_field_counts": [
+                  12
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 2205,
+              "max": 2207,
+              "observed": [
+                2205,
+                2207
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "open-document-format-odf-1-2-sha-256-aes.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "libreoffice",
+                  "staroffice",
+                  "openoffice"
+                ],
+                "john_extractors": [
+                  "libreoffice2john.py",
+                  "staroffice2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "LibreOffice/OpenOffice encrypted documents"
+                ],
+                "expected_prefixes": [
+                  "$odf$"
+                ],
+                "note": "Office document hashes are extractor output from document metadata.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "opencart.json",
+      "id": "opencart",
+      "name": "OpenCart",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "opencart.hashcat.13900",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{40}:[A-Fa-f0-9]{9}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 50,
+          "value": "058c1c3773340c8563421e2b17e60eb7c916787e:827500576",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 13900,
+            "name": "OpenCart",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 50..50",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 50,
+            "max": 50,
+            "observed": [
+              50
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 13900,
+            "name": "OpenCart",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 13900,
+            "hashcat_name": "OpenCart",
+            "official_example": "058c1c3773340c8563421e2b17e60eb7c916787e:827500576",
+            "official_example_length": 50,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "opencart.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 50,
+              "max": 50,
+              "observed": [
+                50
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "opencart.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openedge-progress-4gl-encode.json",
+      "id": "openedge-progress-4gl-encode",
+      "name": "OpenEdge Progress 4GL Encode",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openedge-progress-4gl-encode.haiti.243",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "contextual",
+          "weight": 50,
+          "pattern": "^[a-z]{16}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 16,
+          "value": "OpalkkljtlheSihj",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 16,
+          "value": "bkibllkLdqlpeIol",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 16,
+          "value": "lebVZteiEsdpkncc",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 16,
+          "value": "pjqtudckibycRKbj",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 26200,
+            "name": "OpenEdge Progress 4GL Encode",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "base64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 16..16",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 16,
+            "max": 16,
+            "observed": [
+              16
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 26200,
+            "name": "OpenEdge Progress 4GL Encode",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 26200,
+            "hashcat_name": "OpenEdge Progress Encode",
+            "official_example": "lebVZteiEsdpkncc",
+            "official_example_length": 16,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openedge-progress-4gl-encode.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "base64"
+            ],
+            "observed_lengths": {
+              "min": 16,
+              "max": 16,
+              "observed": [
+                16
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openedge-progress-4gl-encode.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openldaps-openssha.json",
+      "id": "openldaps-openssha",
+      "name": "OPENLDAPS (openssha)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openldaps-openssha.haiti.040",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 38,
+          "value": "{SSHA}Uf2x9YxSWZZNAi2t1QXbG2PmT07AtURl",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 38,
+          "value": "{SSHA}XXGLZ7iKpYSBpF6EwoeTl27U0L/kYYsY",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "salted-sha1",
+            "name": "OPENLDAPS (openssha)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "{SSHA}",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 38..38",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 38,
+            "max": 38,
+            "observed": [
+              38
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [
+          {
+            "topic": "ldap_braced_scheme",
+            "confidence": "strong",
+            "note": "LDAP-style hashes often include a braced scheme prefix such as {SHA}, {SSHA}, {MD5}, {SMD5}, {CRYPT}; that prefix should outrank generic base64/hex length observations.",
+            "proposed_characteristics": [
+              "prefix:{SCHEME}",
+              "directory_context:userPassword attribute"
+            ],
+            "sources": [
+              "openwall-john-hash-formats",
+              "hashcat-example-hashes"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "salted-sha1",
+            "name": "OPENLDAPS (openssha)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "openldaps-openssha.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "{SSHA}"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 38,
+              "max": 38,
+              "observed": [
+                38
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openldaps-openssha.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": [
+              {
+                "topic": "ldap_braced_scheme",
+                "confidence": "strong",
+                "note": "LDAP-style hashes often include a braced scheme prefix such as {SHA}, {SSHA}, {MD5}, {SMD5}, {CRYPT}; that prefix should outrank generic base64/hex length observations.",
+                "proposed_characteristics": [
+                  "prefix:{SCHEME}",
+                  "directory_context:userPassword attribute"
+                ],
+                "sources": [
+                  "openwall-john-hash-formats",
+                  "hashcat-example-hashes"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-ec-aes-128.json",
+      "id": "openssh-private-key-ec-aes-128",
+      "name": "OpenSSH private key (EC + AES-128)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-ec-aes-128.haiti.297",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$3\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2514,
+          "value": "$sshng$1$16$14987802644369864387956120434709$1232$ffa56007ed83e49fdc439c776a9dec9656521385073bf71931a2c6503c93917e560cc98940c8cdcf2c709265e9ba20783a3bacc63423a98e40ea8999182613e1f5a80084719ca0e5c390299de1ea947df41f2ff1489bddfe13c6128612c5c82b7fc1ef5105ea28adda...<truncated len=2514>",
+          "plaintext": "hashcat",
+          "verified": true
+        },
+        {
+          "length": 305,
+          "value": "$sshng$3$16$00B535FBA963402F20C12648A59D7258$128$dfa09369ff38f33c9789d33760d16fdd47730311b41b51a0c7b1dd1dec850c5c2ff523710af12839f25a709f0076cdd3e3643fab2ea1d17c6fae52a797b55e752b71a1fdd46d5bd889b51ddc2a01922340e5be914a67dabf666aff1c88275bd8ec3529e26386279adeb...<truncated len=305>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22931,
+            "name": "OpenSSH private key (EC + AES-128)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (EC + AES-128)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 305..2514",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 305,
+            "max": 2514,
+            "observed": [
+              305,
+              2514
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (EC + AES-128)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22931,
+            "name": "OpenSSH private key (EC + AES-128)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22931,
+            "hashcat_name": "RSA/DSA/EC/OpenSSH Private Keys ($1, $3$)",
+            "official_example": "$sshng$1$16$14987802644369864387956120434709$1232$ffa56007ed83e49fdc439c776a9dec9656521385073bf71931a2c6503c93917e560cc98940c8cdcf2c709265e9ba20783a3bacc63423a98e40ea8999182613e1f5a80084719ca0e5c390299de1ea947df41f2ff1489bddfe13c6128612c5c82b7fc1ef5105ea28adda7b415729c66fb6cbc4b6b51ef518f74e1971f88e...<truncated len=2514>",
+            "official_example_length": 2514,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-ec-aes-128.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 305,
+              "max": 2514,
+              "observed": [
+                305,
+                2514
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-ec-aes-128.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-rsa-dsa-3des.json",
+      "id": "openssh-private-key-rsa-dsa-3des",
+      "name": "OpenSSH private key (RSA/DSA + 3DES)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-rsa-dsa-3des.haiti.294",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$0\\$\\d\\$[a-f0-9]{16}\\$\\d{1,8}\\$[a-f0-9]{64,65536}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2481,
+          "value": "$sshng$0$8$7532262427635482$1224$e1b1690703b83fd0ab6677c89a00dfce57fc2f345ebd2b2993bf0d8bb267449d08839213dc234dd23c7a181077e00080ced2700a161c4352ce5574b9758926f09106157715b6d756cf6dd844e473c6bb3c2b591cdbf684394a49935f7d62bcc324c1392aee499e3d6235db0556d27adc6e3...<truncated len=2481>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22911,
+            "name": "OpenSSH private key (RSA/DSA + 3DES)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + 3DES)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2481..2481",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2481,
+            "max": 2481,
+            "observed": [
+              2481
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + 3DES)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22911,
+            "name": "OpenSSH private key (RSA/DSA + 3DES)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22911,
+            "hashcat_name": "RSA/DSA/EC/OpenSSH Private Keys ($0$)",
+            "official_example": "$sshng$0$8$7532262427635482$1224$e1b1690703b83fd0ab6677c89a00dfce57fc2f345ebd2b2993bf0d8bb267449d08839213dc234dd23c7a181077e00080ced2700a161c4352ce5574b9758926f09106157715b6d756cf6dd844e473c6bb3c2b591cdbf684394a49935f7d62bcc324c1392aee499e3d6235db0556d27adc6e35ef4654ee5fc72e60dff605484e75c6fd6ae29cb...<truncated len=2481>",
+            "official_example_length": 2481,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-rsa-dsa-3des.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 2481,
+              "max": 2481,
+              "observed": [
+                2481
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-rsa-dsa-3des.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-rsa-dsa-aes-128.json",
+      "id": "openssh-private-key-rsa-dsa-aes-128",
+      "name": "OpenSSH private key (RSA/DSA + AES-128)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-128.haiti.296",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$1\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2514,
+          "value": "$sshng$1$16$14987802644369864387956120434709$1232$ffa56007ed83e49fdc439c776a9dec9656521385073bf71931a2c6503c93917e560cc98940c8cdcf2c709265e9ba20783a3bacc63423a98e40ea8999182613e1f5a80084719ca0e5c390299de1ea947df41f2ff1489bddfe13c6128612c5c82b7fc1ef5105ea28adda...<truncated len=2514>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22931,
+            "name": "OpenSSH private key (RSA/DSA + AES-128)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + AES-128)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2514..2514",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2514,
+            "max": 2514,
+            "observed": [
+              2514
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + AES-128)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22931,
+            "name": "OpenSSH private key (RSA/DSA + AES-128)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22931,
+            "hashcat_name": "RSA/DSA/EC/OpenSSH Private Keys ($1, $3$)",
+            "official_example": "$sshng$1$16$14987802644369864387956120434709$1232$ffa56007ed83e49fdc439c776a9dec9656521385073bf71931a2c6503c93917e560cc98940c8cdcf2c709265e9ba20783a3bacc63423a98e40ea8999182613e1f5a80084719ca0e5c390299de1ea947df41f2ff1489bddfe13c6128612c5c82b7fc1ef5105ea28adda7b415729c66fb6cbc4b6b51ef518f74e1971f88e...<truncated len=2514>",
+            "official_example_length": 2514,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-128.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 2514,
+              "max": 2514,
+              "observed": [
+                2514
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-128.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-rsa-dsa-aes-192.json",
+      "id": "openssh-private-key-rsa-dsa-aes-192",
+      "name": "OpenSSH private key (RSA/DSA + AES-192)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-192.haiti.298",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$4\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2514,
+          "value": "$sshng$4$16$01684556100059289727957814500256$1232$b04d45fdfdf02a9ca91cbc9c53f9e59956822c72c718929aca9251cffd9ac48e48c490b7b6b6043df3a70cf5fbcc2f358b0e8b70d39155c93032b0fd79ec68f6cb8b7de8422ec95cb027a9eaacc453b0b99b5d3f8d6771d6b95b0242a1d8664de8598e8d6b6d6ee360...<truncated len=2514>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22941,
+            "name": "OpenSSH private key (RSA/DSA + AES-192)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + AES-192)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2514..2514",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2514,
+            "max": 2514,
+            "observed": [
+              2514
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + AES-192)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22941,
+            "name": "OpenSSH private key (RSA/DSA + AES-192)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22941,
+            "hashcat_name": "RSA/DSA/EC/OpenSSH Private Keys ($4$)",
+            "official_example": "$sshng$4$16$01684556100059289727957814500256$1232$b04d45fdfdf02a9ca91cbc9c53f9e59956822c72c718929aca9251cffd9ac48e48c490b7b6b6043df3a70cf5fbcc2f358b0e8b70d39155c93032b0fd79ec68f6cb8b7de8422ec95cb027a9eaacc453b0b99b5d3f8d6771d6b95b0242a1d8664de8598e8d6b6d6ee360fda5ae0106061a79e88ef2eef98a000b638f8fdc...<truncated len=2514>",
+            "official_example_length": 2514,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-192.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 2514,
+              "max": 2514,
+              "observed": [
+                2514
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-192.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-rsa-dsa-aes-256.json",
+      "id": "openssh-private-key-rsa-dsa-aes-256",
+      "name": "OpenSSH private key (RSA/DSA + AES-256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-256.haiti.299",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$5\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 2514,
+          "value": "$sshng$5$16$52935050547964524511665675049973$1232$febee392e88cea0086b3cdefd3efec8aedb6011ca4ca9884ef9776d09559109c328fd4daef62ea4094a588d90d4617bc0348cc1205ae140e5bdca4e81bf7a8ff4fcc9954d3548ba9a0d143a504750d04d41c455d6100b33dacc5f9a10036ae75be69a81471e945554a...<truncated len=2514>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22951,
+            "name": "OpenSSH private key (RSA/DSA + AES-256)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + AES-256)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 2514..2514",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 2514,
+            "max": 2514,
+            "observed": [
+              2514
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA + AES-256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22951,
+            "name": "OpenSSH private key (RSA/DSA + AES-256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22951,
+            "hashcat_name": "RSA/DSA/EC/OpenSSH Private Keys ($5$)",
+            "official_example": "$sshng$5$16$52935050547964524511665675049973$1232$febee392e88cea0086b3cdefd3efec8aedb6011ca4ca9884ef9776d09559109c328fd4daef62ea4094a588d90d4617bc0348cc1205ae140e5bdca4e81bf7a8ff4fcc9954d3548ba9a0d143a504750d04d41c455d6100b33dacc5f9a10036ae75be69a81471e945554a52ca12b95640a08f607eab70c4a750dc48917f3c...<truncated len=2514>",
+            "official_example_length": 2514,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": []
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64"
+            ],
+            "observed_lengths": {
+              "min": 2514,
+              "max": 2514,
+              "observed": [
+                2514
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-rsa-dsa-aes-256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc.json",
+      "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc",
+      "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc.haiti.300",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$2\\$\\d{1,2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}(?:\\$\\d{1,2}\\$\\d+)?\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 615,
+          "value": "id_ed25519:$sshng$2$16$a5fb5dbace82f0b09bd8c85cfc7bd0f8$274$6f70656e7373682d6b65792d7631000000000a6165733235362d636263000000066263727970740000001800000010a5fb5dbace82f0b09bd8c85cfc7bd0f80000001800000001000000330000000b7373682d6564323535313900000020b884ea2d0820...<truncated len=615>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 3891,
+          "value": "~/.ssh/id_rsa:$sshng$2$16$042e55f014335212b806ac50186fe2a6$1910$6f70656e7373682d6b65792d7631000000000a6165733235362d636263000000066263727970740000001800000010042e55f014335212b806ac50186fe2a6000000180000000100000197000000077373682d727361000000030100010000018100...<truncated len=3891>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 615..3891",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 615,
+            "max": 3891,
+            "observed": [
+              615,
+              3891
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": [
+              3
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": []
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": [
+                  3
+                ]
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 615,
+              "max": 3891,
+              "observed": [
+                615,
+                3891
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-ctr.json",
+      "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-ctr",
+      "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CTR)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-ctr.haiti.295",
+          "kind": "parser",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "\\A(?:.+:)?\\$sshng\\$6\\$\\d{1,2}\\$[a-f0-9]{16,32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}(?:\\$\\d{1,2}\\$\\d+)?\\Z"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 9518,
+          "value": "$sshng$6$16$c26644e92fdea90db2eaf7662b4bac6c$4730$6f70656e7373682d6b65792d7631000000000a6165733235362d637472000000066263727970740000001800000010c26644e92fdea90db2eaf7662b4bac6c00000018000000010000040b000000077373682d72736100000003010001000003f500c806d8b02f84d7...<truncated len=9518>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 2481,
+          "value": "$sshng$6$8$7620048997557487$1224$13517a1204dc69528c474ef5cbb02d548698771f2a607c04ea54eb92f13dedba0f2185d2884b4db0c95ce6432856108ea2db858be443e0f8004ffcd60857e4ff1e42b17f056998ec5f96806a06e39cc6e6d7ef4ce8ae62b57b2ec0d0236c35cf4bc00dd6fda45e4788dcca0f0e44dddae1d...<truncated len=2481>",
+          "plaintext": null,
+          "verified": null
+        },
+        {
+          "length": 615,
+          "value": "id_ed25519:$sshng$6$16$7aaacd96f5d90b595e95ec0b1ff64fa4$274$6f70656e7373682d6b65792d7631000000000a6165733235362d6374720000000662637279707400000018000000107aaacd96f5d90b595e95ec0b1ff64fa40000001800000001000000330000000b7373682d6564323535313900000020c55d041c0416...<truncated len=615>",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 22921,
+            "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CTR)",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CTR)",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "prefix",
+          "value": "$sshng$",
+          "confidence": "strong",
+          "evidence": "current matcher/example"
+        },
+        {
+          "kind": "alphabet",
+          "value": "modular_crypt_or_itoa64",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 615..9518",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 615,
+            "max": 9518,
+            "observed": [
+              615,
+              2481,
+              9518
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": [
+              7,
+              9
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "\\",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "\\",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "openssl",
+              "pem",
+              "ssh"
+            ],
+            "john_extractors": [
+              "openssl2john.py",
+              "pem2john.py",
+              "ssh2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "encrypted private key files"
+            ],
+            "expected_prefixes": [
+              "$sshng$"
+            ],
+            "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [
+          {
+            "topic": "bcrypt_modular_crypt",
+            "confidence": "strong",
+            "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+            "proposed_characteristics": [
+              "prefix:$2a$/$2b$/$2x$/$2y$",
+              "cost:2 digits",
+              "salt:22 bcrypt-base64 chars",
+              "checksum:31 bcrypt-base64 chars"
+            ],
+            "sources": [
+              "hashcat-example-hashes",
+              "openwall-john-hash-formats"
+            ]
+          }
+        ],
+        "john_format_labels": [
+          {
+            "format": "ssh",
+            "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CTR)",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 22921,
+            "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CTR)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 22921,
+            "hashcat_name": "RSA/DSA/EC/OpenSSH Private Keys ($6$)",
+            "official_example": "$sshng$6$8$7620048997557487$1224$13517a1204dc69528c474ef5cbb02d548698771f2a607c04ea54eb92f13dedba0f2185d2884b4db0c95ce6432856108ea2db858be443e0f8004ffcd60857e4ff1e42b17f056998ec5f96806a06e39cc6e6d7ef4ce8ae62b57b2ec0d0236c35cf4bc00dd6fda45e4788dcca0f0e44dddae1dad2d6e7b705d076f2f8fc5837eec4a002d9633bc...<truncated len=2481>",
+            "official_example_length": 2481,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-ctr.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [
+              "$sshng$"
+            ],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": [
+                  7,
+                  9
+                ]
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              },
+              {
+                "separator": "\\",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "modular_crypt_or_itoa64",
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 615,
+              "max": 9518,
+              "observed": [
+                615,
+                2481,
+                9518
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-ctr.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "openssl",
+                  "pem",
+                  "ssh"
+                ],
+                "john_extractors": [
+                  "openssl2john.py",
+                  "pem2john.py",
+                  "ssh2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "encrypted private key files"
+                ],
+                "expected_prefixes": [
+                  "$sshng$"
+                ],
+                "note": "Private-key formats are extractor output; PEM/OpenSSH header context matters.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": [
+              {
+                "topic": "bcrypt_modular_crypt",
+                "confidence": "strong",
+                "note": "bcrypt values use modular crypt prefixes $2a$, $2b$, $2x$, or $2y$ followed by cost, 22-char salt, and 31-char checksum; application-specific bcrypt variants should validate the wrapper before generic bcrypt.",
+                "proposed_characteristics": [
+                  "prefix:$2a$/$2b$/$2x$/$2y$",
+                  "cost:2 digits",
+                  "salt:22 bcrypt-base64 chars",
+                  "checksum:31 bcrypt-base64 chars"
+                ],
+                "sources": [
+                  "hashcat-example-hashes",
+                  "openwall-john-hash-formats"
+                ]
+              }
+            ]
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Promote unique prefix or wrapper match above generic length/alphabet matches.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "oracle-11g-12c.json",
+      "id": "oracle-11g-12c",
+      "name": "Oracle 11g/12c",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "oracle-11g-12c.haiti.053",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^(S:)?[a-f0-9]{40}(:)?[a-f0-9]{20}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 61,
+          "value": "63ec5f6113843f5d229e2d49c068d983a9670d02:57677783202322766743",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 112,
+            "name": "Oracle 11g/12c",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "oracle11",
+            "name": "Oracle 11g/12c",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 61..61",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 61,
+            "max": 61,
+            "observed": [
+              61
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "oracle"
+            ],
+            "john_extractors": [
+              "oracle2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Oracle password tables/dumps"
+            ],
+            "expected_prefixes": [
+              "S:",
+              "T:",
+              "H:"
+            ],
+            "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "oracle11",
+            "name": "Oracle 11g/12c",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 112,
+            "name": "Oracle 11g/12c",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 112,
+            "hashcat_name": "Oracle S: Type (Oracle 11+)",
+            "official_example": "63ec5f6113843f5d229e2d49c068d983a9670d02:57677783202322766743",
+            "official_example_length": 61,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "oracle-11g-12c.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 61,
+              "max": 61,
+              "observed": [
+                61
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "oracle-11g-12c.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "oracle"
+                ],
+                "john_extractors": [
+                  "oracle2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Oracle password tables/dumps"
+                ],
+                "expected_prefixes": [
+                  "S:",
+                  "T:",
+                  "H:"
+                ],
+                "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "oracle-7-10g.json",
+      "id": "oracle-7-10g",
+      "name": "Oracle 7-10g",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "oracle-7-10g.haiti.008",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{16}:[a-f0-9]{0,30}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 27,
+          "value": "792FCB0AE31D8489:7284616727",
+          "plaintext": null,
+          "verified": null
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 3100,
+            "name": "Oracle 7-10g",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 27..27",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 27,
+            "max": 27,
+            "observed": [
+              27
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ",",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ",",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "oracle"
+            ],
+            "john_extractors": [
+              "oracle2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Oracle password tables/dumps"
+            ],
+            "expected_prefixes": [
+              "S:",
+              "T:",
+              "H:"
+            ],
+            "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 3100,
+            "name": "Oracle 7-10g",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 3100,
+            "hashcat_name": "Oracle H: Type (Oracle 7+)",
+            "official_example": "792FCB0AE31D8489:7284616727",
+            "official_example_length": 27,
+            "official_notes": [
+              "Example password: `HASHCAT`"
+            ],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "oracle-7-10g.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": ",",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 27,
+              "max": 27,
+              "observed": [
+                27
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "oracle-7-10g.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "oracle"
+                ],
+                "john_extractors": [
+                  "oracle2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Oracle password tables/dumps"
+                ],
+                "expected_prefixes": [
+                  "S:",
+                  "T:",
+                  "H:"
+                ],
+                "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source.",
+        "Review official Hashcat mode usage/extraction notes before importing this observation."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "oracle-t-type-oracle-12.json",
+      "id": "oracle-t-type-oracle-12",
+      "name": "Oracle T: Type (Oracle 12+)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "oracle-t-type-oracle-12.hashcat.12300",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^[A-Fa-f0-9]{160}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 160,
+          "value": "8F75FBD166AFDB6D7587DAB89C2F15672AAC031C5B0B5E65C0835FB130555F6FF4E0E5764976755558112246FFF306450C22F6B7746B9E9831ED97B373992F9157436180438417080374881414745255",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 12300,
+            "name": "Oracle T: Type (Oracle 12+)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "upper_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 160..160",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 160,
+            "max": 160,
+            "observed": [
+              160
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "oracle"
+            ],
+            "john_extractors": [
+              "oracle2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Oracle password tables/dumps"
+            ],
+            "expected_prefixes": [
+              "S:",
+              "T:",
+              "H:"
+            ],
+            "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 12300,
+            "name": "Oracle T: Type (Oracle 12+)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 12300,
+            "hashcat_name": "Oracle T: Type (Oracle 12+)",
+            "official_example": "8F75FBD166AFDB6D7587DAB89C2F15672AAC031C5B0B5E65C0835FB130555F6FF4E0E5764976755558112246FFF306450C22F6B7746B9E9831ED97B373992F9157436180438417080374881414745255",
+            "official_example_length": 160,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "oracle-t-type-oracle-12.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "upper_hex"
+            ],
+            "observed_lengths": {
+              "min": 160,
+              "max": 160,
+              "observed": [
+                160
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "oracle-t-type-oracle-12.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "oracle"
+                ],
+                "john_extractors": [
+                  "oracle2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Oracle password tables/dumps"
+                ],
+                "expected_prefixes": [
+                  "S:",
+                  "T:",
+                  "H:"
+                ],
+                "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "oracle-transportation-management-sha256.json",
+      "id": "oracle-transportation-management-sha256",
+      "name": "Oracle Transportation Management (SHA256)",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [
+        "hashcat"
+      ],
+      "current_matchers": [
+        {
+          "id": "oracle-transportation-management-sha256.hashcat.20600",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 40,
+          "pattern": "^otm_sha256:[0-9]{4}:[A-Fa-f0-9]{10}:[A-Za-z0-9+/=]{44}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 71,
+          "value": "otm_sha256:1000:1234567890:S5Q9Kc0ETY6ZPyQU+JYY60oFjaJuZZaSinggmzU8PC4=",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 20600,
+            "name": "Oracle Transportation Management (SHA256)",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 71..71",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 71,
+            "max": 71,
+            "observed": [
+              71
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              4
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "/",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "/",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "oracle"
+            ],
+            "john_extractors": [
+              "oracle2john.py"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "Oracle password tables/dumps"
+            ],
+            "expected_prefixes": [
+              "S:",
+              "T:",
+              "H:"
+            ],
+            "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 20600,
+            "name": "Oracle Transportation Management (SHA256)",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 20600,
+            "hashcat_name": "Oracle Transportation Management (SHA256)",
+            "official_example": "otm_sha256:1000:1234567890:S5Q9Kc0ETY6ZPyQU+JYY60oFjaJuZZaSinggmzU8PC4=",
+            "official_example_length": 71,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "oracle-transportation-management-sha256.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  4
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              },
+              {
+                "separator": "/",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 71,
+              "max": 71,
+              "observed": [
+                71
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "oracle-transportation-management-sha256.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "oracle"
+                ],
+                "john_extractors": [
+                  "oracle2john.py"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "Oracle password tables/dumps"
+                ],
+                "expected_prefixes": [
+                  "S:",
+                  "T:",
+                  "H:"
+                ],
+                "note": "Oracle formats often include version-specific prefixes or DB fields; user/schema context improves confidence.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "oscommerce.json",
+      "id": "oscommerce",
+      "name": "osCommerce",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "oscommerce.haiti.031",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "strong",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{32}:[a-z0-9]{2}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 35,
+          "value": "e983672a03adcc9767b24584338eb378:00",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 21,
+            "name": "osCommerce",
+            "status": "active"
+          }
+        ],
+        "john": [],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "structured_printable",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 35..35",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 35,
+            "max": 35,
+            "observed": [
+              35
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": ":",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": ":",
+            "example_field_counts": [
+              2
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [],
+        "special_native_output_notes": [],
+        "john_format_labels": [],
+        "hashcat_modes": [
+          {
+            "mode": 21,
+            "name": "osCommerce",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 21,
+            "hashcat_name": "osCommerce, xt:Commerce",
+            "official_example": "e983672a03adcc9767b24584338eb378:00",
+            "official_example_length": 35,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "oscommerce.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": ":",
+                "example_field_counts": [
+                  2
+                ]
+              },
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "structured_printable"
+            ],
+            "observed_lengths": {
+              "min": 35,
+              "max": 35,
+              "observed": [
+                35
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "oscommerce.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "osx-v10-4.json",
+      "id": "osx-v10-4",
+      "name": "OSX v10.4",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "osx-v10-4.haiti.042",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{48}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 48,
+          "value": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 122,
+            "name": "OSX v10.4",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "xsha",
+            "name": "OSX v10.4",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 48..48",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 48,
+            "max": 48,
+            "observed": [
+              48
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "macos",
+              "osx",
+              "lion"
+            ],
+            "john_extractors": [
+              "mac2john.py",
+              "mac2john-alt.py",
+              "lion2john.pl",
+              "lion2john-alt.pl"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS shadow/plist account records"
+            ],
+            "expected_prefixes": [],
+            "note": "macOS account hashes benefit from source OS/version context.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "xsha",
+            "name": "OSX v10.4",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 122,
+            "name": "OSX v10.4",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 122,
+            "hashcat_name": "macOS v10.4, macOS v10.5, macOS v10.6",
+            "official_example": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+            "official_example_length": 48,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "osx-v10-4.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 48,
+              "max": 48,
+              "observed": [
+                48
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "osx-v10-4.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "macos",
+                  "osx",
+                  "lion"
+                ],
+                "john_extractors": [
+                  "mac2john.py",
+                  "mac2john-alt.py",
+                  "lion2john.pl",
+                  "lion2john-alt.pl"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS shadow/plist account records"
+                ],
+                "expected_prefixes": [],
+                "note": "macOS account hashes benefit from source OS/version context.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "osx-v10-5.json",
+      "id": "osx-v10-5",
+      "name": "OSX v10.5",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "osx-v10-5.haiti.042",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{48}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 48,
+          "value": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 122,
+            "name": "OSX v10.5",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "xsha",
+            "name": "OSX v10.5",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 48..48",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 48,
+            "max": 48,
+            "observed": [
+              48
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "macos",
+              "osx",
+              "lion"
+            ],
+            "john_extractors": [
+              "mac2john.py",
+              "mac2john-alt.py",
+              "lion2john.pl",
+              "lion2john-alt.pl"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS shadow/plist account records"
+            ],
+            "expected_prefixes": [],
+            "note": "macOS account hashes benefit from source OS/version context.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "xsha",
+            "name": "OSX v10.5",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 122,
+            "name": "OSX v10.5",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 122,
+            "hashcat_name": "macOS v10.4, macOS v10.5, macOS v10.6",
+            "official_example": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+            "official_example_length": 48,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "osx-v10-5.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 48,
+              "max": 48,
+              "observed": [
+                48
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "osx-v10-5.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "macos",
+                  "osx",
+                  "lion"
+                ],
+                "john_extractors": [
+                  "mac2john.py",
+                  "mac2john-alt.py",
+                  "lion2john.pl",
+                  "lion2john-alt.pl"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS shadow/plist account records"
+                ],
+                "expected_prefixes": [],
+                "note": "macOS account hashes benefit from source OS/version context.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "osx-v10-6.json",
+      "id": "osx-v10-6",
+      "name": "OSX v10.6",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "osx-v10-6.haiti.042",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{48}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 48,
+          "value": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 122,
+            "name": "OSX v10.6",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "xsha",
+            "name": "OSX v10.6",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 48..48",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 48,
+            "max": 48,
+            "observed": [
+              48
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "macos",
+              "osx",
+              "lion"
+            ],
+            "john_extractors": [
+              "mac2john.py",
+              "mac2john-alt.py",
+              "lion2john.pl",
+              "lion2john-alt.pl"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS shadow/plist account records"
+            ],
+            "expected_prefixes": [],
+            "note": "macOS account hashes benefit from source OS/version context.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "xsha",
+            "name": "OSX v10.6",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 122,
+            "name": "OSX v10.6",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 122,
+            "hashcat_name": "macOS v10.4, macOS v10.5, macOS v10.6",
+            "official_example": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+            "official_example_length": 48,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "osx-v10-6.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 48,
+              "max": 48,
+              "observed": [
+                48
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "osx-v10-6.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "macos",
+                  "osx",
+                  "lion"
+                ],
+                "john_extractors": [
+                  "mac2john.py",
+                  "mac2john-alt.py",
+                  "lion2john.pl",
+                  "lion2john-alt.pl"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS shadow/plist account records"
+                ],
+                "expected_prefixes": [],
+                "note": "macOS account hashes benefit from source OS/version context.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    },
+    {
+      "approval": "pending",
+      "file": "osx-v10-7.json",
+      "id": "osx-v10-7",
+      "name": "OSX v10.7",
+      "current_status": "active",
+      "current_priority": 50,
+      "current_tags": [],
+      "current_matchers": [
+        {
+          "id": "osx-v10-7.haiti.080",
+          "kind": "regex",
+          "scope": "token",
+          "confidence": "generic",
+          "weight": 50,
+          "pattern": "^[a-f0-9]{136}$"
+        }
+      ],
+      "representative_examples": [
+        {
+          "length": 136,
+          "value": "07543781b07e905f6f947db8ae305c248b9e12f509b41097e852e2f450e824790e677ea7397b8a9a552b1c19ecf6a6e1dd3844fa5ee5db23976962859676f7d2fb85ca94",
+          "plaintext": "hashcat",
+          "verified": true
+        }
+      ],
+      "tool_references": {
+        "hashcat": [
+          {
+            "mode": 1722,
+            "name": "OSX v10.7",
+            "status": "active"
+          }
+        ],
+        "john": [
+          {
+            "format": "xsha512",
+            "name": "OSX v10.7",
+            "status": "active"
+          }
+        ],
+        "current_extractors": []
+      },
+      "proposed_characteristics": [
+        {
+          "kind": "alphabet",
+          "value": "lower_hex",
+          "confidence": "contextual",
+          "evidence": "representative examples"
+        },
+        {
+          "kind": "length",
+          "value": "observed 136..136",
+          "confidence": "contextual",
+          "evidence": "representative examples",
+          "details": {
+            "min": 136,
+            "max": 136,
+            "observed": [
+              136
+            ]
+          }
+        },
+        {
+          "kind": "separator",
+          "value": "$",
+          "confidence": "contextual",
+          "evidence": "matcher/example",
+          "details": {
+            "separator": "$",
+            "example_field_counts": []
+          }
+        }
+      ],
+      "tool_output_research": {
+        "extractor_candidates": [
+          {
+            "rule_keys": [
+              "macos",
+              "osx",
+              "lion"
+            ],
+            "john_extractors": [
+              "mac2john.py",
+              "mac2john-alt.py",
+              "lion2john.pl",
+              "lion2john-alt.pl"
+            ],
+            "hashcat_extractors": [],
+            "native_artifacts": [
+              "macOS shadow/plist account records"
+            ],
+            "expected_prefixes": [],
+            "note": "macOS account hashes benefit from source OS/version context.",
+            "sources": [
+              "john-source-run",
+              "hashcat-tools"
+            ]
+          }
+        ],
+        "special_native_output_notes": [],
+        "john_format_labels": [
+          {
+            "format": "xsha512",
+            "name": "OSX v10.7",
+            "status": "active"
+          }
+        ],
+        "hashcat_modes": [
+          {
+            "mode": 1722,
+            "name": "OSX v10.7",
+            "status": "active"
+          }
+        ],
+        "hashcat_official_examples": [
+          {
+            "mode": 1722,
+            "hashcat_name": "macOS v10.7",
+            "official_example": "07543781b07e905f6f947db8ae305c248b9e12f509b41097e852e2f450e824790e677ea7397b8a9a552b1c19ecf6a6e1dd3844fa5ee5db23976962859676f7d2fb85ca94",
+            "official_example_length": 136,
+            "official_notes": [],
+            "referenced_urls": [],
+            "referenced_tools": [],
+            "source": "hashcat-example-hashes"
+          }
+        ]
+      },
+      "proposed_observations": [
+        {
+          "id": "osx-v10-7.format-shape",
+          "type": "format_shape",
+          "action": "review_for_import",
+          "values": {
+            "prefixes": [],
+            "separators": [
+              {
+                "separator": "$",
+                "example_field_counts": []
+              }
+            ],
+            "alphabets": [
+              "lower_hex"
+            ],
+            "observed_lengths": {
+              "min": 136,
+              "max": 136,
+              "observed": [
+                136
+              ]
+            }
+          },
+          "confidence": "best_effort_from_current_data"
+        },
+        {
+          "id": "osx-v10-7.tool-output-context",
+          "type": "tool_output_context",
+          "action": "review_for_import",
+          "values": {
+            "extractor_candidates": [
+              {
+                "rule_keys": [
+                  "macos",
+                  "osx",
+                  "lion"
+                ],
+                "john_extractors": [
+                  "mac2john.py",
+                  "mac2john-alt.py",
+                  "lion2john.pl",
+                  "lion2john-alt.pl"
+                ],
+                "hashcat_extractors": [],
+                "native_artifacts": [
+                  "macOS shadow/plist account records"
+                ],
+                "expected_prefixes": [],
+                "note": "macOS account hashes benefit from source OS/version context.",
+                "sources": [
+                  "john-source-run",
+                  "hashcat-tools"
+                ]
+              }
+            ],
+            "native_notes": []
+          },
+          "confidence": "best_effort_source_research"
+        }
+      ],
+      "accuracy_notes": [
+        "Add parser validation for separator count and per-field length/alphabet instead of relying only on whole-line regex.",
+        "Cross-check Hashcat mode example shape before raising confidence for ambiguous raw hashes.",
+        "Raw hex-only forms need context-aware ranking because many algorithms share the same length and alphabet.",
+        "Use John format label as a tool hint but not as sole runtime identification evidence.",
+        "Use native artifact/extractor context as an observation signal when the input comes from a file, capture, dump, or database source."
+      ],
+      "review_questions": [],
+      "sources": [
+        "haiti",
+        "hashcat-example-hashes",
+        "hashcat-examples",
+        "john-source-run",
+        "openwall-john-hash-formats"
+      ]
+    }
+  ]
+}

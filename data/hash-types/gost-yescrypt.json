@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "gost-yescrypt",
+  "name": "gost-yescrypt",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "gost-yescrypt.haiti.293",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$gy\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$gy\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$gy$j9T$.......$.xOKFTJExrsAB12xqOm7X4K3mMPTwx0aMN1dx5PQnQ5",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "gost-yescrypt"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "$gy$jCT$HM87v.7RwpQLba8fDjNSk1$VgqS7k2OZWhFbAJVBye2vaA7ex/1VtU3a5fmL8Wv/26",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "gost-yescrypt"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "gost-yescrypt"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "tiger-160-3-rounds",
+  "name": "Tiger-160 (3 rounds)",
+  "status": "active",
+  "tags": [
+    "extended"
+  ],
+  "priority": 20,
+  "matchers": [
+    {
+      "id": "tiger-160-3-rounds.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "weak",
+      "weight": 25,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "1e2e98f0db2bbce47cc7d2a8c771ffe5cc57e829",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-160 (3 rounds)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "928c38615aab777e016b1da0263ebb9207d4b0f8",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Tiger-160 (3 rounds)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Tiger-160 (3 rounds)"
+    }
+  ]
+}

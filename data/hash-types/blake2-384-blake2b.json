@@ -1,0 +1,52 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "blake2-384-blake2b",
+  "name": "BLAKE2-384 (blake2b)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "blake2-384-blake2b.haiti.072",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{96}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{96}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "1db2bf52310b138b027c0055dc49acad9bf7f370fff65d5a7ba6480c2156fb3a2eb9c5ea84a4816a9dd3f496a324e22e",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BLAKE2-384 (blake2b)"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "d48662cdff64156379b4cdccaff5ba7e6006a8fa0ab082ad45c11cdd076b3dd6fcf48dbecafeb3e0e966f65c970d2945",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "BLAKE2-384 (blake2b)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "BLAKE2-384 (blake2b)"
+    }
+  ]
+}

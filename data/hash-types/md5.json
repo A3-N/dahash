@@ -1,0 +1,90 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md5",
+  "name": "MD5",
+  "status": "active",
+  "tags": [
+    "common"
+  ],
+  "priority": 90,
+  "matchers": [
+    {
+      "id": "md5.haiti.015",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}(?::.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 0,
+        "name": "MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "0"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "0"
+          }
+        ]
+      }
+    ],
+    "john": [
+      {
+        "format": "raw-md5",
+        "name": "MD5",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "raw-md5"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "098F6BCD4621D373CADE4E832627B4F6",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MD5"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "8743b52063cd84097a65d1633f5c74f5",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MD5"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "0"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MD5"
+    }
+  ]
+}

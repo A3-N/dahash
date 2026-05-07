@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "encsecurity-datavault-pbkdf2-keychain",
+  "name": "ENCsecurity Datavault (PBKDF2/keychain)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "encsecurity-datavault-pbkdf2-keychain.haiti.312",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 29920,
+        "name": "ENCsecurity Datavault (PBKDF2/keychain)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "29920"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "29920"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$encdv-pbkdf2$3$1$c232aba45699c80b$473d5dd2e0833ac7$32$4454716926322493581114042616371582782202532493983541577898367049$100000$9a030124cecc2fef5ca44f83ef6e4c7944f8d7c5234b9000c982e209a92bb5535f4c15be6e9914729eb8a9bf870bd0535a231fa1d443d27c1fc4f78b441a7aa765fa0a3d181c485f77f59334ec68f27e66f227eb4be3579464d907ed8cf8bacc817cceb4496587898e43ce41921f66114051c007e1a54b7215b220aed6e33064",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "ENCsecurity Datavault (PBKDF2/keychain)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "29920"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "ENCsecurity Datavault (PBKDF2/keychain)"
+    }
+  ]
+}

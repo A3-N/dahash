@@ -1,0 +1,62 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "joomla-v2-5-18-d2a5dd79",
+  "name": "Joomla < v2.5.18",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "joomla-v2-5-18-d2a5dd79.haiti.062",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{32}:[a-z0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{32}:[a-z0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 11,
+        "name": "Joomla < v2.5.18",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "11"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "11"
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Joomla < v2.5.18"
+    }
+  ],
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "b78f863f2c67410c41e617f724e22f34:89384528665349271307465505333378",
+      "verified": true,
+      "sources": [
+        {
+          "id": "hashcat-examples",
+          "ref": "11"
+        }
+      ],
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ghash-32-3",
+  "name": "GHash-32-3",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ghash-32-3.haiti.001",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{8}$",
+      "confidence": "generic",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{8}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {},
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "GHash-32-3"
+    }
+  ]
+}

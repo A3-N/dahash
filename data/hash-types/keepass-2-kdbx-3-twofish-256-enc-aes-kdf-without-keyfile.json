@@ -1,0 +1,56 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "keepass-2-kdbx-3-twofish-256-enc-aes-kdf-without-keyfile",
+  "name": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "keepass-2-kdbx-3-twofish-256-enc-aes-kdf-without-keyfile.haiti.280",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^(?:.+:)?\\$keepass\\$\\*2\\*\\d+\\*1\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A(?:.+:)?\\$keepass\\$\\*2\\*\\d+\\*1\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "john": [
+      {
+        "format": "keepass",
+        "name": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "keepass"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "twofish_aes:$keepass$*2*45454544*1*012100297ce9a9f0bafa80baea8e25c3c544ee9a769d7bbae9d1b39544a1103e*1e69bcf23baf3941387ca91eeca84163481edcfe5f210e0a3a5d82a5077d447d*d2eeb12c093d3f554020fb0127add83d*b0d55717dfd912e1cec7bf31cc5249bdf7286ad9b487121e20f3020258a38596*991f9862a44be62723fe7088d01321b6c09c393181896b6ba566ac6300b555ef",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile"
+    }
+  ]
+}

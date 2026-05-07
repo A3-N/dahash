@@ -1,0 +1,74 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "md6-256",
+  "name": "MD6-256",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "md6-256.haiti.058",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{64}(:.+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 34600,
+        "name": "MD6-256",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "34600"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "34600"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "539a8b63639c94b80e746611c476a684e7cc95235187b2f8b81a188d6dfbf64c",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MD6-256"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "34600"
+        }
+      ]
+    },
+    {
+      "kind": "inline",
+      "value": "bc9e2022386d929ae3936306153d9366fc555dc868579c87c7faf8846f79f414",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "MD6-256"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "MD6-256"
+    }
+  ]
+}

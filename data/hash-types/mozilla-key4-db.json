@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "mozilla-key4-db",
+  "name": "Mozilla key4.db",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "mozilla-key4-db.haiti.241",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^\\$mozilla\\$\\*AES\\*[a-f0-9]{40}\\*[a-f0-9]{64}\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A\\$mozilla\\$\\*AES\\*[a-f0-9]{40}\\*[a-f0-9]{64}\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 26100,
+        "name": "Mozilla key4.db",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "26100"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "26100"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "$mozilla$*AES*5add91733b9b13310ea79a4b38de5c3f797c3bf1*54c17e2a8a066cbdc55f2080c5e9f02ea3954d712cb34b4547f5186548f46512*10000*040e4b5a00f993e63f67a34f6cfc5704*eae9c6c003e6d1b2aa8aa21630838808",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Mozilla key4.db"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "26100"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Mozilla key4.db"
+    }
+  ]
+}

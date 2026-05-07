@@ -1,0 +1,64 @@
+{
+  "schema_version": "dahash.hash_type/v1",
+  "id": "ruby-on-rails-restful-auth-one-round-no-sitekey",
+  "name": "Ruby on Rails Restful Auth (one round, no sitekey)",
+  "status": "active",
+  "priority": 50,
+  "matchers": [
+    {
+      "id": "ruby-on-rails-restful-auth-one-round-no-sitekey.haiti.035",
+      "kind": "regex",
+      "scope": "token",
+      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
+      "confidence": "strong",
+      "weight": 50,
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
+        }
+      ]
+    }
+  ],
+  "tools": {
+    "hashcat": [
+      {
+        "mode": 27200,
+        "name": "Ruby on Rails Restful Auth (one round, no sitekey)",
+        "status": "active",
+        "sources": [
+          {
+            "id": "haiti",
+            "ref": "27200"
+          },
+          {
+            "id": "hashcat-examples",
+            "ref": "27200"
+          }
+        ]
+      }
+    ]
+  },
+  "examples": [
+    {
+      "kind": "inline",
+      "value": "3999d08db95797891ec77f07223ca81bf43e1be2:5dcc47b04c49d3c8e1b9e4ec367fddeed21b7b85",
+      "sources": [
+        {
+          "id": "haiti",
+          "ref": "Ruby on Rails Restful Auth (one round, no sitekey)"
+        },
+        {
+          "id": "hashcat-examples",
+          "ref": "27200"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "haiti",
+      "ref": "Ruby on Rails Restful Auth (one round, no sitekey)"
+    }
+  ]
+}
