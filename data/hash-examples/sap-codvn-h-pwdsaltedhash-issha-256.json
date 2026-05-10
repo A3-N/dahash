@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sap-codvn-h-pwdsaltedhash-issha-256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "{x-isSHA256, 3000}UqMnsr5BYN+uornWC7yhGa/Wj0u5tshX19mDUQSlgih6OTFoZjRpMQ=="
+    },
+    {
+      "kind": "example_hash",
+      "value": "{x-isSHA256, 3000}ydi0JlyU6lX5305Qk/Q3uLBbIFjWuTyGo3tPBZDcGFd6NkFvV1gza3RkNg=="
+    }
+  ]
+}

@@ -1,66 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "ripemd-256",
   "name": "RIPEMD-256",
+  "aliases": [
+    "RIPEMD-256"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "ripemd-256.haiti.058",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{64}(:.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "dynamic_140",
         "name": "RIPEMD-256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_140"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "1419109aa0de60e6ba0b6d2b2f602c13b07e97b5ffc85b6be2297badc699262f",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RIPEMD-256"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "f156e6c20042057840f3251ee041596d89fde06c2505f61764ad1c03c2fc1375",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RIPEMD-256"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "RIPEMD-256"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{64}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{64}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

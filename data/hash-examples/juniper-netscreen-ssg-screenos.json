@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "juniper-netscreen-ssg-screenos",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "nKjiFErqK7TPcZdFZsZMNWPtw4Pv8n:26506173",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

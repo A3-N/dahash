@@ -1,61 +1,120 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "netiq-sspr-pbkdf2withhmacsha256",
   "name": "NetIQ SSPR (PBKDF2WithHmacSHA256)",
+  "aliases": [
+    "NetIQ SSPR (PBKDF2WithHmacSHA256)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "32060"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 32060,
         "name": "NetIQ SSPR (PBKDF2WithHmacSHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "32060"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pbkdf2-sha256$100000$MDUzMTE4NjQyNDc5NTQxMjAwMjg1OTYxNjAxNDgzNzc$bwYpAyQ2g5PqdnMj8mJ46mkwQbyztw8gEQqnhDHj48c",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32060"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "netiq-sspr-pbkdf2withhmacsha256.hashcat.32060",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pbkdf2\\-sha256\\$[0-9]{6}\\$[A-Za-z0-9]{43}\\$[A-Za-z0-9]{43}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32060"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 224,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2\\-sha256\\$[0-9]{6}\\$[A-Za-z0-9]{43}\\$[A-Za-z0-9]{43}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2\\-sha256\\$[0-9]{6}\\$[A-Za-z0-9]{43}\\$[A-Za-z0-9]{43}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pbkdf2-sha256$100000$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^pbkdf2\\-sha256$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^100000$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_3_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

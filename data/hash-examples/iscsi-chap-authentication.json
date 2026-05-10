@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "iscsi-chap-authentication",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "aa4aaa1d52319525023c06a4873f4c51:35343534373533343633383832343736:dc",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "des-pt-salt-key-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "53b325182924b356:1412781058343178",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

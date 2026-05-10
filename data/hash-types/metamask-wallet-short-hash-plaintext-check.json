@@ -1,61 +1,118 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "metamask-wallet-short-hash-plaintext-check",
   "name": "MetaMask Wallet (short hash, plaintext check)",
+  "aliases": [
+    "MetaMask Wallet (short hash, plaintext check)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "26610"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 26610,
         "name": "MetaMask Wallet (short hash, plaintext check)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "26610"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$metamask-short$jfGI3TXguhb8GPnKSXFrMzRk2NCEc131Gt5G3kZr5+s=$h+BoIf2CQ5BEjaIOShFE7g==$R95fzGt4UQ0uwrcrVYnIi4UcSlWn9wlmer+//526ZDwYAp50K82F1u1oacYcdjjhuEvbZnWk/uBG00UkgLLlOw==",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "26610"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "metamask-wallet-short-hash-plaintext-check.hashcat.26610",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$metamask\\-short\\$[A-Za-z0-9+/=]{44}\\$[A-Za-z0-9+/=]{24}\\$[A-Za-z0-9+/=]{88}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "26610"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 238,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$metamask\\-short\\$[A-Za-z0-9+/=]{44}\\$[A-Za-z0-9+/=]{24}\\$[A-Za-z0-9+/=]{88}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$metamask\\-short\\$[A-Za-z0-9+/=]{44}\\$[A-Za-z0-9+/=]{24}\\$[A-Za-z0-9+/=]{88}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$metamask-short$jfGI3TXguhb8GPnKSXFrMzRk2NCEc131Gt5G3kZr5+s=$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^metamask\\-short$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^[A-Za-z0-9+/=]{44}$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/=]{24}$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[A-Za-z0-9+/=]{88}$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

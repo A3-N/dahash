@@ -1,30 +1,43 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "scram-hash",
   "name": "SCRAM Hash",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "scram-hash.haiti.115",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$scram\\$\\d+\\$[a-z0-9\\/.]{16}\\$sha-1=[a-z0-9\\/.]{27},sha-256=[a-z0-9\\/.]{43},sha-512=[a-z0-9\\/.]{86}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$scram\\$\\d+\\$[a-z0-9\\/.]{16}\\$sha-1=[a-z0-9\\/.]{27},sha-256=[a-z0-9\\/.]{43},sha-512=[a-z0-9\\/.]{86}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SCRAM Hash"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$scram\\$\\d+\\$[a-z0-9\\/.]{16}\\$sha-1=[a-z0-9\\/.]{27},sha-256=[a-z0-9\\/.]{43},sha-512=[a-z0-9\\/.]{86}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$scram\\$\\d+\\$[a-z0-9\\/.]{16}\\$sha-1=[a-z0-9\\/.]{27},sha-256=[a-z0-9\\/.]{43},sha-512=[a-z0-9\\/.]{86}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

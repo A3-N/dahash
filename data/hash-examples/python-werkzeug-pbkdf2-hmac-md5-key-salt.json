@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "python-werkzeug-pbkdf2-hmac-md5-key-salt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:md5:600000$QhX2QHrQ$49cc3851f77779484c28e19329b314e3"
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:md5:600000$UUYvlGLR6dM0UktS9ZPlB6g31d3GfGmB$609b8faacaf938b20c4d8200a870901f"
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:md5:600000$adwFmD4ib2Y7oJO8$762cfbd4b80cd9f5e3cdc046465cc2ec"
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:md5:700000$3BpTqiI1$1c10bea34f19bacdb289d55236173524"
+    }
+  ]
+}

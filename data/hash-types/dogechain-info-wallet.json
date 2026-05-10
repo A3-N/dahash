@@ -1,61 +1,122 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "dogechain-info-wallet",
   "name": "Dogechain.info Wallet",
+  "aliases": [
+    "Dogechain.info Wallet"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "32500"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 32500,
         "name": "Dogechain.info Wallet",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "32500"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$dogechain$0*5000*EEmAkgiMlVrToRhu2suq91R5Frf+VQCvNzv9lj6OwRWIf/3IM31wqhJM7gGQpinXH9kqHkuQ2DMZxspgA7QFAddsUWvZxGdNAkaeKy90EAsTLIuDQnH3plfBQfmL6j5NPaH7Nr7kF1PdvM0pbUw6XHySBYkD/rPHNM6n58NRK4xfO4VVMykeX3+m2LaVyv5s269r/op38svRPT0YFGpRcanY6/U1BeSrvG2IXii1BKXXAcVEN4GFmyEQRWKI0uZE+3M0atf7UEPD4K9tmEKosqdsF4MFLiBtfI4eq0+926ijoezDmUPvHIiyQZ9CH2jZ*6jOgqW/GxL9He1afQiINIg==",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32500"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "dogechain-info-wallet.hashcat.32500",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{9}\\$[0-9]{1}\\*[0-9]{4}\\*[A-Za-z0-9+/=]{320}\\*[A-Za-z0-9+/=]{24}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32500"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 244,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{9}\\$[0-9]{1}\\*[0-9]{4}\\*[A-Za-z0-9+/=]{320}\\*[A-Za-z0-9+/=]{24}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{9}\\$[0-9]{1}\\*[0-9]{4}\\*[A-Za-z0-9+/=]{320}\\*[A-Za-z0-9+/=]{24}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$dogechain$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 3
+        },
+        "id": "*_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 4
+        },
+        "id": "*_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$dogechain\\$0$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^5000$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/=]{320}$"
+        },
+        "id": "field_2_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^[A-Za-z0-9+/=]{24}$"
+        },
+        "id": "field_3_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

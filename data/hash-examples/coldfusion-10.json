@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "coldfusion-10",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "3f3473a071b1fb955544e80c81853ca0f1e4f9ee4ca3bf4d2a8a10b5ef5be1f6:6058321484538505215534207835727413038041028036676832416353152201",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

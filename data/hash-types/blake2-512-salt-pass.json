@@ -1,67 +1,103 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "blake2-512-salt-pass",
   "name": "BLAKE2-512($salt.$pass)",
+  "aliases": [
+    "BLAKE2-512($salt.$pass)"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "blake2-512-salt-pass.haiti.079",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$BLAKE2\\$[a-f0-9]{128}(?::.+)$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$BLAKE2\\$[a-f0-9]{128}(?::.+)\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 620,
         "name": "BLAKE2-512($salt.$pass)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "620"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "620"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$BLAKE2$f0325fdfc3f82a014935442f7adbc069d4636d67276a85b09f8de368f122cf5195a0b780d7fee709fbf1dcd02ddcb581df84508cf1fb0f3393af1be0565491c6:3301",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "BLAKE2-512($salt.$pass)"
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 131,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$BLAKE2\\$[a-f0-9]{128}(?::.+)$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "620"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "BLAKE2-512($salt.$pass)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$BLAKE2\\$[a-f0-9]{128}(?::.+)$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$BLAKE2$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^BLAKE2$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

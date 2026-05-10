@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "oracle-7-10g",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "792FCB0AE31D8489:7284616727"
+    }
+  ]
+}

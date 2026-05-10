@@ -1,75 +1,63 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "osx-v10-7",
   "name": "OSX v10.7",
+  "aliases": [
+    "OSX v10.7"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "osx-v10-7.haiti.080",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{136}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{136}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 1722,
         "name": "OSX v10.7",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "1722"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "1722"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "xsha512",
         "name": "OSX v10.7",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "xsha512"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "OSX v10.7"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "07543781b07e905f6f947db8ae305c248b9e12f509b41097e852e2f450e824790e677ea7397b8a9a552b1c19ecf6a6e1dd3844fa5ee5db23976962859676f7d2fb85ca94",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "1722"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{136}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{136}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

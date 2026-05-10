@@ -1,62 +1,99 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "smf-v1-1",
   "name": "SMF \u2265 v1.1",
+  "aliases": [
+    "SMF \u2265 v1.1"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "smf-v1-1.haiti.122",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}:[^*]{1,25}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}:[^*]{1,25}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 121,
         "name": "SMF \u2265 v1.1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "121"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "121"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SMF \u2265 v1.1"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "d27c0a627a45db487af161fcc3a4005d88eb8a1f:25551135",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "121"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 196,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}:[^*]{1,25}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}:[^*]{1,25}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "d27c0a627a45db487af161fcc3a4005d88eb8a1f"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^d27c0a627a45db487af161fcc3a4005d88eb8a1f$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^25551135$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

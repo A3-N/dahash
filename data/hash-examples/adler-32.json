@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "adler-32",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "061d0210"
+    },
+    {
+      "kind": "example_hash",
+      "value": "0669021b"
+    }
+  ]
+}

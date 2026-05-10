@@ -1,76 +1,98 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pdf-1-7-level-3-acrobat-9",
   "name": "PDF 1.7 Level 3 (Acrobat 9)",
+  "aliases": [
+    "PDF 1.7 Level 3 (Acrobat 9)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "pdf-1-7-level-3-acrobat-9.haiti.201",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A\\$pdf\\$5\\*[5|6]\\*\\d{3}\\*[-0-9]{1,6}\\*\\d\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$pdf\\$5\\*[5|6]\\*\\d{3}\\*[-0-9]{1,6}\\*\\d\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\*\\d{1,4}\\*[a-f0-9]{0,1024}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".pdf"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "ascii": "%PDF-"
+            },
+            "id": "pdf_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "pdf2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$pdf$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 10600,
         "name": "PDF 1.7 Level 3 (Acrobat 9)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "10600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "10600"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pdf",
         "name": "PDF 1.7 Level 3 (Acrobat 9)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pdf"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PDF 1.7 Level 3 (Acrobat 9)"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pdf$5*5*256*-1028*1*16*28562274676426582441147358074521*127*a3aab04cff2c536118870976d768f1fdd445754d6b2dd81fba10bb6e742acd7f2856227467642658244114735807452100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000*127*00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000*32*0000000000000000000000000000000000000000000000000000000000000000*32*0000000000000000000000000000000000000000000000000000000000000000",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "10600"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pdf\\$5\\*[56]\\*256\\*-?[0-9]+\\*[0-9]+\\*[0-9]+\\*[A-Fa-f0-9]+(?:\\*[0-9]+\\*[A-Fa-f0-9]+){4}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pdf\\$5\\*[56]\\*256\\*-?[0-9]+\\*[0-9]+\\*[0-9]+\\*[A-Fa-f0-9]+(?:\\*[0-9]+\\*[A-Fa-f0-9]+){4}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pdf$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

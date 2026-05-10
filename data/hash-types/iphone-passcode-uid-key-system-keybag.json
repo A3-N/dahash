@@ -1,64 +1,136 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "iphone-passcode-uid-key-system-keybag",
   "name": "iPhone passcode (UID key + System Keybag)",
+  "aliases": [
+    "iPhone passcode (UID key + System Keybag)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "iphone-passcode-uid-key-system-keybag.haiti.226",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$uido\\$[a-f0-9]{32}\\$[a-f0-9]{40}\\$\\d{1,7}\\$[a-f0-9]{80}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$uido\\$[a-f0-9]{32}\\$[a-f0-9]{40}\\$\\d{1,7}\\$[a-f0-9]{80}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 26500,
         "name": "iPhone passcode (UID key + System Keybag)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "26500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "26500"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$uido$77889b1bca161ce876d976a102c7bf82$3090545724551425617156367874312887832777$50000$2d4c86b71c0c04129a47c6468e2437d1fecd88e232a7b15112d5364682dc391dbbbb921cf6e02664",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "iPhone passcode (UID key + System Keybag)"
+  "match": {
+    "base": 25,
+    "total": 252,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$uido\\$[a-f0-9]{32}\\$[a-f0-9]{40}\\$\\d{1,7}\\$[a-f0-9]{80}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "26500"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "iPhone passcode (UID key + System Keybag)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$uido\\$[a-f0-9]{32}\\$[a-f0-9]{40}\\$\\d{1,7}\\$[a-f0-9]{80}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$uido$77889b1bca161ce876d976a102c7bf82$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 5
+        },
+        "id": "$_count_5",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 6,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_5",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^uido$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^77889b1bca161ce876d976a102c7bf82$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^3090545724551425617156367874312887832777$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^50000$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "charset": "hex",
+          "length": 80,
+          "trim_empty_start": true
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

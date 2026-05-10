@@ -1,86 +1,114 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-db-etype-3",
   "name": "Kerberos 5 DB etype 3",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "kerberos-5-db-etype-3.haiti.114",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$krb3\\$[^$]{1,512}\\$[a-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$krb3\\$[^$]{1,512}\\$[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "krb5-3",
         "name": "Kerberos 5 DB etype 3",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "krb5-3"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb3$EXAMPLE.COMlulu$25bfb33132c11346",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 3"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb3$EXAMPLE.COMluluaaaa$79850e6e9e5e92d0",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 3"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb3$EXAMPLE.COMluluaaaa$97076894ae025738",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 3"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb3$INTERNAL.CORP1user3$eafdc79b7620584a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 3"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Kerberos 5 DB etype 3"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 212,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$krb3\\$[^$]{1,512}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$krb3\\$[^$]{1,512}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$krb3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^krb3$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 15,
+          "length_max": 19,
+          "trim_empty_start": true
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 16,
+          "trim_empty_start": true
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

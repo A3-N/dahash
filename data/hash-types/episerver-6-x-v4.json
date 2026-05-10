@@ -1,75 +1,135 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "episerver-6-x-v4",
   "name": "EPiServer 6.x < v4",
+  "aliases": [
+    "EPiServer 6.x < v4"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "episerver-6-x-v4.haiti.065",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$episerver\\$\\*0\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{27,28}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$episerver\\$\\*0\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{27,28}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 141,
         "name": "EPiServer 6.x < v4",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "141"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "141"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "episerver",
         "name": "EPiServer 6.x < v4",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "episerver"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "EPiServer 6.x < v4"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$episerver$*0*MjEwNA==*ZUgAmuaYTqAvisD0A427FA3oaWU",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "141"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 242,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$episerver\\$\\*0\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{27,28}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$episerver\\$\\*0\\*[a-z0-9\\/=+]+\\*[a-z0-9\\/=+]{27,28}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$episerver$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 3
+        },
+        "id": "*_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 4
+        },
+        "id": "*_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$episerver\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^0$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/=]{8}$"
+        },
+        "id": "field_2_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^ZUgAmuaYTqAvisD0A427FA3oaWU$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

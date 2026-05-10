@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "netiq-sspr-pbkdf2withhmacsha256",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$pbkdf2-sha256$100000$MDUzMTE4NjQyNDc5NTQxMjAwMjg1OTYxNjAxNDgzNzc$bwYpAyQ2g5PqdnMj8mJ46mkwQbyztw8gEQqnhDHj48c",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

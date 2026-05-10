@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha224-sha224-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "b7d9a0e57e6e94e8b87996b81ffa64b05d237c58fff1d7a4e4fe2a77"
+    }
+  ]
+}

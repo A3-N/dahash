@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "luks-v1-sha-1-twofish",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "https://hashcat.net/misc/example_hashes/hashcat_luks_sha1_twofish_xts-plain64_256.txt",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

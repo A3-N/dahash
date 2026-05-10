@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "mysql-challenge-response-authentication-sha1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$mysqlna$2576670568531371763643101056213751754328*5e4be686a3149a12847caa9898247dcc05739601",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

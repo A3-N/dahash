@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "wpa-pmk-pmkid-eapol",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "WPA*01*5ce7ebe97a1bbfeb2822ae627b726d5b*27462da350ac*accd10fb464e*686173686361742d6573736964***"
+    }
+  ]
+}

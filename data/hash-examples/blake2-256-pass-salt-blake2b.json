@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "blake2-256-pass-salt-blake2b",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$BLAKE2$2b51353016a512b60e587bea98d799c2de243468085ca6cd67f983b2e55bfb67:2353288289"
+    }
+  ]
+}

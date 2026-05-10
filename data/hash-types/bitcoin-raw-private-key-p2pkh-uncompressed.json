@@ -1,61 +1,67 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bitcoin-raw-private-key-p2pkh-uncompressed",
   "name": "Bitcoin raw private key (P2PKH), uncompressed",
+  "aliases": [
+    "Bitcoin raw private key (P2PKH), uncompressed"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "30902"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "bitcoin2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$bitcoin$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 30902,
         "name": "Bitcoin raw private key (P2PKH), uncompressed",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "30902"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "12sLRz1TKPZurKCwVqeT5FkW3Y7usipPbZ",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "30902"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "bitcoin-raw-private-key-p2pkh-uncompressed.hashcat.30902",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Za-z0-9]{34}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "30902"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{34}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{34}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "12sLRz1TKPZurKCwVqeT5FkW3Y7usipPbZ"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

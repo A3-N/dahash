@@ -1,61 +1,93 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha1-salt-pass-salt-2",
   "name": "sha1($salt.$pass.$salt)",
+  "aliases": [
+    "sha1($salt.$pass.$salt)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "4900"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 4900,
         "name": "sha1($salt.$pass.$salt)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "4900"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "75d280ca9a0c2ee18729603104ead576d9ca6285:347070",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "4900"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "sha1-salt-pass-salt-2.hashcat.4900",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Fa-f0-9]{40}:[0-9]{6}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "4900"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 196,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{40}:[0-9]{6}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{40}:[0-9]{6}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "75d280ca9a0c2ee18729603104ead576d9ca6285"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^75d280ca9a0c2ee18729603104ead576d9ca6285$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^347070$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

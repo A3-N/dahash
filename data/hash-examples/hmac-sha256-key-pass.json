@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-sha256-key-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "b435ffbacea34d5eb0dbc4d69a92f0152f2cf4cd364d34c2ece322ca22d8b334:21217",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

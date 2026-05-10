@@ -1,97 +1,243 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "securezip-aes-256",
   "name": "SecureZIP AES-256",
+  "aliases": [
+    "SecureZIP AES-256"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "securezip-aes-256.haiti.216",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$zip3\\$\\*\\d\\*\\d\\*256\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$zip3\\$\\*\\d\\*\\d\\*256\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".zip",
+          ".zipx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "zip2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$pkzip$",
+          "$zip2$",
+          "$zip$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23003,
         "name": "SecureZIP AES-256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "23003"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "23003"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "securezip",
         "name": "SecureZIP AES-256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "securezip"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$zip3$*0*1*256*0*39bff47df6152a0214d7a967*65ff418ffb3b1198cccdef0327c03750f328d6dd5287e00e4c467f33b92a6ef40a74bb11b5afad61a6c3c9b279d8bd7961e96af7b470c36fc186fd3cfe059107021c9dea0cf206692f727eeca71f18f5b0b6ee1f702b648bba01aa21c7b7f3f0f7d547838aad46868155a04214f22feef7b31d7a15e1abe6dba5e569c62ee640783bb4a54054c2c69e93ece9f1a2af9d*0*0*0*file.txt",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SecureZIP AES-256"
+  "match": {
+    "base": 25,
+    "total": 366,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$zip3\\$\\*\\d\\*\\d\\*256\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "23003"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$zip3$*0*1*256*0*3f2f7f230e00000000000000*c75ed4a3ec89c22cda7aa3faa9a11cdcca9f5a2f45fe2844d963b2b76b8f98f43a907997557fc2b0eb8cb590b130c573ddfac3f5e70997d6a4539e10728317bdcd70eb74b82bafa2e4871488984db8522c4c4c8ff28fd2dd62c26be9d24246f80ddbdfa8d3b9e81b775dbdb84371446564df3effdbea48713dd223a2bb9afddffc9b8e60f41939f7577f9f30b0a28b78*0*0*0*code.txt",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SecureZIP AES-256"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$zip3$*0*1*256*0*edb47a990800000000000000*32f884f9fbb54360920a50ec37cc0651fe7b0d9892de44eed17696186139a09c1530e0522abfd9777d18441739cdc7107fdfd252ecd0c8dbbba8181bd09436e9a6a918e385cbab26bee49cd0e3182e67df3fe8c3cdc9e58d6166a0f550969cc456b4a881524e6e66a14e30196b972e260c509fce918736465aea1d00bd5871876e263635be4700ef081117ed896e1504*0*0*0*secret.txt",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SecureZIP AES-256"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SecureZIP AES-256"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$zip3\\$\\*\\d\\*\\d\\*256\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$zip3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 10
+        },
+        "id": "*_count_10",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 11
+        },
+        "id": "*_field_count_11",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$zip3\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^0$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^1$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^256$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^0$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "hex",
+          "length": 24
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "charset": "hex",
+          "length": 288
+        },
+        "id": "field_6_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "regex": "^0$"
+        },
+        "id": "field_7_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "regex": "^0$"
+        },
+        "id": "field_8_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 9,
+          "regex": "^0$"
+        },
+        "id": "field_9_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 10,
+          "charset": "alnum_dot_slash",
+          "length_min": 8,
+          "length_max": 10,
+          "length_multiple_of": 2
+        },
+        "id": "field_10_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

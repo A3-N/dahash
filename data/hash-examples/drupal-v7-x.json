@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "drupal-v7-x",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$S$C20340258nzjDWpoQthrdNTR02f0pmev0K/5/Nx80WSkOQcPEQRh",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

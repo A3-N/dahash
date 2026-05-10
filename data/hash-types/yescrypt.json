@@ -1,62 +1,116 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "yescrypt",
   "name": "yescrypt",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "yescrypt.haiti.292",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$y\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$y\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$y$j9T$.9s2wZRY3hcP/udKIFher1$sIBIYsiMmFlXhKOO4ZDJDXo54byuq7a4xAD0k9jw2m4",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "yescrypt"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$y$j9T$F5Jx5fExrKuPp53xLKQ..1$X3DX6M94c7o.9agCG9G317fhZg9SqC.5i5rd.RhAtQ7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "yescrypt"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$y$j9T$o8MJgcu/zxjLLjo3pBk4A.$SPwoNr7I95/JHVKBeTnsu1mSC//M76vfmKc6mE6lSe2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "yescrypt"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "yescrypt"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 224,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$y\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$y\\$[.\\/a-z0-9]+\\$[.\\/a-z0-9]{0,86}\\$[.\\/a-z0-9]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$y$j9T$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^y$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^j9T$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 22,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_3_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

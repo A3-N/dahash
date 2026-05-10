@@ -1,61 +1,94 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "hmac-blake2s-key-pass",
   "name": "HMAC-BLAKE2S (key = $pass)",
+  "aliases": [
+    "HMAC-BLAKE2S (key = $pass)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "33300"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 33300,
         "name": "HMAC-BLAKE2S (key = $pass)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "33300"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "0d541ae24d30aff2627c4d1a910f766088a64809edb46a05d29649a9b944da6c:1234",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "33300"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "hmac-blake2s-key-pass.hashcat.33300",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Fa-f0-9]{64}:[0-9]{4}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "33300"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 198,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{64}:[0-9]{4}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{64}:[0-9]{4}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "0d541ae24d30aff2627c4d1a910f766088a64809"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_0_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^1234$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

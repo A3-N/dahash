@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-sha512-key-salt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "7d02921299935179d509e6dd4f3d0f2944e3451ea9de3af16baead6a7297e5653577d2473a0fff743d9fe78a89bd49296114319989dc7e7870fc7f62bc96accb:114",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

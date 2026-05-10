@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-ripemd320-key-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "e740440e7bd65056a90f1aa4eb00e00308a9f1788866b4eacbd46cfc8032301d4e5b3a9d179be044:95454599772294521162217",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

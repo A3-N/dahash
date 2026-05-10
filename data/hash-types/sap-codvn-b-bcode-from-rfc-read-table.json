@@ -1,77 +1,106 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sap-codvn-b-bcode-from-rfc-read-table",
   "name": "SAP CODVN B (BCODE) from RFC_READ_TABLE",
+  "aliases": [
+    "SAP CODVN B (BCODE) from RFC_READ_TABLE"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sap-codvn-b-bcode-from-rfc-read-table.haiti.117",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^.{1,40}\\$[a-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A.{1,40}\\$[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7701,
         "name": "SAP CODVN B (BCODE) from RFC_READ_TABLE",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7701"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7701"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "sapb",
         "name": "SAP CODVN B (BCODE) from RFC_READ_TABLE",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "sapb"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "027642760180$77EC386300000000",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SAP CODVN B (BCODE) from RFC_READ_TABLE"
+  "match": {
+    "base": 25,
+    "total": 196,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^.{1,40}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "7701"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SAP CODVN B (BCODE) from RFC_READ_TABLE"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^.{1,40}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "027642760180$77EC386300000000"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 1
+        },
+        "id": "$_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 2
+        },
+        "id": "$_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^027642760180$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^77EC386300000000$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

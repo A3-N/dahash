@@ -1,61 +1,47 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "md5-sha1-pass-md5-pass-sha1-pass",
   "name": "md5(sha1($pass).md5($pass).sha1($pass))",
+  "aliases": [
+    "md5(sha1($pass).md5($pass).sha1($pass))"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "20900"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 20900,
         "name": "md5(sha1($pass).md5($pass).sha1($pass))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "20900"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "100b3a4fc1dc8d60d9bf40688d8b740a",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "20900"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "md5-sha1-pass-md5-pass-sha1-pass.hashcat.20900",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Fa-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "20900"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{32}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{32}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

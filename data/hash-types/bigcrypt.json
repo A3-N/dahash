@@ -1,46 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bigcrypt",
   "name": "BigCrypt",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "reference"
-  ],
   "priority": 45,
-  "matchers": [
-    {
-      "id": "bigcrypt.reference.0",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-z0-9\\/.]{13,}$",
-      "confidence": "generic",
-      "weight": 35,
-      "sources": [
-        {
-          "id": "hashid-reference",
-          "ref": "BigCrypt"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "hashid-reference",
-      "ref": "BigCrypt"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "bigcrypt",
         "name": "BigCrypt",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashid-reference",
-            "ref": "bigcrypt"
-          }
-        ]
+        "status": "active"
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{13,}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{13,}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
       }
     ]
   }

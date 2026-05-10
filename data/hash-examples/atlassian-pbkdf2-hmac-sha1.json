@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "atlassian-pbkdf2-hmac-sha1",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "{PKCS5S2}DQIXJU038u4P7FdsuFTY/+35bm41kfjZa57UrdxHp2Mu3qF2uy+ooD+jF5t1tb8J"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "{PKCS5S2}NTczNTY0NDY2NjQyNzU1Mx8gGiRGobaZYwumctGHbn2ZOHB8LkwzH+Z1gkWfy1zD"
+    },
+    {
+      "kind": "example_hash",
+      "value": "{PKCS5S2}NzIyNzM0NzY3NTIwNjI3MdDDis7wPxSbSzfFqDGf7u/L00kSEnupbz36XCL0m7wa"
+    }
+  ]
+}

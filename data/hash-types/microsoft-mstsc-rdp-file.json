@@ -1,31 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "microsoft-mstsc-rdp-file",
   "name": "Microsoft MSTSC(RDP-File)",
+  "aliases": [
+    "Microsoft MSTSC(RDP-File)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "microsoft-mstsc-rdp-file.haiti.096",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A[a-f0-9]{1329}\\Z",
-      "confidence": "generic",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{1329}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Microsoft MSTSC(RDP-File)"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "\\A[a-f0-9]{1329}\\Z",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "\\A[a-f0-9]{1329}\\Z",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "django-pbkdf2-hmac-sha256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$django$*1*pbkdf2_sha256$10000$7qPqyUDw8kZV$pFmVRjlHvayoWEy8ZWXkHgfmgImUKLmkmruclpYVAxM="
+    },
+    {
+      "kind": "example_hash",
+      "value": "$django$*1*pbkdf2_sha256$10000$qPmFbibfAY06$x/geVEkdZSlJMqvIYJ7G6i5l/6KJ0UpvLUU6cfj83VM="
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "pbkdf2_sha256$10000$1135411628$bFYX62rfJobJ07VwrUMXfuffLfj2RDM2G6/BrTrUWkE="
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2_sha256$20000$H0dPx8NeajVu$GiC4k5kqbbR9qWBlsRgDywNqC2vd9kqfk7zdorEnNas="
+    }
+  ]
+}

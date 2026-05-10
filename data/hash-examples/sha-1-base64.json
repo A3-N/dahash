@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha-1-base64",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "{SHA}uJ6qx+YUFzQbcQtyd2gpTQ5qJ3s=",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

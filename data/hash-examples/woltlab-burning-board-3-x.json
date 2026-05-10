@@ -1,0 +1,16 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "woltlab-burning-board-3-x",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "7f8d1951fe48ae3266980c2979c141f60e4415e5:5037864764153886517871426607441768004150",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "8084df19a6dc81e2597d051c3d8b400787e2d5a9:6755045315424852185115352765375338838643"
+    }
+  ]
+}

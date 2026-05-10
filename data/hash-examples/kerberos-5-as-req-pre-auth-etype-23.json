@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "kerberos-5-as-req-pre-auth-etype-23",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$krb5pa$23$$$$afcbe07c32c3450b37d0f2516354570fe7d3e78f829e77cdc1718adf612156507181f7daeb03b6fbcfe91f8346f3c0ae7e8abfe5"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$krb5pa$23$user$realm$salt$5cbb0c882a2b26956e81644edbdb746326f4f5f0e947144fb3095dffe4b4b03e854fc1d631323632303636373330383333353630"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$krb5pa$23$user$realm$salt$afcbe07c32c3450b37d0f2516354570fe7d3e78f829e77cdc1718adf612156507181f7daeb03b6fbcfe91f8346f3c0ae7e8abfe5"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$mskrb5$john$JOHN.DOE.MS.COM$02E837D06B2AC76891F388D9CC36C67A$2A9785BF5036C45D3843490BF9C228E8C18653E10CE58D7F8EF119D2EF4F92B1803B1451"
+    }
+  ]
+}

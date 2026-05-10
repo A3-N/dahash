@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "radmin-v2-x",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "22527bee5c29ce95373c4e0f359f079b"
+    }
+  ]
+}

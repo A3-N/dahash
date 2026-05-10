@@ -1,89 +1,199 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "phpass-portable-hash",
   "name": "PHPass' Portable Hash",
+  "aliases": [
+    "PHPass' Portable Hash"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "phpass-portable-hash.haiti.029",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$H\\$[a-z0-9\\/.]{31}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$H\\$[a-z0-9\\/.]{31}\\Z"
-        }
-      ]
-    },
-    {
-      "id": "phpass-portable-hash.haiti.030",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$P\\$[a-z0-9\\/.]{31}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$P\\$[a-z0-9\\/.]{31}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 400,
         "name": "PHPass' Portable Hash",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "phpass",
         "name": "PHPass' Portable Hash",
-        "status": "active",
-        "sources": [
+        "status": "active"
+      }
+    ]
+  },
+  "match": {
+    "base": 0,
+    "total": 0,
+    "requires": [],
+    "evidence": [],
+    "variants": [
+      {
+        "id": "matcher_1",
+        "format": "regex",
+        "base": 25,
+        "total": 196,
+        "requires": [
           {
-            "id": "haiti",
-            "ref": "phpass"
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$H\\$[a-z0-9\\/.]{31}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$H\\$[a-z0-9\\/.]{31}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          },
+          {
+            "feature": "prefix",
+            "args": {
+              "value": "$P$"
+            },
+            "id": "marker_prefix",
+            "weight": 45
+          },
+          {
+            "feature": "count_char",
+            "args": {
+              "value": "$",
+              "count": 2
+            },
+            "id": "$_count_2",
+            "weight": 8
+          },
+          {
+            "feature": "field_count",
+            "args": {
+              "separator": "$",
+              "count": 3,
+              "trim_empty_start": true
+            },
+            "id": "$_field_count_2",
+            "weight": 12
+          },
+          {
+            "feature": "field_regex",
+            "args": {
+              "separator": "$",
+              "field": 0,
+              "regex": "^P$",
+              "trim_empty_start": true
+            },
+            "id": "field_0_literal",
+            "weight": 18
+          },
+          {
+            "feature": "field_regex",
+            "args": {
+              "separator": "$",
+              "field": 1,
+              "regex": "^946647711V1klyitUYhtB8Yw5DMA/w\\.$",
+              "trim_empty_start": true
+            },
+            "id": "field_1_literal",
+            "weight": 18
+          }
+        ]
+      },
+      {
+        "id": "matcher_2",
+        "format": "regex",
+        "base": 25,
+        "total": 196,
+        "requires": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$P\\$[a-z0-9\\/.]{31}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$P\\$[a-z0-9\\/.]{31}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          },
+          {
+            "feature": "prefix",
+            "args": {
+              "value": "$P$"
+            },
+            "id": "marker_prefix",
+            "weight": 45
+          },
+          {
+            "feature": "count_char",
+            "args": {
+              "value": "$",
+              "count": 2
+            },
+            "id": "$_count_2",
+            "weight": 8
+          },
+          {
+            "feature": "field_count",
+            "args": {
+              "separator": "$",
+              "count": 3,
+              "trim_empty_start": true
+            },
+            "id": "$_field_count_2",
+            "weight": 12
+          },
+          {
+            "feature": "field_regex",
+            "args": {
+              "separator": "$",
+              "field": 0,
+              "regex": "^P$",
+              "trim_empty_start": true
+            },
+            "id": "field_0_literal",
+            "weight": 18
+          },
+          {
+            "feature": "field_regex",
+            "args": {
+              "separator": "$",
+              "field": 1,
+              "regex": "^946647711V1klyitUYhtB8Yw5DMA/w\\.$",
+              "trim_empty_start": true
+            },
+            "id": "field_1_literal",
+            "weight": 18
           }
         ]
       }
     ]
-  },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PHPass' Portable Hash"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "400"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  }
 }

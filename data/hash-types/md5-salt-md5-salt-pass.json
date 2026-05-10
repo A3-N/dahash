@@ -1,78 +1,109 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "md5-salt-md5-salt-pass",
   "name": "md5($salt.md5($salt.$pass))",
+  "aliases": [
+    "md5($salt.md5($salt.$pass))"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "md5-salt-md5-salt-pass.haiti.015",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}(?::.+)?$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 4010,
         "name": "md5($salt.md5($salt.$pass))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "4010"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "4010"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dynamic_10",
         "name": "md5($salt.md5($salt.$pass))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_10"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "md5($salt.md5($salt.$pass))"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "82422514daaa8253be0aa43f3e263af5:7530326651137",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "4010"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 141,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "82422514daaa8253be0aa43f3e263af5:7530326"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^82422514daaa8253be0aa43f3e263af5$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^7530326651137$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

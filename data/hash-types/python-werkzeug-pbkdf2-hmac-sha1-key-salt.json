@@ -1,72 +1,104 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-werkzeug-pbkdf2-hmac-sha1-key-salt",
   "name": "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)",
+  "aliases": [
+    "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-werkzeug-pbkdf2-hmac-sha1-key-salt.haiti.323",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^pbkdf2:sha1:\\d+\\$.{0,256}\\$[a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Apbkdf2:sha1:\\d+\\$.{0,256}\\$[a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha1:600000$3lGWkOIT$505daf9a81fc1953f4b7a2ea69f656c46c87dfb2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha1:600000$RF37Bycc5slAkgfO$aae97ff5ac11b6e1163c391363b062000ec6cb10",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha1:600000$fQ2Cw88BMhFLsemZpVMq6gd6PTJhDFTf$98db7984f6a90d060fdfc843cabbb1c67835c025",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha1:700000$ISoXbW1u$5a50ed21ef5e3cda6be8e3dcbedcdadd64d1e6bf",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python Werkzeug PBKDF2-HMAC-SHA1 (key = $salt)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 202,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^pbkdf2:sha1:\\d+\\$.{0,256}\\$[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^pbkdf2:sha1:\\d+\\$.{0,256}\\$[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "pbkdf2:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 8,
+          "length_max": 32,
+          "length_multiple_of": 2
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

@@ -1,64 +1,114 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sm3crypt-sm3-unix",
   "name": "sm3crypt, SM3 (Unix)",
+  "aliases": [
+    "sm3crypt, SM3 (Unix)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sm3crypt-sm3-unix.haiti.343",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$sm3\\$.{0,20}\\$[a-z0-9/.]{43}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$sm3\\$.{0,20}\\$[a-z0-9/.]{43}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 35100,
         "name": "sm3crypt, SM3 (Unix)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "35100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "35100"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$sm3$KTTUB40dW4mRyRFd$ul2xLiIY3FJtbo8sv1R93sAYCkxQCH/6rmS1kD5vJYA",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "sm3crypt, SM3 (Unix)"
+  "match": {
+    "base": 25,
+    "total": 210,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$sm3\\$.{0,20}\\$[a-z0-9/.]{43}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "35100"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "sm3crypt, SM3 (Unix)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$sm3\\$.{0,20}\\$[a-z0-9/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$sm3$KTTUB40dW4mRyRFd$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^sm3$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^KTTUB40dW4mRyRFd$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

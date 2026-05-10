@@ -1,61 +1,119 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "netiq-sspr-pbkdf2withhmacsha1",
   "name": "NetIQ SSPR (PBKDF2WithHmacSHA1)",
+  "aliases": [
+    "NetIQ SSPR (PBKDF2WithHmacSHA1)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "32050"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 32050,
         "name": "NetIQ SSPR (PBKDF2WithHmacSHA1)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "32050"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pbkdf2-hmac-sha1$100000$7134180503252384106490944216249411431665011151428170747164626720$990e0c5f62b1384d48cbe3660329b9741c4a8473",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32050"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "netiq-sspr-pbkdf2withhmacsha1.hashcat.32050",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pbkdf2\\-hmac\\-sha1\\$[0-9]{6}\\$[A-Fa-f0-9]{64}\\$[A-Fa-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32050"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 234,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2\\-hmac\\-sha1\\$[0-9]{6}\\$[A-Fa-f0-9]{64}\\$[A-Fa-f0-9]{40}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2\\-hmac\\-sha1\\$[0-9]{6}\\$[A-Fa-f0-9]{64}\\$[A-Fa-f0-9]{40}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pbkdf2-hmac-sha1$100000$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^pbkdf2\\-hmac\\-sha1$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^100000$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^990e0c5f62b1384d48cbe3660329b9741c4a8473$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

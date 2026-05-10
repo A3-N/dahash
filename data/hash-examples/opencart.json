@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "opencart",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "058c1c3773340c8563421e2b17e60eb7c916787e:827500576",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

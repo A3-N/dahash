@@ -1,117 +1,158 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "xmpp-scram-pbkdf2-sha1",
   "name": "XMPP SCRAM PBKDF2-SHA1",
+  "aliases": [
+    "XMPP SCRAM PBKDF2-SHA1"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "xmpp-scram-pbkdf2-sha1.haiti.245",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$xmpp-scram\\$\\d\\$\\d{1,8}\\$\\d{1,8}\\$[a-f0-9]{0,512}\\$[a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$xmpp-scram\\$\\d\\$\\d{1,8}\\$\\d{1,8}\\$[a-f0-9]{0,512}\\$[a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23200,
         "name": "XMPP SCRAM PBKDF2-SHA1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "23200"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "23200"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "xmpp-scram",
         "name": "XMPP SCRAM PBKDF2-SHA1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "xmpp-scram"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$xmpp-scram$0$4096$16$1f7fcb384d5bcc61dfb1231ae1b32a2f$a2d076d56b0152ed557ad7d38fce93159bc63c9b",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "XMPP SCRAM PBKDF2-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$xmpp-scram$0$4096$16$4f67aec1bd53f5f2f74652e69a3b8f32$4aec3caa8ace5180efa7a671092646c041ab1496",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "XMPP SCRAM PBKDF2-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$xmpp-scram$0$4096$24$bc1bd6638a1231ffd54f608983425eacf729d8455a469197$aee9254762b23a3950fd7c803caab5f6654587c8",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "XMPP SCRAM PBKDF2-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$xmpp-scram$0$4096$36$37333536663261622d613666622d346333642d396232622d626432646237633338343064$38f79a6e3e64c07f731570d531ec05365aa05306",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "XMPP SCRAM PBKDF2-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$xmpp-scram$0$4096$45$353835323736323530353932363531393630313632353634313335323434323038393931323138373138343134$6d5b543b985dc6c0645da3c83d114fce121aa51d",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "XMPP SCRAM PBKDF2-SHA1"
+  "match": {
+    "base": 25,
+    "total": 274,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$xmpp-scram\\$\\d\\$\\d{1,8}\\$\\d{1,8}\\$[a-f0-9]{0,512}\\$[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "23200"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "XMPP SCRAM PBKDF2-SHA1"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$xmpp-scram\\$\\d\\$\\d{1,8}\\$\\d{1,8}\\$[a-f0-9]{0,512}\\$[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$xmpp-scram$0$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 6
+        },
+        "id": "$_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 7,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_6",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^xmpp\\-scram$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^0$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^4096$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "charset": "hex",
+          "length_min": 32,
+          "length_max": 90,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "charset": "hex",
+          "length": 40,
+          "trim_empty_start": true
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "filevault-2",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$fvde$1$16$270186d6758a4426d3f015a019eabc46$101082$63a758b61183c5d4d06dda5e8f14dd0b1555fe2a1f2d0304"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$fvde$1$16$84286044060108438487434858307513$20000$f1620ab93192112f0a23eea89b5d4df065661f974b704191"
+    }
+  ]
+}

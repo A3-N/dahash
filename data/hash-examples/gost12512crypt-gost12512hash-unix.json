@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "gost12512crypt-gost12512hash-unix",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$gost12512hash$salt$w0TCvk4n0JHA/kPNpHEyf3RR5YuUXReihlrize3NdcPCmtLk/ewG63OUWT.G4bvjegPTeMb/xQ2PK7apsCfC7/",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

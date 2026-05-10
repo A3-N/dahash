@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "oracle-t-type-oracle-12",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "8F75FBD166AFDB6D7587DAB89C2F15672AAC031C5B0B5E65C0835FB130555F6FF4E0E5764976755558112246FFF306450C22F6B7746B9E9831ED97B373992F9157436180438417080374881414745255",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

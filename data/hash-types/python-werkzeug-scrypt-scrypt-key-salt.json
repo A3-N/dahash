@@ -1,72 +1,113 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-werkzeug-scrypt-scrypt-key-salt",
   "name": "Python Werkzeug scrypt (scrypt (key = $salt))",
+  "aliases": [
+    "Python Werkzeug scrypt (scrypt (key = $salt))"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-werkzeug-scrypt-scrypt-key-salt.haiti.321",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^scrypt:\\d+:\\d+:\\d+\\$.{0,256}\\$[a-f0-9]{128}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Ascrypt:\\d+:\\d+:\\d+\\$.{0,256}\\$[a-f0-9]{128}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "scrypt:32768:8:1$SPOnauFG$5770625ad4692a95989389a6eefc05f758c00a00351c8ca508a283bcb80cfc20696155f2e9106bf9d1c36a86ac42e51915231d192c9785f5445a10bba96b5c18",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug scrypt (scrypt (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "scrypt:32768:8:1$o0AEq1NsM48mpRZX$ec30fa478403094a3686f0ee825208da545514d871b98afa8b4c3c7a9ec2621b11ce9ef8584a761c961a4c2a9b8759bfb2893d9ae8b75c0b1aa7dc241bb82379",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug scrypt (scrypt (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "scrypt:32768:8:1$pLaTtGUijpBTu23LHEND5Msf7c5xiOIT$68d61eee291ded6884211192f54830cf78841d6b4398b8a45ed75ee9ca82f2fd953c82c74920aaa88b67595241a60c697cc3c10bb2aeeed0dde548396def7a21",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug scrypt (scrypt (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "scrypt:65536:16:2$LdMZzxK4$01964c4337085d11d6df634f47bf589339e7ecc03419f4c396c77b3d433e05832bcf17e124388745a4adf464a40958238674e875b5ae4ebbf74e51cc1b333feb",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug scrypt (scrypt (key = $salt))"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python Werkzeug scrypt (scrypt (key = $salt))"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 226,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^scrypt:\\d+:\\d+:\\d+\\$.{0,256}\\$[a-f0-9]{128}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^scrypt:\\d+:\\d+:\\d+\\$.{0,256}\\$[a-f0-9]{128}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "scrypt:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 3
+        },
+        "id": ":_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 4
+        },
+        "id": ":_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^scrypt$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 5
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "charset": "hex",
+          "length_min": 1,
+          "length_max": 2
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

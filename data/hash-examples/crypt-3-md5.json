@@ -1,0 +1,24 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "crypt-3-md5",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$1$12345678$aIccj83HRDBo6ux1bVx7D1"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$apr1$62722340$zGjeAwVP2KwY6MtumUI1N/",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$apr1$71850310$gh9m4xcAn3MGxogwX/ztb."
+    },
+    {
+      "kind": "example_hash",
+      "value": "{smd5}s8/xSJ/v$uGam4GB8hOjTLQqvBfxJ2/"
+    }
+  ]
+}

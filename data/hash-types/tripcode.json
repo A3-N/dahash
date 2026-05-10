@@ -1,61 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "tripcode",
   "name": "Tripcode",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "16000"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 16000,
         "name": "Tripcode",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "16000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "pfaRCwDe0U",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16000"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "tripcode.hashcat.16000",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Za-z0-9]{10}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16000"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{10}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{10}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "pfaRCwDe0U"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

@@ -1,61 +1,51 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "android-fde-samsung-dek",
   "name": "Android FDE (Samsung DEK)",
+  "aliases": [
+    "Samsung DEK",
+    "Android FDE Samsung"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "12900"
-    }
-  ],
+  "identification": {
+    "max_confidence": 50
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 12900,
         "name": "Android FDE (Samsung DEK)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "12900"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "15738301074686823451275227041071157383010746868234512752270410712bc4be900bf96ccf43c9852fff49b5f5874a9f6e7bf301686fa6d98286de151f15738301074686823451275227041071",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "12900"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "android-fde-samsung-dek.hashcat.12900",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Fa-f0-9]{160}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "12900"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 10,
+    "total": 80,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{160}$"
+        },
+        "id": "hex_160"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{160}$"
+        },
+        "id": "hex_160",
+        "weight": 70
+      }
+    ]
+  }
 }

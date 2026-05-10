@@ -1,33 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "crc-16",
   "name": "CRC-16",
+  "aliases": [
+    "CRC-16"
+  ],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "crc-16.haiti.000",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{4}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{4}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "CRC-16"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{4}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{4}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

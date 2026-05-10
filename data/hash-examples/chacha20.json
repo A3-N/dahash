@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "chacha20",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$chacha20$*0400000000000003*16*0200000000000001*5152535455565758*6b05fe554b0bc3b3",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

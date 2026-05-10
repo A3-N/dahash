@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cram-md5-dovecot",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "{CRAM-MD5}5389b33b9725e5657cb631dc50017ff100000000000000000000000000000000",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

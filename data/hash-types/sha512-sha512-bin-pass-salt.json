@@ -1,64 +1,100 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha512-sha512-bin-pass-salt",
   "name": "sha512(sha512_bin($pass).$salt)",
+  "aliases": [
+    "sha512(sha512_bin($pass).$salt)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sha512-sha512-bin-pass-salt.haiti.075",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{128}(:.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 32420,
         "name": "sha512(sha512_bin($pass).$salt)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "32420"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "32420"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "c1bade2bd4ebc8db841ac6ab3e0a5035a29619e5b1a6135782b77da5d7cfaccee096f3ddb9ee23b9866378cfc2fb19f2c013fed1b7e1fffd18340a4f39238412:789",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "sha512(sha512_bin($pass).$salt)"
+  "match": {
+    "base": 25,
+    "total": 198,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "32420"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "sha512(sha512_bin($pass).$salt)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "c1bade2bd4ebc8db841ac6ab3e0a5035a29619e5"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 128
+        },
+        "id": "field_0_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^789$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

@@ -1,77 +1,239 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "securezip-aes-128",
   "name": "SecureZIP AES-128",
+  "aliases": [
+    "SecureZIP AES-128"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "securezip-aes-128.haiti.214",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$zip3\\$\\*\\d\\*\\d\\*128\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$zip3\\$\\*\\d\\*\\d\\*128\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".zip",
+          ".zipx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "zip2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$pkzip$",
+          "$zip2$",
+          "$zip$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23001,
         "name": "SecureZIP AES-128",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "23001"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "23001"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "securezip",
         "name": "SecureZIP AES-128",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "securezip"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$zip3$*0*1*128*0*b4630625c92b6e7848f6fd86*df2f62611b3d02d2c7e05a48dad57c7d93b0bac1362261ab533807afb69db856676aa6e350320130b5cbf27c55a48c0f75739654ac312f1cf5c37149557fc88a92c7e3dde8d23edd2b839036e88092a708b7e818bf1b6de92f0efb5cce184cceb11db6b3ca0527d0bdf1f1137ee6660d9890928cd80542ac1f439515519147c14d965b5ba107c6227f971e3e115170bf*0*0*0*file.txt",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SecureZIP AES-128"
+  "match": {
+    "base": 25,
+    "total": 368,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$zip3\\$\\*\\d\\*\\d\\*128\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "23001"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SecureZIP AES-128"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$zip3\\$\\*\\d\\*\\d\\*128\\*\\d\\*[a-f0-9]{0,32}\\*[a-f0-9]{288}\\*\\d\\*\\d\\*\\d\\*[^\\s]{0,64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$zip3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 10
+        },
+        "id": "*_count_10",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 11
+        },
+        "id": "*_field_count_11",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$zip3\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^0$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^1$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^128$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^0$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "regex": "^b4630625c92b6e7848f6fd86$"
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "charset": "hex",
+          "length": 288
+        },
+        "id": "field_6_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "regex": "^0$"
+        },
+        "id": "field_7_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "regex": "^0$"
+        },
+        "id": "field_8_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 9,
+          "regex": "^0$"
+        },
+        "id": "field_9_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 10,
+          "regex": "^file\\.txt$"
+        },
+        "id": "field_10_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

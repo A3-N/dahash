@@ -1,101 +1,115 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-db-etype-18",
   "name": "Kerberos 5 DB etype 18",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "kerberos-5-db-etype-18.haiti.112",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$krb5db\\$18\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]{1,512})?\\$[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$krb5db\\$18\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]{1,512})?\\$[a-f0-9]{64}\\Z"
-        }
-      ]
-    },
-    {
-      "id": "kerberos-5-db-etype-18.haiti.113",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$krb18\\$[^$]{1,512}\\$[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$krb18\\$[^$]{1,512}\\$[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 28900,
         "name": "Kerberos 5 DB etype 18",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "28900"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "28900"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "krb5-18",
         "name": "Kerberos 5 DB etype 18",
-        "status": "active",
-        "sources": [
+        "status": "active"
+      }
+    ]
+  },
+  "match": {
+    "base": 0,
+    "total": 0,
+    "requires": [],
+    "evidence": [],
+    "variants": [
+      {
+        "id": "matcher_1",
+        "format": "regex",
+        "base": 25,
+        "total": 140,
+        "requires": [
           {
-            "id": "haiti",
-            "ref": "krb5-18"
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb5db\\$18\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]{1,512})?\\$[a-f0-9]{64}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb5db\\$18\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]{1,512})?\\$[a-f0-9]{64}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          },
+          {
+            "feature": "prefix",
+            "args": {
+              "value": "$krb"
+            },
+            "id": "marker_prefix",
+            "weight": 45
+          }
+        ]
+      },
+      {
+        "id": "matcher_2",
+        "format": "regex",
+        "base": 25,
+        "total": 140,
+        "requires": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb18\\$[^$]{1,512}\\$[a-f0-9]{64}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb18\\$[^$]{1,512}\\$[a-f0-9]{64}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          },
+          {
+            "feature": "prefix",
+            "args": {
+              "value": "$krb"
+            },
+            "id": "marker_prefix",
+            "weight": 45
           }
         ]
       }
     ]
-  },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb18$OLYMPE.OLtest$214bb89cf5b8330112d52189ab05d9d05b03b5a961fe6d06203335ad5f339b26",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 18"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb5db$18$test$TEST.LOCAL$266b5a53a6d663c3f69174f3309acada8e467c097c7973699f86286a6cf1a6c7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 18"
-        },
-        {
-          "id": "hashcat-examples",
-          "ref": "28900"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Kerberos 5 DB etype 18"
-    }
-  ]
+  }
 }

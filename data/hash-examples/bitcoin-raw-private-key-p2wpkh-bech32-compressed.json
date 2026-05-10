@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "bitcoin-raw-private-key-p2wpkh-bech32-compressed",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "bc1q926ca6n7wz7gm2gfd8xc5p0vu687ngvnknpx74",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

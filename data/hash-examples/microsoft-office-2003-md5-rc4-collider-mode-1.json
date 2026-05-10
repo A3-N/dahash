@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "microsoft-office-2003-md5-rc4-collider-mode-1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$oldoffice$0*55045061647456688860411218030058*e7e24d163fbd743992d4b8892bf3f2f7*493410dbc832557d3fe1870ace8397e2",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

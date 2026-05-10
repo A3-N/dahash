@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "md5-sha1-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "288496df99b33f8f75a7ce4837d1b480",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

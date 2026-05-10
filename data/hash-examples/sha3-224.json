@@ -1,0 +1,20 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha3-224",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "2b34efc449e855b52bb60a58abd87ebc43afa8302a7acd4d14069f18"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "412ef78534ba6ab0e9b1607d3e9767a25c1ea9d5e83176b4c2817a6c",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "efdd3949a290694b46e41d542ba11cb07e1e56533c8bb84099802bcd"
+    }
+  ]
+}

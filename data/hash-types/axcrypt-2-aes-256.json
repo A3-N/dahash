@@ -1,61 +1,162 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "axcrypt-2-aes-256",
   "name": "AxCrypt 2 AES-256",
+  "aliases": [
+    "AxCrypt 2 AES-256",
+    "Hashcat 23600"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "23600"
-    }
-  ],
+  "identification": {
+    "max_confidence": 90
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23600,
         "name": "AxCrypt 2 AES-256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "23600"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$axcrypt$*2*10000*79bea2d51670484a065241c52613b41a33bf56d2dda9993770e8b0188e3bbf881bea6552a2986c70dc97240b0f91df2eecfa2c7044998041b3fbd58369cfef79*4982f7a860d4e92079bc677c1f89304aa3a2d9ab8c81efaff6c78a12e2873a3a23e6ae6e23a7144248446d8b44e3e82b19a307b2105570a39e1a7bed70b77bbf6b3e85371fe5bb52d1d4c7fcb3d755b308796ab7c4ff270c9217f05477aff5e8e94e5e8af1fba3ce069ce6fc94ae7aeebcb3da270cab672e95c8042a848cefc70bde7201b52cba9a8a0615ac70315792*1000*e2438859e86f7b4076b0ee4044ad5d17c3bb1f5a05fcb1af28ed7326cf71ced2",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "23600"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "axcrypt-2-aes-256.hashcat.23600",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{7}\\$\\*[0-9]{1}\\*[0-9]{5}\\*[A-Fa-f0-9]{128}\\*[A-Fa-f0-9]{288}\\*[0-9]{4}\\*[A-Fa-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "23600"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 370,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$axcrypt$"
+        },
+        "id": "axcrypt_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "seven_star_fields"
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "decimal",
+          "length": 1,
+          "numeric_min": 2,
+          "numeric_max": 2
+        },
+        "id": "version_2"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$axcrypt$"
+        },
+        "id": "axcrypt_marker",
+        "weight": 75
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "seven_star_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$axcrypt\\$$"
+        },
+        "id": "marker_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "decimal",
+          "length": 1,
+          "numeric_min": 2,
+          "numeric_max": 2
+        },
+        "id": "version_2",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 7,
+          "numeric_min": 1
+        },
+        "id": "wrap_iterations_decimal",
+        "weight": 30
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 128
+        },
+        "id": "wrap_salt_hex_64_bytes",
+        "weight": 45
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 288
+        },
+        "id": "wrapped_key_hex_144_bytes",
+        "weight": 55
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 7,
+          "numeric_min": 1
+        },
+        "id": "derivation_iterations_decimal",
+        "weight": 30
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "derivation_salt_hex_32_bytes",
+        "weight": 45
+      }
+    ]
+  }
 }

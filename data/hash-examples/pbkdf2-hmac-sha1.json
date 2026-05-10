@@ -1,0 +1,34 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "pbkdf2-hmac-sha1",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-hmac-sha1$1000$6926d45e$231c561018a4cee662df7cd4a8206701c5806af9"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-hmac-sha1$1000.303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930.a145d99036ea8d7ec08b5b10b3fa2b5227482d16"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-hmac-sha1$1000.3031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738.8f7c89f74233f78f6c8ace00696cf6ed09ae43f4"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-hmac-sha1$1000.6834476f733353333654315a5a31494f.1932a843a69dc1e38a29d2691a7abf27ecaa6d55"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-hmac-sha1$1000.fd11cde0.27de197171e6d49fc5f55c9ef06c0d8751cd7250"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "sha1:1000:MTYwNTM4MDU4Mzc4MzA=:aGghFQBtQ8+WVlMk5GEaMw=="
+    },
+    {
+      "kind": "example_hash",
+      "value": "sha1:1000:MzU4NTA4MzIzNzA1MDQ=:19ofiY+ahBXhvkDsp0j2ww=="
+    }
+  ]
+}

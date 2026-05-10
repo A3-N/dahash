@@ -1,67 +1,114 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "md5-salt1-pass-salt2",
   "name": "md5($salt1.$pass.$salt2)",
+  "aliases": [
+    "md5($salt1.$pass.$salt2)"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "md5-salt1-pass-salt2.haiti.015",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}(?::.+)?$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 33000,
         "name": "md5($salt1.$pass.$salt2)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "33000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "33000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "036a81bc84e01700faf965c3caaa3954:0243402616975530019305541949338903179746132451440267505028190519468680111713847350899833009965414425621884797638402856957040435715380438220464016:0757380776148401126145133134435506200715895167468508855794708942913462135276430452032928239699197100625556660484150983610760766285767453357925167463064045123083116191440783332986105343359475417787249790516137833723344398087127577224833364437305770807742238",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "md5($salt1.$pass.$salt2)"
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 163,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "33000"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "md5($salt1.$pass.$salt2)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "036a81bc84e01700faf965c3caaa3954:0243402"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 3
+        },
+        "id": ":_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^036a81bc84e01700faf965c3caaa3954$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 145
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "charset": "hex",
+          "length": 256
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

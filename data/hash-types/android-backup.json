@@ -1,75 +1,187 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "android-backup",
   "name": "Android Backup",
+  "aliases": [
+    "Android .ab backup",
+    "AndroidBackup"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "android-backup.haiti.207",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$ab\\$\\d{1}\\*\\d{1}\\*\\d{1,6}\\*[a-f0-9]{128}\\*[a-f0-9]{128}\\*[a-f0-9]{32}\\*[a-f0-9]{192}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$ab\\$\\d{1}\\*\\d{1}\\*\\d{1,6}\\*[a-f0-9]{128}\\*[a-f0-9]{128}\\*[a-f0-9]{32}\\*[a-f0-9]{192}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".ab",
+          ".backup"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "ascii": "ANDROID BACKUP\n"
+            },
+            "id": "android_backup_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "androidbackup2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$ab$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 18900,
         "name": "Android Backup",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "18900"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "18900"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "AndroidBackup",
         "name": "Android Backup",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "AndroidBackup"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Android Backup"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$ab$5*0*10000*b8900e4885ff9cad8f01ee1957a43bd633fea12491440514ae27aa83f2f5c006ec7e7fa0bce040add619919b4eb60608304b7d571a2ed87fd58c9ad6bc5fcf4c*7d254d93e16be9312fb1ccbfc6265c40cb0c5eab7b605a95a116e2383fb1cf12b688223f96221dcd2bf5410d4ca6f90e0789ee00157fa91658b42665d6b6844c*fc9f6be604d1c59ac32664ec2c5b9b30*00c4972149af3adcc235899e9d20611ea6e8de2212afcb9fcfefde7e35b691c2d0994eb47e4f9a260526ba47f4caea71af9c7fadcd5685d50126276f6acdd59966528b13ccc26036a0eaba2f2451aa64b05766d0edd03c988dcf87e2a9eec52d",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "18900"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 365,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ab$"
+        },
+        "id": "android_backup_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "seven_star_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ab$"
+        },
+        "id": "android_backup_marker",
+        "weight": 70
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "seven_star_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "charset": "decimal",
+          "prefix": "$ab$",
+          "length": 1,
+          "numeric_min": 1,
+          "numeric_max": 5
+        },
+        "id": "backup_version",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "decimal",
+          "length": 1,
+          "numeric_min": 0,
+          "numeric_max": 9
+        },
+        "id": "cipher_id",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 6,
+          "numeric_min": 1
+        },
+        "id": "rounds_decimal",
+        "weight": 30
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 128
+        },
+        "id": "user_salt_hex_64_bytes",
+        "weight": 45
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 128
+        },
+        "id": "checksum_salt_hex_64_bytes",
+        "weight": 45
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "user_iv_hex_16_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "charset": "hex",
+          "length": 192
+        },
+        "id": "masterkey_blob_hex_96_bytes",
+        "weight": 55
+      }
+    ]
+  }
 }

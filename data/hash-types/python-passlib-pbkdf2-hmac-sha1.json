@@ -1,94 +1,131 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-passlib-pbkdf2-hmac-sha1",
   "name": "Python passlib (PBKDF2-HMAC-SHA1)",
+  "aliases": [
+    "Python passlib (PBKDF2-HMAC-SHA1)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-passlib-pbkdf2-hmac-sha1.haiti.140",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pbkdf2\\$\\d{1,6}\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{27}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$pbkdf2\\$\\d{1,6}\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{27}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 20400,
         "name": "Python passlib (PBKDF2-HMAC-SHA1)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "20400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "20400"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pbkdf2$131000$I6QUQmgtpdS6t9b6v7dWqg$oJ7fYtKnjobkEVjf6mto9PpxCQE",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python passlib (PBKDF2-HMAC-SHA1)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$pbkdf2$131000$r5WythYixPgfQ2jt3buXcg$8Kdr.QQEOaZIXNOrrru36I/.6Po",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python passlib (PBKDF2-HMAC-SHA1)"
+  "match": {
+    "base": 25,
+    "total": 226,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2\\$\\d{1,6}\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{27}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "20400"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$pbkdf2$131000$rpVSSikFAACAkDKmNObc.w$BHrFgkhY.JYFssT.eYRzQtKnyVM",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python passlib (PBKDF2-HMAC-SHA1)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$pbkdf2$8000$O6dUipHSmvN.Dw$cYDAjcgzIVS3w78DS2MEi8lyEks",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python passlib (PBKDF2-HMAC-SHA1)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python passlib (PBKDF2-HMAC-SHA1)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2\\$\\d{1,6}\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{27}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pbkdf2$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^pbkdf2$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "hex",
+          "length_min": 4,
+          "length_max": 6,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length_min": 14,
+          "length_max": 22,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "alnum_dot_slash",
+          "length": 27,
+          "trim_empty_start": true
+        },
+        "id": "field_3_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

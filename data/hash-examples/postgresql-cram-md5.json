@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "postgresql-cram-md5",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$postgre$postgres*684697c8*bf2a64f35feba7bf1b633d60393c1356"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$postgres$Twelve_chars*55393156*c01df9affa7573ef32ec143759f3e005"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$postgres$postgres*74402844*4e7fabaaf34d780c4a5822d28ee1c83e"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$postgres$postgres*f063f05d*1d586cc8d137e5f1733f234d224393e8"
+    }
+  ]
+}

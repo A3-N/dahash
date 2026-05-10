@@ -1,75 +1,166 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "itunes-backup-10-0-6a01609f",
   "name": "iTunes backup >= 10.0",
+  "aliases": [
+    "iTunes backup >= 10.0"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "itunes-backup-10-0-6a01609f.haiti.209",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 14800,
         "name": "iTunes backup >= 10.0",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "14800"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "14800"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "itunes-backup",
         "name": "iTunes backup >= 10.0",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "itunes-backup"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "iTunes backup >= 10.0"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$itunes_backup$*10*17a3b858e79bc273be43a9f113b71efe7ec8e7e401396b350180b4592ef45db67ffef7b2d64329a5*10000*2721336781705041205314422175267631184867*1000*99fafc983e732998adb9fadc162a2e382143f115",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "14800"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 296,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$itunes_backup$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 6
+        },
+        "id": "*_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "*_field_count_7",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$itunes_backup\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^10$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 80
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^10000$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^2721336781705041205314422175267631184867$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "regex": "^1000$"
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^99fafc983e732998adb9fadc162a2e382143f115$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

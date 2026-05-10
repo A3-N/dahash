@@ -1,61 +1,94 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "hmac-streebog-256-key-salt-big-endian",
   "name": "HMAC-Streebog-256 (key = $salt), big-endian",
+  "aliases": [
+    "HMAC-Streebog-256 (key = $salt), big-endian"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "11760"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 11760,
         "name": "HMAC-Streebog-256 (key = $salt), big-endian",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "11760"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "d5c6b874338a492ac57ddc6871afc3c70dcfd264185a69d84cf839a07ef92b2c:08151337",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "11760"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "hmac-streebog-256-key-salt-big-endian.hashcat.11760",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Fa-f0-9]{64}:[A-Fa-f0-9]{8}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "11760"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 198,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{64}:[A-Fa-f0-9]{8}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{64}:[A-Fa-f0-9]{8}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "d5c6b874338a492ac57ddc6871afc3c70dcfd264"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_0_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^08151337$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

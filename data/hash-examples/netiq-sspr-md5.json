@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "netiq-sspr-md5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$sspr$0$100000$NONE$2c8586ef492e3c3dd3795395507dc14f",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

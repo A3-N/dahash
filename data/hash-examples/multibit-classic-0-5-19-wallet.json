@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "multibit-classic-0-5-19-wallet",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$multibit$3*16384*8*1*1bf663752dade439*956a6f229c25154832bab8f4ddfe83e985631678fb8df33aad1b5128a55ea0e2"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$multibit$3*16384*8*1*1bf663752dade439*d2a4810673c311f6cdd4cebceadbd564c05d408ba9c74912a187953eabc20bee"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$multibit$3*16384*8*1*7523cb5482e81b81*91780fd49b81a782ab840157a69ba7996d81270eaf456c850f314fc1787d9b0b"
+    }
+  ]
+}

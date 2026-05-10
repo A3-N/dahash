@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "axcrypt-1-in-memory-sha1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$axcrypt_sha1$b89eaac7e61417341b710b727768294d",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

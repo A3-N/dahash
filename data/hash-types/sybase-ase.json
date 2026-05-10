@@ -1,75 +1,69 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sybase-ase",
   "name": "Sybase ASE",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sybase-ase.haiti.089",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^0x[a-f0-9]{4}[a-f0-9]{16}[a-f0-9]{64}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A0x[a-f0-9]{4}[a-f0-9]{16}[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 8000,
         "name": "Sybase ASE",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "8000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "8000"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "sybasease",
         "name": "Sybase ASE",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "sybasease"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Sybase ASE"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "0xc0071808773188715731b69bd4e310b4129913aaf657356c5bdf3c46f249ed42477b5c74af6eaac4d15a",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "8000"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^0x[a-f0-9]{4}[a-f0-9]{16}[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^0x[a-f0-9]{4}[a-f0-9]{16}[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "0xc0071808773188715731b69bd4e310b4129913"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

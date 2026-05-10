@@ -1,61 +1,92 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "securecrt-masterpassphrase-v2",
   "name": "SecureCRT MasterPassphrase v2",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "31400"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 31400,
         "name": "SecureCRT MasterPassphrase v2",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "31400"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "S:\"Config Passphrase\"=02:ded7137400e0a1004a12f1708453968ccc270908ba02ab0345c83690d1de3d9937587be66ad2a7fe8cc6cb16ecff02e61ac05e09d4f49f284efd24f6b16d6ae3",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "31400"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "securecrt-masterpassphrase-v2.hashcat.31400",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Za-z0-9]{1}:\"[A-Za-z0-9]{6}\\ [A-Za-z0-9]{10}\"[A-Za-z0-9+/=]{3}:[A-Fa-f0-9]{128}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "31400"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 198,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{1}:\"[A-Za-z0-9]{6}\\ [A-Za-z0-9]{10}\"[A-Za-z0-9+/=]{3}:[A-Fa-f0-9]{128}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{1}:\"[A-Za-z0-9]{6}\\ [A-Za-z0-9]{10}\"[A-Za-z0-9+/=]{3}:[A-Fa-f0-9]{128}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "S:\"Config Passphrase\"=02:ded7137400e0a10"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 3
+        },
+        "id": ":_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^S$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "charset": "hex",
+          "length": 128
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

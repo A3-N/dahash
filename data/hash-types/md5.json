@@ -1,90 +1,58 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "md5",
   "name": "MD5",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "md5.haiti.015",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}(?::.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 0,
         "name": "MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "0"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "0"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "raw-md5",
         "name": "MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "raw-md5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "098F6BCD4621D373CADE4E832627B4F6",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MD5"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "8743b52063cd84097a65d1633f5c74f5",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MD5"
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "0"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MD5"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

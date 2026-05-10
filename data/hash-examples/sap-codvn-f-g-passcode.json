@@ -1,0 +1,50 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sap-codvn-f-g-passcode",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "604020408266$32837BA7B97672BA4E5AC74767A4E6E1AE802651"
+    },
+    {
+      "kind": "example_hash",
+      "value": "DDIC$6066CD3147915331EC4C602847D27A75EB3E8F0A"
+    },
+    {
+      "kind": "example_hash",
+      "value": "DOLLAR$$$---$E0180FD4542D8B6715E7D0D9EDE7E2D2E40C3D4D"
+    },
+    {
+      "kind": "example_hash",
+      "value": "F           $646A0AD270DF651065669A45D171EDD62DFE39A1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "JOHNNY                                  $7D79B478E70CAAE63C41E0824EAB644B9070D10A"
+    },
+    {
+      "kind": "example_hash",
+      "value": "MAN$22886450D0AB90FDA7F91C4F3DD5619175B372EA"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ROOT$1194E38F14B9F3F8DA1B181F14DEB70E7BDCC239"
+    },
+    {
+      "kind": "example_hash",
+      "value": "SAP*                                $60A0F7E06D95BC9FB45F605BDF1F7B660E5D5D4E"
+    },
+    {
+      "kind": "example_hash",
+      "value": "USER$ABCAD719B17E7F794DF7E686E563E9E2D24DE1D0"
+    },
+    {
+      "kind": "example_hash",
+      "value": "VAN$D15597367F24090F0A501962788E9F19B3604E73"
+    },
+    {
+      "kind": "example_hash",
+      "value": "\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac\u20ac$B20D15C088481780CD44FCF2003AAAFBD9710C7C"
+    }
+  ]
+}

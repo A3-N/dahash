@@ -1,72 +1,104 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-werkzeug-pbkdf2-hmac-sha256-key-salt",
   "name": "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)",
+  "aliases": [
+    "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-werkzeug-pbkdf2-hmac-sha256-key-salt.haiti.325",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^pbkdf2:sha256:\\d+\\$.{0,256}\\$[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Apbkdf2:sha256:\\d+\\$.{0,256}\\$[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha256:600000$MdFcQyXK$6f0610d79e21ac75ca1ed5a4d191e28c50df259e341807b8124ead79eebd7972",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha256:600000$UrVCZT9PYrurm5iR$6e8c155567d97206e3c49fd3b9e7a523c57fb2c3794c08db018cb2c340184d6c",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha256:600000$h8Xxe8ozyRJaXiYciVIw2OJpQKhIUUdX$b2eab4b0e57bb5bd35f626770d4a8d07b046392ee4707bcde58d8c6272ed15b7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:sha256:700000$so1iCYwc$5a18fd5ae003c3e8ab7638f40a9d7bc21edcc5e2254903f0aa467a3ffd463ef7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python Werkzeug PBKDF2-HMAC-SHA256 (key = $salt)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 202,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^pbkdf2:sha256:\\d+\\$.{0,256}\\$[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^pbkdf2:sha256:\\d+\\$.{0,256}\\$[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "pbkdf2:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 8,
+          "length_max": 32,
+          "length_multiple_of": 2
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

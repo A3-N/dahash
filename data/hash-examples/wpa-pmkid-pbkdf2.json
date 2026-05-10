@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "wpa-pmkid-pbkdf2",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "2582a8281bf9d4308d6f5731d0e61c61*4604ba734d4e*89acf0e761f4*ed487162465a774bfba60eb603a39f3a"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "2582a8281bf9d4308d6f5731d0e61c61:4604ba734d4e:89acf0e761f4:ed487162465a774bfba60eb603a39f3a"
+    }
+  ]
+}

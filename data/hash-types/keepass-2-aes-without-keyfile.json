@@ -1,105 +1,112 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "keepass-2-aes-without-keyfile",
   "name": "KeePass 2 AES / without keyfile",
+  "aliases": [
+    "KeePass 2 AES / without keyfile"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "keepass-2-aes-without-keyfile.haiti.277",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$keepass\\$\\*2\\*\\d{1,10}\\*\\d{1,3}\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$keepass\\$\\*2\\*\\d{1,10}\\*\\d{1,3}\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".kdbx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "03d9a29a67fb4bb5"
+            },
+            "id": "kdbx_magic"
+          }
+        ]
+      },
+      {
+        "kind": "file",
+        "extensions": [
+          ".kdb"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "03d9a29a65fb4bb5"
+            },
+            "id": "kdb_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "keepass2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$keepass$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 13400,
         "name": "KeePass 2 AES / without keyfile",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "13400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "13400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "keepass",
         "name": "KeePass 2 AES / without keyfile",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "keepass"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$keepass$*2*24569*0*c40432355cce7348c48053ceea0a28e7d18859c4ea47e3a799c6300861f64b95*265dafcc42e1537ff42e97e1e283c70014133be0fe2d420b4d24c6d57c9d2207*a00e20a852694c15aabb074d61b902fa*48dd553fb96f7996635f2414bfe6a1a8429ef0ffb71a1752abbef31853172c35*a44ae659958ad7fae8c8952cb83f3cf03fec2371ce22a8bf7fac1e687af2f249*1*64*5a26ea376cc5afc955104c334571d30486acbac512a94b75ca82a9e31dd97bf7",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "13400"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "$keepass$*2*6000*222*a279e37c38b0124559a83fa452a0269d56dc4119a5866d18e76f1f3fd536d64d*7ec7a06bc975ea2ae7c8dcb99e826a308564849b6b25d858cbbc78475af3733f*d477c849bf2278b7a1f626c81e343553*38c8ec186141c2705f2bcb334a730933ed3b0ee11391e1100fbaf429f6c99078*1ada85fe78cf36ab0537562a787dd83e446f13cd3d9a60fd495003de3537b702",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "KeePass 2 AES / without keyfile"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$keepass$*2*6000*222*a279e37c38b0124559a83fa452a0269d56dc4119a5866d18e76f1f3fd536d64d*7ec7a06bc975ea2ae7c8dcb99e826a308564849b6b25d858cbbc78475af3733f*d477c849bf2278b7a1f626c81e343553*e61db922e9b77a161e9b674ddadfb8c660d61b5f68d97a3b1596ae94cfa9d169*7c80c7db9de77f176e86ba11697152c4c8f182bdb8133ad1bca22e9ec5bc275b",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "KeePass 2 AES / without keyfile"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$keepass$*2*6000*222*e54497d3d9be3e310a817a13515225a87773ba71557a88673c34db824550be7b*d405c4f7e3c7b2b142fda44c3d55d3afab1c91a6aca7c81c1ff7e61b3f03be85*7eb45af0af777ecb57f0159b9ffa528b*0af7d9facefb20378e8666389de7586ea72e9527dc78bf5dfe5f1b455060a3e6*9b0d1893678dea77f88bf66e6986adbc5a8095e4a09c7e9744bad42ac49133a7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "KeePass 2 AES / without keyfile"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "KeePass 2 AES / without keyfile"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:[^:\\s]+:)?\\$keepass\\$\\*[0-9]+\\*(?:[^*\\s]+\\*){4,}[A-Fa-f0-9]+$"
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:[^:\\s]+:)?\\$keepass\\$\\*[0-9]+\\*(?:[^*\\s]+\\*){4,}[A-Fa-f0-9]+$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:[^:\\s]+:)?\\$keepass\\$"
+        },
+        "id": "keepass_marker",
+        "weight": 45
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 70
+  }
 }

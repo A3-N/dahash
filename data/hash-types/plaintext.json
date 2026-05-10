@@ -1,61 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "plaintext",
   "name": "Plaintext",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "99999"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 99999,
         "name": "Plaintext",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "99999"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "hashcat",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "99999"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "plaintext.hashcat.99999",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Za-z0-9]{7}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "99999"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{7}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{7}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "hashcat"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

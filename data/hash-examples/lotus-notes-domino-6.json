@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "lotus-notes-domino-6",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "(GDJ0nDZI8l8RJzlRbemg)",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

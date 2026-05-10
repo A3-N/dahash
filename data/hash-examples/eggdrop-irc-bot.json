@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "eggdrop-irc-bot",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "+9F93o1OxwgK1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "+C/.8o.Wuph9."
+    },
+    {
+      "kind": "example_hash",
+      "value": "+Obytd.zXYjH/"
+    }
+  ]
+}

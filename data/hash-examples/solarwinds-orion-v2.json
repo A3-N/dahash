@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "solarwinds-orion-v2",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$solarwinds$1$3pHkk55NTYpAeV3EJjcAww==$N4Ii2PxXX/bTZZwslQLIKrp0wvfZ5aN9hpyiR896ozJMJTPO1Q7BK1Eht8Vhl4kXq/42Vn2zp3qYeAkRuqsuEw==",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

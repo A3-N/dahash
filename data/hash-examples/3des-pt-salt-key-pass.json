@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "3des-pt-salt-key-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "a28bc61d44bb815c:1172075784504605"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "37387ff8d8dafe15:8152001061460743"
+    }
+  ]
+}

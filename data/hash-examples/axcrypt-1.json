@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "axcrypt-1",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$axcrypt$*1*1337*0fd9e7e2f907f480f8af162564f8f94b*af10c88878ba4e2c89b12586f93b7802453121ee702bc362"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$axcrypt$*1*20000*efd759ae68ae7edd709b9e1c2166d0f7*dcf4c1279b8e4d39475925b17f698c3ce39e9e7d82917272*68656c6c6f0a"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$axcrypt$*1*31014*3408ae91dddc0b1750ed4223fd843364*1cc0f8fa8d89f44d284d0562ac7e93848c86ce9605907129"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$axcrypt$*1*38574*ce4f58c1e85df1ea921df6d6c05439b4*3278c3c730f7887b1008e852e59997e2196710a5c6bc1813*66664a6b2074434a4520374d73592055626979204a6b755520736d6b4b20394e694a205548444320524578562065674b33202f42593d"
+    }
+  ]
+}

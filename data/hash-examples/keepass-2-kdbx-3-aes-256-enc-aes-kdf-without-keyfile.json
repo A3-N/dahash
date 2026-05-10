@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "keepass-2-kdbx-3-aes-256-enc-aes-kdf-without-keyfile",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "aes_aes:$keepass$*2*51724136*0*4349620c23fd506d0ef1513cf163a2b3f7aba29bf0bfd167433f4f948de45a80*9607e1f89e7aab4a6720d29478c17596fe5b9bbef218aabfeb87421b889bb417*03a258af4a69efe55851fcb3579753f2*8a6d25336ad495c840d0caaea8333a954ecd4f75d0d80e76cd46896f400947f2*f83af1c765569887eea00128526527a48a6e0d0943d30ff18055055329c62836"
+    }
+  ]
+}

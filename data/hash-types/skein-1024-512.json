@@ -1,55 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "skein-1024-512",
   "name": "Skein-1024(512)",
+  "aliases": [
+    "Skein-1024(512)"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "skein-1024-512.haiti.075",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{128}(:.+)?$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "053d1c75e61a10b6150298a77d3848ee65f225061041fce5743910177e07fad41363552957529d32dc73b60d6c4afae956898561bc28815ae14732502637664a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Skein-1024(512)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "1b085302e538fd1b9ddc9c3ff1cb06de4ee2ce7c7fa25a2c315062a45f10f695d5a009f5f545214f75b9362f9de8a60723e5e86e74776d7ae30f9ff3c7192992",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Skein-1024(512)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Skein-1024(512)"
-    }
-  ]
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 40,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      }
+    ]
+  }
 }

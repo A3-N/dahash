@@ -1,62 +1,99 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "vbulletin-v3-8-5",
   "name": "vBulletin < v3.8.5",
+  "aliases": [
+    "vBulletin < v3.8.5"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "vbulletin-v3-8-5.haiti.055",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}:.{3}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}:.{3}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 2611,
         "name": "vBulletin < v3.8.5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "2611"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "2611"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "vBulletin < v3.8.5"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "28f9975808ae2bdc5847b1cda26033ea:308",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "2611"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 196,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}:.{3}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}:.{3}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "28f9975808ae2bdc5847b1cda26033ea:308"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^28f9975808ae2bdc5847b1cda26033ea$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^308$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

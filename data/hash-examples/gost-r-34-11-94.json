@@ -1,0 +1,20 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "gost-r-34-11-94",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "0159e744333b42784d79e1730499e96ce832cbac1ef7963326210407058fc0b7"
+    },
+    {
+      "kind": "example_hash",
+      "value": "6ac9de54828485f8df60ec61004818565f6edac5788b3af35f02327973059d22"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "df226c2c6dcb1d995c0299a33a084b201544293c31fc3d279530121d36bbcea9",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

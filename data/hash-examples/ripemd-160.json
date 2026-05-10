@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ripemd-160",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$ripemd$9c1185a5c5e9fc54612808977ee8f548b2258d31"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "012cb9b334ec1aeb71a9c8ce85586082467f7eb6"
+    },
+    {
+      "kind": "example_hash",
+      "value": "9c1185a5c5e9fc54612808977ee8f548b2258d31"
+    }
+  ]
+}

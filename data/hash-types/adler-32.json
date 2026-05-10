@@ -1,52 +1,43 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "adler-32",
   "name": "Adler-32",
+  "aliases": [
+    "Adler32",
+    "Adler checksum"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "adler-32.haiti.001",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{8}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{8}\\Z"
-        }
-      ]
-    }
-  ],
+  "identification": {
+    "max_confidence": 20
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "061d0210",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Adler-32"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "0669021b",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Adler-32"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Adler-32"
-    }
-  ]
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{8}$"
+        },
+        "id": "hex_8"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{8}$"
+        },
+        "id": "hex_8",
+        "weight": 40
+      }
+    ]
+  }
 }

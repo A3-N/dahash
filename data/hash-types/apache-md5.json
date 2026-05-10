@@ -1,78 +1,103 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "apache-md5",
   "name": "Apache MD5",
+  "aliases": [
+    "apr1",
+    "Apache htpasswd MD5"
+  ],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "apache-md5.haiti.032",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 1600,
         "name": "Apache MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "1600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "1600"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "md5crypt-long",
         "name": "Apache MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "md5crypt-long"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Apache MD5"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$apr1$62722340$zGjeAwVP2KwY6MtumUI1N/",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "1600"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 210,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$apr1$"
+        },
+        "id": "apr1_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 2,
+          "trim_empty_start": true,
+          "drop_prefix_field": "apr1"
+        },
+        "id": "salt_and_digest_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$apr1$"
+        },
+        "id": "apr1_marker",
+        "weight": 75
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 2,
+          "trim_empty_start": true,
+          "drop_prefix_field": "apr1"
+        },
+        "id": "salt_and_digest_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "trim_empty_start": true,
+          "drop_prefix_field": "apr1",
+          "charset": "alnum_dot_slash",
+          "length_min": 0,
+          "length_max": 8
+        },
+        "id": "salt_0_to_8_chars",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "trim_empty_start": true,
+          "drop_prefix_field": "apr1",
+          "charset": "alnum_dot_slash",
+          "length": 22
+        },
+        "id": "digest_22_chars",
+        "weight": 55
+      }
+    ]
+  }
 }

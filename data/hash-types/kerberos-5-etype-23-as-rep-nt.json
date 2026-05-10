@@ -1,61 +1,117 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-etype-23-as-rep-nt",
   "name": "Kerberos 5, etype 23, AS-REP (NT)",
+  "aliases": [
+    "Kerberos 5, etype 23, AS-REP (NT)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "35400"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 35400,
         "name": "Kerberos 5, etype 23, AS-REP (NT)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "35400"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb5asrep$23$user@domain.com:3e156ada591263b8aab0965f5aebd837$007497cb51b6c8116d6407a782ea0e1c5402b17db7afa6b05a6d30ed164a9933c754d720e279c6c573679bd27128fe77e5fea1f72334c1193c8ff0b370fadc6368bf2d49bbfdba4c5dccab95e8c8ebfdc75f438a0797dbfb2f8a1a5f4c423f9bfc1fea483342a11bd56a216f4d5158ccc4b224b52894fadfba3957dfe4b6b8f5f9f9fe422811a314768673e0c924340b8ccb84775ce9defaa3baa0910b676ad0036d13032b0dd94e3b13903cc738a7b6d00b0b3c210d1f972a6c7cae9bd3c959acf7565be528fc179118f28c679f6deeee1456f0781eb8154e18e49cb27b64bf74cd7112a0ebae2102ac",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "35400"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "kerberos-5-etype-23-as-rep-nt.hashcat.35400",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{9}\\$[0-9]{2}\\$[A-Za-z0-9]{4}@[A-Za-z0-9./]{10}:[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{468}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "35400"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 224,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{9}\\$[0-9]{2}\\$[A-Za-z0-9]{4}@[A-Za-z0-9./]{10}:[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{468}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{9}\\$[0-9]{2}\\$[A-Za-z0-9]{4}@[A-Za-z0-9./]{10}:[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{468}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$krb5asrep$23$user@domain.com:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^krb5asrep$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^23$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length": 468,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

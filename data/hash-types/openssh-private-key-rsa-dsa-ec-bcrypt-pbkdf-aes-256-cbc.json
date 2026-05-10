@@ -1,67 +1,67 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc",
   "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)",
+  "aliases": [
+    "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "openssh-private-key-rsa-dsa-ec-bcrypt-pbkdf-aes-256-cbc.haiti.300",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A(?:.+:)?\\$sshng\\$2\\$\\d{1,2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}(?:\\$\\d{1,2}\\$\\d+)?\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:.+:)?\\$sshng\\$2\\$\\d{1,2}\\$[a-f0-9]{32}\\$\\d{1,8}\\$[a-f0-9]{64,65536}(?:\\$\\d{1,2}\\$\\d+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "ssh",
         "name": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "ssh"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "id_ed25519:$sshng$2$16$a5fb5dbace82f0b09bd8c85cfc7bd0f8$274$6f70656e7373682d6b65792d7631000000000a6165733235362d636263000000066263727970740000001800000010a5fb5dbace82f0b09bd8c85cfc7bd0f80000001800000001000000330000000b7373682d6564323535313900000020b884ea2d0820955399cde9bd1c40109d3991a78d50159dc23c01bfee73b7d29000000090d4cbee6b80c3d547afbe0baee87278619d19af1cbabf7fd8932dd90452e367a473cc7ce28c2f2ffa47307e2f1b37f891bc2f8a2d495624728487872937a9278947ecc95ecdb0e0308306336a1aaabedb86f7602393b31e2ee7512bc042dd220460ae479a8a5a23368fe4a05184581b5d20e60af19fb5c2a4cccac0b45f27e1606a569c585d04a79c30466e9257b4d022$24$130",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "~/.ssh/id_rsa:$sshng$2$16$042e55f014335212b806ac50186fe2a6$1910$6f70656e7373682d6b65792d7631000000000a6165733235362d636263000000066263727970740000001800000010042e55f014335212b806ac50186fe2a6000000180000000100000197000000077373682d727361000000030100010000018100dd927486e11ee6c90adbcc5dd4ba14e2d403191f5fdbe8c2ff8c3f01d024da3aaa9107e47f14d15fbf78d1494d764d375c129cc1980516b752f9fa69c674c9f19114384a156765a7e284c40934656375f4b2988a0a7ccf436a1cc650a71c65b95bf46da7429a302029be0b5cd95424779078115149188d7ea5a91725da17706d030be77691bb7f0302e433b192fdf29097ca436e5b6ad202d62b85e08aed5a39fda43362bca9527ee98dd3fbd3be25e467bb901f18091145c601821c93730f0e36d22ef0db11fc42aefacc9a589fedd6b1059f0458ddaa01fe7d1cb2c057decb91f66a7f8ef4dfe77afbf4e482abca5b5675d48db441dfa01f89745d824e444d48b60c7ea927673b752c2d283bc70bb8ef2b369b480d9dac65768c56aae7cd6c99f5a0666e31a5b3579ecb1ceaec1dccc35de6d4073c77f61bce118c4dca588ce73bec53f8ea108b99d221b3ce437086df22ed017307f603aaf7676dd0bea4942a45a6b572d9f71e6b04cc24a98b356f8867ac98143ad7b776944c3a68d95f21000005908c41c30162fc99528d0a9b699711e6e9e98e6fa6b8b16ed51083d6d17b74718390a13f0a32addd7f342ca53b4aebb60dad739fd8e6fda943667449c9e8147b348e0badecc889d17c1efd63af27c501fb63152ae903b3c0ead9fbb7d7e9b7247678099ed5d9abf4bae3cfb5f755eb21eb42858b356006c4bacf37056b76a51648c2b44e2e392ae4f82c90d37c624fe7771f64070dfefc45f492ae6b6a27cb73bce886a913a486c265f62f6c136ff9032e8fe2740eed07c0eb530d4d8328391525056eca0c09e43d0b5e59b9c809db710cbd4a0cc641ca0b23c8e04f695bbf049848b2c8847e32d59633f3f596d9cf5a8c0a8daad5d3d7aa464ce89d809dfc224daa6819f4c2e3e8c3f1d32693698f697fad3f3256a861bc9b07883e7bab2ef4c2a9dba07f50cb2097485e84c8dc486e897bec2ea47b06e2d719dcd763494ac0802c652e1d30f2744ef9487cbe2adad4b70dfeebdc4a4315d01b4b1ffb96c078f5341bf1ecff66afe8ac6b68e02b414d0fbb9e42ab01ea551472d2e86137861d1302ebde83b71895b8c085f3b81ed932cafdd9d14503a17edfe0314011b08a789c9cd8e5e851f852117729f69481a9810e61220dcbbca5b79773eba52746d7f7dcdc1d1a1e04b57ced5dc5250b94b947c97f72f88671eb877a19548f2b706561c5c72d900005d1aff00a799d1b8d5ba33a3f64fd1b2475850703ad889650341ecf2c058daf566f33612e1435d8fc62fa53c4aba1b5d97d653e6300da6f0838266d8d27db12c03678b879f6f62bd773689e8a5951f0bb42ecb71c68500ae7d4bd953b0d4d8d636b36fb02fe209afec0ba053e50cd0b74c7d723bc25a8a02f9ac97e23812641b57d887485f3c985ee2e03aefe1cee8809b00eb3c671565728f90745ec839fd96696d518bf4d9453cc26171745d938e254f18d8db3b0267d042fab5519c59e9401059c2b4ca8d9c1711ca5490deb94ef3e576fe42bfa4b88c49c845ac308de297ca1dae62fc54f6eb8508c89146e63e0a24a307e89ac6536171b6a8fa05224b0b6f3befe30d9d9af367b0939ab0ca0c729631ec3f84bbac56c6c023e5c111d236f8cfa863c6531def02ce130052b6d68de4c08ddc89a0668f0b0d31ffa752032989f9f5eb07a59ed6d2f37845343c455bf38a3738b08e0159b74931ca18a5e64780b46856b99b0d10ba40f11e7485a4e6f60a97d72e5a2c5ecf8f1fed1e1a3b879edc6e229af33b17414c6c18cc760a02927c1a9aa5937cc3c8691c422720a0bd507d62959efda6beb6d88db01bb4a1723e0bd1bafdac0eb0cbe83e9bc7cc4201a3bc77e76ae3bdb3cf11fbb90ab2435a4cd04230bfbf593e9ec9816790de523404d2a815dc35f04dcab9a2291af78b84f591bae1fb0fcc0c40737405144c91f2938ebdc286d9331658fd9403abc1998a8a6c66defc092c11027b6f7824549185a95c3286422a9c3a939f0bbaf92b33fc4cd61bc00f50cd8c0813153f36279bdaee71f2947ae824384c32741df4eefffcb035310395536d81149ab80ebbc6b6dc58a94dc36451e195305206413eac1b031b0f4265ffe8d96d992fa579804950f8400c0803b9164eb3967b01fda8d292a128714b75c881143baee4590694edfb5a00a0aed9d25e152c0ff8a9222e403af635a65cafc745b877e6d0f0ebda21c2e975961e853094534ee39f49bd9c1675615489c3d8d288562385d3063d9daca29f765fd1b00d55b97da7f1b8beb50633f9a5d4d96891e0dc2646bb375e4dac0f9d8981bc219add2881cd19589aadf95f917451b01366106f848831005f6e7800d6cecd0444895719fe734903c66f46d63b3dfb8c179e54851c38023cb522f952e8db6ebdc96ca7d1a86098c035e0327d8d2574111f47eede47a2f323856a001825051fa1908af78150290824477b9f9a0b7f5bb9db8525260567d4807bd815db2ebe717eb25048cf18e79d860fad359c10d36adf7d12c09ba1c7c1677b596f59b5bf5f0ff7f3dc12ef2d23a63$24$486",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "OpenSSH private key (RSA/DSA/EC + Bcrypt PBKDF + AES-256-CBC)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:[^:\\s]+:)?\\$sshng\\$[0-9]+\\$[0-9]+\\$[A-Fa-f0-9]+\\$[0-9]+\\$[A-Fa-f0-9]{128,}(?:\\$[0-9]+){0,2}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:[^:\\s]+:)?\\$sshng\\$[0-9]+\\$[0-9]+\\$[A-Fa-f0-9]+\\$[0-9]+\\$[A-Fa-f0-9]{128,}(?:\\$[0-9]+){0,2}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:[^:\\s]+:)?\\$sshng\\$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "sshng_marker",
+        "weight": 45
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 75
+  }
 }

@@ -1,69 +1,56 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bigcrypt-descrypt-extension-des-based-crypt-3",
   "name": "BigCrypt (descrypt extension, DES-based crypt(3))",
+  "aliases": [
+    "BigCrypt (descrypt extension, DES-based crypt(3))"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "bigcrypt-descrypt-extension-des-based-crypt-3.haiti.179",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-z0-9\\/.]{13,}$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-z0-9\\/.]{13,}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "descrypt",
         "name": "BigCrypt (descrypt extension, DES-based crypt(3))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "descrypt"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "S/8NbAAlzbYO66hAa9XZyWy2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "BigCrypt (descrypt extension, DES-based crypt(3))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "TO9Mdb1FHXkFU",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "BigCrypt (descrypt extension, DES-based crypt(3))"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "BigCrypt (descrypt extension, DES-based crypt(3))"
-    }
-  ]
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 40,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{13,}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{13,}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      }
+    ]
+  }
 }

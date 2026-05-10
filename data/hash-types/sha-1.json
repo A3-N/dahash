@@ -1,98 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha-1",
   "name": "SHA-1",
+  "aliases": [
+    "SHA-1"
+  ],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "sha-1.haiti.035",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 100,
         "name": "SHA-1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "100"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "raw-sha1",
         "name": "SHA-1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "raw-sha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "8809c12f038f4db3e827354e4b107771ffee9e02",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA-1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "b89eaac7e61417341b710b727768294d0e6a277b",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "100"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "c577cc190df1debe1f15fb913d8a7849bb46480a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA-1"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SHA-1"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

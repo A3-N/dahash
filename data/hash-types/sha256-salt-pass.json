@@ -1,78 +1,110 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha256-salt-pass",
   "name": "sha256($salt.$pass)",
+  "aliases": [
+    "sha256($salt.$pass)"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "sha256-salt-pass.haiti.058",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{64}(:.+)?$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 1420,
         "name": "sha256($salt.$pass)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "1420"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "1420"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dynamic_61",
         "name": "sha256($salt.$pass)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_61"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "sha256($salt.$pass)"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "816d1ded1d621873595048912ea3405d9d42afd3b57665d9f5a2db4d89720854:36176620",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "1420"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 143,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{64}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{64}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "816d1ded1d621873595048912ea3405d9d42afd3"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_0_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "regex": "^36176620$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

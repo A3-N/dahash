@@ -1,52 +1,46 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "joaat",
   "name": "Joaat",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "joaat.haiti.001",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{8}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{8}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "0159782d",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Joaat"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "4835dd77",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Joaat"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Joaat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{8}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{8}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

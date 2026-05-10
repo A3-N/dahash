@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "keyed-md5-ripv2-ospf-bgp-snmpv2",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$netmd5$0201002cac1001010000000000000002000001105267ff8fffffff00000a0201000000280000000000000000$445ecbb27272bd791a757a6c85856150"
+    },
+    {
+      "kind": "example_hash",
+      "value": "02020000ffff0003002c01145267d48d000000000000000000020000ac100100ffffff000000000000000001ffff0001$1e372a8a233c6556253a0909bc3dcce6"
+    }
+  ]
+}

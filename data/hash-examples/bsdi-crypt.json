@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "bsdi-crypt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "_EQ0.jzhSVeUyoSqLupI"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "_GW..8841inaTltazRsQ"
+    },
+    {
+      "kind": "example_hash",
+      "value": "_J9..SDSD5YGyRCr4W4c"
+    },
+    {
+      "kind": "example_hash",
+      "value": "_J9..XXXXsqM/YSSP..Y"
+    }
+  ]
+}

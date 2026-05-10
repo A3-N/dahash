@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "django-sha-1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "sha1$fe76b$02d5916550edf7fc8c886f044887f4b1abf9b013",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

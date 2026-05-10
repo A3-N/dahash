@@ -1,87 +1,239 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "rar3-p-uncompressed",
   "name": "RAR3 -p (Uncompressed)",
+  "aliases": [
+    "RAR3 -p (Uncompressed)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "rar3-p-uncompressed.haiti.224",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".rar"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "526172211a0700"
+            },
+            "id": "rar4_magic"
+          }
+        ]
+      },
+      {
+        "kind": "archive",
+        "extensions": [
+          ".rar"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "526172211a070100"
+            },
+            "id": "rar5_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "rar2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$rar"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23700,
         "name": "RAR3 -p (Uncompressed)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "23700"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "23700"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "rar",
         "name": "RAR3 -p (Uncompressed)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "rar"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$RAR3$*1*c47c5bef0bbd1e98*965f1453*48*47*1*c5e987f81d316d9dcfdb6a1b27105ce63fca2c594da5aa2f6fdf2f65f50f0d66314f8a09da875ae19d6c15636b65c815*30",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RAR3 -p (Uncompressed)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$RAR3$*1*e54a73729887cb53*49b0a846*16*14*1*34620bcca8176642a210b1051901921e*30",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RAR3 -p (Uncompressed)"
+  "match": {
+    "base": 25,
+    "total": 340,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "23700"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "RAR3 -p (Uncompressed)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$RAR3\\$\\*\\d{1}\\*[a-f0-9]{16}\\*[a-f0-9]{8}\\*\\d{1,7}\\*\\d{1,6}\\*\\d{1}\\*[a-f0-9]{2,}\\*\\d{2}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$RAR3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 8
+        },
+        "id": "*_count_8",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 9
+        },
+        "id": "*_field_count_9",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$RAR3\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^1$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 16
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 8
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 2
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "hex",
+          "length": 2
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^1$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "charset": "hex",
+          "length_min": 32,
+          "length_max": 96,
+          "length_multiple_of": 2
+        },
+        "id": "field_7_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "regex": "^30$"
+        },
+        "id": "field_8_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

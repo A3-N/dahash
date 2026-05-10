@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "openldaps-openssha",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}Uf2x9YxSWZZNAi2t1QXbG2PmT07AtURl"
+    },
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}XXGLZ7iKpYSBpF6EwoeTl27U0L/kYYsY"
+    }
+  ]
+}

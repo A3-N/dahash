@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "vmware-vmx-pbkdf2-hmac-sha1-aes-256-cbc",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$vmx$0$10000$264bbab02fdf7c1a793651120bec3723$cbb368564d8dfb99f509d4922f4693413f3816af713f0e76bc2409ff9336935d"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sap-codvn-b-bcode",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "------------$058DE95926E00F32"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "027642760180$77EC38630C08DF8D"
+    },
+    {
+      "kind": "example_hash",
+      "value": "DOLLAR$$$---$C3413C498C48EB67"
+    },
+    {
+      "kind": "example_hash",
+      "value": "F           $E3A65AAA9676060F"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ROOT        $8366A4E9E6B72CB0"
+    },
+    {
+      "kind": "example_hash",
+      "value": "USER$C8B48F26B87B7EA7"
+    }
+  ]
+}

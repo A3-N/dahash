@@ -1,64 +1,87 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pkzip-master-key",
   "name": "PKZIP Master Key",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "pkzip-master-key.haiti.012",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{24}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{24}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".zip",
+          ".zipx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "zip2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$pkzip$",
+          "$zip2$",
+          "$zip$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 20500,
         "name": "PKZIP Master Key",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "20500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "20500"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "f1eff5c0368d10311dcfc419",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PKZIP Master Key"
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{24}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "20500"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PKZIP Master Key"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{24}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

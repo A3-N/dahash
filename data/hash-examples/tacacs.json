@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "tacacs",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$tacacs-plus$0$5fde8e68$4e13e8fb33df$c006",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

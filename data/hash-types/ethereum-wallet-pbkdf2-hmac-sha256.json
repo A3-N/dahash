@@ -1,107 +1,187 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "ethereum-wallet-pbkdf2-hmac-sha256",
   "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
+  "aliases": [
+    "Ethereum Wallet (PBKDF2-HMAC-SHA256)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "ethereum-wallet-pbkdf2-hmac-sha256.haiti.204",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$ethereum\\$p\\*\\d{1,6}\\*[a-z0-9]{32,64}\\*[a-z0-9]{64}\\*[a-z0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$ethereum\\$p\\*\\d{1,6}\\*[a-z0-9]{32,64}\\*[a-z0-9]{64}\\*[a-z0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".json"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "contains_json_keys",
+            "args": {
+              "keys": [
+                "crypto",
+                "cipher",
+                "kdf",
+                "mac"
+              ]
+            },
+            "id": "json_keys"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "ethereum2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$ethereum$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 15600,
         "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "15600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "15600"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "ethereum",
         "name": "Ethereum Wallet (PBKDF2-HMAC-SHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "ethereum"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$ethereum$p*1024*30323330313838333730333538343831*6dcfca7cbd44eb3ca7f11162b996b98dd46fb68e1afb095686fe944fcbdb3b59*b3a766d8c1390462304af979c6f709ba54a23ff135d1ffcdef485dcc7f79b5f2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Ethereum Wallet (PBKDF2-HMAC-SHA256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ethereum$p*1024*38353131353831333338313138363430*a8b4dfe92687dbc0afeb5dae7863f18964241e96b264f09959903c8c924583fc*0a9252861d1e235994ce33dbca91c98231764d8ecb4950015a8ae20d6415b986",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Ethereum Wallet (PBKDF2-HMAC-SHA256)"
+  "match": {
+    "base": 25,
+    "total": 266,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ethereum\\$p\\*\\d{1,6}\\*[a-z0-9]{32,64}\\*[a-z0-9]{64}\\*[a-z0-9]{64}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "15600"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ethereum$p*262144*3238383137313130353438343737383736323437353437383831373034343735*06eae7ee0a4b9e8abc02c9990e3730827396e8531558ed15bb733faf12a44ce1*e6d5891d4f199d31ec434fe25d9ecc2530716bc3b36d5bdbc1fab7685dda3946",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Ethereum Wallet (PBKDF2-HMAC-SHA256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ethereum$p*262144*ae3cd4e7013836a3df6bd7241b12db061dbe2c6785853cce422d148a624ce0bd*5318b4d5bcd28de64ee5559e671353e16f075ecae9f99c7a79a38af5f869aa46*517ead924a9d0dc3124507e3393d175ce3ff7c1e96529c6c555ce9e51205e9b2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Ethereum Wallet (PBKDF2-HMAC-SHA256)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Ethereum Wallet (PBKDF2-HMAC-SHA256)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ethereum\\$p\\*\\d{1,6}\\*[a-z0-9]{32,64}\\*[a-z0-9]{64}\\*[a-z0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ethereum$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 4
+        },
+        "id": "*_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "*_field_count_5",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$ethereum\\$p$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "hex",
+          "length_min": 4,
+          "length_max": 6,
+          "length_multiple_of": 2
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length_min": 32,
+          "length_max": 64,
+          "length_multiple_of": 2
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

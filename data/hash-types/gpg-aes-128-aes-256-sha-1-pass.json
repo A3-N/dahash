@@ -1,61 +1,215 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "gpg-aes-128-aes-256-sha-1-pass",
   "name": "GPG (AES-128/AES-256 (SHA-1($pass)))",
+  "aliases": [
+    "GPG (AES-128/AES-256 (SHA-1($pass)))"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "17010"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "gpg2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$gpg$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 17010,
         "name": "GPG (AES-128/AES-256 (SHA-1($pass)))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "17010"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$gpg$*1*348*1024*8833fa3812b5500aa9eb7e46febfa31a0584b7e4a5b13c198f5c9b0814243895cce45ac3714e79692fb5a130a1c943b9130315ce303cb7e6831be68ce427892858f313fc29f533434dbe0ef26573f2071bbcc1499dc49bda90648221ef3823757e2fba6099a18c0c83386b21d8c9b522ec935ecd540210dbf0f21c859429fd4d35fa056415d8087f27b3e66b16081ea18c544d8b2ea414484f17097bc83b773d92743f76eb2ccb4df8ba5f5ff84a5474a5e8a8e5179a5b0908503c55e428de04b40628325739874e1b4aa004c4cbdf09b0b620990a8479f1c9b4187e33e63fe48a565bc1264bbf4062559631bef9e346a7217f1cabe101a38ac4be9fa94f6dafe6b0301e67792ed51bca04140cddd5cb6e80ac6e95e9a09378c9651588fe360954b622c258a3897f11246c944a588822cc6daf1cb81ccc95098c3bea8432f1ee0c663b193a7c7f1cdfeb91eee0195296bf4783025655cbebd7c70236*3*254*2*7*16*a47ef38987beab0a0b9bfe74b72822e8*65536*1f5c90d9820997db",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "17010"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "gpg-aes-128-aes-256-sha-1-pass.hashcat.17010",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{4}\\*[A-Fa-f0-9]{696}\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{2}\\*[A-Fa-f0-9]{32}\\*[0-9]{5}\\*[A-Fa-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "17010"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 386,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{4}\\*[A-Fa-f0-9]{696}\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{2}\\*[A-Fa-f0-9]{32}\\*[0-9]{5}\\*[A-Fa-f0-9]{16}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{4}\\*[A-Fa-f0-9]{696}\\*[0-9]{1}\\*[0-9]{3}\\*[0-9]{1}\\*[0-9]{1}\\*[0-9]{2}\\*[A-Fa-f0-9]{32}\\*[0-9]{5}\\*[A-Fa-f0-9]{16}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$gpg$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 12
+        },
+        "id": "*_count_12",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 13
+        },
+        "id": "*_field_count_13",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$gpg\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^1$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^348$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^1024$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 696
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "regex": "^3$"
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^254$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "regex": "^2$"
+        },
+        "id": "field_7_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "regex": "^7$"
+        },
+        "id": "field_8_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 9,
+          "regex": "^16$"
+        },
+        "id": "field_9_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 10,
+          "regex": "^a47ef38987beab0a0b9bfe74b72822e8$"
+        },
+        "id": "field_10_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 11,
+          "regex": "^65536$"
+        },
+        "id": "field_11_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "snefru-256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$snefru$4170e04e900e6221562ceb5ff6ea27fa9b9b0d9587add44a4379a02619c5a106"
+    },
+    {
+      "kind": "example_hash",
+      "value": "4170e04e900e6221562ceb5ff6ea27fa9b9b0d9587add44a4379a02619c5a106"
+    },
+    {
+      "kind": "example_hash",
+      "value": "b662584496b15ab01a57ac5c5f72d645351b8d1ea2248fd65b3e7592069fee88"
+    },
+    {
+      "kind": "example_hash",
+      "value": "e248c5662e3c13738e82f90f729d9b8f913e4d96ffc1c7443c35deda9347f8e7"
+    }
+  ]
+}

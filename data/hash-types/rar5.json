@@ -1,97 +1,212 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "rar5",
   "name": "RAR5",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "rar5.haiti.223",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$rar5\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1}\\$[a-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$rar5\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1}\\$[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".rar"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "526172211a0700"
+            },
+            "id": "rar4_magic"
+          }
+        ]
+      },
+      {
+        "kind": "archive",
+        "extensions": [
+          ".rar"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "526172211a070100"
+            },
+            "id": "rar5_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "rar2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$rar"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 13000,
         "name": "RAR5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "13000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "13000"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "rar5",
         "name": "RAR5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "rar5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$rar5$16$37526a0922b4adcc32f8fed5d51bb6c8$15$8955617d9b801def51d734095bb8ecdb$8$9f0b23c98ebb3653",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RAR5"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$rar5$16$38466361001011015181344360681307$15$00000000000000000000000000000000$8$cc7a30583e62676a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RAR5"
+  "match": {
+    "base": 25,
+    "total": 292,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$rar5\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "13000"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$rar5$16$ed9bd88cc649bd06bfd7dc418fcf5fbd$15$21771e718815d6f23073ea294540ce94$8$5c4361e549c999e1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RAR5"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "RAR5"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$rar5\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{2}\\$[a-f0-9]{32}\\$\\d{1}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$rar5$16$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 7
+        },
+        "id": "$_count_7",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 8,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_7",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^rar5$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^16$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 32,
+          "trim_empty_start": true
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^15$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "charset": "hex",
+          "length": 32,
+          "trim_empty_start": true
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "regex": "^8$",
+          "trim_empty_start": true
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 6,
+          "charset": "hex",
+          "length": 16,
+          "trim_empty_start": true
+        },
+        "id": "field_6_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

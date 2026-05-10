@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "scrypt-bridged-scrypt-jane-smix",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "SCRYPT:16384:8:1:OTEyNzU0ODg=:Cc8SPjRH1hFQhuIPCdF51uNGtJ2aOY/isuoMlMUsJ8c=",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

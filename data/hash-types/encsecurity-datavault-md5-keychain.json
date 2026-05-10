@@ -1,64 +1,147 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "encsecurity-datavault-md5-keychain",
   "name": "ENCsecurity Datavault (MD5/keychain)",
+  "aliases": [
+    "ENCsecurity Datavault (MD5/keychain)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "encsecurity-datavault-md5-keychain.haiti.314",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$[a-f0-9]{256}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$[a-f0-9]{256}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 29940,
         "name": "ENCsecurity Datavault (MD5/keychain)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "29940"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "29940"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$encdv$3$1$91b9babb3820c527$1ff4cb6657adad34$d9067c4d059879dfee2edeb3999871973d422ff5fa868c51b025d07f644187889dc5509ec75d4a120184d619d10d02b138d64ba82f9d0936162c9e64d97771de3e74d6e52e5ab9b900c25fb446e14cbe3ef1fa34328a13f9473c669f22d7020bc036d9e99194c959e4c5ba885d6f9ff9ccc2299d67b26e68b850a02363fb2646",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "ENCsecurity Datavault (MD5/keychain)"
+  "match": {
+    "base": 25,
+    "total": 270,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$[a-f0-9]{256}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "29940"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "ENCsecurity Datavault (MD5/keychain)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$[a-f0-9]{256}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$encdv$3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 6
+        },
+        "id": "$_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 7,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_6",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^encdv$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^3$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^1$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^91b9babb3820c527$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^1ff4cb6657adad34$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "charset": "hex",
+          "length": 256,
+          "trim_empty_start": true
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

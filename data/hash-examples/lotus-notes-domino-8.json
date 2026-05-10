@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "lotus-notes-domino-8",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "(HC34tD3KtDp4oCZWmCJ4qC30mC30mC3KmC30mCcA5ovrMLH9M)",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

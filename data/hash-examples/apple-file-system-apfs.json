@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "apple-file-system-apfs",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$fvde$2$16$58778104701476542047675521040224$20000$39602e86b7cea4a34f4ff69ff6ed706d68954ee474de1d2a9f6a6f2d24d172001e484c1d4eaa237d",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

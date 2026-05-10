@@ -1,75 +1,61 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "citrix-netscaler",
   "name": "Citrix Netscaler",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "citrix-netscaler.haiti.086",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{49}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{49}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 8100,
         "name": "Citrix Netscaler",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "8100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "8100"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "citrix_ns10",
         "name": "Citrix Netscaler",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "citrix_ns10"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Citrix Netscaler"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "1130725275da09ca13254957f2314a639818d44c37ef6d558",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "8100"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{49}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{49}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

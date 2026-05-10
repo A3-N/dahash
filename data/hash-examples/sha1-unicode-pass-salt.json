@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha1-unicode-pass-salt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "0a9e4591f539a77cd3af67bae207d250bc86bac6:23240710432",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

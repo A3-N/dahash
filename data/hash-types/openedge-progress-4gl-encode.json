@@ -1,94 +1,54 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "openedge-progress-4gl-encode",
   "name": "OpenEdge Progress 4GL Encode",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "openedge-progress-4gl-encode.haiti.243",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-z]{16}$",
-      "confidence": "contextual",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-z]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 26200,
         "name": "OpenEdge Progress 4GL Encode",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "26200"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "26200"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "OpalkkljtlheSihj",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OpenEdge Progress 4GL Encode"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "bkibllkLdqlpeIol",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OpenEdge Progress 4GL Encode"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "lebVZteiEsdpkncc",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OpenEdge Progress 4GL Encode"
+  "identification": {
+    "max_confidence": 85
+  },
+  "match": {
+    "base": 20,
+    "total": 75,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z]{16}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "26200"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pjqtudckibycRKbj",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OpenEdge Progress 4GL Encode"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "OpenEdge Progress 4GL Encode"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 55
+      }
+    ]
+  }
 }

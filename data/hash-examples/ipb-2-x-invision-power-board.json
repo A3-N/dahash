@@ -1,0 +1,26 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ipb-2-x-invision-power-board",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$IPB2$2e75504633$d891f03a7327639bc632d62a7f302604"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$IPB2$556c576c39$16d4f29c71b05bd75e61d0254800bfa3"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$IPB2$5d75343455$de98ba8ca7bb16f43af05e9e4fb8afee"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$IPB2$735a213a4e$4f23de7bb115139660db5e953153f28a"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "022f7e02b3314f7d0968f73c00ba759f:67588"
+    }
+  ]
+}

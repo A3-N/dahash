@@ -1,61 +1,123 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "aes-crypt-sha256",
   "name": "AES Crypt (SHA256)",
+  "aliases": [
+    "AES Crypt",
+    "AES Crypt SHA256"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "22400"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 22400,
         "name": "AES Crypt (SHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "22400"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$aescrypt$1*efc648908ca7ec727f37f3316dfd885c*eff5c87a35545406a57b56de57bd0554*3a66401271aec08cbd10cf2070332214093a33f36bd0dced4a4bb09fab817184*6a3c49fea0cafb19190dc4bdadb787e73b1df244c51780beef912598bd3bdf7e",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "22400"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "aes-crypt-sha256.hashcat.22400",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{8}\\$[0-9]{1}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "22400"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 300,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$aescrypt$"
+        },
+        "id": "aescrypt_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "five_star_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$aescrypt$"
+        },
+        "id": "aescrypt_marker",
+        "weight": 70
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "five_star_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "charset": "decimal",
+          "prefix": "$aescrypt$",
+          "length": 1,
+          "numeric_min": 1,
+          "numeric_max": 1
+        },
+        "id": "version_field",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "iv_hex_16_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "salt_hex_16_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "wrapped_key_hex_32_bytes",
+        "weight": 45
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "hmac_hex_32_bytes",
+        "weight": 45
+      }
+    ]
+  }
 }

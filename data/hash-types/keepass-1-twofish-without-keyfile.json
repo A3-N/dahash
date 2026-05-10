@@ -1,56 +1,248 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "keepass-1-twofish-without-keyfile",
   "name": "KeePass 1 Twofish / without keyfile",
+  "aliases": [
+    "KeePass 1 Twofish / without keyfile"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "keepass-1-twofish-without-keyfile.haiti.275",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$keepass\\$\\*1\\*\\d{1,10}\\*\\d{1,3}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*\\d\\*\\d{1,8}\\*[a-f0-9]{2,}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$keepass\\$\\*1\\*\\d{1,10}\\*\\d{1,3}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*\\d\\*\\d{1,8}\\*[a-f0-9]{2,}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".kdbx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "03d9a29a67fb4bb5"
+            },
+            "id": "kdbx_magic"
+          }
+        ]
+      },
+      {
+        "kind": "file",
+        "extensions": [
+          ".kdb"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "03d9a29a65fb4bb5"
+            },
+            "id": "kdb_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "keepass2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$keepass$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "john": [
       {
         "format": "keepass",
         "name": "KeePass 1 Twofish / without keyfile",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "keepass"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$keepass$*1*50000*1*1ff21bd79aa8e9c3f439281a4ce6a97b*cfbdb00057ee0c9e889ca9d93b069ab5ae19f78852bc21aae4f60d0d325e0034*c1a7e6138a49a2dcfb3a84afbc1d918b*a704f9d060f0de5a070155d1d5a8727da92f404242cb3aa2b9aa53a145f87474*1*608*c2d3d18e416af56788d1c3e4257da9ce6e5dcad4db012d7422d17b4527bbb2bb994d9db03907ae01cc1565f5fd0729b930c9ee352426c57de5dee7e941e1d6aedeaf2b0e6509819385de9b4dd6a09979b3edfa0959a7186c422031e426f18d295c55ac616aabeec99f89e696be1d585950ef16a94ae610f2449cc3964bb63ec6043ef36c89117bc78e99e5fbf083b48cb84f85a964e8a037018b3afc2cc55fbe7d74cbdb53d5a54bcd202a1d0a342dbf48a8f7a24264cde8d800a506bf134008b1d8d9b8dd80c19511d9f43b3c23b19eb4a7dcf584f80c49961f73dcba3d2d0390a39a683ddcc8771b49cc3c673ea0aa902d075e25bc814608e2e6d1d6218a6379fd677bc5daaa18b6f5a021d2f661338ca8cc3645dc6cddb860af222a5cdb59a5e2a2c1921203344ced4e2154446239f6c1af8c1bace8207e0f519ea9c08db2f5d0bde0416b09ef6c530213e648641ae56c9af9fbdcb0a286cc4de121655697b9eb00c0fd89ed7269c3859eca20e0c7b60be8d2a1323eb915139cf90c55f9cff01a5bdf757e09ee6d64c2de9aec8d3ea42feeb67caf51b9ba1a80b435e271fdb7f9144ca31e41671768b2c5e8adf70245fdf52005de418efbe2a156d19eeb2ed9e97a0ddb133d11bd8655356d9d3edbbdbf9d0db345b2eb2c1f550ce070f5b0f8f8e58a6ffd52ae8089627dc4a0dac4b4846349066bfa0d2f395d2cb3871e57e353d622e0904a9f54a3e4706797d95b34619f792c15ab8efb3ac523becc3023f01aaad169bc08db8d01e2dd22eff8f6b4f7b741d196bc3de466590011e6d5c9703a19c07d96d26fe1ad93d0931454730ee1f3146428a126d1ed02763f827ff4",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "KeePass 1 Twofish / without keyfile"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "KeePass 1 Twofish / without keyfile"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 372,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$keepass\\$\\*1\\*\\d{1,10}\\*\\d{1,3}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*\\d\\*\\d{1,8}\\*[a-f0-9]{2,}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$keepass\\$\\*1\\*\\d{1,10}\\*\\d{1,3}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*\\d\\*\\d{1,8}\\*[a-f0-9]{2,}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$keepass$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 10
+        },
+        "id": "*_count_10",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 11
+        },
+        "id": "*_field_count_11",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$keepass\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^1$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^50000$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^1$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^1ff21bd79aa8e9c3f439281a4ce6a97b$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^c1a7e6138a49a2dcfb3a84afbc1d918b$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_7_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "regex": "^1$"
+        },
+        "id": "field_8_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 9,
+          "regex": "^608$"
+        },
+        "id": "field_9_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 10,
+          "charset": "hex",
+          "length": 1216
+        },
+        "id": "field_10_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

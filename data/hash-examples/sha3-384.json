@@ -1,0 +1,20 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha3-384",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "7a6f5012ad26157c81b524c2d8f6375dbed30c086ca887486523d5bb6d9904a29c9a14b2dea702d1785f39a996192150"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "983ba28532cc6320d04f20fa485bcedb38bddb666eca5f1e5aa279ff1c6244fe5f83cf4bbf05b95ff378dd2353617221",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "baae22bfcd0ddb3659ee3a3e913e733bea751758740368b9fb3f7d2ec3fee616f56c8fd063827cd04a6d3bc36e035ce4"
+    }
+  ]
+}

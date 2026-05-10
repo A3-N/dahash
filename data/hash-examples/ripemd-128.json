@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ripemd-128",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$ripemd$cdf26213a150dc3ecb610f18f6b38b46"
+    },
+    {
+      "kind": "example_hash",
+      "value": "cdf26213a150dc3ecb610f18f6b38b46"
+    }
+  ]
+}

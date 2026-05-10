@@ -1,85 +1,102 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "cisco-asa-md5",
   "name": "Cisco-ASA (MD5)",
+  "aliases": [
+    "Cisco-ASA (MD5)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "cisco-asa-md5.haiti.131",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-z0-9\\/.]{16}([:$].+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-z0-9\\/.]{16}([:$].+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 2410,
         "name": "Cisco-ASA (MD5)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "2410"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "2410"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "asa-md5",
         "name": "Cisco-ASA (MD5)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "asa-md5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "02dMBMYkTdC5Ziyp:36",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco-ASA (MD5)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "YjDBNr.A0AN7DA8s:4684",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "2410"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Cisco-ASA (MD5)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 149,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{16}([:$].+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{16}([:$].+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "alnum_dot_slash",
+          "length": 16
+        },
+        "id": "field_0_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length_min": 2,
+          "length_max": 4,
+          "length_multiple_of": 2
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

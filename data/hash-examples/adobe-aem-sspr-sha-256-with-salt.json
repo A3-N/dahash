@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "adobe-aem-sspr-sha-256-with-salt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$sspr$3$1000$f9bbf1381f481427$a1b45fd7eb190cc7f0bf831698cb777207eebbb4b7ea2abd6fff84be539aae62",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,66 +1,219 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "jetico-bestcrypt-container-encryption-jbc",
   "name": "Jetico BestCrypt Container Encryption (.jbc)",
+  "aliases": [
+    "Jetico BestCrypt Container Encryption (.jbc)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "jetico-bestcrypt-container-encryption-jbc.haiti.231",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$BestCrypt\\$\\d\\$\\d\\$\\d\\$\\d{1,5}\\$\\d{1,3}\\$\\d+\\$\\d{1,3}\\$\\d{1,2}\\$[a-f0-9]{64,128}\\$\\d\\$[a-f0-9]{512}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$BestCrypt\\$\\d\\$\\d\\$\\d\\$\\d{1,5}\\$\\d{1,3}\\$\\d+\\$\\d{1,3}\\$\\d{1,2}\\$[a-f0-9]{64,128}\\$\\d\\$[a-f0-9]{512}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "bestcrypt",
         "name": "Jetico BestCrypt Container Encryption (.jbc)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "bestcrypt"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$BestCrypt$1$5$3$16384$240$3154116612$10$64$7f36390c85bc5695d49d5d135cb09e00cbf738bb203d0f0a0181805acc15d1cc6f856af0f738c44eead724a854700700a1595b5b30d47242a277b60df6491dde$1$a5b6a69b5cb04be789b42e1f50d3426048ea0df06c3b9a9932d85bd54b99aae202c1ca2e283786a4154f09fa01014ecab7f95c3b9a9b6adab1a695153ca8bffec2408566a7da986c0f107c57404c96823bbdc18a4b11337d211b49d7a133cf951b03c54aaccf3ed9b6445e472ba508add524fb67343e954efe313f544d8ecd6f99e9731fa147c62e17a07954f4a265b43cad4247d61529a3e8760d91c5a4314238eb78e10c2521309b7b827be302a32ee37e03854a8c4f872a07fac709b6170f2e7bd9d723f65ba3fd3766c42ed4a4f8dcc55e4c3b9d4e1dcf2bc54a23a87763f4379afdd9d8e934f254f713f3ba80369f26de2c5195c5e04405acdb2893990a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Jetico BestCrypt Container Encryption (.jbc)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$BestCrypt$1$5$3$16384$240$3154116612$128$32$51f7450dccbb1c947dd46138bf0d80d588b6938b02505642dde9e1ea61481485$1$a186f281fbbc68f3b27c7b4cc16b7916a2e19c2695b34ee4133a6ac6373db67b88fb54e3def1c0d288d3170dcb5860c2f190ab199fde7f1072a2a109441e608ae46890c5f18ab80803012a43d9cc595a45c5b9ed8b3ed3330cab1a29e5a96512e2f2e0e5927d6836c3a67c1cd13a61a8201a0a99be84c3e19e6d8a12330ae72c22179d37bb7d55034bb96b5cf9f73c11fa82be31d06bfe33305b616cc72079777a5f1f4a720b56470a83da08c17cbc86e34961c4f0bdb8556e2afa0b2b890780e03304725ce7cf8c592f037beb04b393f4f02e3bc9f6582082a39d31f2e643c5f7811f30eeee2ccc6c11496b7d70dc0d300e145408d28448ff5d929c42007dbe",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Jetico BestCrypt Container Encryption (.jbc)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Jetico BestCrypt Container Encryption (.jbc)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 384,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$BestCrypt\\$\\d\\$\\d\\$\\d\\$\\d{1,5}\\$\\d{1,3}\\$\\d+\\$\\d{1,3}\\$\\d{1,2}\\$[a-f0-9]{64,128}\\$\\d\\$[a-f0-9]{512}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$BestCrypt\\$\\d\\$\\d\\$\\d\\$\\d{1,5}\\$\\d{1,3}\\$\\d+\\$\\d{1,3}\\$\\d{1,2}\\$[a-f0-9]{64,128}\\$\\d\\$[a-f0-9]{512}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$BestCrypt$1$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 12
+        },
+        "id": "$_count_12",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 13,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_12",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^BestCrypt$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^1$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^5$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^3$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^16384$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "regex": "^240$",
+          "trim_empty_start": true
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 6,
+          "regex": "^3154116612$",
+          "trim_empty_start": true
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 7,
+          "charset": "hex",
+          "length_min": 2,
+          "length_max": 3,
+          "trim_empty_start": true
+        },
+        "id": "field_7_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 8,
+          "charset": "hex",
+          "length": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_8_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 9,
+          "charset": "hex",
+          "length_min": 64,
+          "length_max": 128,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_9_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 10,
+          "regex": "^1$",
+          "trim_empty_start": true
+        },
+        "id": "field_10_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 11,
+          "charset": "hex",
+          "length": 512,
+          "trim_empty_start": true
+        },
+        "id": "field_11_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

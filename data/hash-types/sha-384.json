@@ -1,95 +1,63 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha-384",
   "name": "SHA-384",
+  "aliases": [
+    "SHA-384"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sha-384.haiti.072",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{96}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{96}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 10800,
         "name": "SHA-384",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "10800"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "10800"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "raw-sha384",
         "name": "SHA-384",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "raw-sha384"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "07371af1ca1fca7c6941d2399f3610f1e392c56c6d73fddffe38f18c430a2817028dae1ef09ac683b62148a2c8757f42",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "10800"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "8cd123473f9c32ba0fe5f27c8bd676457ccf36060e5811e9ff3bc7026035963241a45bd1a022db6a692c7d2928a69cbb",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA-384"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "970f00dd3ca7d6b8c575ff1122e0734426b6db97fae61e09d659fcb907a616d138999a13fc516b4758fb2a5bcb7987ca",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA-384"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SHA-384"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

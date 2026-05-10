@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-ripemd320-key-salt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "345136b13b3a6e52901e2a414efa0cf5fca2fecf8b03279656d3b0f42c30df3006c5ad186494996b:2436077107013929602",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

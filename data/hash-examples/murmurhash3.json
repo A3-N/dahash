@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "murmurhash3",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "23e93f65:00000000"
+    }
+  ]
+}

@@ -1,87 +1,109 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "aix-ssha1",
   "name": "AIX (ssha1)",
+  "aliases": [
+    "AIX ssha1",
+    "{ssha1}"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "aix-ssha1.haiti.046",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{ssha1}\\d{2}\\$[a-z0-9$\\/.]{44}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{ssha1}\\d{2}\\$[a-z0-9$\\/.]{44}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 6700,
         "name": "AIX (ssha1)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "6700"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "6700"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "aix-ssha1",
         "name": "AIX (ssha1)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "aix-ssha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{ssha1}06$5586485655847243$V5f1Ff1y4dr7AWeVSSdv6N52..Y",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AIX (ssha1)"
+  "match": {
+    "base": 30,
+    "total": 225,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{ssha1}"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "6700"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "{ssha1}06$bJbkFGJAB30L2e23$dCESGOsP7jaIIAJ1QAcmaGeG.kr",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AIX (ssha1)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "AIX (ssha1)"
-    }
-  ]
+        "id": "aix_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "three_dollar_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{ssha1}"
+        },
+        "id": "aix_marker",
+        "weight": 65
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "three_dollar_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "charset": "decimal",
+          "prefix": "{ssha1}",
+          "length": 2,
+          "numeric_min": 0,
+          "numeric_max": 99
+        },
+        "id": "salt_length_prefix",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 1,
+          "length_max": 48
+        },
+        "id": "salt_chars",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 27
+        },
+        "id": "digest_chars",
+        "weight": 55
+      }
+    ]
+  }
 }

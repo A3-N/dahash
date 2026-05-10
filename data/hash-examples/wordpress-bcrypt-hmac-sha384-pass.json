@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "wordpress-bcrypt-hmac-sha384-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$wp$2y$10$lzlQrRRhLSjz486bA9CKHuZRPoKz4uviT251Sq/r5OzKUBbrXwnQW",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cisco-type-7-xor",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "0309540539022E58710D1C3A0713181F01"
+    },
+    {
+      "kind": "example_hash",
+      "value": "046E1803362E595C260E0B240619050A2D"
+    },
+    {
+      "kind": "example_hash",
+      "value": "062B0A33"
+    },
+    {
+      "kind": "example_hash",
+      "value": "095C4F1A0A1218000F"
+    }
+  ]
+}

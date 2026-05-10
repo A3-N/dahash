@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "citrix-netscaler-pbkdf2-hmac-sha256",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "5567243c55099b6b10a714a350db53beea8be6ac9c247fd40fea7e96d206a9f11fd1c45735556ac2004138640de206d0e1522607ab3c3f92816156d2d7845068e",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

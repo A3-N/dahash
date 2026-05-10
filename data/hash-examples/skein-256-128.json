@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "skein-256-128",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "36b8a35239d450e5e0b1fafc097e0ffb"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ddd6200388a4fa08201bca8c43bb045a"
+    }
+  ]
+}

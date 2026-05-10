@@ -1,61 +1,120 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "argon2id-bridged-reference-implementation-tunings",
   "name": "Argon2id [Bridged: reference implementation + tunings]",
+  "aliases": [
+    "Argon2id bridged",
+    "Hashcat 70000"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "70000"
-    }
-  ],
+  "identification": {
+    "max_confidence": 75
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 70000,
         "name": "Argon2id [Bridged: reference implementation + tunings]",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "70000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$argon2id$v=19$m=65536,t=3,p=1$FBMjI4RJBhIykCgol1KEJA$2ky5GAdhT1kH4kIgPN/oERE3Taiy43vNN70a3HpiKQU",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "70000"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "argon2id-bridged-reference-implementation-tunings.hashcat.70000",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{8}\\$[A-Za-z0-9+/=]{4}\\$[A-Za-z0-9+/=]{7},[A-Za-z0-9+/=]{3},[A-Za-z0-9+/=]{3}\\$[A-Za-z0-9]{22}\\$[A-Za-z0-9./]{43}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "70000"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 270,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$argon2id$"
+        },
+        "id": "argon2id_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2id"
+        },
+        "id": "four_argon2_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$argon2id$"
+        },
+        "id": "argon2id_marker",
+        "weight": 80
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2id"
+        },
+        "id": "four_argon2_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^v=19$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2id"
+        },
+        "id": "version_19",
+        "weight": 25
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^m=[0-9]{1,7},t=[0-9]{1,4},p=[0-9]{1,4}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2id"
+        },
+        "id": "cost_parameters",
+        "weight": 45
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/._-]+={0,2}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2id"
+        },
+        "id": "salt_b64",
+        "weight": 30
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[^\\s$]{6,}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2id"
+        },
+        "id": "digest_b64",
+        "weight": 45
+      }
+    ]
+  }
 }

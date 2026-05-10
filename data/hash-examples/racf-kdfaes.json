@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "racf-kdfaes",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$racf-kdfaes$*USER*E7D7E66D000180000008003200100010*00112233445566778899AABBCCDDEEFF*5390653DEC0316FB5AD56053208056A6",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

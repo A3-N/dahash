@@ -1,55 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "skein-512-384",
   "name": "Skein-512(384)",
+  "aliases": [
+    "Skein-512(384)"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "skein-512-384.haiti.072",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{96}$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{96}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "6ec1db740ab261d99313bdbe3d06b9e62346ad6807b1d718cde186b878586baa1454349b64b566a7a966d0b9253d9a18",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Skein-512(384)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "7c5bee6805385755c49d638ed8aef0165c46618fddd22ebdb2beda6ffacf30cc1e57bc45ee474317ce0747f9ff607064",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Skein-512(384)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Skein-512(384)"
-    }
-  ]
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 40,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      }
+    ]
+  }
 }

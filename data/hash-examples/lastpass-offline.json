@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "lastpass-offline",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$lp$3$27c8641d7f5ab5985569d9d0b499b467"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$lp$user@example.invalid$6f5d8cec3615fc9ac7ba2e0569bce4f5"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$lp$user@example.invalid$5000$d8d1e25680b3d9f73489d5769ac3a9c1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$lp$ninechars$d09153108a89347da5c97a4a18f91345"
+    }
+  ]
+}

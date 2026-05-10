@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "md4",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "afe04867ec7a3845145579a95f72eca7",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

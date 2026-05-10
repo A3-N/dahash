@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sun-solaris-md5-crypt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$md5$rounds=904$iPPKEBnEkp3JV8uX$0L6m7rOFTVFn.SGqo2M9W1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$md5,rounds=5000$GUBv0xjJ$$mSwgIswdjlTY0YxV7HBVm0"
+    }
+  ]
+}

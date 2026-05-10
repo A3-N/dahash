@@ -1,0 +1,24 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "traditional-des",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "24leDr0hHfb3A",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "CC4rMpbg9AMZ."
+    },
+    {
+      "kind": "example_hash",
+      "value": "CCNf8Sbh3HDfQ"
+    },
+    {
+      "kind": "example_hash",
+      "value": "CCX.K.MFy4Ois"
+    }
+  ]
+}

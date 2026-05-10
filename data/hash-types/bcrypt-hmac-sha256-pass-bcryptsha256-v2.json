@@ -1,77 +1,127 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bcrypt-hmac-sha256-pass-bcryptsha256-v2",
   "name": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2",
+  "aliases": [
+    "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "bcrypt-hmac-sha256-pass-bcryptsha256-v2.haiti.051",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$bcrypt-sha256\\$v=2,t=2b,r=\\d{1,2}\\$[a-z0-9/.]{22}\\$[a-z0-9/.]{31}$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$bcrypt-sha256\\$v=2,t=2b,r=\\d{1,2}\\$[a-z0-9/.]{22}\\$[a-z0-9/.]{31}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 30601,
         "name": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "30601"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "30601"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$bcrypt-sha256$v=2,t=2b,r=12$KSOjON/ciJR86a00N5q61.$AmWZucQuHk13FGkQWhgMeiFvBfm2GCy",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 159,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$bcrypt-sha256\\$v=2,t=2b,r=\\d{1,2}\\$[a-z0-9/.]{22}\\$[a-z0-9/.]{31}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "30601"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$bcrypt-sha256$v=2,t=2b,r=12$n79VH.0Q2TMWmt3Oqt9uku$Kq4Noyk3094Y2QlB8NdRT8SvGiI4ft2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "bcrypt(HMAC-SHA256($pass)) / bcryptsha256 v2"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$bcrypt-sha256\\$v=2,t=2b,r=\\d{1,2}\\$[a-z0-9/.]{22}\\$[a-z0-9/.]{31}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$bcrypt-sha256$v=2,t=2b,r=12$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ",",
+          "count": 2
+        },
+        "id": ",_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^bcrypt\\-sha256$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 22,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "alnum_dot_slash",
+          "length": 31,
+          "trim_empty_start": true
+        },
+        "id": "field_3_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

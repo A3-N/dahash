@@ -1,86 +1,116 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "argon2i",
   "name": "argon2i",
+  "aliases": [
+    "Argon2i"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "argon2i.haiti.219",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$argon2i\\$v=19\\$m=\\d{1,6},t=\\d{1,2},p=\\d{1,2}\\$[^$]+\\$[^\\s]{6,}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$argon2i\\$v=19\\$m=\\d{1,6},t=\\d{1,2},p=\\d{1,2}\\$[^$]+\\$[^\\s]{6,}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "argon2",
         "name": "argon2i",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "argon2"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$argon2i$v=19$m=16384,t=3,p=1$c2hvcnRfc2FsdA$vvjDVog22A5x9eljmB+2yC8y",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "argon2i"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$argon2i$v=19$m=16384,t=4,p=3$YW5vdGhlcl9zYWx0$K7unxwO5aeuZCpnIJ06FMCRKod3eRg8oIRzQrK3E6mGbyqlTvvl47jeDWq/5drF1COJkEF9Ty7FWXJZHa+vqlf2YZGp/4qSlAvKmdtJ/6JZU32iQItzMRwcfujHE+PBjbL5uz4966A",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "argon2i"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$argon2i$v=19$m=4096,t=3,p=1$ZGFtYWdlX2RvbmU$N59QwnpxDQZRj1/cO6bqm408dD6Z2Z9LKYpwFJSPVKA",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "argon2i"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$argon2i$v=19$m=4096,t=3,p=1$c2hvcnRfc2FsdA$1l4kAwUdAApoCbFH7ghBEf7bsdrOQzE4axIJ3PV0Ncrd",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "argon2i"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "argon2i"
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 270,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$argon2i$"
+        },
+        "id": "argon2i_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2i"
+        },
+        "id": "four_argon2_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$argon2i$"
+        },
+        "id": "argon2i_marker",
+        "weight": 80
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2i"
+        },
+        "id": "four_argon2_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^v=19$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2i"
+        },
+        "id": "version_19",
+        "weight": 25
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^m=[0-9]{1,7},t=[0-9]{1,4},p=[0-9]{1,4}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2i"
+        },
+        "id": "cost_parameters",
+        "weight": 45
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/._-]+={0,2}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2i"
+        },
+        "id": "salt_b64",
+        "weight": 30
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[^\\s$]{6,}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "argon2i"
+        },
+        "id": "digest_b64",
+        "weight": 45
+      }
+    ]
+  }
 }

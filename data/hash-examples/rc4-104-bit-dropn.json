@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "rc4-104-bit-dropn",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$rc4$104$0$a04245c3d7$0$48656c6c6f",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

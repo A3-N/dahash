@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "crc-32",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$crc32$00000000.fa455f6b"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$crc32$4ff4f23f.ce6eb863"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "c762de4a:00000000"
+    }
+  ]
+}

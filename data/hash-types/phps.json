@@ -1,75 +1,118 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "phps",
   "name": "PHPS",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "phps.haiti.146",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$PHPS\\$.+\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$PHPS\\$.+\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 2612,
         "name": "PHPS",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "2612"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "2612"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "phps",
         "name": "PHPS",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "phps"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PHPS"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$PHPS$30353031383437363132$f02b0b2f25e5754edb04522c346ba243",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "2612"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 214,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$PHPS\\$.+\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$PHPS\\$.+\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$PHPS$30353031383437363132$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^PHPS$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^30353031383437363132$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^f02b0b2f25e5754edb04522c346ba243$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

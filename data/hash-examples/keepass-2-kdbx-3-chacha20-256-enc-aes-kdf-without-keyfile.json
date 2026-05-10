@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "keepass-2-kdbx-3-chacha20-256-enc-aes-kdf-without-keyfile",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$keepass$*2*6000*2*e852737a797fb642a2814e5965aba3473644a56ea67998526ce5e6f0e256a56a*fb300459b1e8c52fefa8e72676b57563565475b1c1306c266a48ccc2010e6a94*03027f86819941d1d0f3f2f5*af0f6c5e4319e6c10fdb95f44ded70f3115ae7dc28ec83fd3676c92076505ded*e0ab7f438903eb91dd8bc13c52c5a1c02e34b107ae16710bc57858c8c85fecd0"
+    },
+    {
+      "kind": "example_hash",
+      "value": "chacha20_aes:$keepass$*2*37974684*2*df1a71413770160c73c22c5eded4bdd9ccc5324e09de09c3b8d8bf188b386469*4ff7861f57b1bc36488fd52cc81e3eb598bde02897b54f0494ee947029166e8a*1a84a4f7af7daf598ed0a0b7*7d2143822acf4e6405f3621ff545231087d18aa97993ae6139b694424f582e1a*f213f090d8c23d204eeef4583db4c7658725a15f40863e8d53ac751bf980f245"
+    }
+  ]
+}

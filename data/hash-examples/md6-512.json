@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "md6-512",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "39990e5d4b65abd1c679b36fc7fa0b2f831144374ac3792736180bc5fc5ed4e93f177ed03f16ebac7327b9ddb7e4add838c3ce784653bbdd57d46a9a1d22932d"
+    }
+  ]
+}

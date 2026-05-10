@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "metamask-mobile-wallet",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$metamaskMobile$JV4j2dUDl7n+sujyqW3Wvg==$398f9b04c822d36bfcbdd1e68c82d1e8$auj3J2TwOZ4ev3UIGmNa7VXLh0Nmzr3rDbpXRRrONr4=",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

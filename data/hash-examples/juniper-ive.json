@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "juniper-ive",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "3u+UR6n8AgABAAAAHxxdXKmiOmUoqKnZlf8lTOhlPYy93EAkbPfs5+49YLFd/B1+omSKbW7DoqNM40/EeVnwJ8kYoXv9zy9D5C5m5A==",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

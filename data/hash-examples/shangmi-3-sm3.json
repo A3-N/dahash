@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "shangmi-3-sm3",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "51227e48ea74827b77fc142c3ec21d25cc42c794e6ac422825cd47ad4ac7913d",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "joomla-v2-5-18-d2a5dd79",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "b78f863f2c67410c41e617f724e22f34:89384528665349271307465505333378",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

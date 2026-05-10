@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "nsldaps-ssha",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}/EExmSfmhQSPHDJaTxwQSdb/uPpzYWx0ZXI="
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "{SSHA}FLzWcQqyle6Mo7NvrwXCMAmRzXQxNjYxMTYzNw==",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}WTT3B9Jjr8gOt0Q7WMs9/XvukyhTQj0Ns0jMKQ=="
+    },
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}gVK8WC9YyFT1gMsQHTGCgT3sSv5zYWx0"
+    },
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}ypkVeJKLzbXakEpuPYbn+YBnQvFmNmB+kQhmWQ=="
+    },
+    {
+      "kind": "example_hash",
+      "value": "{SSHA}zTYIHsq8ygmPTPPjoeNVXfKtEthEMXNCMU9jcURy"
+    }
+  ]
+}

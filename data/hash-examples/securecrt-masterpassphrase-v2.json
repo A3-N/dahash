@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "securecrt-masterpassphrase-v2",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "S:\"Config Passphrase\"=02:ded7137400e0a1004a12f1708453968ccc270908ba02ab0345c83690d1de3d9937587be66ad2a7fe8cc6cb16ecff02e61ac05e09d4f49f284efd24f6b16d6ae3",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

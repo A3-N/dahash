@@ -1,56 +1,228 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "keepass-2-kdbx-3-twofish-256-enc-aes-kdf-without-keyfile",
   "name": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile",
+  "aliases": [
+    "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "keepass-2-kdbx-3-twofish-256-enc-aes-kdf-without-keyfile.haiti.280",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(?:.+:)?\\$keepass\\$\\*2\\*\\d+\\*1\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:.+:)?\\$keepass\\$\\*2\\*\\d+\\*1\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".kdbx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "03d9a29a67fb4bb5"
+            },
+            "id": "kdbx_magic"
+          }
+        ]
+      },
+      {
+        "kind": "file",
+        "extensions": [
+          ".kdb"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "03d9a29a65fb4bb5"
+            },
+            "id": "kdb_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "keepass2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$keepass$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "john": [
       {
         "format": "keepass",
         "name": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "keepass"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "twofish_aes:$keepass$*2*45454544*1*012100297ce9a9f0bafa80baea8e25c3c544ee9a769d7bbae9d1b39544a1103e*1e69bcf23baf3941387ca91eeca84163481edcfe5f210e0a3a5d82a5077d447d*d2eeb12c093d3f554020fb0127add83d*b0d55717dfd912e1cec7bf31cc5249bdf7286ad9b487121e20f3020258a38596*991f9862a44be62723fe7088d01321b6c09c393181896b6ba566ac6300b555ef",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "KeePass 2 (KDBX 3) / Twofish 256 enc. / AES-KDF / without keyfile"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 328,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:.+:)?\\$keepass\\$\\*2\\*\\d+\\*1\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:.+:)?\\$keepass\\$\\*2\\*\\d+\\*1\\*[a-f0-9]{64}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\*[a-f0-9]{64}\\*[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "twofish_aes:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 8
+        },
+        "id": "*_count_8",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 9
+        },
+        "id": "*_field_count_9",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^2$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^45454544$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^1$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^d2eeb12c093d3f554020fb0127add83d$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_7_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_8_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

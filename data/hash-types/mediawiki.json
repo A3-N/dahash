@@ -1,75 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mediawiki",
   "name": "MediaWiki",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mediawiki.haiti.138",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[:\\$][AB][:\\$]([a-f0-9]{1,8}[:\\$])?[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[:\\$][AB][:\\$]([a-f0-9]{1,8}[:\\$])?[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 3711,
         "name": "MediaWiki",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "3711"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "3711"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "mediawiki",
         "name": "MediaWiki",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "mediawiki"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MediaWiki"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$B$2152187716$8c8b39c3602b194eeeb6cac78eea2742",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "3711"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$B\\$[A-Za-z0-9/.]{8,13}\\$[A-Fa-f0-9]{32}$"
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$B\\$[A-Za-z0-9/.]{8,13}\\$[A-Fa-f0-9]{32}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$B$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

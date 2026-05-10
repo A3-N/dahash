@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "joaat",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "0159782d"
+    },
+    {
+      "kind": "example_hash",
+      "value": "4835dd77"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "oracle-11g-12c",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "63ec5f6113843f5d229e2d49c068d983a9670d02:57677783202322766743",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

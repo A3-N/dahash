@@ -1,61 +1,129 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "tacacs",
   "name": "TACACS+",
+  "aliases": [
+    "TACACS+"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "16100"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 16100,
         "name": "TACACS+",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "16100"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$tacacs-plus$0$5fde8e68$4e13e8fb33df$c006",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16100"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "tacacs.hashcat.16100",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$tacacs\\-plus\\$[0-9]{1}\\$[A-Fa-f0-9]{8}\\$[A-Fa-f0-9]{12}\\$[A-Fa-f0-9]{4}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16100"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 250,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$tacacs\\-plus\\$[0-9]{1}\\$[A-Fa-f0-9]{8}\\$[A-Fa-f0-9]{12}\\$[A-Fa-f0-9]{4}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$tacacs\\-plus\\$[0-9]{1}\\$[A-Fa-f0-9]{8}\\$[A-Fa-f0-9]{12}\\$[A-Fa-f0-9]{4}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$tacacs-plus$0$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 5
+        },
+        "id": "$_count_5",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 6,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_5",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^tacacs\\-plus$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^0$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^5fde8e68$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^4e13e8fb33df$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^c006$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

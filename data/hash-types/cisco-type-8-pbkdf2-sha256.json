@@ -1,115 +1,122 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "cisco-type-8-pbkdf2-sha256",
   "name": "Cisco Type 8 (PBKDF2-SHA256)",
+  "aliases": [
+    "Cisco Type 8 (PBKDF2-SHA256)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "cisco-type-8-pbkdf2-sha256.haiti.162",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$8\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$8\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 9200,
         "name": "Cisco Type 8 (PBKDF2-SHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "9200"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "9200"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pbkdf2-hmac-sha256",
         "name": "Cisco Type 8 (PBKDF2-SHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pbkdf2-hmac-sha256"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$8$6NHinlEjiwvb5J$RjC.H.ydVb34wDLqJvfjyG1ubxYKpfXqv.Ry9mtrNBY",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$8$84486783037343$pYNyVrtyMalQrZLxRi7ZLQS1Fl.jkYCgASUi5P8JNb2",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "9200"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "$8$TnGX/fE4KGHOVU$pEhnEvxrvaynpi8j4f.EMHr6M.FzU8xnZnBr/tJdFWk",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$8$dsYGNam3K1SIJO$7nv/35M/qr6t.dVc7UY9zrJDWRVqncHub1PE9UlMQFs",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$8$lGO8juTOQLPCHw$cBv2WEaFCLUA24Z48CKUGixIywyGFP78r/slQcMXr3M",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 8 (PBKDF2-SHA256)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Cisco Type 8 (PBKDF2-SHA256)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 206,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$8\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$8\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$8$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^8$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length": 14,
+          "trim_empty_start": true
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

@@ -1,52 +1,45 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "tiger-192-4-rounds",
   "name": "Tiger-192 (4 rounds)",
+  "aliases": [
+    "Tiger-192 (4 rounds)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "tiger-192-4-rounds.haiti.043",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(?:\\$tiger\\$)?[a-f0-9]{48}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:\\$tiger\\$)?[a-f0-9]{48}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "8773d6449a517e9edad0dcaea8340b1974132b8e27415a33",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Tiger-192 (4 rounds)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "8bdfc06464be0d412d8896dc768941de514d9dfc5117649a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Tiger-192 (4 rounds)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Tiger-192 (4 rounds)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$tiger\\$)?[a-f0-9]{48}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$tiger\\$)?[a-f0-9]{48}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

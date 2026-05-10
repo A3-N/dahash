@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "skein-1024",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "46b84f3fda7654397e26faa3066d19e974c52450c690f33cb85c3f963b241131f364a5c2b0f6df6591a51b80930f0d80dd7b8ac3c9caf589997d9d42fd739c2c7122fe6f57c7aa87f0e53f8028d7cabde8de08488ed25acfb1819054f0dbf4ede04698ee82a325eac8e7a886c053d204a099c622298592481b6b41b4ada91b53"
+    },
+    {
+      "kind": "example_hash",
+      "value": "83f7cfed35ac949dbe18abca6bfaeb69f706f889973e94377ec6c4aa9ea2a072f7ae31eafafbd5a1a63a22af453d71263669f4ca6e5c70180847f6d90f1f1d16bcc864a86d35062df112e0a5443b111c82a26ffe2e9626019c7081ed8d6ceb580d22bc90db5cb91da211f772cfe0e491fa4b032fa5ce534aa8c44f3197a67cb5"
+    }
+  ]
+}

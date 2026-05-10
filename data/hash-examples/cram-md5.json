@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cram-md5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$cram_md5$MTI=$dXNlciBiOGYwNjk5MTE0YjA1Nzg4OTIyM2RmMDg0ZjgyMjQ2Zg==",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

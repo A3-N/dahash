@@ -1,52 +1,45 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "shake-128-512",
   "name": "Shake-128 (512)",
+  "aliases": [
+    "Shake-128 (512)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "shake-128-512.haiti.075",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{128}(:.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{128}(:.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "995e6f24b29cb22812d1842f69754dc980142391419794ddb2a0d1fc7bdb9cfa60255bcc872eee074947c5477ea9e6cf629086ab08013582674352412f5c6d10",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Shake-128 (512)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "f64c79f6eb8623299b5f33a509ad6da016601306ba116738156e6d51f23488188c2a1bb2381058a4ee08ed7d46943a8d4acea4411af6db47ffd8740fdbe366e2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Shake-128 (512)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Shake-128 (512)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

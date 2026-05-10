@@ -1,75 +1,225 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "microsoft-office-2007",
   "name": "Microsoft Office 2007",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "microsoft-office-2007.haiti.164",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$office\\$\\*2007\\*\\d{2}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$office\\$\\*2007\\*\\d{2}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".doc",
+          ".xls",
+          ".ppt"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "d0cf11e0a1b11ae1"
+            },
+            "id": "ole_magic"
+          }
+        ]
+      },
+      {
+        "kind": "archive",
+        "extensions": [
+          ".docx",
+          ".xlsx",
+          ".pptx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "office2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$office$",
+          "$oldoffice$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 9400,
         "name": "Microsoft Office 2007",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "9400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "9400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "office",
         "name": "Microsoft Office 2007",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "office"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Microsoft Office 2007"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$office$*2007*20*128*16*18410007331073848057180885845227*944c70a5ee6e5ab2a6a86ff54b5f621a*e6650f1f2630c27fd8fc0f5e56e2e01f99784b9f",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "9400"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 312,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$office\\$\\*2007\\*\\d{2}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$office\\$\\*2007\\*\\d{2}\\*\\d{3}\\*\\d{2}\\*[a-z0-9]{32}\\*[a-z0-9]{32}\\*[a-z0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$office$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 7
+        },
+        "id": "*_count_7",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 8
+        },
+        "id": "*_field_count_8",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$office\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^2007$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^20$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^128$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^16$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "regex": "^18410007331073848057180885845227$"
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^944c70a5ee6e5ab2a6a86ff54b5f621a$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "regex": "^e6650f1f2630c27fd8fc0f5e56e2e01f99784b9f$"
+        },
+        "id": "field_7_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

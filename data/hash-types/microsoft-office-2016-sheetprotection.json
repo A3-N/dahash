@@ -1,64 +1,192 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "microsoft-office-2016-sheetprotection",
   "name": "Microsoft Office 2016 - SheetProtection",
+  "aliases": [
+    "Microsoft Office 2016 - SheetProtection"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "microsoft-office-2016-sheetprotection.haiti.167",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$office\\$2016\\$\\d\\$\\d{6}\\$[^$]{24}\\$[^$]{88}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$office\\$2016\\$\\d\\$\\d{6}\\$[^$]{24}\\$[^$]{88}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".doc",
+          ".xls",
+          ".ppt"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "d0cf11e0a1b11ae1"
+            },
+            "id": "ole_magic"
+          }
+        ]
+      },
+      {
+        "kind": "archive",
+        "extensions": [
+          ".docx",
+          ".xlsx",
+          ".pptx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "office2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$office$",
+          "$oldoffice$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 25300,
         "name": "Microsoft Office 2016 - SheetProtection",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "25300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "25300"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$office$2016$0$100000$876MLoKTq42+/DLp415iZQ==$TNDvpvYyvlSUy97UOLKNhXynhUDDA7H8kLql0ISH5SxcP6hbthdjaTo4Z3/MU0dcR2SAd+AduYb3TB5CLZ8+ow==",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Microsoft Office 2016 - SheetProtection"
+  "match": {
+    "base": 25,
+    "total": 272,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$office\\$2016\\$\\d\\$\\d{6}\\$[^$]{24}\\$[^$]{88}$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "25300"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Microsoft Office 2016 - SheetProtection"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$office\\$2016\\$\\d\\$\\d{6}\\$[^$]{24}\\$[^$]{88}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$office$2016$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 6
+        },
+        "id": "$_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 7,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_6",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^office$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^2016$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^0$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^100000$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^[A-Za-z0-9+/=]{24}$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "regex": "^[A-Za-z0-9+/=]{88}$",
+          "trim_empty_start": true
+        },
+        "id": "field_5_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

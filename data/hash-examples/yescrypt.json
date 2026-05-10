@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "yescrypt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$y$j9T$.9s2wZRY3hcP/udKIFher1$sIBIYsiMmFlXhKOO4ZDJDXo54byuq7a4xAD0k9jw2m4"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$y$j9T$F5Jx5fExrKuPp53xLKQ..1$X3DX6M94c7o.9agCG9G317fhZg9SqC.5i5rd.RhAtQ7"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$y$j9T$o8MJgcu/zxjLLjo3pBk4A.$SPwoNr7I95/JHVKBeTnsu1mSC//M76vfmKc6mE6lSe2"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "osx-v10-5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

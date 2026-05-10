@@ -1,64 +1,135 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "encsecurity-datavault-md5-no-keychain",
   "name": "ENCsecurity Datavault (MD5/no keychain)",
+  "aliases": [
+    "ENCsecurity Datavault (MD5/no keychain)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "encsecurity-datavault-md5-no-keychain.haiti.313",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 29930,
         "name": "ENCsecurity Datavault (MD5/no keychain)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "29930"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "29930"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$encdv$1$1$3a427b9ee5851118$4f52176bb9a1b3b6",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "ENCsecurity Datavault (MD5/no keychain)"
+  "match": {
+    "base": 25,
+    "total": 250,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "29930"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "ENCsecurity Datavault (MD5/no keychain)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$encdv\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$encdv$1$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 5
+        },
+        "id": "$_count_5",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 6,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_5",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^encdv$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^1$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^1$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^3a427b9ee5851118$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^4f52176bb9a1b3b6$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

@@ -1,107 +1,137 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "macos-v10-8-pbkdf2-hmac-sha512",
   "name": "macOS v10.8+ (PBKDF2-HMAC-SHA512)",
+  "aliases": [
+    "macOS v10.8+ (PBKDF2-HMAC-SHA512)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "macos-v10-8-pbkdf2-hmac-sha512.haiti.082",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$ml\\$\\d{1,6}\\$[a-f0-9]{64}\\$[a-f0-9]{128,256}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$ml\\$\\d{1,6}\\$[a-f0-9]{64}\\$[a-f0-9]{128,256}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7100,
         "name": "macOS v10.8+ (PBKDF2-HMAC-SHA512)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7100"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pbkdf2-hmac-sha512",
         "name": "macOS v10.8+ (PBKDF2-HMAC-SHA512)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pbkdf2-hmac-sha512"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$ml$1024$2484380731132131624506271467162123576077004878124365203837706482$89a3a979ee186c0c837ca4551f32e951e6564c7ac6798aa35baf4427fbf6bd1d630642c12cfd5c236c7b0104782237db95e895f7c0e372cd81d58f0448daf958",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "macOS v10.8+ (PBKDF2-HMAC-SHA512)"
+  "match": {
+    "base": 25,
+    "total": 238,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ml\\$\\d{1,6}\\$[a-f0-9]{64}\\$[a-f0-9]{128,256}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "7100"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ml$23923$c3fa2e153466f7619286024fe7d812d0a8ae836295f84b9133ccc65456519fc3$ccb903ee691ade6d5dee9b3c6931ebed6ddbb1348f1b26c21add8ba0d45f27e61e97c0b80d9a18020944bb78f1ebda6fdd79c5cf08a12c80522caf987c287b6d",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "macOS v10.8+ (PBKDF2-HMAC-SHA512)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ml$37174$ef768765ba15907760b71789fe62436e3584dfadbbf1eb8bf98673b60ff4e12b$294d42f6e0c3a93d598340bfb256efd630b53f32173c2b0d278eafab3753c10ec57b7d66e0fa79be3b80b3693e515cdd06e9e9d26d665b830159dcae152ad156",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "macOS v10.8+ (PBKDF2-HMAC-SHA512)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ml$37313$189dce2ede21e297a8884d0a33e4431107e3e40866f3c493e5f9506c2bd2fe44$948010870e110a6d185494799552d8cf30b0203c6706ab06e6270bf0ac17d496d820c5a75c12caf9070051f34acd2a2911bb38b202eebd4413e571e4fbff883e75f35c36c88a2b42a4fb521a97953438c72b2182fd9c5bba902395766e703b52b9aaa3895770d3cebffbee05076d9110ebb9f0342692a238174655b1acdce1c0",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "macOS v10.8+ (PBKDF2-HMAC-SHA512)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "macOS v10.8+ (PBKDF2-HMAC-SHA512)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ml\\$\\d{1,6}\\$[a-f0-9]{64}\\$[a-f0-9]{128,256}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ml$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^ml$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "hex",
+          "length_min": 4,
+          "length_max": 5,
+          "trim_empty_start": true
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length_min": 128,
+          "length_max": 256,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

@@ -1,32 +1,46 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "postgresql-md5",
   "name": "PostgreSQL MD5",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "reference"
-  ],
   "priority": 45,
-  "matchers": [
-    {
-      "id": "postgresql-md5.reference.0",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^md5[a-f0-9]{32}$",
-      "confidence": "generic",
-      "weight": 35,
-      "sources": [
-        {
-          "id": "name-that-hash-reference",
-          "ref": "PostgreSQL MD5"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "name-that-hash-reference",
-      "ref": "PostgreSQL MD5"
-    }
-  ]
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
+  "tools": {},
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^md5[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^md5[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

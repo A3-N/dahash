@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "shake-256-256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "7cc2848a6f74f0d221bf83f3acdbf1a31b8851243f618e0a8cf857fc625c6399"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ebbb9fa195976c0ddd950fee42ec22fcf64c1b7680f97be2789f553ec2a4871a"
+    }
+  ]
+}

@@ -1,75 +1,168 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "itunes-backup-10-0",
   "name": "iTunes backup < 10.0",
+  "aliases": [
+    "iTunes backup < 10.0"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "itunes-backup-10-0.haiti.209",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 14700,
         "name": "iTunes backup < 10.0",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "14700"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "14700"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "itunes-backup",
         "name": "iTunes backup < 10.0",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "itunes-backup"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "iTunes backup < 10.0"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$itunes_backup$*9*ebd7f9b33293b2511f0a4139d5b213feff51476968863cef60ec38d720497b6ff39a0bb63fa9f84e*10000*2202015774208421818002001652122401871832**",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "14700"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 300,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$itunes_backup\\$\\*\\d{1,2}\\*[a-f0-9]{80}\\*\\d{1,6}\\*[a-f0-9]{40}\\*\\d{0,10}\\*[a-f0-9]{0,40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$itunes_backup$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 6
+        },
+        "id": "*_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "*_field_count_7",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$itunes_backup\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^9$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 80
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^10000$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^2202015774208421818002001652122401871832$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "charset": "hex",
+          "length": 0
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "charset": "hex",
+          "length": 0
+        },
+        "id": "field_6_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

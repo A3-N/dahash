@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "netiq-sspr-sha-1-with-salt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$sspr$2$100000$CxCpGqosk9PkCBcoRFp6DLjjRhVEJKK8$a33283d71c2ecaf4f3017b0a89feca2fc879221c",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

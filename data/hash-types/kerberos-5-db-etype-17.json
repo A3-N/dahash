@@ -1,111 +1,115 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-db-etype-17",
   "name": "Kerberos 5 DB etype 17",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "kerberos-5-db-etype-17.haiti.110",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$krb5db\\$17\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]*)?\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$krb5db\\$17\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]*)?\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    },
-    {
-      "id": "kerberos-5-db-etype-17.haiti.111",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$krb17\\$[^$]{1,512}\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$krb17\\$[^$]{1,512}\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 28800,
         "name": "Kerberos 5 DB etype 17",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "28800"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "28800"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "krb5-17",
         "name": "Kerberos 5 DB etype 17",
-        "status": "active",
-        "sources": [
+        "status": "active"
+      }
+    ]
+  },
+  "match": {
+    "base": 0,
+    "total": 0,
+    "requires": [],
+    "evidence": [],
+    "variants": [
+      {
+        "id": "matcher_1",
+        "format": "regex",
+        "base": 25,
+        "total": 140,
+        "requires": [
           {
-            "id": "haiti",
-            "ref": "krb5-17"
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb5db\\$17\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]*)?\\$[a-f0-9]{32}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb5db\\$17\\$[^$]{1,512}\\$[^$]{1,512}(?:\\$[^$]*)?\\$[a-f0-9]{32}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          },
+          {
+            "feature": "prefix",
+            "args": {
+              "value": "$krb"
+            },
+            "id": "marker_prefix",
+            "weight": 45
+          }
+        ]
+      },
+      {
+        "id": "matcher_2",
+        "format": "regex",
+        "base": 25,
+        "total": 140,
+        "requires": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb17\\$[^$]{1,512}\\$[a-f0-9]{32}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$krb17\\$[^$]{1,512}\\$[a-f0-9]{32}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          },
+          {
+            "feature": "prefix",
+            "args": {
+              "value": "$krb"
+            },
+            "id": "marker_prefix",
+            "weight": 45
           }
         ]
       }
     ]
-  },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb17$TEST.LOCALtest$6fb8b78e20ad3df6591cabb9cacf4594",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 17"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb17$TEST.LOCALtest$b7dc1cf2b403cf5f27ea9b2ea526dc5a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 17"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb5db$17$test$TEST.LOCAL$1c41586d6c060071e08186ee214e725e",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 DB etype 17"
-        },
-        {
-          "id": "hashcat-examples",
-          "ref": "28800"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Kerberos 5 DB etype 17"
-    }
-  ]
+  }
 }

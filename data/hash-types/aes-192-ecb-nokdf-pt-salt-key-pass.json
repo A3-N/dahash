@@ -1,67 +1,95 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "aes-192-ecb-nokdf-pt-salt-key-pass",
   "name": "AES-192-ECB NOKDF (PT = $salt, key = $pass)",
+  "aliases": [
+    "AES ECB NOKDF",
+    "known plaintext salt key pass"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "aes-192-ecb-nokdf-pt-salt-key-pass.haiti.034",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}:.+$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}:.+\\Z"
-        }
-      ]
-    }
-  ],
+  "identification": {
+    "max_confidence": 45
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 26402,
         "name": "AES-192-ECB NOKDF (PT = $salt, key = $pass)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "26402"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "26402"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "2995e91b798ef51232a91579edb1d176:49869364034411376791729962721320",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AES-192-ECB NOKDF (PT = $salt, key = $pass)"
+  "match": {
+    "base": 10,
+    "total": 100,
+    "requires": [
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "26402"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "AES-192-ECB NOKDF (PT = $salt, key = $pass)"
-    }
-  ]
+        "id": "two_fields"
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "ciphertext_hex_16_bytes"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": "single_colon_separator",
+        "weight": 15
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": "two_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "ciphertext_hex_16_bytes",
+        "weight": 45
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "any",
+          "length_min": 1,
+          "length_max": 4096
+        },
+        "id": "plaintext_or_salt_present",
+        "weight": 15
+      }
+    ]
+  }
 }

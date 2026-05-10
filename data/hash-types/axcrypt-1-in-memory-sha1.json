@@ -1,61 +1,82 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "axcrypt-1-in-memory-sha1",
   "name": "AxCrypt 1 in-memory SHA1",
+  "aliases": [
+    "AxCrypt SHA1",
+    "AxCrypt in-memory SHA1"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "13300"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 13300,
         "name": "AxCrypt 1 in-memory SHA1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "13300"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$axcrypt_sha1$b89eaac7e61417341b710b727768294d",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "13300"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "axcrypt-1-in-memory-sha1.hashcat.13300",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$axcrypt_sha1\\$[A-Fa-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "13300"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 170,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$axcrypt_sha1$"
+        },
+        "id": "axcrypt_sha1_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 1,
+          "trim_empty_start": true,
+          "drop_prefix_field": "axcrypt_sha1"
+        },
+        "id": "one_digest_field"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$axcrypt_sha1$"
+        },
+        "id": "axcrypt_sha1_marker",
+        "weight": 75
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 1,
+          "trim_empty_start": true,
+          "drop_prefix_field": "axcrypt_sha1"
+        },
+        "id": "one_digest_field",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "trim_empty_start": true,
+          "drop_prefix_field": "axcrypt_sha1",
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "digest_hex_16_bytes",
+        "weight": 55
+      }
+    ]
+  }
 }

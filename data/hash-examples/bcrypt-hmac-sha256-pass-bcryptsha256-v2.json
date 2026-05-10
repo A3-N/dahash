@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "bcrypt-hmac-sha256-pass-bcryptsha256-v2",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$bcrypt-sha256$v=2,t=2b,r=12$KSOjON/ciJR86a00N5q61.$AmWZucQuHk13FGkQWhgMeiFvBfm2GCy"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$bcrypt-sha256$v=2,t=2b,r=12$n79VH.0Q2TMWmt3Oqt9uku$Kq4Noyk3094Y2QlB8NdRT8SvGiI4ft2"
+    }
+  ]
+}

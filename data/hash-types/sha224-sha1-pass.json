@@ -1,67 +1,56 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha224-sha1-pass",
   "name": "sha224(sha1($pass))",
+  "aliases": [
+    "sha224(sha1($pass))"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "sha224-sha1-pass.haiti.049",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{56}(?::.+)?$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{56}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 34500,
         "name": "sha224(sha1($pass))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "34500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "34500"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "10d302483c927df95abba98d69dcd9608365241d1523a8cc5fcbcedc",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "sha224(sha1($pass))"
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 40,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "34500"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "sha224(sha1($pass))"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      }
+    ]
+  }
 }

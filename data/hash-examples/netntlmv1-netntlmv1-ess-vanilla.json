@@ -1,0 +1,28 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "netntlmv1-netntlmv1-ess-vanilla",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "::5V4T:ada06359242920a500000000000000000000000000000000:0556d5297b5daa70eaffde82ef99293a3f3bb59b7c9704ea:9c23f6c094853920",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "CORP\\Administrator:::25B2B477CE101D83648BB087CE7A1C217F51C7FC64C0EBB1:C8BD0C1630A9ECF7A95F494A8F0B2CB4A3F25B1225514304:1122334455667788"
+    },
+    {
+      "kind": "example_hash",
+      "value": "DOMAIN\\User:::c70e4fb229437ef300000000000000000000000000000000:abf7762caf2b1bbfc5cfc1f46665249f049e0af72ae5b5a9:24ca92fdab441aa4"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ESS:::4765f360625700b000000000000000000000000000000000:81f5ecd8a77fe819f7f6689a08a27ac705fc2e1bb00cecb2:c75c20bff9baa71f"
+    },
+    {
+      "kind": "example_hash",
+      "value": "u4-netntlm::kNS:338d08f8e26de93300000000000000000000000000000000:9526fb8c23a90751cdd619b6cea564742e1e4bf33006ba41:cb8086049ec4736c"
+    }
+  ]
+}

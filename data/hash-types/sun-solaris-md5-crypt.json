@@ -1,79 +1,124 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sun-solaris-md5-crypt",
   "name": "Sun / Solaris MD5 Crypt",
+  "aliases": [
+    "Sun / Solaris MD5 Crypt"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sun-solaris-md5-crypt.haiti.048",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\$md5,rounds=\\d+\\$|\\$md5\\$rounds=\\d+\\$|\\$md5\\$)[a-z0-9\\/.]{0,16}(\\$|\\$\\$)[a-z0-9\\/.]{22}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(\\$md5,rounds=\\d+\\$|\\$md5\\$rounds=\\d+\\$|\\$md5\\$)[a-z0-9\\/.]{0,16}(\\$|\\$\\$)[a-z0-9\\/.]{22}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 3300,
         "name": "Sun / Solaris MD5 Crypt",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "3300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "sunmd5",
         "name": "Sun / Solaris MD5 Crypt",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "sunmd5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$md5$rounds=904$iPPKEBnEkp3JV8uX$0L6m7rOFTVFn.SGqo2M9W1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Sun / Solaris MD5 Crypt"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$md5,rounds=5000$GUBv0xjJ$$mSwgIswdjlTY0YxV7HBVm0",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Sun / Solaris MD5 Crypt"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Sun / Solaris MD5 Crypt"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 208,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$md5,rounds=\\d+\\$|\\$md5\\$rounds=\\d+\\$|\\$md5\\$)[a-z0-9\\/.]{0,16}(\\$|\\$\\$)[a-z0-9\\/.]{22}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$md5,rounds=\\d+\\$|\\$md5\\$rounds=\\d+\\$|\\$md5\\$)[a-z0-9\\/.]{0,16}(\\$|\\$\\$)[a-z0-9\\/.]{22}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$md5"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^[A-Za-z0-9+/=]{8,10}$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length_min": 0,
+          "length_max": 16,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "alnum_dot_slash",
+          "length": 22,
+          "trim_empty_start": true
+        },
+        "id": "field_3_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

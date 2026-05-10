@@ -1,64 +1,159 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mozilla-key4-db",
   "name": "Mozilla key4.db",
+  "aliases": [
+    "Mozilla key4.db"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mozilla-key4-db.haiti.241",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$mozilla\\$\\*AES\\*[a-f0-9]{40}\\*[a-f0-9]{64}\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$mozilla\\$\\*AES\\*[a-f0-9]{40}\\*[a-f0-9]{64}\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 26100,
         "name": "Mozilla key4.db",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "26100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "26100"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$mozilla$*AES*5add91733b9b13310ea79a4b38de5c3f797c3bf1*54c17e2a8a066cbdc55f2080c5e9f02ea3954d712cb34b4547f5186548f46512*10000*040e4b5a00f993e63f67a34f6cfc5704*eae9c6c003e6d1b2aa8aa21630838808",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Mozilla key4.db"
+  "match": {
+    "base": 25,
+    "total": 296,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$mozilla\\$\\*AES\\*[a-f0-9]{40}\\*[a-f0-9]{64}\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "26100"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Mozilla key4.db"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$mozilla\\$\\*AES\\*[a-f0-9]{40}\\*[a-f0-9]{64}\\*\\d{1,6}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$mozilla$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 6
+        },
+        "id": "*_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 7
+        },
+        "id": "*_field_count_7",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$mozilla\\$$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^AES$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^5add91733b9b13310ea79a4b38de5c3f797c3bf1$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^10000$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "regex": "^040e4b5a00f993e63f67a34f6cfc5704$"
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^eae9c6c003e6d1b2aa8aa21630838808$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

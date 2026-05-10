@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "lastpass-cli",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$lpcli$0$user@example.invalid$1$9611651d6cbe6ab1dfb035d3874bd803$68bbe1480410c03cc053662658884f2b"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$lpcli$0$user@example.invalid$1234$3fec6cd2d8c049cbafe9fa6a9343f42f$f21d8e60ad22db53033e431700fb5e0c"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$lpcli$0$user@example.invalid$1234$fbd97e7e14713363c5567bdc106bb1f4$75ebb9460f9852ccb2382029fe333867"
+    }
+  ]
+}

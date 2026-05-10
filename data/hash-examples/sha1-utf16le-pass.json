@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha1-utf16le-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "b9798556b741befdbddcbf640d1dd59d19b1e193",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

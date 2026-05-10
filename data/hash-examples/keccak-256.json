@@ -1,0 +1,32 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "keccak-256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$keccak256$3b673b24a64aebb286f193e5c985c8e528db8590f997d9130889ca7f5f4cfe6e"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$keccak256$4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45"
+    },
+    {
+      "kind": "example_hash",
+      "value": "1aec7a56aa08b25b596057e1ccbcb6d768b770eaa0f355ccbd56aee5040e02ee"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "203f88777f18bb4ee1226627b547808f38d90d3e106262b5de9ca943b57137b6",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45"
+    },
+    {
+      "kind": "example_hash",
+      "value": "9f21b850ee8906e7acd616553bd72c06084ec9d33e921a336adb12a25d1c38ca"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "kremlin-encrypt-3-0-w-newdes",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$kgb$0ab30cf7a52dad93$82a7c454246fc7570224e9f24279791aa2a63bf4",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

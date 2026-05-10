@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "netiq-sspr-pbkdf2withhmacsha512",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$pbkdf2-hmac-sha512$100000.0211258841559010919749469547425215185689838310218571790549787198.1659e40e64daf84d635a5f1ed2f5708f6735233bed471994bdc0307b3c5f77597f79bdcdd088d1e79357b383809ddfd84379006b49e14f4ff45c449071478777",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

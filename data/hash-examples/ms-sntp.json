@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ms-sntp",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$sntp-ms$cfc7023381cf6bb474cdcbeb0a67bdb3$907733697536811342962140955567108526489624716566696971338784438986103976327367763739445744705380",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

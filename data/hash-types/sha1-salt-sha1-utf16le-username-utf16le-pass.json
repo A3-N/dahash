@@ -1,67 +1,113 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha1-salt-sha1-utf16le-username-utf16le-pass",
   "name": "sha1($salt.sha1(utf16le($username).':'.utf16le($pass)))",
+  "aliases": [
+    "sha1($salt.sha1(utf16le($username).':'.utf16le($pass)))"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "sha1-salt-sha1-utf16le-username-utf16le-pass.haiti.037",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}:[a-f0-9]+:[a-f0-9]+$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}:[a-f0-9]+:[a-f0-9]+\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 29000,
         "name": "sha1($salt.sha1(utf16le($username).':'.utf16le($pass)))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "29000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "29000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "339b5eaa53f28516008e9ca710857d3a4785b6fc:8ca064ff42fcab5a8f0692544b8dd3d3054bd73fe9afaa08c6b6b310538cc9a7:757365726e616d65",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "sha1($salt.sha1(utf16le($username).':'.utf16le($pass)))"
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 161,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}:[a-f0-9]+:[a-f0-9]+$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "29000"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "sha1($salt.sha1(utf16le($username).':'.utf16le($pass)))"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}:[a-f0-9]+:[a-f0-9]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "339b5eaa53f28516008e9ca710857d3a4785b6fc"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 3
+        },
+        "id": ":_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^339b5eaa53f28516008e9ca710857d3a4785b6fc$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "regex": "^757365726e616d65$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

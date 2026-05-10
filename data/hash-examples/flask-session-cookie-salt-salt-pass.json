@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "flask-session-cookie-salt-salt-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "eyJ1c2VybmFtZSI6ImFkbWluIn0.YjdgRQ.1OTlf1PD0H9wXsu_qS0aywAJVD8"
+    }
+  ]
+}

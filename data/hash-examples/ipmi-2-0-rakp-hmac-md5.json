@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ipmi-2-0-rakp-hmac-md5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "08b017f3628b9835c748521e412429c9:f3450000df540000cdd981b0b3441be8774a61e69321291891a29a0c5fdac3f06194bd2c29fa5246000000000000000000000000000000001400"
+    }
+  ]
+}

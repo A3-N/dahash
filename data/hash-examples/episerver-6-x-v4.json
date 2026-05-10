@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "episerver-6-x-v4",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$episerver$*0*MjEwNA==*ZUgAmuaYTqAvisD0A427FA3oaWU",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

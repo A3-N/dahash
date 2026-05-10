@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "mysql-a-sha256crypt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$mysql$A$005*F9CC98CE08892924F50A213B6BC571A2C11778C5*625479393559393965414D45316477456B484F41316E64484742577A2E3162785353526B7554584647562F",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

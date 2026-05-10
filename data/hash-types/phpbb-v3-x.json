@@ -1,75 +1,65 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "phpbb-v3-x",
   "name": "phpBB v3.x",
+  "aliases": [
+    "phpBB v3.x"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "phpbb-v3-x.haiti.029",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$H\\$[a-z0-9\\/.]{31}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$H\\$[a-z0-9\\/.]{31}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 400,
         "name": "phpBB v3.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "phpass",
         "name": "phpBB v3.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "phpass"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "phpBB v3.x"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "400"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[HP]\\$[A-Za-z0-9/.]{31}$"
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[HP]\\$[A-Za-z0-9/.]{31}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$P$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 80
+  }
 }

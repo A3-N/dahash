@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "blake2-256-blake2b",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$BLAKE2$68b163391b3e779dcddba4e6d8fa03e962c29569b430efa5ba014303358557e1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ba0f791652dfe09a7337350d74fab0233c8200b786676c8f0e425a9cc7aecde1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "f2b8245ec0196186ab2cc042b9d6c466ebd5ca2aa15fe2c80fd4f94ef832bd1c"
+    }
+  ]
+}

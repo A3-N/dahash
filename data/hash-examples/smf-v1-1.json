@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "smf-v1-1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "d27c0a627a45db487af161fcc3a4005d88eb8a1f:25551135",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

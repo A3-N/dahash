@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "skype",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "d04d74780881019341915c70d914db29:0675841",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

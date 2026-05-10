@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "bigcrypt-descrypt-extension-des-based-crypt-3",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "S/8NbAAlzbYO66hAa9XZyWy2"
+    },
+    {
+      "kind": "example_hash",
+      "value": "TO9Mdb1FHXkFU"
+    }
+  ]
+}

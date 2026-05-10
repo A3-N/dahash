@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha512-salt-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "efc5dd0e4145970917abdc311e1d4e23ba0afa9426d960cb28569f4d585cb031af5c936f57fbcb0a08368a1b302573cf582100d40bd7c632f3d8aecd1a1a8eb1:812",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

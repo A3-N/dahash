@@ -1,62 +1,105 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-werkzeug-sha1-hmac-sha1-key-salt",
   "name": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))",
+  "aliases": [
+    "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-werkzeug-sha1-hmac-sha1-key-salt.haiti.316",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^sha1\\$.{0,256}\\$[a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Asha1\\$.{0,256}\\$[a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "sha1$84eyBlujP9J4o7IU$0ecad02823bde7b529a16ec68a44f502fe83ac8d",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "sha1$iQ0LfrHjFg4t5oCzA27HaQpl8zM8C4oI$103aeadda05906e3b6be6625d76c6c309e3daf17",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "sha1$sV9Unoac$8083cab64f3b016e9d70729906ee11ea10a51ad6",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python Werkzeug SHA1 (HMAC-SHA1 (key = $salt))"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 212,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^sha1\\$.{0,256}\\$[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^sha1\\$.{0,256}\\$[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "sha1$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^sha1$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 8,
+          "length_max": 32,
+          "length_multiple_of": 2
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

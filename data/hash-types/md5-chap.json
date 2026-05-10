@@ -1,75 +1,66 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "md5-chap",
   "name": "MD5(Chap)",
+  "aliases": [
+    "MD5(Chap)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "md5-chap.haiti.064",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\$chap\\$0\\*)?[a-f0-9]{32}[\\*:][a-f0-9]{32}(:\\d{2})?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(\\$chap\\$0\\*)?[a-f0-9]{32}[\\*:][a-f0-9]{32}(:\\d{2})?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 4800,
         "name": "MD5(Chap)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "4800"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "4800"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "chap",
         "name": "MD5(Chap)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "chap"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MD5(Chap)"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "aa4aaa1d52319525023c06a4873f4c51:35343534373533343633383832343736:dc",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "4800"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 103,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{32}:[A-Fa-f0-9]{32}:[A-Za-z0-9./]{1,64}$"
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{32}:[A-Fa-f0-9]{32}:[A-Za-z0-9./]{1,64}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": "colon_count_2",
+        "weight": 8
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 70
+  }
 }

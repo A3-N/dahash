@@ -1,0 +1,16 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "metamask-wallet",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$metamask$AARgM5AgABE2eWgJcWAwQIAFmSYoASZVZBlAR4B0h2M=$8HrVMqsjfFTusMbegh+KWg==$7FPq7LjWe3t/TjDBtUwrJBpiG/Rdt+uf71dLCyUZd0pdtymBK6mSMZDyRfp/CzpjEPA1dU1BLDshcwM/1k6KdO//+mPWrgY4j49XTXIMnHNhJPfPv8s9rXiq8jLqetsStqtWmTZaD7fTtbzOYWR4gwQc98MxCnn/IrSnfCHungw1rLV5Xm0/hF7WfzFeEgcHknhJJP1xSeJCL9qI5DJ+lz7ksc0UVvHoiNJx8uvPBNkHpGQRNujwlnk="
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$metamask$jfGI3TXguhb8GPnKSXFrMzRk2NCEc131Gt5G3kZr5+s=$h+BoIf2CQ5BEjaIOShFE7g==$R95fzGt4UQ0uwrcrVYnIi4UcSlWn9wlmer+//526ZDwYAp50K82F1u1oacYcdjjhuEvbZnWk/uBG00UkgLLlO3WbINljqmu2QWdDEwjTgo/qWR6MU9d/82rxNiONHQE8UrZ8SV+htVr6XIB0ze3aCV0E+fwI93EeP79ZeDxuOEhuHoiYT0bHWMv5nA48AdluG4DbOo7SrDAWBVCBsEdXsOfYsS3/TIh0a/iFCMX4uhxY2824JwcWp4H36SFWyBYMZCJ3/U4DYFbbjWZtGRthoJlIik5BJq4FLu3Y1jEgza0AWlAvu4MKTEqrYSpUIghfxf1a1f+kPvxsHNq0as0kRwCXu09DObbdsiggbmeoBkxMZiFq0d9ar/3Gon0r3hfc3c124Wlivzbzu1JcZ3wURhLSsUS7b5cfG86aXHJkxmQDA5urBz6lw3bsIvlEUB2ErkQy/zD+cPwCG1Rs/WKt7KNh45lppCUkHccbf+xlpdc8OfUwj01Xp7BdH8LMR7Vx1C4hZCvSdtURVl0VaAMxHDX0MjRkwmqS",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,44 +1,51 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "vnc",
   "name": "VNC",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "vnc.haiti.132",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$vnc\\$\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$vnc\\$\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "vnc",
         "name": "VNC",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "vnc"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "VNC"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$vnc\\$\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$vnc\\$\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

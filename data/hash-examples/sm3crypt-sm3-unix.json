@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sm3crypt-sm3-unix",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$sm3$KTTUB40dW4mRyRFd$ul2xLiIY3FJtbo8sv1R93sAYCkxQCH/6rmS1kD5vJYA"
+    }
+  ]
+}

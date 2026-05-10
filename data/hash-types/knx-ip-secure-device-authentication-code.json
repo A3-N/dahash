@@ -1,64 +1,119 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "knx-ip-secure-device-authentication-code",
   "name": "KNX IP Secure - Device Authentication Code",
+  "aliases": [
+    "KNX IP Secure - Device Authentication Code"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "knx-ip-secure-device-authentication-code.haiti.240",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$knx-ip-secure-device-authentication-code\\$\\*[a-f0-9]{4}\\*[a-f0-9]{64}\\*[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$knx-ip-secure-device-authentication-code\\$\\*[a-f0-9]{4}\\*[a-f0-9]{64}\\*[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 25900,
         "name": "KNX IP Secure - Device Authentication Code",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "25900"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "25900"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$knx-ip-secure-device-authentication-code$*3033*fa7c0d787a9467c209f0a6e7cf16069ed704f3959dce19e45d7935c0a91bce41*f927640d9bbe9a4b0b74dd3289ad41ec",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "KNX IP Secure - Device Authentication Code"
+  "match": {
+    "base": 25,
+    "total": 224,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$knx-ip-secure-device-authentication-code\\$\\*[a-f0-9]{4}\\*[a-f0-9]{64}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "25900"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "KNX IP Secure - Device Authentication Code"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$knx-ip-secure-device-authentication-code\\$\\*[a-f0-9]{4}\\*[a-f0-9]{64}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$knx-ip-secure-device-authentication-code$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 3
+        },
+        "id": "*_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 4
+        },
+        "id": "*_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^3033$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^f927640d9bbe9a4b0b74dd3289ad41ec$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

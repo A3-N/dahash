@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "kerberos-5-db-etype-18",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$krb18$OLYMPE.OLtest$214bb89cf5b8330112d52189ab05d9d05b03b5a961fe6d06203335ad5f339b26"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$krb5db$18$test$TEST.LOCAL$266b5a53a6d663c3f69174f3309acada8e467c097c7973699f86286a6cf1a6c7"
+    }
+  ]
+}

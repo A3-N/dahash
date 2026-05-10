@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "bitcoin-wif-private-key-p2sh-p2wpkh-compressed",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "3H1YvmSdrjEfj9LvtiKJ8XiYq5htJRuejA"
+    }
+  ]
+}

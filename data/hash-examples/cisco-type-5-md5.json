@@ -1,0 +1,20 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cisco-type-5-md5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$1$38652870$DUjsu4TTlTsOe/xxZ05uf/",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$1$SpMm$eALjeyED.WSZs0naLNv22/"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$1$VkQd$Vma3sR7B1LL.v5lgy1NYc/"
+    }
+  ]
+}

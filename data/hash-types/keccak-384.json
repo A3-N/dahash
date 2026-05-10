@@ -1,95 +1,63 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "keccak-384",
   "name": "Keccak-384",
+  "aliases": [
+    "Keccak-384"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "keccak-384.haiti.072",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{96}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{96}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 17900,
         "name": "Keccak-384",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "17900"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "17900"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dynamic_440",
         "name": "Keccak-384",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_440"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "5804b7ada5806ba79540100e9a7ef493654ff2a21d94d4f2ce4bf69abda5d94bf03701fe9525a15dfdc625bfbd769701",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "17900"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "67d5794b83579146ffdf78c0c48317315e8309b6bfe52b6c17392fb5c6a763e0f26a3d5d61197fe60ebae5af66deb980",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Keccak-384"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "9012c8f28ae19341182fd358f9c612a16027c0ff34e7d891e3adc1cb6b0c8a8dc6c2cf73bc65f26a30a7297aeb651ee9",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Keccak-384"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Keccak-384"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

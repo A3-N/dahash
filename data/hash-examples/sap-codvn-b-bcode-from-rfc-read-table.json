@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sap-codvn-b-bcode-from-rfc-read-table",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "027642760180$77EC386300000000"
+    }
+  ]
+}

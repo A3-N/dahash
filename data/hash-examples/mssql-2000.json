@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "mssql-2000",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "0x0100778883860000000000000000000000000000000000000000eda3604e067a06f2732b05b9cb90b8a710996939",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

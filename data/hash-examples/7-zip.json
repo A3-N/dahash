@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "7-zip",
+  "examples": [
+    {
+      "kind": "john_7z2john",
+      "value": "$7z$0$19$0$$16$75cbf08bdef2ead5ffe8f579d0118ae3$3972259556$112$98$78f39291a5b40f663dfc5328d63a756465170cff7092d18ca8335f99317276fa368fbf992e237adde787fb320a716c29ef80d24abad9a0b2761b6082f45f52b4a4162135241a5411375ecc5df172c8b195feb75d682d6b18c90d83530b1dc8c1552b2606f4c45e7e2ff4671c60659ae6"
+    }
+  ]
+}

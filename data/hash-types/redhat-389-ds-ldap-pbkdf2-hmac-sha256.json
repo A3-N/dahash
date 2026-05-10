@@ -1,64 +1,64 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "redhat-389-ds-ldap-pbkdf2-hmac-sha256",
   "name": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)",
+  "aliases": [
+    "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "redhat-389-ds-ldap-pbkdf2-hmac-sha256.haiti.187",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{PBKDF2_SHA256}[a-z0-9/+]+$",
-      "confidence": "contextual",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{PBKDF2_SHA256}[a-z0-9/+]+\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 10901,
         "name": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "10901"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "10901"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{PBKDF2_SHA256}AAAgADkxMjM2NTIzMzgzMjQ3MjI4MDAwNTk5OTAyOTk4NDI2MjkyMzAzNjg0NjQwOTMxNjI3OTMzNjg0MDI0OTY5NTe5ULagRTYpLaUoeqJMg8x9W/DXu+9VTFaVhaYvebYrY+sOqn1ZMRnws22C1uAkiE2tFM8qN+xw5xe7OmCPZ203NuruK4oB33QlsKIEz4ppm0TR94JB9PJx7lIQwFHD3FUNUNryj4jk6UYyJ4+V1Z9Ug/Iy/ylQBJgfs5ihzgxHYZrfp1wUCXFzlZG9mxmziPm8VFnAhaX4+FBAZvLAx33jpbKOwEg7TmwP2VJ8BNFLQRqwYdlqIjQlAhncXH+dqIF9VdM4MonAA0hx76bMvFTP7LF5VO1IqVmcuYz7YG9v4KKRjnvoUUqOj6okUBQTay3EzsdFVnUW1FemYOccJd5q",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)"
+  "identification": {
+    "max_confidence": 85
+  },
+  "match": {
+    "base": 20,
+    "total": 120,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{PBKDF2_SHA256}[a-z0-9/+]+$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "10901"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "RedHat 389-DS LDAP (PBKDF2-HMAC-SHA256)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{PBKDF2_SHA256}[a-z0-9/+]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 55
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{PBKDF2_SHA256}"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

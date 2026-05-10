@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "kerberos-5-db-etype-17",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$krb17$TEST.LOCALtest$6fb8b78e20ad3df6591cabb9cacf4594"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$krb17$TEST.LOCALtest$b7dc1cf2b403cf5f27ea9b2ea526dc5a"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$krb5db$17$test$TEST.LOCAL$1c41586d6c060071e08186ee214e725e"
+    }
+  ]
+}

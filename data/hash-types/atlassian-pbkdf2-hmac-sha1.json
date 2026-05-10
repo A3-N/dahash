@@ -1,97 +1,70 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "atlassian-pbkdf2-hmac-sha1",
   "name": "Atlassian (PBKDF2-HMAC-SHA1)",
+  "aliases": [
+    "Atlassian PBKDF2",
+    "PKCS5S2"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "atlassian-pbkdf2-hmac-sha1.haiti.157",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{PKCS5S2}[a-z0-9\\/+]{64}$",
-      "confidence": "contextual",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{PKCS5S2}[a-z0-9\\/+]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 12001,
         "name": "Atlassian (PBKDF2-HMAC-SHA1)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "12001"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "12001"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pbkdf2-hmac-sha1",
         "name": "Atlassian (PBKDF2-HMAC-SHA1)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pbkdf2-hmac-sha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{PKCS5S2}DQIXJU038u4P7FdsuFTY/+35bm41kfjZa57UrdxHp2Mu3qF2uy+ooD+jF5t1tb8J",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "{PKCS5S2}NTczNTY0NDY2NjQyNzU1Mx8gGiRGobaZYwumctGHbn2ZOHB8LkwzH+Z1gkWfy1zD",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
+  "match": {
+    "base": 25,
+    "total": 170,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{PKCS5S2}"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "12001"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "{PKCS5S2}NzIyNzM0NzY3NTIwNjI3MdDDis7wPxSbSzfFqDGf7u/L00kSEnupbz36XCL0m7wa",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Atlassian (PBKDF2-HMAC-SHA1)"
-    }
-  ]
+        "id": "pkcs5s2_marker"
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\{PKCS5S2\\}[A-Za-z0-9/+]{64}$"
+        },
+        "id": "pkcs5s2_base64_body"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{PKCS5S2}"
+        },
+        "id": "pkcs5s2_marker",
+        "weight": 70
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\{PKCS5S2\\}[A-Za-z0-9/+]{64}$"
+        },
+        "id": "pkcs5s2_base64_body",
+        "weight": 75
+      }
+    ]
+  }
 }

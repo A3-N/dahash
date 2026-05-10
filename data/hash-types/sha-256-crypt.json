@@ -1,85 +1,123 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha-256-crypt",
   "name": "SHA-256 Crypt",
+  "aliases": [
+    "SHA-256 Crypt"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sha-256-crypt.haiti.088",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$5\\$(rounds=\\d+\\$)?[a-z0-9\\/.]{0,16}\\$[a-z0-9\\/.]{43}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$5\\$(rounds=\\d+\\$)?[a-z0-9\\/.]{0,16}\\$[a-z0-9\\/.]{43}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7400,
         "name": "SHA-256 Crypt",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "sha256crypt",
         "name": "SHA-256 Crypt",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "sha256crypt"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$5$7777657035274252$XftMj84MW.New1/ViLY5V4CM4Y7EBvfETaZsCW9vcJ8",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "7400"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "$5$9ks3nNEqv31FX.F$gdEoLFsCRsn/WRN3wxUnzfeZLoooVlzeF4WjLomTRFD",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA-256 Crypt"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SHA-256 Crypt"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 206,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$5\\$(rounds=\\d+\\$)?[a-z0-9\\/.]{0,16}\\$[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$5\\$(rounds=\\d+\\$)?[a-z0-9\\/.]{0,16}\\$[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$5$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^5$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 15,
+          "length_max": 16,
+          "trim_empty_start": true
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

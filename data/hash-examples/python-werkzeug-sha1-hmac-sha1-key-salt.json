@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "python-werkzeug-sha1-hmac-sha1-key-salt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "sha1$84eyBlujP9J4o7IU$0ecad02823bde7b529a16ec68a44f502fe83ac8d"
+    },
+    {
+      "kind": "example_hash",
+      "value": "sha1$iQ0LfrHjFg4t5oCzA27HaQpl8zM8C4oI$103aeadda05906e3b6be6625d76c6c309e3daf17"
+    },
+    {
+      "kind": "example_hash",
+      "value": "sha1$sV9Unoac$8083cab64f3b016e9d70729906ee11ea10a51ad6"
+    }
+  ]
+}

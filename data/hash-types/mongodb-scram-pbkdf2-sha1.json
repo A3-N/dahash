@@ -1,66 +1,137 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mongodb-scram-pbkdf2-sha1",
   "name": "MongoDB SCRAM PBKDF2-SHA1",
+  "aliases": [
+    "MongoDB SCRAM PBKDF2-SHA1"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mongodb-scram-pbkdf2-sha1.haiti.234",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$scram\\$.+\\$\\d{1,5}\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$scram\\$.+\\$\\d{1,5}\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "scram",
         "name": "MongoDB SCRAM PBKDF2-SHA1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "scram"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$scram$admin$10000$ouQdw5om9Uc5gxulO9F/8w==$DSnATYsgoE8InL5Petfjp8MWGh4=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MongoDB SCRAM PBKDF2-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$scram$someadmin$10000$wf42AF7JaU1NSeBaSmkKzw==$H6A5RF0qz6DrcWNNX4xe+wIeVEw=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MongoDB SCRAM PBKDF2-SHA1"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MongoDB SCRAM PBKDF2-SHA1"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 250,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$scram\\$.+\\$\\d{1,5}\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$scram\\$.+\\$\\d{1,5}\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))\\$(?:[a-z0-9+\\/]{4})*(?:|(?:[a-z0-9+\\/]{3}=)|(?:[a-z0-9+\\/]{2}==)|(?:[a-z0-9+\\/]{1}===))$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$scram$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 5
+        },
+        "id": "$_count_5",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 6,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_5",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^scram$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 5,
+          "length_max": 9,
+          "trim_empty_start": true
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^10000$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[A-Za-z0-9+/=]{24}$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^[A-Za-z0-9+/=]{28}$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

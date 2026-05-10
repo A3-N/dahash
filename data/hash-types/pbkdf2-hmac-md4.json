@@ -1,86 +1,132 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pbkdf2-hmac-md4",
   "name": "PBKDF2-HMAC-MD4",
+  "aliases": [
+    "PBKDF2-HMAC-MD4"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "pbkdf2-hmac-md4.haiti.194",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pbkdf2-hmac-md4\\$\\d{1,6}\\$[a-f0-9]+\\$[a-f0-9]+$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$pbkdf2-hmac-md4\\$\\d{1,6}\\$[a-f0-9]+\\$[a-f0-9]+\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "pbkdf2-hmac-md4",
         "name": "PBKDF2-HMAC-MD4",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pbkdf2-hmac-md4"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pbkdf2-hmac-md4$1$73616c74$1857f69412150bca4542581d0f9e7fd1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PBKDF2-HMAC-MD4"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$pbkdf2-hmac-md4$1000$303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930$644e820a6c0cedb02f5d77cbb69c00a2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PBKDF2-HMAC-MD4"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$pbkdf2-hmac-md4$1000$3031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738393031323334353637383930313233343536373839303132333435363738$56f59d132dcc56a4bebf44d265f1b43f",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PBKDF2-HMAC-MD4"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$pbkdf2-hmac-md4$1000$6d61676e756d$32ebfcea201e61cc498948916a213459c259c7b0a8ce9473368665f0808dcde1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PBKDF2-HMAC-MD4"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PBKDF2-HMAC-MD4"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 238,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2-hmac-md4\\$\\d{1,6}\\$[a-f0-9]+\\$[a-f0-9]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2-hmac-md4\\$\\d{1,6}\\$[a-f0-9]+\\$[a-f0-9]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pbkdf2-hmac-md4$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^pbkdf2\\-hmac\\-md4$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "hex",
+          "length_min": 1,
+          "length_max": 4,
+          "trim_empty_start": true
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length_min": 8,
+          "length_max": 358,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length_min": 32,
+          "length_max": 64,
+          "length_multiple_of": 2,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

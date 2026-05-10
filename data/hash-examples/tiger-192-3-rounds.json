@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "tiger-192-3-rounds",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$tiger$D981F8CB78201A950DCF3048751E441C517FCA1AA55A29F6"
+    },
+    {
+      "kind": "example_hash",
+      "value": "1e2e98f0db2bbce47cc7d2a8c771ffe5cc57e8297abfa69a"
+    },
+    {
+      "kind": "example_hash",
+      "value": "3293AC630C13F0245F92BBB1766E16167A4E58492DDE73F3"
+    },
+    {
+      "kind": "example_hash",
+      "value": "928c38615aab777e016b1da0263ebb9207d4b0f8c19bfec7"
+    }
+  ]
+}

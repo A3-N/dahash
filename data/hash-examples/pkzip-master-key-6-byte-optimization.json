@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "pkzip-master-key-6-byte-optimization",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "f1eff5c0368d10311dcfc419"
+    }
+  ]
+}

@@ -1,75 +1,71 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mssql-2000",
   "name": "MSSQL(2000)",
+  "aliases": [
+    "MSSQL(2000)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mssql-2000.haiti.071",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^0x0100[a-f0-9]{88}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A0x0100[a-f0-9]{88}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 131,
         "name": "MSSQL(2000)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "131"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "131"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "mssql",
         "name": "MSSQL(2000)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "mssql"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MSSQL(2000)"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "0x0100778883860000000000000000000000000000000000000000eda3604e067a06f2732b05b9cb90b8a710996939",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "131"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^0x0100[a-f0-9]{88}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^0x0100[a-f0-9]{88}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "0x01007788838600000000000000000000000000"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

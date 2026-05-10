@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "python-werkzeug-pbkdf2-hmac-sha512-key-salt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:sha512:600000$HIu57TAWiQJqqoY2KWtIzt7ZFzPBoiRL$12d3212f93b2e919842f4212107d9ad6c9b74010ba9f2b3f85874e447cc3cd32c83c71dbf60110f5260352bc4426094e97c5649c81252dcd7dbedc9e55ce7fda"
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:sha512:600000$WrsgowshePSwsPVA$980d0f2e3cdd1814ac73350ae84077d599697991d001ccd4512ac2dd7cfbb64a30efe27f9d642b3194a8be975e3c151619a27ee5ac2cc9624ad4c89987f3f756"
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:sha512:600000$WyEo87ON$2a31bd497f7a3805c73b287f425feff822707f1f72f5e1e8a5e83867147c1cc5535d99e1c578efcc9d346362f1470443d6b6de1f62da67da29bad32d071cff11"
+    },
+    {
+      "kind": "example_hash",
+      "value": "pbkdf2:sha512:700000$p4y46MS3$6d1fb73e5e5f3432575ee12899a8dbace43719e04a3013179d696316e4e8757c6abeb3bde21d4378143a288d29f5ed9055152ec47fbd748c53671a48ffffd0f9"
+    }
+  ]
+}

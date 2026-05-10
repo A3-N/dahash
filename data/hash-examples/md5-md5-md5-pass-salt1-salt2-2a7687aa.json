@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "md5-md5-md5-pass-salt1-salt2-2a7687aa",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "2c749af6c65cf3e82e5837e3056727f5:59331674906582121215362940957615121466283616005471:17254656838978443692786064919357750120910718779182716907569266"
+    }
+  ]
+}

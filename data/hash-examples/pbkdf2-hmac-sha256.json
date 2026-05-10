@@ -1,0 +1,30 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "pbkdf2-hmac-sha256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-sha256$1000$b1dWS2dab3dKQWhPSUg3cg$UY9j5wlyxtsJqhDKTqua8Q3fMp0ojc2pOnErzr8ntLE"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-sha256$12000$MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIz$iII/U6157WHgHfIatBb/o1rXQithKBN6ykgJU/I0Wpc"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-sha256$12000$MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg$94Z71JhWYUP2E0IrQrexc8AMhHzVB4bwkxh7n0FCnns"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2-sha256$12000$dU5p7T2ndM7535tzjpGyVg$ILbppLkipmonlfH1I2W3/vFMyr2xvCI8QhksH8DWn/M"
+    },
+    {
+      "kind": "example_hash",
+      "value": "sha256:1000:MTc3MTA0MTQwMjQxNzY=:PYjCU215Mi57AYPKva9j7mvF4Rc5bCnt"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "sha256:1000:NjI3MDM3:vVfavLQL9ZWjg8BUMq6/FB8FtpkIGWYk"
+    }
+  ]
+}

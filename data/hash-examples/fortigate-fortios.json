@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "fortigate-fortios",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "AK1FCIhM0IUIQVFJgcDFwLCMi7GppdwtRzMyDpFOFxdpH8=",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

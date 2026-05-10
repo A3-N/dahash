@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "murmurhash64a",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "ef3014941bf1102d:837163b2348dfae1",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

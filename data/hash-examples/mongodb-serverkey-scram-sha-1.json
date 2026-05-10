@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "mongodb-serverkey-scram-sha-1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$mongodb-scram$*0*dXNlcg==*10000*4p+f1tKpK18hQqrVr0UGOw==*Jv9lrpUQ2bVg2ZkXvRm2rppsqNw="
+    }
+  ]
+}

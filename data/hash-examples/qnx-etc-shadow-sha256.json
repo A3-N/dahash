@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "qnx-etc-shadow-sha256",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "@s@0b365cab7e17ee1e7e1a90078501cc1aa85888d6da34e2f5b04f5c614b882a93@5498317092471604",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

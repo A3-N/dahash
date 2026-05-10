@@ -1,0 +1,20 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha-384",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "07371af1ca1fca7c6941d2399f3610f1e392c56c6d73fddffe38f18c430a2817028dae1ef09ac683b62148a2c8757f42",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "8cd123473f9c32ba0fe5f27c8bd676457ccf36060e5811e9ff3bc7026035963241a45bd1a022db6a692c7d2928a69cbb"
+    },
+    {
+      "kind": "example_hash",
+      "value": "970f00dd3ca7d6b8c575ff1122e0734426b6db97fae61e09d659fcb907a616d138999a13fc516b4758fb2a5bcb7987ca"
+    }
+  ]
+}

@@ -1,74 +1,91 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "prestashop",
   "name": "PrestaShop",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "prestashop.haiti.017",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}:.{56}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}:.{56}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 11000,
         "name": "PrestaShop",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "11000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "11000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "810e3d12f0f10777a679d9ca1ad7a8d9:M2uZ122bSHJ4Mi54tXGY0lqcv1r28mUluSkyw37ou5oia4i239ujqw0l",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PrestaShop"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "f22cade043e7214200206dbffca49fd9:27167508161455764247627144160038845437138252877014827848",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PrestaShop"
+  "match": {
+    "base": 25,
+    "total": 149,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}:.{56}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "11000"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PrestaShop"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}:.{56}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "field_0_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length": 56
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

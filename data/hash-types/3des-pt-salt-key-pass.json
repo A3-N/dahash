@@ -1,61 +1,135 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "3des-pt-salt-key-pass",
   "name": "3DES (PT = $salt, key = $pass)",
+  "aliases": [
+    "3DES",
+    "3DES PT salt key pass",
+    "Triple DES"
+  ],
   "status": "active",
   "tags": [
     "hashcat"
   ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "14100"
-    }
-  ],
+  "identification": {
+    "uniqueness": "ambiguous_raw_cipher_kpa",
+    "max_confidence": 65,
+    "externally_indistinguishable_from": [
+      "des-pt-salt-key-pass"
+    ],
+    "ambiguity": [
+      "no_algorithm_marker",
+      "no_version_field",
+      "no_container_signature",
+      "generic_two_hex64_block_fields",
+      "same_external_shape_as_des_pt_salt_key_pass"
+    ]
+  },
+  "structure": {
+    "separator": ":",
+    "optional_fields": false,
+    "empty_fields_allowed": false,
+    "fields": [
+      {
+        "index": 0,
+        "name": "ciphertext",
+        "role": "ciphertext_block",
+        "encoding": "hex",
+        "bytes": 8,
+        "length": 16,
+        "required": true
+      },
+      {
+        "index": 1,
+        "name": "known_plaintext",
+        "role": "known_plaintext_block",
+        "encoding": "hex",
+        "bytes": 8,
+        "length": 16,
+        "required": true
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 14100,
         "name": "3DES (PT = $salt, key = $pass)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "14100"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "4c29eea59d8db1e7:7428288455525516",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "14100"
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
+  "match": {
+    "base": 15,
+    "total": 70,
+    "requires": [
+      {
+        "id": "two_colon_separated_fields",
+        "feature": "segment_count",
+        "args": {
+          "separator": ":",
+          "count": 2
         }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "3des-pt-salt-key-pass.hashcat.14100",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Fa-f0-9]{16}:[A-Fa-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "14100"
+      },
+      {
+        "id": "ciphertext_hex_8_bytes",
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 16
         }
-      ]
-    }
-  ]
+      },
+      {
+        "id": "known_plaintext_hex_8_bytes",
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 16
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "id": "known_plaintext_pair_separator",
+        "feature": "char_at",
+        "args": {
+          "index": 16,
+          "value": ":"
+        },
+        "weight": 15
+      },
+      {
+        "id": "ciphertext_hex_8_bytes",
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 16
+        },
+        "weight": 20
+      },
+      {
+        "id": "known_plaintext_hex_8_bytes",
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 16
+        },
+        "weight": 20
+      }
+    ]
+  }
 }

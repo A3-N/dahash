@@ -1,77 +1,237 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pdf-1-4-1-6-acrobat-5-8",
   "name": "PDF 1.4 - 1.6 (Acrobat 5 - 8)",
+  "aliases": [
+    "PDF 1.4 - 1.6 (Acrobat 5 - 8)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "pdf-1-4-1-6-acrobat-5-8.haiti.200",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pdf\\$[24]\\*[34]\\*128\\*[0-9\\-]{1,6}\\*1\\*(16|32)\\*[a-f0-9]{32,64}\\*32\\*[a-f0-9]{64}\\*(8|16|32)\\*[a-f0-9]{16,64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$pdf\\$[24]\\*[34]\\*128\\*[0-9\\-]{1,6}\\*1\\*(16|32)\\*[a-f0-9]{32,64}\\*32\\*[a-f0-9]{64}\\*(8|16|32)\\*[a-f0-9]{16,64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".pdf"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "ascii": "%PDF-"
+            },
+            "id": "pdf_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "pdf2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$pdf$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 10500,
         "name": "PDF 1.4 - 1.6 (Acrobat 5 - 8)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "10500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "10500"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pdf",
         "name": "PDF 1.4 - 1.6 (Acrobat 5 - 8)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pdf"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pdf$2*3*128*-4*1*16*62888255846156252261477183186121*32*6879919b1afd520bd3b7dbcc0868a0a500000000000000000000000000000000*32*0000000000000000000000000000000000000000000000000000000000000000",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PDF 1.4 - 1.6 (Acrobat 5 - 8)"
+  "match": {
+    "base": 25,
+    "total": 370,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pdf\\$[24]\\*[34]\\*128\\*[0-9\\-]{1,6}\\*1\\*(16|32)\\*[a-f0-9]{32,64}\\*32\\*[a-f0-9]{64}\\*(8|16|32)\\*[a-f0-9]{16,64}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "10500"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PDF 1.4 - 1.6 (Acrobat 5 - 8)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pdf\\$[24]\\*[34]\\*128\\*[0-9\\-]{1,6}\\*1\\*(16|32)\\*[a-f0-9]{32,64}\\*32\\*[a-f0-9]{64}\\*(8|16|32)\\*[a-f0-9]{16,64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pdf$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 10
+        },
+        "id": "*_count_10",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 11
+        },
+        "id": "*_field_count_11",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$pdf\\$2$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^3$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^128$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^\\-4$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^1$"
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 5,
+          "regex": "^16$"
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 6,
+          "regex": "^62888255846156252261477183186121$"
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 7,
+          "regex": "^32$"
+        },
+        "id": "field_7_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 8,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_8_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 9,
+          "regex": "^32$"
+        },
+        "id": "field_9_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 10,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "field_10_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

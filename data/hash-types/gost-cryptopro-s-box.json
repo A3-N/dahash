@@ -1,52 +1,45 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "gost-cryptopro-s-box",
   "name": "GOST CryptoPro S-Box",
+  "aliases": [
+    "GOST CryptoPro S-Box"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "gost-cryptopro-s-box.haiti.058",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{64}(:.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{64}(:.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "08ba4d805cc1537f8d1c34f0b0c37da50654e8825b4a02ad0a0bd49afea3404a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "GOST CryptoPro S-Box"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "785a581dc3bb641f23f7694d49cb94e1b50e43ab82be6a3713fa46375b5e2b55",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "GOST CryptoPro S-Box"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "GOST CryptoPro S-Box"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{64}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{64}(:.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

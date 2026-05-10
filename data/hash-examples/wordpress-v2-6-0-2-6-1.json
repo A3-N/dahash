@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "wordpress-v2-6-0-2-6-1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$P$946647711V1klyitUYhtB8Yw5DMA/w.",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

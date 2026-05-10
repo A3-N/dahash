@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "oscommerce",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "e983672a03adcc9767b24584338eb378:00",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

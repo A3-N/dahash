@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-streebog-512-key-salt-big-endian",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "bebf6831b3f9f958acb345a88cb98f30cb0374cff13e6012818487c8dc8d5857f23bca2caed280195ad558b8ce393503e632e901e8d1eb2ccb349a544ac195fd:08151337",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

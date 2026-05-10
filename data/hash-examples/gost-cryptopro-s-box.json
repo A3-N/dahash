@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "gost-cryptopro-s-box",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "08ba4d805cc1537f8d1c34f0b0c37da50654e8825b4a02ad0a0bd49afea3404a"
+    },
+    {
+      "kind": "example_hash",
+      "value": "785a581dc3bb641f23f7694d49cb94e1b50e43ab82be6a3713fa46375b5e2b55"
+    }
+  ]
+}

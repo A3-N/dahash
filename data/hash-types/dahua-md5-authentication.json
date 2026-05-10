@@ -1,87 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "dahua-md5-authentication",
   "name": "Dahua (MD5 Authentication)",
+  "aliases": [
+    "Dahua (MD5 Authentication)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "dahua-md5-authentication.haiti.195",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(?:\\$dahua\\$)?[a-z0-9]{8}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:\\$dahua\\$)?[a-z0-9]{8}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 24900,
         "name": "Dahua (MD5 Authentication)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "24900"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "24900"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dahua",
         "name": "Dahua (MD5 Authentication)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dahua"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$dahua$4WzwxXxM",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Dahua (MD5 Authentication)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "GRuHbyVp",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Dahua (MD5 Authentication)"
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$dahua\\$)?[a-z0-9]{8}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "24900"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Dahua (MD5 Authentication)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$dahua\\$)?[a-z0-9]{8}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

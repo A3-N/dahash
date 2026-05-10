@@ -1,107 +1,146 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "apple-macos-keychain",
   "name": "Apple macOS Keychain",
+  "aliases": [
+    "macOS Keychain",
+    "OS X Keychain",
+    "keychain"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "apple-macos-keychain.haiti.246",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$keychain\\$\\*[a-f0-9]{40}\\*[a-f0-9]{16}\\*[a-f0-9]{96}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$keychain\\$\\*[a-f0-9]{40}\\*[a-f0-9]{16}\\*[a-f0-9]{96}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".keychain",
+          ".keychain-db"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "embedded_magic",
+            "args": {
+              "hex": "fade0711"
+            },
+            "id": "keychain_dbblob_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "keychain2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$keychain$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23100,
         "name": "Apple macOS Keychain",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "23100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "23100"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "keychain",
         "name": "Apple macOS Keychain",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "keychain"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$keychain$*10f7445c8510fa40d9ef6b4e0f8c772a9d37e449*f3d19b2a45cdcccb*8c3c3b1c7d48a24dad4ccbd4fd794ca9b0b3f1386a0a4527f3548bfe6e2f1001804b082076641bbedbc9f3a7c33c084b",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple macOS Keychain"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$keychain$*3a473dd308b1713ddc76fc976758eb543779a228*570b762ec2b177d0*a1f491231412ff74344244db4d98b1dab6e40a8fc63a11f0d5cdabf97fce5c4fa8ae0a1f95d0398d37e3d45e9fa07aa7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple macOS Keychain"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$keychain$*74cd1efd49e54a8fdc8750288801e09fa26a33b1*66001ad4e0498dc7*5a084b7314971b728cb551ac40b2e50b7b5bd8b8496b902efe7af07538863a45394ead8399ec581681f7416003c49cc7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple macOS Keychain"
+  "match": {
+    "base": 30,
+    "total": 275,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$keychain$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "23100"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$keychain$*a88cd6fbaaf40bc5437eee015a0f95ab8ab70545*b12372b1b7cb5c1f*1f5c596bcdd015afc126bc86f42dd092cb9d531d14a0aafaa89283f1bebace60562d497332afbd952fd329cc864144ec",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple macOS Keychain"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Apple macOS Keychain"
-    }
-  ]
+        "id": "keychain_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 4
+        },
+        "id": "four_star_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$keychain$"
+        },
+        "id": "keychain_marker",
+        "weight": 80
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 4
+        },
+        "id": "four_star_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$keychain\\$$"
+        },
+        "id": "marker_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "salt_hex_20_bytes",
+        "weight": 40
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 16
+        },
+        "id": "iv_hex_8_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 96
+        },
+        "id": "ciphertext_hex_48_bytes",
+        "weight": 55
+      }
+    ]
+  }
 }

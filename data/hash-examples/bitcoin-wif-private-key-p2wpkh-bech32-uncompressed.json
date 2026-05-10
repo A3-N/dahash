@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "bitcoin-wif-private-key-p2wpkh-bech32-uncompressed",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "bc1qv8e65p73gmp4w3z6fqnyu8t6ct69vetsda3snd"
+    }
+  ]
+}

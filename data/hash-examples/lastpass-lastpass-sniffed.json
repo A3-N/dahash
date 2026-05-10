@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "lastpass-lastpass-sniffed",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "02eb97e869e0ddc7dc760fc633b4b54d:100100:pmix@trash-mail.com:9b071db7b8e265d4cadd3eb65ac0864a"
+    },
+    {
+      "kind": "example_hash",
+      "value": "a2d1f7b7a1862d0d4a52644e72d59df5:500:lp@trash-mail.com"
+    }
+  ]
+}

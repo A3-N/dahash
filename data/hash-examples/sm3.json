@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sm3",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "623ee6407b9c1d07f164711467a8b63a6f09eca0cc2bffe8a034895f261783b8"
+    },
+    {
+      "kind": "example_hash",
+      "value": "ed8c11be5cc3b8a591e3e2ef0a0d1e7011ee65a89cbef7e9a352974bc98b8475"
+    }
+  ]
+}

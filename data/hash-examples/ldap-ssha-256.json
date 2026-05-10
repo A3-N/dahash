@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ldap-ssha-256",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "{SSHA256}L5Wk0zPY2lmoR5pH20zngq37KkxFwgTquEhx95rxfVk3Ng==",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

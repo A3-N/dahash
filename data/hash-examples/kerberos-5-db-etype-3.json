@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "kerberos-5-db-etype-3",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$krb3$EXAMPLE.COMlulu$25bfb33132c11346"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$krb3$EXAMPLE.COMluluaaaa$79850e6e9e5e92d0"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$krb3$EXAMPLE.COMluluaaaa$97076894ae025738"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$krb3$INTERNAL.CORP1user3$eafdc79b7620584a"
+    }
+  ]
+}

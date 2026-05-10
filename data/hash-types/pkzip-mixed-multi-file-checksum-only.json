@@ -1,77 +1,113 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pkzip-mixed-multi-file-checksum-only",
   "name": "PKZIP (Mixed Multi-File Checksum-Only)",
+  "aliases": [
+    "PKZIP (Mixed Multi-File Checksum-Only)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "pkzip-mixed-multi-file-checksum-only.haiti.217",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".zip",
+          ".zipx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "zip2john",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$pkzip$",
+          "$zip2$",
+          "$zip$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 17230,
         "name": "PKZIP (Mixed Multi-File Checksum-Only)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "17230"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "17230"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pkzip",
         "name": "PKZIP (Mixed Multi-File Checksum-Only)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pkzip"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$pkzip2$8*1*1*0*8*24*a425*8827*3bd479d541019c2f32395046b8fbca7e1dca218b9b5414975be49942c3536298e9cc939e*1*0*8*24*2a74*882a*537af57c30fd9fd4b3eefa9ce55b6bff3bbfada237a7c1dace8ebf3bb0de107426211da3*1*0*8*24*2a74*882a*5f406b4858d3489fd4a6a6788798ac9b924b5d0ca8b8e5a6371739c9edcfd28c82f75316*1*0*8*24*2a74*882a*1843aca546b2ea68bd844d1e99d4f74d86417248eb48dd5e956270e42a331c18ea13f5ed*1*0*8*24*2a74*882a*aca3d16543bbfb2e5d2659f63802e0fa5b33e0a1f8ae47334019b4f0b6045d3d8eda3af1*1*0*8*24*2a74*882a*fbe0efc9e10ae1fc9b169bd060470bf3e39f09f8d83bebecd5216de02b81e35fe7e7b2f2*1*0*8*24*2a74*882a*537886dbabffbb7cac77deb01dc84760894524e6966183b4478a4ef56f0c657375a235a1*1*0*8*24*eda7*5096*40eb30ef1ddd9b77b894ed46abf199b480f1e5614fde510855f92ae7b8026a11f80e4d5f*$/pkzip2$",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PKZIP (Mixed Multi-File Checksum-Only)"
+  "match": {
+    "base": 25,
+    "total": 156,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "17230"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PKZIP (Mixed Multi-File Checksum-Only)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pkzip2?\\$[a-f0-9\\*]+\\$/pkzip2?\\$$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$pkzip2$8*1*1*0*8*24*a425*8827*3bd479d541019c2f32395046b8fbca7e1dca218b9b5414975be49942c3536298e9cc939e*1*0*8*24*2a74*882a*537af57c30fd9fd4b3eefa9ce55b6bff3bbfada237a7c1dace8ebf3bb0de107426211da3*1*0*8*24*2a74*882a*5f406b4858d3489fd4a6a6788798ac9b924b5d0ca8b8e5a6371739c9edcfd28c82f75316*1*0*8*24*2a74*882a*1843aca546b2ea68bd844d1e99d4f74d86417248eb48dd5e956270e42a331c18ea13f5ed*1*0*8*24*2a74*882a*aca3d16543bbfb2e5d2659f63802e0fa5b33e0a1f8ae47334019b4f0b6045d3d8eda3af1*1*0*8*24*2a74*882a*fbe0efc9e10ae1fc9b169bd060470bf3e39f09f8d83bebecd5216de02b81e35fe7e7b2f2*1*0*8*24*2a74*882a*537886dbabffbb7cac77deb01dc84760894524e6966183b4478a4ef56f0c657375a235a1*1*0*8*24*eda7*5096*40eb30ef1ddd9b77b894ed46abf199b480f1e5614fde510855f92ae7b8026a11f80e4d5f*$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 58
+        },
+        "id": "*_count_58",
+        "weight": 8
+      }
+    ]
+  }
 }

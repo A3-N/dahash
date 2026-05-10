@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "as-400-des",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$as400$des$*OPEN3*EC76FC0DEF5B0A83"
+    }
+  ]
+}

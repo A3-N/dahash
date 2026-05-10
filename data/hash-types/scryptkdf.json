@@ -1,76 +1,137 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "scryptkdf",
   "name": "ScryptKDF",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "scryptkdf.haiti.161",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$ScryptKDF\\.pm\\$\\d{1,5}\\*\\d\\*\\d\\*[a-z0-9:\\/+=]+\\*[a-z0-9:\\/+=]+$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$ScryptKDF\\.pm\\$\\d{1,5}\\*\\d\\*\\d\\*[a-z0-9:\\/+=]+\\*[a-z0-9:\\/+=]+\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "scrypt",
         "name": "ScryptKDF",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "scrypt"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$ScryptKDF.pm$16384*8*1*VHRuaXZOZ05INWJs*JjrOzA8pdPhLvLh8sY64fLLaAjFUwYCXMmS16NXcn0BhlHpZJ3J2jcozCDM7t+sfjkgQ894R+f+ldVWM5atlkA==",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "ScryptKDF"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ScryptKDF.pm$16384*8*1*VlVYUzBhQmlNbk5J*bJhm6VUS2UQRwMRqLTvSsljDeq193Ge4aqQDtb94bKg=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "ScryptKDF"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$ScryptKDF.pm$16384*8*1*bjZkemVmZ3lWVi42*cmBflTPsqGIbg9ZIJRTQdbic8OCUH+904TFmNPBkuEA=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "ScryptKDF"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "ScryptKDF"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 256,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ScryptKDF\\.pm\\$\\d{1,5}\\*\\d\\*\\d\\*[a-z0-9:\\/+=]+\\*[a-z0-9:\\/+=]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ScryptKDF\\.pm\\$\\d{1,5}\\*\\d\\*\\d\\*[a-z0-9:\\/+=]+\\*[a-z0-9:\\/+=]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ScryptKDF.pm$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 4
+        },
+        "id": "*_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "*_field_count_5",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$ScryptKDF\\.pm\\$16384$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^8$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^1$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "alnum_dot_slash",
+          "length": 16
+        },
+        "id": "field_3_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^[A-Za-z0-9+/=]{44,88}$"
+        },
+        "id": "field_4_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

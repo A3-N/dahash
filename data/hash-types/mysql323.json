@@ -1,75 +1,61 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mysql323",
   "name": "MySQL323",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mysql323.haiti.006",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{16}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 200,
         "name": "MySQL323",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "200"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "200"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "mysql",
         "name": "MySQL323",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "mysql"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MySQL323"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "7196759210defdc0",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "200"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

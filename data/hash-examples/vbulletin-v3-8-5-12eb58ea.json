@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "vbulletin-v3-8-5-12eb58ea",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "0844fbb2fdeda31884a7a45ec2010bb6:324410183853308365427804872426",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

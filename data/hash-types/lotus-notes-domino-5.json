@@ -1,75 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "lotus-notes-domino-5",
   "name": "Lotus Notes/Domino 5",
+  "aliases": [
+    "Lotus Notes/Domino 5"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "lotus-notes-domino-5.haiti.015",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}(?::.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 8600,
         "name": "Lotus Notes/Domino 5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "8600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "8600"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "lotus5",
         "name": "Lotus Notes/Domino 5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "lotus5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Lotus Notes/Domino 5"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "3dd2e1e5ac03e230243d58b8c5ada076",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "8600"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

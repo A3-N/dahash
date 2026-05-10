@@ -1,52 +1,45 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "skein-256-160",
   "name": "Skein-256(160)",
+  "aliases": [
+    "Skein-256(160)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "skein-256-160.haiti.035",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "25ff8d8dffc6de8ce36ee24329169b640d47b598",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Skein-256(160)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "8f157db429bce1b77765f0f84389557f1c1c9513",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Skein-256(160)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Skein-256(160)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

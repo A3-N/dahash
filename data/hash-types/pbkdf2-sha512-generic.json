@@ -1,32 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pbkdf2-sha512-generic",
   "name": "PBKDF2-SHA512(Generic)",
+  "aliases": [
+    "PBKDF2-SHA512(Generic)"
+  ],
   "status": "active",
-  "tags": [
-    "reference"
-  ],
   "priority": 45,
-  "matchers": [
-    {
-      "id": "pbkdf2-sha512-generic.reference.0",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$pbkdf2-sha512\\$[0-9]+\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{86}$",
-      "confidence": "generic",
-      "weight": 35,
-      "sources": [
-        {
-          "id": "hashid-reference",
-          "ref": "PBKDF2-SHA512(Generic)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "hashid-reference",
-      "ref": "PBKDF2-SHA512(Generic)"
-    }
-  ]
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
+  "tools": {},
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2-sha512\\$[0-9]+\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{86}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$pbkdf2-sha512\\$[0-9]+\\$[a-z0-9\\/.]+\\$[a-z0-9\\/.]{86}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

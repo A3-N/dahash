@@ -1,66 +1,61 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "openldaps-openssha",
   "name": "OPENLDAPS (openssha)",
+  "aliases": [
+    "OPENLDAPS (openssha)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "openldaps-openssha.haiti.040",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "salted-sha1",
         "name": "OPENLDAPS (openssha)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "salted-sha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{SSHA}Uf2x9YxSWZZNAi2t1QXbG2PmT07AtURl",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OPENLDAPS (openssha)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "{SSHA}XXGLZ7iKpYSBpF6EwoeTl27U0L/kYYsY",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "OPENLDAPS (openssha)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "OPENLDAPS (openssha)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{SSHA}"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

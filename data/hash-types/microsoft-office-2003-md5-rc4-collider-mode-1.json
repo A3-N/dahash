@@ -1,75 +1,187 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "microsoft-office-2003-md5-rc4-collider-mode-1",
   "name": "Microsoft Office \u2264 2003 (MD5+RC4) collider-mode #1",
+  "aliases": [
+    "Microsoft Office \u2264 2003 (MD5+RC4) collider-mode #1"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "microsoft-office-2003-md5-rc4-collider-mode-1.haiti.169",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$oldoffice\\$[01]\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$oldoffice\\$[01]\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".doc",
+          ".xls",
+          ".ppt"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "d0cf11e0a1b11ae1"
+            },
+            "id": "ole_magic"
+          }
+        ]
+      },
+      {
+        "kind": "archive",
+        "extensions": [
+          ".docx",
+          ".xlsx",
+          ".pptx"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "office2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$office$",
+          "$oldoffice$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 9710,
         "name": "Microsoft Office \u2264 2003 (MD5+RC4) collider-mode #1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "9710"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "9710"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "oldoffice",
         "name": "Microsoft Office \u2264 2003 (MD5+RC4) collider-mode #1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "oldoffice"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Microsoft Office \u2264 2003 (MD5+RC4) collider-mode #1"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$oldoffice$0*55045061647456688860411218030058*e7e24d163fbd743992d4b8892bf3f2f7*493410dbc832557d3fe1870ace8397e2",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "9710"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 240,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$oldoffice\\$[01]\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$oldoffice\\$[01]\\*[a-f0-9]{32}\\*[a-f0-9]{32}\\*[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$oldoffice$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 3
+        },
+        "id": "*_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 4
+        },
+        "id": "*_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$oldoffice\\$0$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "regex": "^55045061647456688860411218030058$"
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "regex": "^e7e24d163fbd743992d4b8892bf3f2f7$"
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "regex": "^493410dbc832557d3fe1870ace8397e2$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

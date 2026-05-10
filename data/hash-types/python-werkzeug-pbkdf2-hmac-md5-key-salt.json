@@ -1,72 +1,104 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-werkzeug-pbkdf2-hmac-md5-key-salt",
   "name": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)",
+  "aliases": [
+    "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-werkzeug-pbkdf2-hmac-md5-key-salt.haiti.322",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^pbkdf2:md5:\\d+\\$.{0,256}\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Apbkdf2:md5:\\d+\\$.{0,256}\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "pbkdf2:md5:600000$QhX2QHrQ$49cc3851f77779484c28e19329b314e3",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:md5:600000$UUYvlGLR6dM0UktS9ZPlB6g31d3GfGmB$609b8faacaf938b20c4d8200a870901f",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:md5:600000$adwFmD4ib2Y7oJO8$762cfbd4b80cd9f5e3cdc046465cc2ec",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pbkdf2:md5:700000$3BpTqiI1$1c10bea34f19bacdb289d55236173524",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python Werkzeug PBKDF2-HMAC-MD5 (key = $salt)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 202,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^pbkdf2:md5:\\d+\\$.{0,256}\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^pbkdf2:md5:\\d+\\$.{0,256}\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "pbkdf2:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 8,
+          "length_max": 32,
+          "length_multiple_of": 2
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

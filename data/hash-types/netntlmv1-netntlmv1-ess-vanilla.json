@@ -1,118 +1,134 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "netntlmv1-netntlmv1-ess-vanilla",
   "name": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)",
+  "aliases": [
+    "NetNTLMv1 / NetNTLMv1+ESS (vanilla)"
+  ],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "netntlmv1-netntlmv1-ess-vanilla.haiti.097",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{0,48}:[a-f0-9]{48}:[a-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{0,48}:[a-f0-9]{48}:[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 5500,
         "name": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "5500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "5500"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "netntlm / netntlm-naive",
         "name": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "netntlm / netntlm-naive"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "::5V4T:ada06359242920a500000000000000000000000000000000:0556d5297b5daa70eaffde82ef99293a3f3bb59b7c9704ea:9c23f6c094853920",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "5500"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "CORP\\Administrator:::25B2B477CE101D83648BB087CE7A1C217F51C7FC64C0EBB1:C8BD0C1630A9ECF7A95F494A8F0B2CB4A3F25B1225514304:1122334455667788",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "DOMAIN\\User:::c70e4fb229437ef300000000000000000000000000000000:abf7762caf2b1bbfc5cfc1f46665249f049e0af72ae5b5a9:24ca92fdab441aa4",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "ESS:::4765f360625700b000000000000000000000000000000000:81f5ecd8a77fe819f7f6689a08a27ac705fc2e1bb00cecb2:c75c20bff9baa71f",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "u4-netntlm::kNS:338d08f8e26de93300000000000000000000000000000000:9526fb8c23a90751cdd619b6cea564742e1e4bf33006ba41:cb8086049ec4736c",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "NetNTLMv1 / NetNTLMv1+ESS (vanilla)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 209,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{0,48}:[a-f0-9]{48}:[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{0,48}:[a-f0-9]{48}:[a-f0-9]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 5
+        },
+        "id": ":_count_5",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 6
+        },
+        "id": ":_field_count_6",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 0
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length_min": 0,
+          "length_max": 4
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 3,
+          "charset": "hex",
+          "length": 48
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 4,
+          "charset": "hex",
+          "length": 48
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 5,
+          "charset": "hex",
+          "length": 16
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

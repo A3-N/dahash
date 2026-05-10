@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "snefru-128",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$snefru$53b8a9b1c9ed00174d88d705fb7bae30"
+    },
+    {
+      "kind": "example_hash",
+      "value": "53b8a9b1c9ed00174d88d705fb7bae30"
+    }
+  ]
+}

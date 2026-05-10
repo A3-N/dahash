@@ -1,107 +1,63 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "cisco-pix-md5",
   "name": "Cisco-PIX (MD5)",
+  "aliases": [
+    "Cisco-PIX (MD5)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "cisco-pix-md5.haiti.009",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-z0-9\\/.]{16}$",
-      "confidence": "contextual",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-z0-9\\/.]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 2400,
         "name": "Cisco-PIX (MD5)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "2400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "2400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "pix-md5",
         "name": "Cisco-PIX (MD5)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "pix-md5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": ".7nfVBEIEu4KbF/1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco-PIX (MD5)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "2KFQnbNIdI.2KYOU",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco-PIX (MD5)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "TRPEas6f/aa6JSPL",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco-PIX (MD5)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "dRRVnUmUHXOTt9nk",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco-PIX (MD5)"
+  "identification": {
+    "max_confidence": 85
+  },
+  "match": {
+    "base": 20,
+    "total": 75,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{16}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "2400"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Cisco-PIX (MD5)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9\\/.]{16}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 55
+      }
+    ]
+  }
 }

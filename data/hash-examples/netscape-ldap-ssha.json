@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "netscape-ldap-ssha",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "{SSHA}FLzWcQqyle6Mo7NvrwXCMAmRzXQxNjYxMTYzNw=="
+    }
+  ]
+}

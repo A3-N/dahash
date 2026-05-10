@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "haval-192-5-rounds",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "9f8e51d5dd5cbbb1f944296d1ce402e64acf487a4dd05439"
+    },
+    {
+      "kind": "example_hash",
+      "value": "b4246c8cea1f6c58c550d18d9907d8b4879875439b1b6243"
+    }
+  ]
+}

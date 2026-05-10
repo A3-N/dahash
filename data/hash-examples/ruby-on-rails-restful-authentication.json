@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ruby-on-rails-restful-authentication",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "d7d5ea3e09391da412b653ae6c8d7431ec273ea2:238769868762:8962783556527653675",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

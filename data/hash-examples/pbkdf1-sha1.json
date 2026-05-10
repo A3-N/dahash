@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "pbkdf1-sha1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "PBKDF1:sha1:1000:cGVuZ3VpbmtlZXBlcg==:J4BrIhXDUHNQ9lPPrWKn4V7Of9Y=",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

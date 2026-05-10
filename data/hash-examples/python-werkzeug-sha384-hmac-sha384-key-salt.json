@@ -1,0 +1,18 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "python-werkzeug-sha384-hmac-sha384-key-salt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "sha384$RMfhEQgyeVp5v442$60fd0382520b74a952247dbb00a0b00b95023196e5b99a2fa9919f5a2075d9242b67d32f586030228650e92e04b4f371"
+    },
+    {
+      "kind": "example_hash",
+      "value": "sha384$ShaQbCQLwqAF7Arv1D0TLjTy5N7c9QGX$5fcae189dcadcc3dbf6e68048a7752acc92b546de76e629315dd2f71b9738e09f4227453938ff618df81e82904614968"
+    },
+    {
+      "kind": "example_hash",
+      "value": "sha384$orWox93X$faca5d655e1354fdc71ed176a077384fccb27f2e9d5d7e1ae95a02b71bf3471d20fa3a4d09e2aa74dd1f64c2ffff0c15"
+    }
+  ]
+}

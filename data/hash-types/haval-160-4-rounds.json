@@ -1,66 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "haval-160-4-rounds",
   "name": "Haval-160 (4 rounds)",
+  "aliases": [
+    "Haval-160 (4 rounds)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "haval-160-4-rounds.haiti.035",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "dynamic_200",
         "name": "Haval-160 (4 rounds)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_200"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "139da225432fef6ff7f832f4367054bb66857311",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Haval-160 (4 rounds)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "c2ce80000546da5bdb4d40717c60e3739b209dd7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Haval-160 (4 rounds)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Haval-160 (4 rounds)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

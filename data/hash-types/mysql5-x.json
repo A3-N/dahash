@@ -1,95 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mysql5-x",
   "name": "MySQL5.x",
+  "aliases": [
+    "MySQL5.x"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mysql5-x.haiti.038",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\*)?[a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(\\*)?[a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 300,
         "name": "MySQL5.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "mysql-sha1",
         "name": "MySQL5.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "mysql-sha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "*2c905879f74f28f8570989947d06a8429fb943e6",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MySQL5.x"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "*A8A397146B1A5F8C8CF26404668EFD762A1B7B82",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MySQL5.x"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "fcf7c1b8749cf99d88e5f34271d636178fb5d130",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "300"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MySQL5.x"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\*)?[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\*)?[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

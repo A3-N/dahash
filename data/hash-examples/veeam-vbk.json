@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "veeam-vbk",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$vbk$*54731702769149752741495960625996207399688284541933702394775960978730695504382155223405444342855920150089170058956647576461877712*10000*78cf7df8f1ed8bb50bda1129ec8e6810",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

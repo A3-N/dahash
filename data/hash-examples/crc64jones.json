@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "crc64jones",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "65c1f848fe38cce6:4260950400318054"
+    }
+  ]
+}

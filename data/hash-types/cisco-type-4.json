@@ -1,46 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "cisco-type-4",
   "name": "Cisco Type 4",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "reference"
-  ],
   "priority": 45,
-  "matchers": [
-    {
-      "id": "cisco-type-4.reference.0",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\$cisco4\\$)?[a-z0-9\\/.]{43}$",
-      "confidence": "generic",
-      "weight": 35,
-      "sources": [
-        {
-          "id": "name-that-hash-reference",
-          "ref": "Cisco Type 4"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "name-that-hash-reference",
-      "ref": "Cisco Type 4"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "cisco4",
         "name": "Cisco Type 4",
-        "status": "active",
-        "sources": [
-          {
-            "id": "name-that-hash-reference",
-            "ref": "cisco4"
-          }
-        ]
+        "status": "active"
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$cisco4\\$)?[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$cisco4\\$)?[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
       }
     ]
   }

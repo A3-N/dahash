@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "murmurhash64a-truncated-zero-seed",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "73f8142b",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

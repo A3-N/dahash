@@ -1,66 +1,112 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-4-tgt",
   "name": "Kerberos 4 TGT",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "kerberos-4-tgt.haiti.099",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$(?:af|k4)\\$[^$]+\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$(?:af|k4)\\$[^$]+\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "krb4",
         "name": "Kerberos 4 TGT",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "krb4"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$af$UMICH.EDU$bb46613c503ad92e649d99d038efddb2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 4 TGT"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$af$UMICH.EDU$bebcedf43f7f2aa78cf9c0639e494c92",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 4 TGT"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Kerberos 4 TGT"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 216,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$(?:af|k4)\\$[^$]+\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$(?:af|k4)\\$[^$]+\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$af$UMICH.EDU$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^af$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^UMICH\\.EDU$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 32,
+          "trim_empty_start": true
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

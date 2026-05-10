@@ -1,0 +1,26 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "xmpp-scram-pbkdf2-sha1",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$xmpp-scram$0$4096$16$1f7fcb384d5bcc61dfb1231ae1b32a2f$a2d076d56b0152ed557ad7d38fce93159bc63c9b"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$xmpp-scram$0$4096$16$4f67aec1bd53f5f2f74652e69a3b8f32$4aec3caa8ace5180efa7a671092646c041ab1496"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$xmpp-scram$0$4096$24$bc1bd6638a1231ffd54f608983425eacf729d8455a469197$aee9254762b23a3950fd7c803caab5f6654587c8"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$xmpp-scram$0$4096$36$37333536663261622d613666622d346333642d396232622d626432646237633338343064$38f79a6e3e64c07f731570d531ec05365aa05306"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$xmpp-scram$0$4096$45$353835323736323530353932363531393630313632353634313335323434323038393931323138373138343134$6d5b543b985dc6c0645da3c83d114fce121aa51d"
+    }
+  ]
+}

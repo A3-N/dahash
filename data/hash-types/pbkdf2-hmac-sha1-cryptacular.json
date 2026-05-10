@@ -1,42 +1,105 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "pbkdf2-hmac-sha1-cryptacular",
   "name": "PBKDF2-HMAC-SHA1 (Cryptacular)",
+  "aliases": [
+    "PBKDF2-HMAC-SHA1 (Cryptacular)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "pbkdf2-hmac-sha1-cryptacular.haiti.143",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$p5k2\\$\\d+\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+\\-]{27}=$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$p5k2\\$\\d+\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+\\-]{27}=\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$p5k2$2710$oX9ZZOcNgYoAsYL-8bqxKg==$AU2JLf2rNxWoZxWxRCluY0u6h6c=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PBKDF2-HMAC-SHA1 (Cryptacular)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PBKDF2-HMAC-SHA1 (Cryptacular)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 216,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$p5k2\\$\\d+\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+\\-]{27}=$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$p5k2\\$\\d+\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+\\-]{27}=$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$p5k2$2710$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^p5k2$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^2710$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[A-Za-z0-9+/=]{28}$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

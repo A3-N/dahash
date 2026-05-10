@@ -1,64 +1,114 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bcrypt-sha256-pass-bcryptsha256",
   "name": "bcrypt(sha256($pass)) / bcryptsha256",
+  "aliases": [
+    "bcrypt(sha256($pass)) / bcryptsha256"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "bcrypt-sha256-pass-bcryptsha256.haiti.054",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(?:\\$bcrypt-sha256)?\\$(?:2[abxy]?)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:\\$bcrypt-sha256)?\\$(?:2[abxy]?)\\$\\d{2}\\$[a-z0-9\\/.]{53}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 30600,
         "name": "bcrypt(sha256($pass)) / bcryptsha256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "30600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "30600"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$2b$10$FxDtpTNaL303lLcWtd6LFO2U6Gc63VJ07qycHcfqbQQ71GhO/qSzu",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "bcrypt(sha256($pass)) / bcryptsha256"
+  "match": {
+    "base": 25,
+    "total": 210,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$bcrypt-sha256)?\\$(?:2[abxy]?)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "30600"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "bcrypt(sha256($pass)) / bcryptsha256"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$bcrypt-sha256)?\\$(?:2[abxy]?)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$2b$10$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^2b$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^10$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 53,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

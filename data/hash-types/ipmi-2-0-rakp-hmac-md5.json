@@ -1,64 +1,100 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "ipmi-2-0-rakp-hmac-md5",
   "name": "IPMI 2.0 RAKP HMAC-MD5",
+  "aliases": [
+    "IPMI 2.0 RAKP HMAC-MD5"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "ipmi-2-0-rakp-hmac-md5.haiti.125",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}(:[a-f0-9]{116,148})?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}(:[a-f0-9]{116,148})?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7350,
         "name": "IPMI 2.0 RAKP HMAC-MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7350"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7350"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "08b017f3628b9835c748521e412429c9:f3450000df540000cdd981b0b3441be8774a61e69321291891a29a0c5fdac3f06194bd2c29fa5246000000000000000000000000000000001400",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-MD5"
+  "match": {
+    "base": 25,
+    "total": 198,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(:[a-f0-9]{116,148})?$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "7350"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "IPMI 2.0 RAKP HMAC-MD5"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{32}(:[a-f0-9]{116,148})?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "08b017f3628b9835c748521e412429c9:f345000"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^08b017f3628b9835c748521e412429c9$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 116
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

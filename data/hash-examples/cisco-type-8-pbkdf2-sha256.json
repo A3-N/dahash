@@ -1,0 +1,28 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cisco-type-8-pbkdf2-sha256",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$8$6NHinlEjiwvb5J$RjC.H.ydVb34wDLqJvfjyG1ubxYKpfXqv.Ry9mtrNBY"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$8$84486783037343$pYNyVrtyMalQrZLxRi7ZLQS1Fl.jkYCgASUi5P8JNb2",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$8$TnGX/fE4KGHOVU$pEhnEvxrvaynpi8j4f.EMHr6M.FzU8xnZnBr/tJdFWk"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$8$dsYGNam3K1SIJO$7nv/35M/qr6t.dVc7UY9zrJDWRVqncHub1PE9UlMQFs"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$8$lGO8juTOQLPCHw$cBv2WEaFCLUA24Z48CKUGixIywyGFP78r/slQcMXr3M"
+    }
+  ]
+}

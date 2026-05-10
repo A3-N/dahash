@@ -1,75 +1,63 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "osx-v10-5",
   "name": "OSX v10.5",
+  "aliases": [
+    "OSX v10.5"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "osx-v10-5.haiti.042",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{48}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{48}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 122,
         "name": "OSX v10.5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "122"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "122"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "xsha",
         "name": "OSX v10.5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "xsha"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "OSX v10.5"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "86586886b8bd3c379d2e176243a7225e6aae969d293fe9a9",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "122"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{48}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{48}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

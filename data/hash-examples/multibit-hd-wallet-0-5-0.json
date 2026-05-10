@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "multibit-hd-wallet-0-5-0",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$multibit$2*081e3a1252c26731120d0d63783ae46f*8354d5b454e78fb15f81c9e6289ba9b8*081e3a1252c26731120d0d63783ae46f"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "totp-hmac-sha1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "597056:3600:613004:1234567890:322664:9876543210",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

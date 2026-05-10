@@ -1,107 +1,209 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "apple-iwork",
   "name": "Apple iWork",
+  "aliases": [
+    "iWork",
+    "Pages",
+    "Numbers",
+    "Keynote"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "apple-iwork.haiti.236",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$iwork\\$\\d\\$\\d\\$\\d\\$\\d{4,6}\\$[a-f0-9]{16,32}\\$[a-f0-9]{32}\\$[a-f0-9]{128}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$iwork\\$\\d\\$\\d\\$\\d\\$\\d{4,6}\\$[a-f0-9]{16,32}\\$[a-f0-9]{32}\\$[a-f0-9]{128}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "archive",
+        "extensions": [
+          ".key",
+          ".pages",
+          ".numbers"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "hex": "504b0304"
+            },
+            "id": "zip_magic"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "iwork2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$iwork$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 23300,
         "name": "Apple iWork",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "23300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "23300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "iwork",
         "name": "Apple iWork",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "iwork"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$iwork$1$2$1$100000$9d406f6bbb6d3798273a1352c33ed387$7dfef75b06f8cb0092802ad833d6e88c$fc4dd694e0b5fbb123d1a6f1abec30e51176e6f0d574e4988e9c82d354baa3540e2f2268d096d9e46c1080eda32ca8eb8abfeeaa01466d86706b03eb8bd5f0e5",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple iWork"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$iwork$1$2$1$100000$d77ce46a68697e08b76ac91de9117541$e7b72b2848dc27efed883963b00b1ac7$e794144cd2f04bd50e23957b30affb2898554a99a3accb7506c17132654e09c04bbeff45dc4f8a8a1db5fd1592f699eeff2f9a8c31b503e9631a25a344b517f7",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple iWork"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$iwork$2$1$1$4000$736f6d6553616c74$a9d975f8b3e1bf0c388944b457127df4$09eb5d093584376001d4c94e9d0a41eb8a2993132849c5aed8e56e7bd0e8ed50ba38aced793e3480675990c828c01d25fe245cc6aa603c6cb1a0425988f1d3dc",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple iWork"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$iwork$2$1$1$4000$b31b7320d1e7a5ee$01f54d6f9e5090eb16fef2b05f8242bc$69561c985268326b7353fb22c3685a378341127557bd2bbea1bd10afb31f2127344707b662a2c29480c32b8b93dea0538327f604e5aa8733be83af25f370f7ac",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apple iWork"
+  "match": {
+    "base": 30,
+    "total": 410,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$iwork$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "23300"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Apple iWork"
-    }
-  ]
+        "id": "iwork_marker"
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$iwork\\$[0-9]\\$[0-9]\\$[0-9]\\$[0-9]{4,6}\\$[A-Fa-f0-9]{16,32}\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{128}(?::.*)?$"
+        },
+        "id": "full_iwork_shape"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$iwork$"
+        },
+        "id": "iwork_marker",
+        "weight": 80
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$iwork\\$[0-9]\\$[0-9]\\$[0-9]\\$[0-9]{4,6}\\$[A-Fa-f0-9]{16,32}\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{128}(?::.*)?$"
+        },
+        "id": "full_iwork_shape",
+        "weight": 70
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 7,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork"
+        },
+        "id": "seven_iwork_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork",
+          "charset": "decimal",
+          "length": 1
+        },
+        "id": "mode_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork",
+          "charset": "decimal",
+          "length": 1
+        },
+        "id": "version_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork",
+          "charset": "decimal",
+          "length": 1
+        },
+        "id": "format_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork",
+          "charset": "decimal",
+          "length_min": 4,
+          "length_max": 6,
+          "numeric_min": 1
+        },
+        "id": "iterations_decimal",
+        "weight": 30
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork",
+          "charset": "hex",
+          "length_min": 16,
+          "length_max": 32,
+          "length_multiple_of": 2
+        },
+        "id": "salt_hex_variable",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork",
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "iv_hex_16_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 6,
+          "regex": "^[A-Fa-f0-9]{128}(?::.*)?$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "iwork"
+        },
+        "id": "data_hex_64_bytes",
+        "weight": 55
+      }
+    ]
+  }
 }

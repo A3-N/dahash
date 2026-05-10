@@ -1,95 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "keccak-224",
   "name": "Keccak-224",
+  "aliases": [
+    "Keccak-224"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "keccak-224.haiti.049",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{56}(?::.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{56}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 17700,
         "name": "Keccak-224",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "17700"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "17700"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dynamic_430",
         "name": "Keccak-224",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_430"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "20feae51a579af51889723a4e473fa9fccbaf048a3b386a16f2bebd3",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Keccak-224"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "e1dfad9bafeae6ef15f5bbb16cf4c26f09f5f1e7870581962fc84636",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "17700"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "f364c70d916dcdc9658cf9204d814fe9a6192c3517bc82600c69f0e9",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Keccak-224"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Keccak-224"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

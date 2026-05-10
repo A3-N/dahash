@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "encsecurity-datavault-md5-no-keychain",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$encdv$1$1$3a427b9ee5851118$4f52176bb9a1b3b6"
+    }
+  ]
+}

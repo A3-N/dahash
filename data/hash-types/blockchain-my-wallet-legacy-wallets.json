@@ -1,65 +1,55 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "blockchain-my-wallet-legacy-wallets",
   "name": "Blockchain, My Wallet, Legacy Wallets",
+  "aliases": [
+    "Blockchain, My Wallet, Legacy Wallets"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "blockchain-my-wallet-legacy-wallets.haiti.341",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A\\$blockchain\\$\\d{1,6}\\$[a-f0-9]{144,65536}\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$blockchain\\$\\d{1,6}\\$[a-f0-9]{144,65536}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 34700,
         "name": "Blockchain, My Wallet, Legacy Wallets",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "34700"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "34700"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$blockchain$269$0349575305940509451603791869345994679e29d1618f26ed65ee15ad65d1af046f51ffcfbfa82dcccea07bb0f0fff725af53b96910646440b361453addc5caeb2a09479dc6cce3a1ebf138e2649689ab286ba2db6bd5edef310cac8f9386f002a534e9346cdc61bd0e21ca738eb2418a8158c83a43517981c43d8792cad6f290cbf40d5a3c1bb20283fcb44c59cae2dc90c898dbc4e960ca666653a08d90471610a8b9bf590752e8d8bee27e7aa58d015324dae83c87a46384ed8f947e37e65d4572018b5bfd8fd8ea70df777c8b692bc613ccb528356d1844490ac2b3be2dd8927fbf1aabf9b6cedec39742ed92a03220f4468bd32c1eed5d5c3c3aa0be459e06466c94991df97f335bd661",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Blockchain, My Wallet, Legacy Wallets"
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$blockchain\\$[0-9]{1,6}\\$[A-Fa-f0-9]{144,}$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "34700"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Blockchain, My Wallet, Legacy Wallets"
-    }
-  ]
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$blockchain\\$[0-9]{1,6}\\$[A-Fa-f0-9]{144,}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$blockchain$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

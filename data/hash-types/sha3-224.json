@@ -1,98 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha3-224",
   "name": "SHA3-224",
+  "aliases": [
+    "SHA3-224"
+  ],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "sha3-224.haiti.049",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{56}(?::.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{56}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 17300,
         "name": "SHA3-224",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "17300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "17300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dynamic_370",
         "name": "SHA3-224",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_370"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "2b34efc449e855b52bb60a58abd87ebc43afa8302a7acd4d14069f18",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA3-224"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "412ef78534ba6ab0e9b1607d3e9767a25c1ea9d5e83176b4c2817a6c",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "17300"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "efdd3949a290694b46e41d542ba11cb07e1e56533c8bb84099802bcd",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA3-224"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SHA3-224"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

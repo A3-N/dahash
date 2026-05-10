@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "apple-secure-notes",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$ASN$*1*20000*80771171105233481004850004085037*d04b17af7f6b184346aad3efefe8bec0987ee73418291a41",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

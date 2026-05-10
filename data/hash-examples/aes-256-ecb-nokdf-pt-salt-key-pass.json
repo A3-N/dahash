@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "aes-256-ecb-nokdf-pt-salt-key-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "264a4248c9522cb74d33fe26cb596895:61270210011294880287232432636227"
+    }
+  ]
+}

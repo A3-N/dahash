@@ -1,61 +1,65 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "argon2",
   "name": "Argon2",
+  "aliases": [
+    "Argon2 family"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "34000"
-    }
-  ],
+  "identification": {
+    "max_confidence": 70
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 34000,
         "name": "Argon2",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "34000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$argon2id$v=19$m=65536,t=3,p=1$FBMjI4RJBhIykCgol1KEJA$2ky5GAdhT1kH4kIgPN/oERE3Taiy43vNN70a3HpiKQU",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "34000"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "argon2.hashcat.34000",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{8}\\$[A-Za-z0-9+/=]{4}\\$[A-Za-z0-9+/=]{7},[A-Za-z0-9+/=]{3},[A-Za-z0-9+/=]{3}\\$[A-Za-z0-9]{22}\\$[A-Za-z0-9./]{43}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "34000"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 150,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$argon2(?:d|i|id)\\$"
+        },
+        "id": "argon2_family_marker"
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$argon2(?:d|i|id)\\$v=19\\$m=[0-9]{1,7},t=[0-9]{1,4},p=[0-9]{1,4}\\$[^$]+\\$[^\\s]{6,}$"
+        },
+        "id": "argon2_full_shape"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$argon2(?:d|i|id)\\$"
+        },
+        "id": "argon2_family_marker",
+        "weight": 50
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$argon2(?:d|i|id)\\$v=19\\$m=[0-9]{1,7},t=[0-9]{1,4},p=[0-9]{1,4}\\$[^$]+\\$[^\\s]{6,}$"
+        },
+        "id": "argon2_full_shape",
+        "weight": 70
+      }
+    ]
+  }
 }

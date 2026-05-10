@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "oracle-transportation-management-sha256",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "otm_sha256:1000:1234567890:S5Q9Kc0ETY6ZPyQU+JYY60oFjaJuZZaSinggmzU8PC4=",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

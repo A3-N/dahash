@@ -1,94 +1,112 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "python-werkzeug-md5-hmac-md5-key-salt",
   "name": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))",
+  "aliases": [
+    "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "python-werkzeug-md5-hmac-md5-key-salt.haiti.315",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^md5\\$.{0,256}\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Amd5\\$.{0,256}\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 30000,
         "name": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "30000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "30000"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "md5$84143$7f51edecfa6fb401a0b5e63d33fc8c0e",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
+  "match": {
+    "base": 25,
+    "total": 212,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^md5\\$.{0,256}\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "30000"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "md5$Aq2w03c8q1XVLX61$d318a29b5ee84ad33699bea6448e372e",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "md5$VgvFxJk7EGQh7Y4yUx7Wlw3WcIhm7YSp$e85dde5d8f419e73fb03b99346ea04fc",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "md5$zZJEVcyg$f6a67f7af86f0e6124fc533d55503b44",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Python Werkzeug MD5 (HMAC-MD5 (key = $salt))"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^md5\\$.{0,256}\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "md5$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^md5$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 5,
+          "length_max": 32
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

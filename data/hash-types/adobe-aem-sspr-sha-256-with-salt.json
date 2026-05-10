@@ -1,61 +1,125 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "adobe-aem-sspr-sha-256-with-salt",
   "name": "Adobe AEM (SSPR, SHA-256 with Salt)",
+  "aliases": [
+    "AEM SSPR SHA-256",
+    "SSPR"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "32031"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 32031,
         "name": "Adobe AEM (SSPR, SHA-256 with Salt)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "32031"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$sspr$3$1000$f9bbf1381f481427$a1b45fd7eb190cc7f0bf831698cb777207eebbb4b7ea2abd6fff84be539aae62",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32031"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "adobe-aem-sspr-sha-256-with-salt.hashcat.32031",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{4}\\$[0-9]{1}\\$[0-9]{4}\\$[A-Fa-f0-9]{16}\\$[A-Fa-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "32031"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 245,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$sspr$"
+        },
+        "id": "sspr_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "sspr"
+        },
+        "id": "four_sspr_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$sspr$"
+        },
+        "id": "sspr_marker",
+        "weight": 60
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "sspr"
+        },
+        "id": "four_sspr_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "trim_empty_start": true,
+          "drop_prefix_field": "sspr",
+          "charset": "decimal",
+          "length": 1,
+          "numeric_min": 3,
+          "numeric_max": 3
+        },
+        "id": "algorithm_version",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "trim_empty_start": true,
+          "drop_prefix_field": "sspr",
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 10,
+          "numeric_min": 1
+        },
+        "id": "iterations_decimal",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "trim_empty_start": true,
+          "drop_prefix_field": "sspr",
+          "charset": "hex",
+          "length": 16
+        },
+        "id": "salt_hex_8_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "trim_empty_start": true,
+          "drop_prefix_field": "sspr",
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "digest_hex_64",
+        "weight": 55
+      }
+    ]
+  }
 }

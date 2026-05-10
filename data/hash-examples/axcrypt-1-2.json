@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "axcrypt-1-2",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$axcrypt$*1*10467*9a7cd609bb262c738d9f0e4977039b94*ecbe0fd05a96fd2099d88a92eebb76c59d6837dfe55b3631",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

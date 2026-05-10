@@ -1,55 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "tiger-160-4-rounds",
   "name": "Tiger-160 (4 rounds)",
+  "aliases": [
+    "Tiger-160 (4 rounds)"
+  ],
   "status": "active",
-  "tags": [
-    "extended"
-  ],
   "priority": 20,
-  "matchers": [
-    {
-      "id": "tiger-160-4-rounds.haiti.035",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}(:[^:]+)?$",
-      "confidence": "weak",
-      "weight": 25,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}(:[^:]+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "8773d6449a517e9edad0dcaea8340b1974132b8e",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Tiger-160 (4 rounds)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "8bdfc06464be0d412d8896dc768941de514d9dfc",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Tiger-160 (4 rounds)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Tiger-160 (4 rounds)"
-    }
-  ]
+  "identification": {
+    "max_confidence": 35
+  },
+  "match": {
+    "base": 10,
+    "total": 40,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{40}(:[^:]+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 30
+      }
+    ]
+  }
 }

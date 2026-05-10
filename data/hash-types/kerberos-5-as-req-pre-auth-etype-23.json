@@ -1,107 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-as-req-pre-auth-etype-23",
   "name": "Kerberos 5 AS-REQ Pre-Auth etype 23",
+  "aliases": [
+    "Kerberos 5 AS-REQ Pre-Auth etype 23"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "kerberos-5-as-req-pre-auth-etype-23.haiti.101",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$(?:krb5pa\\$\\d{2}|mskrb5)\\$.+\\$[a-f0-9]+$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$(?:krb5pa\\$\\d{2}|mskrb5)\\$.+\\$[a-f0-9]+\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7500,
         "name": "Kerberos 5 AS-REQ Pre-Auth etype 23",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7500"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "krb5pa-md5",
         "name": "Kerberos 5 AS-REQ Pre-Auth etype 23",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "krb5pa-md5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb5pa$23$$$$afcbe07c32c3450b37d0f2516354570fe7d3e78f829e77cdc1718adf612156507181f7daeb03b6fbcfe91f8346f3c0ae7e8abfe5",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 AS-REQ Pre-Auth etype 23"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb5pa$23$user$realm$salt$5cbb0c882a2b26956e81644edbdb746326f4f5f0e947144fb3095dffe4b4b03e854fc1d631323632303636373330383333353630",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 AS-REQ Pre-Auth etype 23"
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$(?:krb5pa\\$\\d{2}|mskrb5)\\$.+\\$[a-f0-9]+$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "7500"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb5pa$23$user$realm$salt$afcbe07c32c3450b37d0f2516354570fe7d3e78f829e77cdc1718adf612156507181f7daeb03b6fbcfe91f8346f3c0ae7e8abfe5",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 AS-REQ Pre-Auth etype 23"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$mskrb5$john$JOHN.DOE.MS.COM$02E837D06B2AC76891F388D9CC36C67A$2A9785BF5036C45D3843490BF9C228E8C18653E10CE58D7F8EF119D2EF4F92B1803B1451",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 AS-REQ Pre-Auth etype 23"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Kerberos 5 AS-REQ Pre-Auth etype 23"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$(?:krb5pa\\$\\d{2}|mskrb5)\\$.+\\$[a-f0-9]+$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

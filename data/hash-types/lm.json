@@ -1,78 +1,55 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "lm",
   "name": "LM",
+  "aliases": [],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "lm.haiti.015",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{32}(?::.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{32}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 3000,
         "name": "LM",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "3000"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "3000"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "lm",
         "name": "LM",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "lm"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "LM"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "299bd128c1101fd6",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "3000"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{16}$"
+        },
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Fa-f0-9]{16}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 30
+  }
 }

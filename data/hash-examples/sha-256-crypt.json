@@ -1,0 +1,16 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha-256-crypt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$5$7777657035274252$XftMj84MW.New1/ViLY5V4CM4Y7EBvfETaZsCW9vcJ8",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$5$9ks3nNEqv31FX.F$gdEoLFsCRsn/WRN3wxUnzfeZLoooVlzeF4WjLomTRFD"
+    }
+  ]
+}

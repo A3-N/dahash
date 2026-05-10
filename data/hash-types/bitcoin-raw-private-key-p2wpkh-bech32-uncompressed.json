@@ -1,61 +1,67 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bitcoin-raw-private-key-p2wpkh-bech32-uncompressed",
   "name": "Bitcoin raw private key (P2WPKH, Bech32), uncompressed",
+  "aliases": [
+    "Bitcoin raw private key (P2WPKH, Bech32), uncompressed"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "30904"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "bitcoin2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$bitcoin$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 30904,
         "name": "Bitcoin raw private key (P2WPKH, Bech32), uncompressed",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "30904"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "bc1qq6samcuksd2f6rsc48eu3lkq87zp33vfud0p0t",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "30904"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "bitcoin-raw-private-key-p2wpkh-bech32-uncompressed.hashcat.30904",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Za-z0-9]{42}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "30904"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{42}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9]{42}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "bc1qq6samcuksd2f6rsc48eu3lkq87zp33vfud0p"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

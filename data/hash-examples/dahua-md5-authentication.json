@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "dahua-md5-authentication",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$dahua$4WzwxXxM"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "GRuHbyVp"
+    }
+  ]
+}

@@ -1,65 +1,92 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "postgresql-scram-sha-256",
   "name": "PostgreSQL SCRAM-SHA-256",
+  "aliases": [
+    "PostgreSQL SCRAM-SHA-256"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "postgresql-scram-sha-256.haiti.288",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\ASCRAM-SHA-256\\$\\d{1,7}:(?=[^:$]{1,88}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^:]{44}:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{44})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\ASCRAM-SHA-256\\$\\d{1,7}:(?=[^:$]{1,88}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^:]{44}:)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===)):(?=[^:]{44})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 28600,
         "name": "PostgreSQL SCRAM-SHA-256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "28600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "28600"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "SCRAM-SHA-256$4096:IKfxzJ8Nq4PkLJCfgKcPmA==$iRw3qwTp18uaBnsTOEExbtgWdKeBMbSSnZvqD4sdqLQ=:hPciC1CcnBna3szR8Mf3MVc8t0W7QPbIHoMMrh4zRV0=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "PostgreSQL SCRAM-SHA-256"
+  "match": {
+    "base": 25,
+    "total": 186,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^SCRAM\\-SHA\\-256\\$4096:[^\\s]{114}$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "28600"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "PostgreSQL SCRAM-SHA-256"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^SCRAM\\-SHA\\-256\\$4096:[^\\s]{114}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "SCRAM-SHA-256$4096:"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 2
+        },
+        "id": ":_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^SCRAM\\-SHA\\-256$"
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

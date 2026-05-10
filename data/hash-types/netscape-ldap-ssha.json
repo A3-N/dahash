@@ -1,77 +1,66 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "netscape-ldap-ssha",
   "name": "Netscape LDAP SSHA",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "netscape-ldap-ssha.haiti.040",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 111,
         "name": "Netscape LDAP SSHA",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "111"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "111"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "salted-sha1",
         "name": "Netscape LDAP SSHA",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "salted-sha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{SSHA}FLzWcQqyle6Mo7NvrwXCMAmRzXQxNjYxMTYzNw==",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Netscape LDAP SSHA"
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "111"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Netscape LDAP SSHA"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{SSHA}[a-z0-9\\/+]{26,}(?:[=]{1,2})?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{SSHA}"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

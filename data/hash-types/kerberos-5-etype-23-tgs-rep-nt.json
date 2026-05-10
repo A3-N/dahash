@@ -1,61 +1,139 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-etype-23-tgs-rep-nt",
   "name": "Kerberos 5, etype 23, TGS-REP (NT)",
+  "aliases": [
+    "Kerberos 5, etype 23, TGS-REP (NT)"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "35300"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 35300,
         "name": "Kerberos 5, etype 23, TGS-REP (NT)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "35300"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb5tgs$23$*user$realm$test/spn*$b548e10f5694ae018d7ad63c257af7dc$35e8e45658860bc31a859b41a08989265f4ef8afd75652ab4d7a30ef151bf6350d879ae189a8cb769e01fa573c6315232b37e4bcad9105520640a781e5fd85c09615e78267e494f433f067cc6958200a82f70627ce0eebc2ac445729c2a8a0255dc3ede2c4973d2d93ac8c1a56b26444df300cb93045d05ff2326affaa3ae97f5cd866c14b78a459f0933a550e0b6507bf8af27c2391ef69fbdd649dd059a4b9ae2440edd96c82479645ccdb06bae0eead3b7f639178a90cf24d9a",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "35300"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "kerberos-5-etype-23-tgs-rep-nt.hashcat.35300",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{7}\\$[0-9]{2}\\$\\*[A-Za-z0-9]{4}\\$[A-Za-z0-9]{5}\\$[A-Za-z0-9./]{8}\\*\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{374}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "35300"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 260,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{7}\\$[0-9]{2}\\$\\*[A-Za-z0-9]{4}\\$[A-Za-z0-9]{5}\\$[A-Za-z0-9./]{8}\\*\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{374}$"
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$[A-Za-z0-9]{7}\\$[0-9]{2}\\$\\*[A-Za-z0-9]{4}\\$[A-Za-z0-9]{5}\\$[A-Za-z0-9./]{8}\\*\\$[A-Fa-f0-9]{32}\\$[A-Fa-f0-9]{374}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$krb5tgs$23$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 7
+        },
+        "id": "$_count_7",
+        "weight": 8
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "*",
+          "count": 2
+        },
+        "id": "*_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 8,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_7",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^krb5tgs$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^23$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^realm$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "regex": "^b548e10f5694ae018d7ad63c257af7dc$",
+          "trim_empty_start": true
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 6,
+          "charset": "hex",
+          "length": 374,
+          "trim_empty_start": true
+        },
+        "id": "field_6_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

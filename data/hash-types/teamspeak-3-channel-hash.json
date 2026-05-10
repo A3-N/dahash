@@ -1,65 +1,118 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "teamspeak-3-channel-hash",
   "name": "Teamspeak 3 (channel hash)",
+  "aliases": [
+    "Teamspeak 3 (channel hash)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "teamspeak-3-channel-hash.haiti.290",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A\\$teamspeak\\$3\\$(?=[^$]{28}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^$]{152}$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$teamspeak\\$3\\$(?=[^$]{28}\\$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\$(?=[^$]{152}$)(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 28300,
         "name": "Teamspeak 3 (channel hash)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "28300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "28300"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$teamspeak$3$E0aV0IQ29EDyxRfkFoQflUGJ6zo=$mRgDUkNpd0IwUEcTJQBmE0NHYwdDEhFzQ0VgMRcFJUIRYnaHBwNXRZJwk2ZUaURzdXkVYiUROERmI0hYYGFYCDiIJCeIU3N5EhRVcZFnSIRCJlkUFkY4YFMDcheYeTl4RYZEdpKGJYhxAIQJEYGYEA==",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Teamspeak 3 (channel hash)"
+  "match": {
+    "base": 25,
+    "total": 236,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$teamspeak\\$3\\$[^\\s]{181}$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "28300"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Teamspeak 3 (channel hash)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$teamspeak\\$3\\$[^\\s]{181}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$teamspeak$3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^teamspeak$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^3$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/=]{28}$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[A-Za-z0-9+/=]{152}$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

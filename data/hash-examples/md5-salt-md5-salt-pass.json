@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "md5-salt-md5-salt-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "82422514daaa8253be0aa43f3e263af5:7530326651137",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

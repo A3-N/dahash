@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "linux-kernel-crypto-api-2-4",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$cryptoapi$9$2$03000000000000000000000000000000$00000000000000000000000000000000$d1d20e91a8f2e18881dc79369d8af761",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

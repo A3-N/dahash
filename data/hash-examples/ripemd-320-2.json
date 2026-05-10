@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ripemd-320-2",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "8339009b816d4e4c2a6be3c6e1daac6aca69a7670ecdc583adfca0db17cc8f08ce35d6c759b038ab",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

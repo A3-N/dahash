@@ -1,32 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bcrypt-sha-256",
   "name": "bcrypt(SHA-256)",
+  "aliases": [
+    "bcrypt(SHA-256)"
+  ],
   "status": "active",
-  "tags": [
-    "reference"
-  ],
   "priority": 45,
-  "matchers": [
-    {
-      "id": "bcrypt-sha-256.reference.0",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$bcrypt-sha256\\$(2[axy]|2)\\,[0-9]+\\$[a-z0-9\\/.]{22}\\$[a-z0-9\\/.]{31}$",
-      "confidence": "generic",
-      "weight": 35,
-      "sources": [
-        {
-          "id": "name-that-hash-reference",
-          "ref": "bcrypt(SHA-256)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "name-that-hash-reference",
-      "ref": "bcrypt(SHA-256)"
-    }
-  ]
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
+  "tools": {},
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$bcrypt-sha256\\$(2[axy]|2)\\,[0-9]+\\$[a-z0-9\\/.]{22}\\$[a-z0-9\\/.]{31}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$bcrypt-sha256\\$(2[axy]|2)\\,[0-9]+\\$[a-z0-9\\/.]{22}\\$[a-z0-9\\/.]{31}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

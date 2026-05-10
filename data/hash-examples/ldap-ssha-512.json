@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ldap-ssha-512",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "{SSHA512}Bz8w5q6qEtB1Nnc8b1jfTvTXVTwohWag33oghQGOtLChnkZTw/cuJaHQlLJEI3AWKZGCRyLA6Phujdxo+is7AjA2MDcyNjY1Mg==",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

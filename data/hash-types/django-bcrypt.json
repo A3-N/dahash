@@ -1,30 +1,45 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "django-bcrypt",
   "name": "Django (bcrypt)",
+  "aliases": [
+    "Django (bcrypt)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "django-bcrypt.haiti.155",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^bcrypt(\\$2[axy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Abcrypt(\\$2[axy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Django (bcrypt)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^bcrypt(\\$2[axy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^bcrypt(\\$2[axy]|\\$2)\\$\\d{2}\\$[a-z0-9\\/.]{53}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

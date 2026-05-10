@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "sha1-cx",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "fcdc7ec700b887e8eaebf94c2ec52aebb5521223:63038426024388230227",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

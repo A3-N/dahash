@@ -1,66 +1,53 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "snefru-128",
   "name": "Snefru-128",
+  "aliases": [
+    "Snefru-128"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "snefru-128.haiti.020",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\$snefru\\$)?[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(\\$snefru\\$)?[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "snefru-128",
         "name": "Snefru-128",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "snefru-128"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$snefru$53b8a9b1c9ed00174d88d705fb7bae30",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Snefru-128"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "53b8a9b1c9ed00174d88d705fb7bae30",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Snefru-128"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Snefru-128"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$snefru\\$)?[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$snefru\\$)?[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

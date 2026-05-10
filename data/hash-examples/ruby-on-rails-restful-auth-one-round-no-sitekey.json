@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "ruby-on-rails-restful-auth-one-round-no-sitekey",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "3999d08db95797891ec77f07223ca81bf43e1be2:5dcc47b04c49d3c8e1b9e4ec367fddeed21b7b85"
+    }
+  ]
+}

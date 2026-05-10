@@ -1,76 +1,148 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "lastpass-cli",
   "name": "LastPass CLI",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "lastpass-cli.haiti.129",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$lpcli\\$\\d\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[a-f0-9]{32}\\$[a-f0-9]{32}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$lpcli\\$\\d\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[a-f0-9]{32}\\$[a-f0-9]{32}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "lpcli",
         "name": "LastPass CLI",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "lpcli"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$lpcli$0$user@example.invalid$1$9611651d6cbe6ab1dfb035d3874bd803$68bbe1480410c03cc053662658884f2b",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "LastPass CLI"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$lpcli$0$user@example.invalid$1234$3fec6cd2d8c049cbafe9fa6a9343f42f$f21d8e60ad22db53033e431700fb5e0c",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "LastPass CLI"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$lpcli$0$user@example.invalid$1234$fbd97e7e14713363c5567bdc106bb1f4$75ebb9460f9852ccb2382029fe333867",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "LastPass CLI"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "LastPass CLI"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 274,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$lpcli\\$\\d\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[a-f0-9]{32}\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$lpcli\\$\\d\\$[a-z0-9_.+\\-@]+\\$\\d{1,4}\\$[a-f0-9]{32}\\$[a-f0-9]{32}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$lpcli$0$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 6
+        },
+        "id": "$_count_6",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 7,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_6",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^lpcli$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^0$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^user@example\\.invalid$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length_min": 1,
+          "length_max": 4,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "charset": "hex",
+          "length": 32,
+          "trim_empty_start": true
+        },
+        "id": "field_4_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "charset": "hex",
+          "length": 32,
+          "trim_empty_start": true
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

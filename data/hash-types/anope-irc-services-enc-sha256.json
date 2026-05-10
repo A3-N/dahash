@@ -1,61 +1,97 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "anope-irc-services-enc-sha256",
   "name": "Anope IRC Services (enc_sha256)",
+  "aliases": [
+    "Anope enc_sha256",
+    "Anope SHA256"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "30700"
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 30700,
         "name": "Anope IRC Services (enc_sha256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "30700"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "sha256:ab67666e1f91cd38c0ab5bee9c8d2132eca7460354477109a739d4e735b14131:47bcfd0d573653943231df07445da774e5d06465c897ce40578b120bde187e26",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "30700"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "anope-irc-services-enc-sha256.hashcat.30700",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[A-Za-z0-9]{6}:[A-Fa-f0-9]{64}:[A-Fa-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "30700"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 220,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "sha256:"
+        },
+        "id": "sha256_prefix"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 3
+        },
+        "id": "three_colon_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "sha256:"
+        },
+        "id": "sha256_prefix",
+        "weight": 70
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 3
+        },
+        "id": "three_colon_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "regex": "^sha256$"
+        },
+        "id": "algorithm_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "salt_hex_32_bytes",
+        "weight": 45
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "digest_hex_32_bytes",
+        "weight": 45
+      }
+    ]
+  }
 }

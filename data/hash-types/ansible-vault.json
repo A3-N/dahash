@@ -1,61 +1,157 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "ansible-vault",
   "name": "Ansible Vault",
+  "aliases": [
+    "Ansible Vault",
+    "$ANSIBLE_VAULT"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "16900"
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".yml",
+          ".yaml",
+          ".vault"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "ascii": "$ANSIBLE_VAULT"
+            },
+            "id": "ansible_vault_header"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "ansible2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$ansible$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 16900,
         "name": "Ansible Vault",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "16900"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$ansible$0*0*6b761adc6faeb0cc0bf197d3d4a4a7d3f1682e4b169cae8fa6b459b3214ed41e*426d313c5809d4a80a4b9bc7d4823070*d8bad190c7fbc7c3cb1c60a27abfb0ff59d6fb73178681c7454d94a0f56a4360",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16900"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "ansible-vault.hashcat.16900",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{7}\\$[0-9]{1}\\*[0-9]{1}\\*[A-Fa-f0-9]{64}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16900"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 280,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ansible$"
+        },
+        "id": "ansible_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "five_star_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ansible$"
+        },
+        "id": "ansible_marker",
+        "weight": 75
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "five_star_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "charset": "decimal",
+          "prefix": "$ansible$",
+          "length": 1,
+          "numeric_min": 0,
+          "numeric_max": 9
+        },
+        "id": "version_field",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "decimal",
+          "length": 1,
+          "numeric_min": 0,
+          "numeric_max": 9
+        },
+        "id": "cipher_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "salt_hex_32_bytes",
+        "weight": 40
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "ciphertext_hex_16_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "hmac_hex_32_bytes",
+        "weight": 40
+      }
+    ]
+  }
 }

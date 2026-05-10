@@ -1,52 +1,45 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "blake2-224-blake2b",
   "name": "BLAKE2-224 (blake2b)",
+  "aliases": [
+    "BLAKE2-224 (blake2b)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "blake2-224-blake2b.haiti.049",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{56}(?::.+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{56}(?::.+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {},
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "bcb34bae2f591c257a07d6d07adecd4cd968cdd06ab4a4d3bb001574",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "BLAKE2-224 (blake2b)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "e745e2e424aaed1cef3c765b6c22396bb6bcc5215128100f54031132",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "BLAKE2-224 (blake2b)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "BLAKE2-224 (blake2b)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

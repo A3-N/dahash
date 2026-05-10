@@ -1,61 +1,174 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "apple-secure-notes",
   "name": "Apple Secure Notes",
+  "aliases": [
+    "Apple Notes",
+    "Secure Notes",
+    "ASN"
+  ],
   "status": "active",
-  "tags": [
-    "hashcat"
-  ],
   "priority": 50,
-  "sources": [
-    {
-      "id": "hashcat-examples",
-      "ref": "16200"
-    }
-  ],
+  "extraction": {
+    "supported": true,
+    "inputs": [
+      {
+        "kind": "file",
+        "extensions": [
+          ".sqlite",
+          ".sqlite3",
+          ".db"
+        ],
+        "converter_input_role": "direct",
+        "content_signatures": [
+          {
+            "feature": "magic",
+            "args": {
+              "offset": 0,
+              "ascii": "SQLite format 3\u0000"
+            },
+            "id": "sqlite_magic"
+          },
+          {
+            "feature": "sqlite_table_columns",
+            "args": {
+              "table": "ZICCLOUDSYNCINGOBJECT",
+              "columns": [
+                "ZCRYPTOITERATIONCOUNT",
+                "ZCRYPTOSALT",
+                "ZCRYPTOWRAPPEDKEY",
+                "ZCRYPTOVERIFIER"
+              ]
+            },
+            "id": "sqlite_table_columns"
+          }
+        ]
+      }
+    ],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "applenotes2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$ASN$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 16200,
         "name": "Apple Secure Notes",
-        "status": "active",
-        "sources": [
-          {
-            "id": "hashcat-examples",
-            "ref": "16200"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$ASN$*1*20000*80771171105233481004850004085037*d04b17af7f6b184346aad3efefe8bec0987ee73418291a41",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16200"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "matchers": [
-    {
-      "id": "apple-secure-notes.hashcat.16200",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$[A-Za-z0-9]{3}\\$\\*[0-9]{1}\\*[0-9]{5}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{48}$",
-      "confidence": "strong",
-      "weight": 40,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "16200"
-        }
-      ]
-    }
-  ]
+  "match": {
+    "base": 30,
+    "total": 335,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ASN$"
+        },
+        "id": "asn_marker"
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ASN\\$\\*[0-9]+\\*[0-9]{1,8}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{48}(?::.*)?$"
+        },
+        "id": "full_asn_shape"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$ASN$"
+        },
+        "id": "asn_marker",
+        "weight": 80
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$ASN\\$\\*[0-9]+\\*[0-9]{1,8}\\*[A-Fa-f0-9]{32}\\*[A-Fa-f0-9]{48}(?::.*)?$"
+        },
+        "id": "full_asn_shape",
+        "weight": 60
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "*",
+          "count": 5
+        },
+        "id": "five_star_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 0,
+          "regex": "^\\$ASN\\$$"
+        },
+        "id": "marker_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 1,
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 10
+        },
+        "id": "record_id_decimal",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 2,
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 8,
+          "numeric_min": 1
+        },
+        "id": "iterations_decimal",
+        "weight": 30
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "*",
+          "field": 3,
+          "charset": "hex",
+          "length": 32
+        },
+        "id": "salt_hex_16_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "*",
+          "field": 4,
+          "regex": "^[A-Fa-f0-9]{48}(?::.*)?$"
+        },
+        "id": "wrapped_key_or_verifier_hex",
+        "weight": 45
+      }
+    ]
+  }
 }

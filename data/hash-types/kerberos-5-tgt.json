@@ -1,66 +1,123 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "kerberos-5-tgt",
   "name": "Kerberos 5 TGT",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "kerberos-5-tgt.haiti.100",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$krb5\\$[^$]+\\$[^$]+\\$[a-f0-9]{456}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$krb5\\$[^$]+\\$[^$]+\\$[a-f0-9]{456}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "krb5",
         "name": "Kerberos 5 TGT",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "krb5"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$krb5$oskov$ACM.UIUC.EDU$4730d7249765615d6f3652321c4fb76d09fb9cd06faeb0c31b8737f9fdfcde4bd4259c31cb1dff25df39173b09abdff08373302d99ac09802a290915243d9f0ea0313fdedc7f8d1fae0d9df8f0ee6233818d317f03a72c2e77b480b2bc50d1ca14fba85133ea00e472c50dbc825291e2853bd60a969ddb69dae35b604b34ea2c2265a4ffc72e9fb811da17c7f2887ccb17e2f87cd1f6c28a9afc0c083a9356a9ee2a28d2e4a01fc7ea90cc8836b8e25650c3a1409b811d0bad42a59aa418143291d42d7b1e6cb5b1876a4cc758d721323a762e943f774630385c9faa68df6f3a94422f97",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 TGT"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$krb5$oskov$ACM.UIUC.EDU$6cba0316d38e31ba028f87394792baade516afdfd8c5a964b6a7677adbad7815d778b297beb238394aa97a4d495adb7c9b7298ba7c2a2062fb6c9a4297f12f83755060f4f58a1ea4c7026df585cdfa02372ad619ab1a4ec617ad23e76d6e37e36268d9aa0abcf83f11fa8092b4328c5e6c577f7ec6f1c1684d9c99a309eee1f5bd764c4158a2cf311cded8794b2de83131c3dc51303d5300e563a2b7a230eac67e85b4593e561bf6b88c77b82c729e7ba7f3d2f99b8dc85b07873e40335aff4647833a87681ee557fbd1ffa1a458a5673d1bd3c1587eceeabaebf4e44c24d9a8ac8c1d89",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Kerberos 5 TGT"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Kerberos 5 TGT"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 234,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$krb5\\$[^$]+\\$[^$]+\\$[a-f0-9]{456}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$krb5\\$[^$]+\\$[^$]+\\$[a-f0-9]{456}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$krb5$oskov$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 4
+        },
+        "id": "$_count_4",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 5,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^krb5$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^oskov$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^ACM\\.UIUC\\.EDU$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length": 456,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

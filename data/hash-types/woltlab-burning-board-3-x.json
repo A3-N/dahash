@@ -1,85 +1,100 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "woltlab-burning-board-3-x",
   "name": "Woltlab Burning Board 3.x",
+  "aliases": [
+    "Woltlab Burning Board 3.x"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "woltlab-burning-board-3-x.haiti.123",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\$wbb3\\$\\*1\\*)?[a-f0-9]{40}[:*][a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(\\$wbb3\\$\\*1\\*)?[a-f0-9]{40}[:*][a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 8400,
         "name": "Woltlab Burning Board 3.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "8400"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "8400"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "wbb3",
         "name": "Woltlab Burning Board 3.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "wbb3"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "7f8d1951fe48ae3266980c2979c141f60e4415e5:5037864764153886517871426607441768004150",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "8400"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "8084df19a6dc81e2597d051c3d8b400787e2d5a9:6755045315424852185115352765375338838643",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Woltlab Burning Board 3.x"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Woltlab Burning Board 3.x"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 155,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$wbb3\\$\\*1\\*)?[a-f0-9]{40}[:*][a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\$wbb3\\$\\*1\\*)?[a-f0-9]{40}[:*][a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": ":_count_1",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": ":_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "field_0_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "field_1_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

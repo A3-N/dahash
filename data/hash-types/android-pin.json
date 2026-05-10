@@ -1,62 +1,93 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "android-pin",
   "name": "Android PIN",
+  "aliases": [
+    "Android lockscreen PIN"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "android-pin.haiti.052",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{40}:[a-f0-9]{16}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{40}:[a-f0-9]{16}\\Z"
-        }
-      ]
-    }
-  ],
+  "identification": {
+    "max_confidence": 80
+  },
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 5800,
         "name": "Android PIN",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "5800"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "5800"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Android PIN"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "3edde1eb9e6679ccbc1ff3c417e8a475a2d2e279:7724368582277760",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "5800"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 20,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": "two_fields"
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "sha1_hex_20_bytes"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 1
+        },
+        "id": "single_colon_separator",
+        "weight": 15
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 2
+        },
+        "id": "two_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "hex",
+          "length": 40
+        },
+        "id": "sha1_hex_20_bytes",
+        "weight": 55
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "hex",
+          "length": 16
+        },
+        "id": "salt_hex_8_bytes",
+        "weight": 35
+      }
+    ]
+  }
 }

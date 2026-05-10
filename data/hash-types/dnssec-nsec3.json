@@ -1,72 +1,114 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "dnssec-nsec3",
   "name": "DNSSEC (NSEC3)",
+  "aliases": [
+    "DNSSEC (NSEC3)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "dnssec-nsec3.haiti.133",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 8300,
         "name": "DNSSEC (NSEC3)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "8300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "8300"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "7b5n74kq8r441blc2c5qbbat19baj79r:.lvdsiqfj.net:33164473:1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "DNSSEC (NSEC3)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "pi6a89u8tca930h8mvolklmesefc5gmn:.fnmlbsik.net:35537886:1",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "8300"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "DNSSEC (NSEC3)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 181,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-z0-9]{32}(:([a-z0-9\\-]+\\.)?[a-z0-9\\-.]+\\.[a-z]{2,7}:.+:\\d+)?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 3
+        },
+        "id": ":_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": ":",
+          "count": 4
+        },
+        "id": ":_field_count_4",
+        "weight": 12
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 0,
+          "charset": "alnum_dot_slash",
+          "length": 32
+        },
+        "id": "field_0_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length": 13
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ":",
+          "field": 2,
+          "charset": "hex",
+          "length": 8
+        },
+        "id": "field_2_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ":",
+          "field": 3,
+          "regex": "^1$"
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      }
+    ]
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "android-fde-samsung-dek",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "15738301074686823451275227041071157383010746868234512752270410712bc4be900bf96ccf43c9852fff49b5f5874a9f6e7bf301686fa6d98286de151f15738301074686823451275227041071",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

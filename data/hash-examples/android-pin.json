@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "android-pin",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "3edde1eb9e6679ccbc1ff3c417e8a475a2d2e279:7724368582277760",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

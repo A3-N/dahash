@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "citrix-netscaler-sha512",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "2f9282ade42ce148175dc3b4d8b5916dae5211eee49886c3f7cc768f6b9f2eb982a5ac2f2672a0223999bfd15349093278adf12f6276e8b61dacf5572b3f93d0b4fa886ce",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

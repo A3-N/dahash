@@ -1,0 +1,14 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "fnv-164",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "5e47a65936838493"
+    },
+    {
+      "kind": "example_hash",
+      "value": "9bfbf589cfb5d948"
+    }
+  ]
+}

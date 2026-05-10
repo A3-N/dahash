@@ -1,141 +1,101 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "ipmi-2-0-rakp-hmac-sha1",
   "name": "IPMI 2.0 RAKP HMAC-SHA1",
+  "aliases": [
+    "IPMI 2.0 RAKP HMAC-SHA1"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "ipmi-2-0-rakp-hmac-sha1.haiti.124",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{64,512}(:[a-f0-9]{40})?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{64,512}(:[a-f0-9]{40})?\\Z"
-        }
-      ]
-    },
-    {
-      "id": "ipmi-2-0-rakp-hmac-sha1.haiti.126",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$rakp\\$[a-f0-9]{56,512}\\$[a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$rakp\\$[a-f0-9]{56,512}\\$[a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7300,
         "name": "IPMI 2.0 RAKP HMAC-SHA1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "rakp",
         "name": "IPMI 2.0 RAKP HMAC-SHA1",
-        "status": "active",
-        "sources": [
+        "status": "active"
+      }
+    ]
+  },
+  "match": {
+    "base": 0,
+    "total": 0,
+    "requires": [],
+    "evidence": [],
+    "variants": [
+      {
+        "id": "matcher_1",
+        "format": "regex",
+        "base": 25,
+        "total": 95,
+        "requires": [
           {
-            "id": "haiti",
-            "ref": "rakp"
+            "feature": "regex",
+            "args": {
+              "regex": "^[a-f0-9]{64,512}(:[a-f0-9]{40})?$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^[a-f0-9]{64,512}(:[a-f0-9]{40})?$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
+          }
+        ]
+      },
+      {
+        "id": "matcher_2",
+        "format": "regex",
+        "base": 25,
+        "total": 95,
+        "requires": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$rakp\\$[a-f0-9]{56,512}\\$[a-f0-9]{40}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "required_pattern"
+          }
+        ],
+        "evidence": [
+          {
+            "feature": "regex",
+            "args": {
+              "regex": "^\\$rakp\\$[a-f0-9]{56,512}\\$[a-f0-9]{40}$",
+              "flags": [
+                "i"
+              ]
+            },
+            "id": "pattern_match",
+            "weight": 70
           }
         ]
       }
     ]
-  },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$rakp$787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878$ba4ecc30a0b36a6ba0db862fc95201a81b9252ee",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$rakp$a4a3a2a03f0b000094272eb1ba576450b0d98ad10727a9fb0ab83616e099e8bf5f7366c9c03d36a3000000000000000000000000000000001404726f6f74$0ea27d6d5effaa996e5edc855b944e179a2f2434",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$rakp$b7c2d6f13a43dce2e44ad120a9cd8a13d0ca23f0414275c0bbe1070d2d1299b1c04da0f1a0f1e4e2537300263a2200000000000000000000140768617368636174$472bdabe2d5d4bffd6add7b3ba79a291d104a9ef",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$rakp$c358d2a72f0c00001135f9b254c274629208b22f1166d94d2eba47f21093e9734355a33593da16f2000000000000000000000000000000001404726f6f74$41fce60acf2885f87fcafdf658d6f97db12639a9",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "3437343735333336383831353232323433383333303236303337333338363232303135383237333638363532373231343030313131333838323734373138363632343133333335353030353633373533333133313530363533303738343334313330303630343633333237373037383537333630303233303830303437323838333237313438363238343434383831363634323431333430383735323038:f4b376e25868751fc0264f573ff1fe50b65ce5a2",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-        },
-        {
-          "id": "hashcat-examples",
-          "ref": "7300"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "b7c2d6f13a43dce2e44ad120a9cd8a13d0ca23f0414275c0bbe1070d2d1299b1c04da0f1a0f1e4e2537300263a2200000000000000000000140768617368636174:472bdabe2d5d4bffd6add7b3ba79a291d104a9ef",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "IPMI 2.0 RAKP HMAC-SHA1"
-    }
-  ]
+  }
 }

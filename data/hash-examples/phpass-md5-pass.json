@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "phpass-md5-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$H$9ZtU3uM7Twc8X53ImNRhaec4b3QHJ91",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

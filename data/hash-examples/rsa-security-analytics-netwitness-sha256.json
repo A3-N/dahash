@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "rsa-security-analytics-netwitness-sha256",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "6F48F44C46F5ADC534597687B086278F0AAF7D262ADDB3978562A7D55BBDF467:MDAwMzY1NzYwODI4MQ==",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

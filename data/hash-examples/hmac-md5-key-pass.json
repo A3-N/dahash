@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-md5-key-pass",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "e28e4e37e972a945e464b5226053bac0:40",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

@@ -1,81 +1,66 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "netntlmv2-nt",
   "name": "NetNTLMv2 (NT)",
+  "aliases": [
+    "NetNTLMv2 (NT)"
+  ],
   "status": "active",
-  "tags": [
-    "common"
-  ],
   "priority": 90,
-  "matchers": [
-    {
-      "id": "netntlmv2-nt.haiti.098",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{16}:[a-f0-9]{32}:[a-f0-9]{2,1024}\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[^\\/:*?\"<>|]{0,60}::[^\\/:*?\"<>|]{0,45}:[a-f0-9]{16}:[a-f0-9]{32}:[a-f0-9]{2,1024}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 27100,
         "name": "NetNTLMv2 (NT)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "27100"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "27100"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "netntlmv2",
         "name": "NetNTLMv2 (NT)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "netntlmv2"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "0UL5G37JOI0SX::6VB1IS0KA74:ebe1afa18b7fbfa6:aab8bf8675658dd2a939458a1077ba08:010100000000000031c8aa092510945398b9f7b7dde1a9fb00000000f7876f2b04b700",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "NetNTLMv2 (NT)"
+  "match": {
+    "base": 25,
+    "total": 103,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[^:\\n]{0,128}::[^:\\n]{0,128}:[A-Fa-f0-9]{16}:[A-Fa-f0-9]{32}:[A-Fa-f0-9]{32,}$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "27100"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "NetNTLMv2 (NT)"
-    }
-  ]
+        "id": "pattern_match"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[^:\\n]{0,128}::[^:\\n]{0,128}:[A-Fa-f0-9]{16}:[A-Fa-f0-9]{32}:[A-Fa-f0-9]{32,}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ":",
+          "count": 5
+        },
+        "id": "colon_count_5",
+        "weight": 8
+      }
+    ]
+  },
+  "identification": {
+    "max_confidence": 90
+  }
 }

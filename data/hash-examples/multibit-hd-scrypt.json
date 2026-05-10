@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "multibit-hd-scrypt",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$multibit$2*2e311aa2cc5ec99f7073cacc8a2d1938*e3ad782e7f92d66a3cdfaec43a46be29*5d1cabd4f4a50ba125f88c47027fff9b",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

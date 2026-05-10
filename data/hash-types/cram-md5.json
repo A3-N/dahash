@@ -1,62 +1,113 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "cram-md5",
   "name": "CRAM-MD5",
+  "aliases": [
+    "CRAM-MD5"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "cram-md5.haiti.176",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$cram_md5\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+=\\-]{52}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$cram_md5\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+=\\-]{52}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 10200,
         "name": "CRAM-MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "10200"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "10200"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "CRAM-MD5"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$cram_md5$MTI=$dXNlciBiOGYwNjk5MTE0YjA1Nzg4OTIyM2RmMDg0ZjgyMjQ2Zg==",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "10200"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 218,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$cram_md5\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+=\\-]{52}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$cram_md5\\$[a-z0-9\\/+=\\-]+\\$[a-z0-9\\/+=\\-]{52}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$cram_md5$MTI=$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^cram_md5$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^[A-Za-z0-9+/=]{4}$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_base64_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^[A-Za-z0-9+/=]{52}$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_base64_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

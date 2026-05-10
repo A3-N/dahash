@@ -1,97 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "mysql4-1",
   "name": "MySQL4.1",
+  "aliases": [
+    "MySQL4.1"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "mysql4-1.haiti.038",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(\\*)?[a-f0-9]{40}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(\\*)?[a-f0-9]{40}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 300,
         "name": "MySQL4.1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "mysql-sha1",
         "name": "MySQL4.1",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "mysql-sha1"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "*5AD8F88516BD021DD43F171E2C785C69F8E54ADB",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MySQL4.1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "*be1bdec0aa74b4dcb079943e70528096cca985f8",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MySQL4.1"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "fcf7c1b8749cf99d88e5f34271d636178fb5d130",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "MySQL4.1"
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\*)?[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "300"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "MySQL4.1"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(\\*)?[a-f0-9]{40}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

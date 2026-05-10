@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "mediawiki",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$B$2152187716$8c8b39c3602b194eeeb6cac78eea2742",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

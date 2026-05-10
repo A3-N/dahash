@@ -1,87 +1,109 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "aix-ssha512",
   "name": "AIX (ssha512)",
+  "aliases": [
+    "AIX ssha512",
+    "{ssha512}"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "aix-ssha512.haiti.074",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{ssha512}\\d{2}\\$[a-z0-9\\/.]{16,48}\\$[a-z0-9\\/.]{86}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{ssha512}\\d{2}\\$[a-z0-9\\/.]{16,48}\\$[a-z0-9\\/.]{86}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 6500,
         "name": "AIX (ssha512)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "6500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "6500"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "aix-ssha512",
         "name": "AIX (ssha512)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "aix-ssha512"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{ssha512}06$4653718755856803$O04nVHL7iU9Jguy/B3Yow.veBM52irn.038Y/Ln6AMy/BG8wbU6ozSP8/W9KDZPUbhdsbl1lf8px.vKJS1S/..",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AIX (ssha512)"
+  "match": {
+    "base": 30,
+    "total": 225,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{ssha512}"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "6500"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "{ssha512}06$bJbkFGJAB30L2e23$bXiXjyH5YGIyoWWmEVwq67nCU5t7GLy9HkCzrodRCQCx3r9VvG98o7O3V0r9cVrX3LPPGuHqT5LLn0oGCuI1..",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AIX (ssha512)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "AIX (ssha512)"
-    }
-  ]
+        "id": "aix_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "three_dollar_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{ssha512}"
+        },
+        "id": "aix_marker",
+        "weight": 65
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3
+        },
+        "id": "three_dollar_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "charset": "decimal",
+          "prefix": "{ssha512}",
+          "length": 2,
+          "numeric_min": 0,
+          "numeric_max": 99
+        },
+        "id": "salt_length_prefix",
+        "weight": 25
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length_min": 1,
+          "length_max": 48
+        },
+        "id": "salt_chars",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 86
+        },
+        "id": "digest_chars",
+        "weight": 55
+      }
+    ]
+  }
 }

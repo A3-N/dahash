@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "python-passlib-pbkdf2-hmac-sha1",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2$131000$I6QUQmgtpdS6t9b6v7dWqg$oJ7fYtKnjobkEVjf6mto9PpxCQE"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$pbkdf2$131000$r5WythYixPgfQ2jt3buXcg$8Kdr.QQEOaZIXNOrrru36I/.6Po"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2$131000$rpVSSikFAACAkDKmNObc.w$BHrFgkhY.JYFssT.eYRzQtKnyVM"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$pbkdf2$8000$O6dUipHSmvN.Dw$cYDAjcgzIVS3w78DS2MEi8lyEks"
+    }
+  ]
+}

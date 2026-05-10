@@ -1,64 +1,120 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "apache-shiro-1-sha-512",
   "name": "Apache Shiro 1 SHA-512",
+  "aliases": [
+    "Shiro 1 SHA-512",
+    "Apache Shiro"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "apache-shiro-1-sha-512.haiti.338",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$shiro1\\$SHA-512\\$\\d+\\$[a-z0-9=+\\/]{0,345}\\$[a-z0-9=+\\/]{88}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$shiro1\\$SHA-512\\$\\d+\\$[a-z0-9=+\\/]{0,345}\\$[a-z0-9=+\\/]{88}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 12150,
         "name": "Apache Shiro 1 SHA-512",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "12150"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "12150"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$shiro1$SHA-512$1024$WobJGSjbUhsMdaILomMOdw==$9uptGJ24vzZCqZI55F77N7xjUxGlVrK5aCmAwIrV1vwDmFM4akE6Hmd23Aj8ANLSUdIEkHLZ6SnoitZbOsoQNQ==",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Apache Shiro 1 SHA-512"
+  "match": {
+    "base": 30,
+    "total": 280,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$shiro1$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "12150"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Apache Shiro 1 SHA-512"
-    }
-  ]
+        "id": "shiro1_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "shiro1"
+        },
+        "id": "four_shiro_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$shiro1$"
+        },
+        "id": "shiro1_marker",
+        "weight": 80
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "shiro1"
+        },
+        "id": "four_shiro_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^SHA-512$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "shiro1"
+        },
+        "id": "algorithm_sha512",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "trim_empty_start": true,
+          "drop_prefix_field": "shiro1",
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 10,
+          "numeric_min": 1
+        },
+        "id": "iterations_decimal",
+        "weight": 30
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^[A-Za-z0-9=+/]{0,345}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "shiro1"
+        },
+        "id": "salt_base64",
+        "weight": 35
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^[A-Za-z0-9=+/]{88}$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "shiro1"
+        },
+        "id": "digest_base64_88",
+        "weight": 55
+      }
+    ]
+  }
 }

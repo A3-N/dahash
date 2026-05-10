@@ -1,32 +1,48 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "haval-224",
   "name": "Haval-224",
+  "aliases": [
+    "Haval-224"
+  ],
   "status": "active",
-  "tags": [
-    "reference"
-  ],
   "priority": 45,
-  "matchers": [
-    {
-      "id": "haval-224.reference.0",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{56}$",
-      "confidence": "generic",
-      "weight": 35,
-      "sources": [
-        {
-          "id": "name-that-hash-reference",
-          "ref": "Haval-224"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "name-that-hash-reference",
-      "ref": "Haval-224"
-    }
-  ]
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
+  "tools": {},
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{56}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

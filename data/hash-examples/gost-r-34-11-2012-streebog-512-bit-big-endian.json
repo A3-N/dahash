@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "gost-r-34-11-2012-streebog-512-bit-big-endian",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "5d5bdba48c8f89ee6c0a0e11023540424283e84902de08013aeeb626e819950bb32842903593a1d2e8f71897ff7fe72e17ac9ba8ce1d1d2f7e9c4359ea63bdc3",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

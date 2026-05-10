@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "double-md5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "a936af92b0ae20b1ff6c3347a72e5fbe",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

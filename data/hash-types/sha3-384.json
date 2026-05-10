@@ -1,95 +1,63 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "sha3-384",
   "name": "SHA3-384",
+  "aliases": [
+    "SHA3-384"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "sha3-384.haiti.072",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^[a-f0-9]{96}$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A[a-f0-9]{96}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 17500,
         "name": "SHA3-384",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "17500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "17500"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "dynamic_390",
         "name": "SHA3-384",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "dynamic_390"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "7a6f5012ad26157c81b524c2d8f6375dbed30c086ca887486523d5bb6d9904a29c9a14b2dea702d1785f39a996192150",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA3-384"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "983ba28532cc6320d04f20fa485bcedb38bddb666eca5f1e5aa279ff1c6244fe5f83cf4bbf05b95ff378dd2353617221",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "17500"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "baae22bfcd0ddb3659ee3a3e913e733bea751758740368b9fb3f7d2ec3fee616f56c8fd063827cd04a6d3bc36e035ce4",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "SHA3-384"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "SHA3-384"
-    }
-  ]
+  "identification": {
+    "max_confidence": 45
+  },
+  "match": {
+    "base": 10,
+    "total": 50,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[a-f0-9]{96}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 40
+      }
+    ]
+  }
 }

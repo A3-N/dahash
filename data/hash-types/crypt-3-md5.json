@@ -1,105 +1,60 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "crypt-3-md5",
   "name": "crypt(3) MD5",
+  "aliases": [
+    "crypt(3) MD5"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "crypt-3-md5.haiti.032",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 1600,
         "name": "crypt(3) MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "1600"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "1600"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "md5crypt-long",
         "name": "crypt(3) MD5",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "md5crypt-long"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$1$12345678$aIccj83HRDBo6ux1bVx7D1",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "crypt(3) MD5"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$apr1$62722340$zGjeAwVP2KwY6MtumUI1N/",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "1600"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "$apr1$71850310$gh9m4xcAn3MGxogwX/ztb.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "crypt(3) MD5"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "{smd5}s8/xSJ/v$uGam4GB8hOjTLQqvBfxJ2/",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "crypt(3) MD5"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "crypt(3) MD5"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^(?:\\$apr1\\$|\\$1\\$|{smd5})[a-z0-9\\/.]{0,8}\\$[a-z0-9\\/.]{22}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

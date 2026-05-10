@@ -1,0 +1,22 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cisco-pix-md5",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": ".7nfVBEIEu4KbF/1"
+    },
+    {
+      "kind": "example_hash",
+      "value": "2KFQnbNIdI.2KYOU"
+    },
+    {
+      "kind": "example_hash",
+      "value": "TRPEas6f/aa6JSPL"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "dRRVnUmUHXOTt9nk"
+    }
+  ]
+}

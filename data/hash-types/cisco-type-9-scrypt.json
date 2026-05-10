@@ -1,115 +1,122 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "cisco-type-9-scrypt",
   "name": "Cisco Type 9 (scrypt)",
+  "aliases": [
+    "Cisco Type 9 (scrypt)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "cisco-type-9-scrypt.haiti.163",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$9\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$9\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 9300,
         "name": "Cisco Type 9 (scrypt)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "9300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "9300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "scrypt",
         "name": "Cisco Type 9 (scrypt)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "scrypt"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$9$2MJBozw/9R3UsU$2lFhcKvpghcyw8deP25GOfyZaagyUOGBymkryvOdfo6",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 9 (scrypt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$9$87023684531115$phio0TBQwaO7KZ8toQFyGFyDvyOzidaypRWN0uKX0hU",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "9300"
-        }
-      ],
-      "plaintext": "hashcat"
-    },
-    {
-      "kind": "inline",
-      "value": "$9$X9fA8mypebLFVj$Klp6X9hxNhkns0kwUIinvLRSIgWOvCwDhVTZqjsycyU",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 9 (scrypt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$9$cvWdfQlRRDKq/U$VFTPha5VHTCbSgSUAo.nPoh50ZiXOw1zmljEjXkaq1g",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 9 (scrypt)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "$9$nhEmQVczB7dqsO$X.HsgL6x1il0RxkOSSvyQYwucySCt7qFm4v7pqCxkKM",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Cisco Type 9 (scrypt)"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Cisco Type 9 (scrypt)"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 206,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$9\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$9\\$[a-z0-9\\/.]{14}\\$[a-z0-9\\/.]{43}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$9$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 3
+        },
+        "id": "$_count_3",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 4,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_3",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^9$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length": 14,
+          "trim_empty_start": true
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "charset": "alnum_dot_slash",
+          "length": 43,
+          "trim_empty_start": true
+        },
+        "id": "field_2_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

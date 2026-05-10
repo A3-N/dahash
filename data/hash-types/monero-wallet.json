@@ -1,45 +1,51 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "monero-wallet",
   "name": "monero Wallet",
+  "aliases": [],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "monero-wallet.haiti.206",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\A\\$monero\\$(0)\\*[a-f0-9]{32,4096}\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$monero\\$(0)\\*[a-f0-9]{32,4096}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "john": [
       {
         "format": "monero",
         "name": "monero Wallet",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "monero"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "monero Wallet"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "\\A\\$monero\\$(0)\\*[a-f0-9]{32,4096}\\Z",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "\\A\\$monero\\$(0)\\*[a-f0-9]{32,4096}\\Z",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

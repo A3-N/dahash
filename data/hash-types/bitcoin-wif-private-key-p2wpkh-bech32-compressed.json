@@ -1,64 +1,76 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "bitcoin-wif-private-key-p2wpkh-bech32-compressed",
   "name": "Bitcoin WIF private key (P2WPKH, Bech32), compressed",
+  "aliases": [
+    "Bitcoin WIF private key (P2WPKH, Bech32), compressed"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "bitcoin-wif-private-key-p2wpkh-bech32-compressed.haiti.267",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^bc1[a-z0-9]{39}$",
-      "confidence": "contextual",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Abc1[a-z0-9]{39}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": [
+      {
+        "tool": "john",
+        "name": "bitcoin2john.py",
+        "args": [
+          "{input}"
+        ],
+        "outputs": [
+          "$bitcoin$"
+        ],
+        "input_role": "direct"
+      }
+    ]
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 28503,
         "name": "Bitcoin WIF private key (P2WPKH, Bech32), compressed",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "28503"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "28503"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "bc1qxd76a5zamfyw0g2d2rxkdh0zt9m0uzmxmwjf0q",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Bitcoin WIF private key (P2WPKH, Bech32), compressed"
+  "identification": {
+    "max_confidence": 85
+  },
+  "match": {
+    "base": 20,
+    "total": 120,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^bc1[a-z0-9]{39}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "28503"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Bitcoin WIF private key (P2WPKH, Bech32), compressed"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^bc1[a-z0-9]{39}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 55
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "bc1qxd76a5zamfyw0g2d2rxkdh0zt9m0uzmxmwjf"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

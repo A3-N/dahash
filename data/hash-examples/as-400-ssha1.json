@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "as-400-ssha1",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$as400$ssha1$*QTEST1*7ED7D3694D0A2E40A720D41031B456C09124966E"
+    }
+  ]
+}

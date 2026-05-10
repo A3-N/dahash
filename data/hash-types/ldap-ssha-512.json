@@ -1,75 +1,68 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "ldap-ssha-512",
   "name": "LDAP (SSHA-512)",
+  "aliases": [
+    "LDAP (SSHA-512)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "ldap-ssha-512.haiti.073",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^{SSHA512}[a-z0-9\\/+]{86,}(?:[=]{1,2})?$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A{SSHA512}[a-z0-9\\/+]{86,}(?:[=]{1,2})?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 1711,
         "name": "LDAP (SSHA-512)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "1711"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "1711"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "ssha512",
         "name": "LDAP (SSHA-512)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "ssha512"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "LDAP (SSHA-512)"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "{SSHA512}Bz8w5q6qEtB1Nnc8b1jfTvTXVTwohWag33oghQGOtLChnkZTw/cuJaHQlLJEI3AWKZGCRyLA6Phujdxo+is7AjA2MDcyNjY1Mg==",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "1711"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 140,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{SSHA512}[a-z0-9\\/+]{86,}(?:[=]{1,2})?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^{SSHA512}[a-z0-9\\/+]{86,}(?:[=]{1,2})?$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "{SSHA512}"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      }
+    ]
+  }
 }

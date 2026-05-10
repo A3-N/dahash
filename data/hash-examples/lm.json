@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "lm",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "299bd128c1101fd6",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

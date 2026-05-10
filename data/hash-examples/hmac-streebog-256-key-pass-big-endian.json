@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "hmac-streebog-256-key-pass-big-endian",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "0f71c7c82700c9094ca95eee3d804cc283b538bec49428a9ef8da7b34effb3ba:08151337",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}

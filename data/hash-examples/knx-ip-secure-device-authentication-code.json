@@ -1,0 +1,10 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "knx-ip-secure-device-authentication-code",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$knx-ip-secure-device-authentication-code$*3033*fa7c0d787a9467c209f0a6e7cf16069ed704f3959dce19e45d7935c0a91bce41*f927640d9bbe9a4b0b74dd3289ad41ec"
+    }
+  ]
+}

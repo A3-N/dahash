@@ -1,107 +1,123 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "azuread-ms-azuresync-pbkdf2-hmac-sha256",
   "name": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256",
+  "aliases": [
+    "AzureAD MS-AzureSync",
+    "Azure AD Connect PPH1_MD4"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "azuread-ms-azuresync-pbkdf2-hmac-sha256.haiti.262",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^v1;PPH1_MD4,[a-f0-9]{20},\\d{1,6},[a-f0-9]{64};?$",
-      "confidence": "generic",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\Av1;PPH1_MD4,[a-f0-9]{20},\\d{1,6},[a-f0-9]{64};?\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 12800,
         "name": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "12800"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "12800"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "azuread",
         "name": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "azuread"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "v1;PPH1_MD4,31414275383876386e32,100,102ce242cde4339e934d7c6b539d49ae340b02dd380815666b98bd036cd4dc4f;",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "v1;PPH1_MD4,465564476f786e705069,100,612a80cb011bee1f929c7a9e2bd16d98a79f2deb9f44919100f7c0ec74508560;",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "v1;PPH1_MD4,54188415275183448824,100,55b530f052a9af79a7ba9c466dddcb8b116f8babf6c3873a51a3898fb008e123",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
+  "match": {
+    "base": 25,
+    "total": 290,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "v1;PPH1_MD4,"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "12800"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "v1;PPH1_MD4,724b754c4b6d30526f36,100,367ff0ac2a1cb334bb26609c8bfc8ae5f619d1eaf07568df040f407504a20241;",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "AzureAD (MS-AzureSync) PBKDF2-HMAC-SHA256"
-    }
-  ]
+        "id": "azuread_marker"
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^v1;PPH1_MD4,[A-Fa-f0-9]{20},[0-9]{1,6},[A-Fa-f0-9]{64};?$"
+        },
+        "id": "full_azuread_shape"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "v1;PPH1_MD4,"
+        },
+        "id": "azuread_marker",
+        "weight": 70
+      },
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^v1;PPH1_MD4,[A-Fa-f0-9]{20},[0-9]{1,6},[A-Fa-f0-9]{64};?$"
+        },
+        "id": "full_azuread_shape",
+        "weight": 55
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": ",",
+          "count": 3
+        },
+        "id": "three_commas",
+        "weight": 15
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ",",
+          "field": 0,
+          "regex": "^v1;PPH1_MD4$"
+        },
+        "id": "algorithm_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ",",
+          "field": 1,
+          "charset": "hex",
+          "length": 20
+        },
+        "id": "salt_hex_10_bytes",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": ",",
+          "field": 2,
+          "charset": "decimal",
+          "length_min": 1,
+          "length_max": 6,
+          "numeric_min": 1
+        },
+        "id": "iterations_decimal",
+        "weight": 25
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": ",",
+          "field": 3,
+          "regex": "^[A-Fa-f0-9]{64};?$"
+        },
+        "id": "digest_hex_32_bytes",
+        "weight": 45
+      }
+    ]
+  }
 }

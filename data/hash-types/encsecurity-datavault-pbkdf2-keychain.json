@@ -1,64 +1,181 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "encsecurity-datavault-pbkdf2-keychain",
   "name": "ENCsecurity Datavault (PBKDF2/keychain)",
+  "aliases": [
+    "ENCsecurity Datavault (PBKDF2/keychain)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "encsecurity-datavault-pbkdf2-keychain.haiti.312",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 29920,
         "name": "ENCsecurity Datavault (PBKDF2/keychain)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "29920"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "29920"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$encdv-pbkdf2$3$1$c232aba45699c80b$473d5dd2e0833ac7$32$4454716926322493581114042616371582782202532493983541577898367049$100000$9a030124cecc2fef5ca44f83ef6e4c7944f8d7c5234b9000c982e209a92bb5535f4c15be6e9914729eb8a9bf870bd0535a231fa1d443d27c1fc4f78b441a7aa765fa0a3d181c485f77f59334ec68f27e66f227eb4be3579464d907ed8cf8bacc817cceb4496587898e43ce41921f66114051c007e1a54b7215b220aed6e33064",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "ENCsecurity Datavault (PBKDF2/keychain)"
+  "match": {
+    "base": 25,
+    "total": 326,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "29920"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "ENCsecurity Datavault (PBKDF2/keychain)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$encdv-pbkdf2\\$\\d\\$\\d\\$[a-f0-9]{16}\\$[a-f0-9]{16}\\$\\d{2}\\$[a-f0-9]{64}\\$\\d{1,10}\\$[a-f0-9]{256}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$encdv-pbkdf2$3$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 9
+        },
+        "id": "$_count_9",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 10,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_9",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^encdv\\-pbkdf2$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^3$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^1$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "regex": "^c232aba45699c80b$",
+          "trim_empty_start": true
+        },
+        "id": "field_3_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^473d5dd2e0833ac7$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "regex": "^32$",
+          "trim_empty_start": true
+        },
+        "id": "field_5_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 6,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_6_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 7,
+          "regex": "^100000$",
+          "trim_empty_start": true
+        },
+        "id": "field_7_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 8,
+          "charset": "hex",
+          "length": 256,
+          "trim_empty_start": true
+        },
+        "id": "field_8_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

@@ -1,64 +1,183 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "virtualbox-pbkdf2-hmac-sha256-aes-128-xts",
   "name": "VirtualBox (PBKDF2-HMAC-SHA256 & AES-128-XTS)",
+  "aliases": [
+    "VirtualBox (PBKDF2-HMAC-SHA256 & AES-128-XTS)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "virtualbox-pbkdf2-hmac-sha256-aes-128-xts.haiti.253",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$vbox\\$0\\$\\d{1,9}\\$[a-f0-9]{64}\\$\\d{1,2}\\$[a-f0-9]{64}\\$\\d{1,9}\\$[a-f0-9]{64}\\$[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$vbox\\$0\\$\\d{1,9}\\$[a-f0-9]{64}\\$\\d{1,2}\\$[a-f0-9]{64}\\$\\d{1,9}\\$[a-f0-9]{64}\\$[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 27500,
         "name": "VirtualBox (PBKDF2-HMAC-SHA256 & AES-128-XTS)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "27500"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "27500"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$vbox$0$260000$fcc37189521686699a43e49514b91f159306be108b98895666583cd15c3e206b$8$288c3957db47e7c3dff2f7932121eb3395d21ab76b9cf3de2dc660310a25e7ad$20000$8847cd90f8acef74bae41155392908780eebb1d16452aa09b2f7b6cd7d8a4096$9f4d615b484f95c73944a98f392a3ce04f93403e8bb6257e6b6c854273d3a08a",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "VirtualBox (PBKDF2-HMAC-SHA256 & AES-128-XTS)"
+  "match": {
+    "base": 25,
+    "total": 330,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$vbox\\$0\\$\\d{1,9}\\$[a-f0-9]{64}\\$\\d{1,2}\\$[a-f0-9]{64}\\$\\d{1,9}\\$[a-f0-9]{64}\\$[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "27500"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "VirtualBox (PBKDF2-HMAC-SHA256 & AES-128-XTS)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$vbox\\$0\\$\\d{1,9}\\$[a-f0-9]{64}\\$\\d{1,2}\\$[a-f0-9]{64}\\$\\d{1,9}\\$[a-f0-9]{64}\\$[a-f0-9]{64}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$vbox$0$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 9
+        },
+        "id": "$_count_9",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 10,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_9",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^vbox$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^0$",
+          "trim_empty_start": true
+        },
+        "id": "field_1_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "regex": "^260000$",
+          "trim_empty_start": true
+        },
+        "id": "field_2_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_3_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "regex": "^8$",
+          "trim_empty_start": true
+        },
+        "id": "field_4_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_5_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 6,
+          "regex": "^20000$",
+          "trim_empty_start": true
+        },
+        "id": "field_6_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 7,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_7_hex_shape",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 8,
+          "charset": "hex",
+          "length": 64,
+          "trim_empty_start": true
+        },
+        "id": "field_8_hex_shape",
+        "weight": 20
+      }
+    ]
+  }
 }

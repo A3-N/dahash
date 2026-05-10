@@ -1,75 +1,110 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "drupal-v7-x",
   "name": "Drupal > v7.x",
+  "aliases": [
+    "Drupal > v7.x"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "drupal-v7-x.haiti.087",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$S\\$[a-z0-9\\/.]{52}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$S\\$[a-z0-9\\/.]{52}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 7900,
         "name": "Drupal > v7.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "7900"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "7900"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "drupal7",
         "name": "Drupal > v7.x",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "drupal7"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Drupal > v7.x"
-    }
-  ],
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$S$C20340258nzjDWpoQthrdNTR02f0pmev0K/5/Nx80WSkOQcPEQRh",
-      "verified": true,
-      "sources": [
-        {
-          "id": "hashcat-examples",
-          "ref": "7900"
-        }
-      ],
-      "plaintext": "hashcat"
-    }
-  ]
+  "match": {
+    "base": 25,
+    "total": 192,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$S\\$[a-z0-9\\/.]{52}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^\\$S\\$[a-z0-9\\/.]{52}$",
+          "flags": [
+            "i"
+          ]
+        },
+        "id": "pattern_match",
+        "weight": 70
+      },
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$S$"
+        },
+        "id": "marker_prefix",
+        "weight": 45
+      },
+      {
+        "feature": "count_char",
+        "args": {
+          "value": "$",
+          "count": 2
+        },
+        "id": "$_count_2",
+        "weight": 8
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 3,
+          "trim_empty_start": true
+        },
+        "id": "$_field_count_2",
+        "weight": 12
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "regex": "^S$",
+          "trim_empty_start": true
+        },
+        "id": "field_0_literal",
+        "weight": 18
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "charset": "alnum_dot_slash",
+          "length": 52,
+          "trim_empty_start": true
+        },
+        "id": "field_1_alnum_dot_slash_shape",
+        "weight": 14
+      }
+    ]
+  }
 }

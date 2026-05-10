@@ -1,98 +1,54 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "fortigate256-fortios256",
   "name": "FortiGate256 (FortiOS256)",
+  "aliases": [
+    "FortiGate256 (FortiOS256)"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "fortigate256-fortios256.haiti.228",
-      "kind": "parser",
-      "scope": "token",
-      "pattern": "\\ASH2(?=.{60})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z",
-      "confidence": "strong",
-      "weight": 50,
-      "notes": "Needs a dedicated parser or regex translation before runtime matching.",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\ASH2(?=.{60})(?:[a-z0-9+/]{4})*(?:|(?:[a-z0-9+/]{3}=)|(?:[a-z0-9+/]{2}==)|(?:[a-z0-9+/]{1}===))\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 26300,
         "name": "FortiGate256 (FortiOS256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "26300"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "26300"
-          }
-        ]
+        "status": "active"
       }
     ],
     "john": [
       {
         "format": "fortigate256",
         "name": "FortiGate256 (FortiOS256)",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "fortigate256"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "SH2+n+OiTlautpJQF1NBcMU2H1otOvlAz9g5wzxwHw+4il3Aiixv9oPtKnRgCc=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "FortiGate256 (FortiOS256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "SH2B0YZCrPjDldskSin50dSxbw22VVy+Mb6Ldvb4eq1FV5q4KE3SYPotvX2KWI=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "FortiGate256 (FortiOS256)"
-        }
-      ]
-    },
-    {
-      "kind": "inline",
-      "value": "SH2lpcpFXM5QRlWYwY5vL9+5svfYyb+c79qENpxEoB3NtZpVxKwHjuq/9TH88U=",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "FortiGate256 (FortiOS256)"
+  "match": {
+    "base": 25,
+    "total": 95,
+    "requires": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9+/=]{63}$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "26300"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "FortiGate256 (FortiOS256)"
-    }
-  ]
+        "id": "required_pattern"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "regex",
+        "args": {
+          "regex": "^[A-Za-z0-9+/=]{63}$"
+        },
+        "id": "pattern_match",
+        "weight": 70
+      }
+    ]
+  }
 }

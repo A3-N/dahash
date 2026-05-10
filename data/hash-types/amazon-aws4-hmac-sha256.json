@@ -1,64 +1,150 @@
 {
-  "schema_version": "dahash.hash_type/v1",
+  "schema_version": "dahash.hash_type/v2",
   "id": "amazon-aws4-hmac-sha256",
   "name": "Amazon AWS4-HMAC-SHA256",
+  "aliases": [
+    "AWS Signature Version 4",
+    "AWS4-HMAC-SHA256"
+  ],
   "status": "active",
   "priority": 50,
-  "matchers": [
-    {
-      "id": "amazon-aws4-hmac-sha256.haiti.265",
-      "kind": "regex",
-      "scope": "token",
-      "pattern": "^\\$AWS-Sig-v4\\$0\\$[^$]{16}\\$[^$]{1,16}\\$[^$]{1,16}\\$[a-f0-9]{64}\\$[a-f0-9]{64}$",
-      "confidence": "strong",
-      "weight": 50,
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "\\A\\$AWS-Sig-v4\\$0\\$[^$]{16}\\$[^$]{1,16}\\$[^$]{1,16}\\$[a-f0-9]{64}\\$[a-f0-9]{64}\\Z"
-        }
-      ]
-    }
-  ],
+  "extraction": {
+    "supported": false,
+    "inputs": [],
+    "converters": []
+  },
   "tools": {
     "hashcat": [
       {
         "mode": 28700,
         "name": "Amazon AWS4-HMAC-SHA256",
-        "status": "active",
-        "sources": [
-          {
-            "id": "haiti",
-            "ref": "28700"
-          },
-          {
-            "id": "hashcat-examples",
-            "ref": "28700"
-          }
-        ]
+        "status": "active"
       }
     ]
   },
-  "examples": [
-    {
-      "kind": "inline",
-      "value": "$AWS-Sig-v4$0$20220221T000000Z$us-east-1$s3$421ab6e4af9f49fa30fa9c253fcfeb2ce91668e139e6b23303c5f75b04f8a3c4$3755ed2bc1b2346e003ccaa7d02ae8b73c72bcbe9f452ccf066c78504d786bbb",
-      "sources": [
-        {
-          "id": "haiti",
-          "ref": "Amazon AWS4-HMAC-SHA256"
+  "match": {
+    "base": 30,
+    "total": 320,
+    "requires": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$AWS-Sig-v4$"
         },
-        {
-          "id": "hashcat-examples",
-          "ref": "28700"
-        }
-      ]
-    }
-  ],
-  "sources": [
-    {
-      "id": "haiti",
-      "ref": "Amazon AWS4-HMAC-SHA256"
-    }
-  ]
+        "id": "aws_sig_v4_marker"
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 6,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4"
+        },
+        "id": "six_aws_fields"
+      }
+    ],
+    "evidence": [
+      {
+        "feature": "prefix",
+        "args": {
+          "value": "$AWS-Sig-v4$"
+        },
+        "id": "aws_sig_v4_marker",
+        "weight": 80
+      },
+      {
+        "feature": "field_count",
+        "args": {
+          "separator": "$",
+          "count": 6,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4"
+        },
+        "id": "six_aws_fields",
+        "weight": 15
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 0,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4",
+          "charset": "decimal",
+          "length": 1,
+          "numeric_min": 0,
+          "numeric_max": 0
+        },
+        "id": "version_zero",
+        "weight": 20
+      },
+      {
+        "feature": "field_regex",
+        "args": {
+          "separator": "$",
+          "field": 1,
+          "regex": "^[0-9]{8}T[0-9]{6}Z$",
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4"
+        },
+        "id": "amz_datetime",
+        "weight": 35
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 2,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4",
+          "charset": "any",
+          "length_min": 1,
+          "length_max": 16
+        },
+        "id": "region_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 3,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4",
+          "charset": "any",
+          "length_min": 1,
+          "length_max": 16
+        },
+        "id": "service_field",
+        "weight": 20
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 4,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4",
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "string_to_sign_hash_hex",
+        "weight": 50
+      },
+      {
+        "feature": "field_shape",
+        "args": {
+          "separator": "$",
+          "field": 5,
+          "trim_empty_start": true,
+          "drop_prefix_field": "AWS-Sig-v4",
+          "charset": "hex",
+          "length": 64
+        },
+        "id": "signature_hex",
+        "weight": 50
+      }
+    ]
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "cisco-type-9-scrypt",
+  "examples": [
+    {
+      "kind": "example_hash",
+      "value": "$9$2MJBozw/9R3UsU$2lFhcKvpghcyw8deP25GOfyZaagyUOGBymkryvOdfo6"
+    },
+    {
+      "kind": "hashcat_example",
+      "value": "$9$87023684531115$phio0TBQwaO7KZ8toQFyGFyDvyOzidaypRWN0uKX0hU",
+      "verified": true,
+      "plaintext": "hashcat"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$9$X9fA8mypebLFVj$Klp6X9hxNhkns0kwUIinvLRSIgWOvCwDhVTZqjsycyU"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$9$cvWdfQlRRDKq/U$VFTPha5VHTCbSgSUAo.nPoh50ZiXOw1zmljEjXkaq1g"
+    },
+    {
+      "kind": "example_hash",
+      "value": "$9$nhEmQVczB7dqsO$X.HsgL6x1il0RxkOSSvyQYwucySCt7qFm4v7pqCxkKM"
+    }
+  ]
+}

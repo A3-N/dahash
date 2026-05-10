@@ -1,0 +1,12 @@
+{
+  "schema_version": "dahash.hash_examples/v1",
+  "hash_type_id": "apache-md5",
+  "examples": [
+    {
+      "kind": "hashcat_example",
+      "value": "$apr1$62722340$zGjeAwVP2KwY6MtumUI1N/",
+      "verified": true,
+      "plaintext": "hashcat"
+    }
+  ]
+}
