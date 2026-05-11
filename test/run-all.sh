@@ -166,7 +166,13 @@ while IFS=$'\t' read -r kind input expected_id note; do
 
   output="$result_dir/$(basename "$input").out"
   plain_output="$output.plain"
-  if "$bin" "$input" > "$output" 2>&1; then
+  cmd=("$bin")
+  if [[ "$kind" == "hash" ]]; then
+    cmd+=("-v")
+  fi
+  cmd+=("$input")
+
+  if "${cmd[@]}" > "$output" 2>&1; then
     python3 - "$output" "$plain_output" <<'PY'
 import pathlib
 import re
@@ -208,7 +214,7 @@ PY
 
     arg_output="$result_dir/$(basename "$input").arg.out"
     arg_plain_output="$arg_output.plain"
-    if "$bin" "$hash_value" > "$arg_output" 2>&1; then
+    if "$bin" -v "$hash_value" > "$arg_output" 2>&1; then
       python3 - "$arg_output" "$arg_plain_output" <<'PY'
 import pathlib
 import re

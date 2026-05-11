@@ -33,7 +33,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "regex": "^[a-f0-9]{128}$",
           "flags": [
             "i"
           ]
@@ -45,7 +45,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{128}(:.+)?$",
+          "regex": "^[a-f0-9]{128}$",
           "flags": [
             "i"
           ]

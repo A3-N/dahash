@@ -20,7 +20,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "regex": "^[a-f0-9]{56}$",
           "flags": [
             "i"
           ]
@@ -32,7 +32,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{56}(?::.+)?$",
+          "regex": "^[a-f0-9]{56}$",
           "flags": [
             "i"
           ]

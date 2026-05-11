@@ -30,6 +30,10 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
-generated/
-test/
-data/hash-examples/
+
+# Local build outputs
+/dahash
+/generated/
+
+# Generated fixture output
+/test/generated/

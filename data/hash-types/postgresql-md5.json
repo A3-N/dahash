@@ -4,7 +4,7 @@
   "name": "PostgreSQL MD5",
   "aliases": [],
   "status": "active",
-  "priority": 45,
+  "priority": 80,
   "extraction": {
     "supported": false,
     "inputs": [],
@@ -12,11 +12,11 @@
   },
   "tools": {},
   "identification": {
-    "max_confidence": 45
+    "max_confidence": 70
   },
   "match": {
-    "base": 10,
-    "total": 50,
+    "base": 20,
+    "total": 100,
     "requires": [
       {
         "feature": "regex",
@@ -39,7 +39,7 @@
           ]
         },
         "id": "pattern_match",
-        "weight": 40
+        "weight": 80
       }
     ]
   }

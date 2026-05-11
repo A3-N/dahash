@@ -20,16 +20,16 @@
     ]
   },
   "identification": {
-    "max_confidence": 35
+    "max_confidence": 70
   },
   "match": {
-    "base": 10,
-    "total": 141,
+    "base": 20,
+    "total": 151,
     "requires": [
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{32}(?::.{1,32})?$",
+          "regex": "^[a-f0-9]{32}:.{1,32}$",
           "flags": [
             "i"
           ]
@@ -41,7 +41,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{32}(?::.{1,32})?$",
+          "regex": "^[a-f0-9]{32}:.{1,32}$",
           "flags": [
             "i"
           ]

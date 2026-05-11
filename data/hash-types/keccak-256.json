@@ -43,7 +43,7 @@
           {
             "feature": "regex",
             "args": {
-              "regex": "^[a-f0-9]{64}(:.+)?$",
+              "regex": "^[a-f0-9]{64}$",
               "flags": [
                 "i"
               ]
@@ -55,7 +55,7 @@
           {
             "feature": "regex",
             "args": {
-              "regex": "^[a-f0-9]{64}(:.+)?$",
+              "regex": "^[a-f0-9]{64}$",
               "flags": [
                 "i"
               ]

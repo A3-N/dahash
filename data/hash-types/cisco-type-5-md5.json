@@ -35,7 +35,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^\\$1\\$[A-Za-z0-9/.]{1,8}\\$[A-Za-z0-9/.]{22}(?::.*)?$"
+          "regex": "^\\$1\\$[A-Za-z0-9/.]{1,8}\\$[A-Za-z0-9/.]{22}$"
         },
         "id": "pattern_match"
       }
@@ -44,7 +44,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^\\$1\\$[A-Za-z0-9/.]{1,8}\\$[A-Za-z0-9/.]{22}(?::.*)?$"
+          "regex": "^\\$1\\$[A-Za-z0-9/.]{1,8}\\$[A-Za-z0-9/.]{22}$"
         },
         "id": "pattern_match",
         "weight": 70

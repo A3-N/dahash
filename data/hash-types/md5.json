@@ -33,7 +33,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "regex": "^[a-f0-9]{32}$",
           "flags": [
             "i"
           ]
@@ -45,7 +45,7 @@
       {
         "feature": "regex",
         "args": {
-          "regex": "^[a-f0-9]{32}(?::.+)?$",
+          "regex": "^[a-f0-9]{32}$",
           "flags": [
             "i"
           ]

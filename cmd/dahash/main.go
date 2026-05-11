@@ -421,13 +421,21 @@ func identifyString(value string, hashTypes []HashType) []MatchResult {
 	}
 
 	sort.Slice(results, func(i, j int) bool {
-		if results[i].Score == results[j].Score {
-			if results[i].Type.ID == results[j].Type.ID {
-				return results[i].VariantID < results[j].VariantID
-			}
-			return results[i].Type.ID < results[j].Type.ID
+		if results[i].Score != results[j].Score {
+			return results[i].Score > results[j].Score
 		}
-		return results[i].Score > results[j].Score
+		leftConfidence := confidenceValue(results[i])
+		rightConfidence := confidenceValue(results[j])
+		if leftConfidence != rightConfidence {
+			return leftConfidence > rightConfidence
+		}
+		if results[i].Type.Priority != results[j].Type.Priority {
+			return results[i].Type.Priority > results[j].Type.Priority
+		}
+		if results[i].Type.ID == results[j].Type.ID {
+			return results[i].VariantID < results[j].VariantID
+		}
+		return results[i].Type.ID < results[j].Type.ID
 	})
 	return results
 }
@@ -1100,12 +1108,34 @@ func printHashResults(results []MatchResult, value string, opts Options) {
 		return
 	}
 
-	for i, result := range results {
+	displayResults := results
+	if !opts.Verbose {
+		displayResults = highestConfidenceResults(results)
+	}
+
+	for i, result := range displayResults {
 		if i > 0 {
 			fmt.Println()
 		}
 		printHashResult(i, result, value, opts)
 	}
+}
+
+func highestConfidenceResults(results []MatchResult) []MatchResult {
+	highest := 0
+	for _, result := range results {
+		if confidence := confidenceValue(result); confidence > highest {
+			highest = confidence
+		}
+	}
+
+	top := make([]MatchResult, 0, len(results))
+	for _, result := range results {
+		if confidenceValue(result) == highest {
+			top = append(top, result)
+		}
+	}
+	return top
 }
 
 func printHashResult(index int, result MatchResult, value string, opts Options) {
@@ -1133,6 +1163,14 @@ func resultTools(result MatchResult) map[string][]ToolDetails {
 }
 
 func confidencePercent(result MatchResult) string {
+	percent := confidenceValue(result)
+	if percent <= 0 {
+		return "0%"
+	}
+	return strconv.Itoa(percent) + "%"
+}
+
+func confidenceValue(result MatchResult) int {
 	total := result.Total
 	if total <= 0 {
 		total = result.Type.Match.Total
@@ -1144,7 +1182,7 @@ func confidencePercent(result MatchResult) string {
 		}
 	}
 	if total <= 0 || result.Score <= 0 {
-		return "0%"
+		return 0
 	}
 	percent := result.Score * 100 / total
 	if percent > 99 {
@@ -1156,7 +1194,7 @@ func confidencePercent(result MatchResult) string {
 	if max := result.Type.Identification.MaxConfidence; max > 0 && percent > max {
 		percent = max
 	}
-	return strconv.Itoa(percent) + "%"
+	return percent
 }
 
 func printExtractionResult(index int, result ExtractionResult, path string, opts Options) {
