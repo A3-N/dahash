@@ -182,13 +182,45 @@ func findDataDir() (string, error) {
 	if exe, err := os.Executable(); err == nil {
 		candidates = append(candidates, filepath.Join(filepath.Dir(exe), "data"))
 	}
+	candidates = append(candidates, configDataDirCandidates()...)
 
 	for _, candidate := range candidates {
 		if info, err := os.Stat(filepath.Join(candidate, "hash-types")); err == nil && info.IsDir() {
 			return candidate, nil
 		}
 	}
-	return "", errors.New("could not find data/hash-types; run from repo root or set DAHASH_DATA")
+	return "", errors.New("could not find data/hash-types; run from repo root, run make install, or set DAHASH_DATA")
+}
+
+func configDataDirCandidates() []string {
+	var candidates []string
+	seen := map[string]bool{}
+	add := func(path string) {
+		path = strings.TrimSpace(path)
+		if path == "" {
+			return
+		}
+		cleaned := filepath.Clean(path)
+		if seen[cleaned] {
+			return
+		}
+		seen[cleaned] = true
+		candidates = append(candidates, cleaned)
+	}
+
+	if xdgConfigHome := strings.TrimSpace(os.Getenv("XDG_CONFIG_HOME")); xdgConfigHome != "" {
+		add(filepath.Join(xdgConfigHome, "dahash", "data"))
+		add(filepath.Join(xdgConfigHome, "dahash"))
+	}
+	if home, err := os.UserHomeDir(); err == nil {
+		add(filepath.Join(home, ".config", "dahash", "data"))
+		add(filepath.Join(home, ".config", "dahash"))
+	}
+	if userConfigDir, err := os.UserConfigDir(); err == nil {
+		add(filepath.Join(userConfigDir, "dahash", "data"))
+		add(filepath.Join(userConfigDir, "dahash"))
+	}
+	return candidates
 }
 
 func loadHashTypes(dir string) ([]HashType, error) {
